@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<ViewContext version="1.0.0" id="atlas_world" xmlns="http://www.opengis.net/context" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/context http://schemas.opengis.net/context/1.0.0/context.xsd">
+  <General>
+    <Window width="760" height="380"/>
+    <BoundingBox SRS="EPSG:4326" minx="-32" miny="27" maxx="58" maxy="72"/>
+    <Title>European Map</Title>
+    <Abstract>Mapa europeu</Abstract>
+  </General>
+  <LayerList>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:landcover_glcf_europe_225sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:landcover_glcf_europe_225sec</Name>
+      <Title>Landcover GLCF (resol.= 225 sec)</Title>
+	  <Grup>landcover</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/lc.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio12_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:bio12_europe_150sec</Name>
+      <Title>Annual Precipitation (resol.= 150 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/preceuro.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio12_europe_300sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:bio12_europe_300sec</Name>
+      <Title>Annual Precipitation (resol.= 300 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+				</Style>
+			</StyleList>
+    </Layer>
+		 			
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio1_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:bio1_europe_150sec</Name>
+      <Title>Mean Temperature (resol.= 150 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/mitempeuro.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio1_europe_300sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:bio1_europe_300sec</Name>
+      <Title>Mean Temperature (resol.= 300 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:elevation_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:elevation_europe_150sec</Name>
+      <Title>Elevation a.s.l. (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/mimieuro.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:elevation_europe_300sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:elevation_europe_300sec</Name>
+      <Title>Elevation a.s.l. (resol.= 300 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:dist_coast_deg_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:dist_coast_deg_europe_150sec</Name>
+      <Title>Dist. to coast (deg), (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/distcoasteuro.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:dist_coast_deg_europe_300sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:dist_coast_deg_europe_300sec</Name>
+      <Title>Dist. to coast (deg), (resol.= 300 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:sea_land_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:sea_land_europe_150sec</Name>
+      <Title>Sea / Land (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/sea_land.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:sea_land_europe_300sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:sea_land_europe_300sec</Name>
+      <Title>Sea / Land (resol.= 300 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+      <Layer queryable="0" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:coast_earth">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:coast_earth</Name>
+      <Title>Coast line</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+	  <StyleList>
+	      <Style current="1">
+          <Name>coast</Name>
+          <Title>coast</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/coastline.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:province_europe</Name>
+      <Title>Provinces</Title>
+	  <Grup>Administrative</Grup>
+      <Abstract>Provinces of Europe.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>paisesrojo</Name>
+          <Title>prov_europe</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	
+    <Layer queryable="1" hidden="0">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:country_earth</Name>
+      <Title>Countries</Title>
+	  <Grup>Administrative</Grup>
+      <Abstract>Countries of Europe.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>paisesrojo</Name>
+          <Title>countries_europe</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	 
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm2500sqkm_europe</Name>
+      <Title>UTM 2500 sqkm</Title>
+	  <Grup>utm</Grup>
+      <Abstract>2500 sq km UTM squares of Europe.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>utms</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	 
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm10000sqkm_europe</Name>
+      <Title>UTM 10000 sqkm</Title>
+	  <Grup>utm</Grup>
+      <Abstract>10000 sq km UTM squares of Europe.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>utms</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	 
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm250000sqkm_europe</Name>
+      <Title>UTM 250000 sqkm</Title>
+	  <Grup>utm</Grup>
+      <Abstract>250000 sq km UTM squares of Europe.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>utms</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	
+	 	
+  </LayerList>
+</ViewContext>

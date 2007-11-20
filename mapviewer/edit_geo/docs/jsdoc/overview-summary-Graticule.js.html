@@ -1,0 +1,669 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+<a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006 Overview
+</title>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="Graticule.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>Graticule.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'Graticule.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+	<a name="method_summary"><!-- --></a>
+	<table border="1" cellpadding="3" cellspacing="0" width="100%">
+		<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+			<td colspan=2>
+				<font size="+2">
+					<b>Method Summary</b>
+				</font>
+			</td>
+		</tr>
+	
+		
+		   <tr bgcolor="white" class="TableRowColor">
+		      <td align="right" valign="top" width="1%">
+			 <font size="-1">
+			    <code>static&nbsp;void</code>
+			 </font>
+		      </td>
+		      <td>
+			 <code>
+			    <b>
+			       <a href="GLOBALS.html#Graticule">Graticule</a></b>(widgetNode, model)
+			 </code>
+			 <br>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 
+		      </td>
+		   </tr>
+		
+	
+	</table>
+    <p>
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*
+Author:       Olivier Terral olivier.terralATgeomatys.fr
+License:      LGPL as per: http://www.gnu.org/copyleft/lesser.html
+
+$Id: graticule.js 2200 2006-11-28 13:28:58Z oterral $
+*/</span>
+<span class="comment">// Ensure this object's dependancies are loaded.</span>
+mapbuilder.loadScript(baseDir+<span class="literal">"/widget/ButtonBase.js"</span>);
+
+
+<span class="reserved">function</span> Graticule(widgetNode, model) {
+
+	ButtonBase.apply(<span class="reserved">this</span>, new Array(widgetNode, model));
+
+	<span class="reserved">this</span>.mapContainerId=widgetNode.selectSingleNode(<span class="literal">"mb:mapContainerId"</span>).firstChild.nodeValue;
+	<span class="reserved">this</span>.display=false;
+	<span class="reserved">this</span>.color=widgetNode.selectSingleNode(<span class="literal">"mb:color"</span>).firstChild.nodeValue;
+	
+	
+	<span class="comment">/**
+   * Remove divs
+   * <span class="attrib">@param</span> objRef Pointer to this object.
+   */</span>
+	<span class="reserved">this</span>.remove = <span class="reserved">function</span>(objRef) {
+	
+	  try{
+			  var i = 0;
+			  var div = objRef.map;
+		
+		  	<span class="reserved">for</span>(i=0; i&lt; objRef.divs.length; i++)
+		  	{
+				div.removeChild(objRef.divs[i]);
+			}
+	  }
+	  catch(e){
+	  }
+	
+	}
+
+	<span class="comment">/**
+   * Get bbox of MapPane with the right projection
+   * Return an object
+   * <span class="attrib">@param</span> objRef Pointer to this object.
+   */</span>
+	<span class="reserved">this</span>.getBbox= <span class="reserved">function</span>(objRef) {
+	
+			var bbox=new Object();
+			bbox.ll=new Object();
+			bbox.ur=new Object();
+			ll=objRef.proj.Inverse(new Array(objRef.bbox[0],objRef.bbox[1]));
+			ur=objRef.proj.Inverse(new Array(objRef.bbox[2],objRef.bbox[3]));
+		
+			
+			bbox.ll.lon=ll[0];		//minx
+			bbox.ll.lat=ll[1];		//miny
+			bbox.ur.lon=ur[0];		//maxx
+			bbox.ur.lat=ur[1];		//maxy
+		
+			<span class="reserved">return</span> bbox;
+		
+	}
+
+	<span class="comment">/**
+   * Calculate rounded graticule interval for supplied lat/lon span
+   * 
+   * <span class="attrib">@param</span> dDeg difference in degrees.
+   */</span>
+<span class="comment">	//</span>
+<span class="comment">	//return is in minutes</span>
+	<span class="reserved">this</span>.gridIntervalMins = <span class="reserved">function</span>(dDeg) {  
+	
+	  var dDeg = dDeg/10;				//want around 10 lines in the graticule
+	  dDeg *= 6000;						//to minutes*100
+	  dDeg = Math.ceil(dDeg)/100;		//minutes and hundredths of mins
+	
+	  <span class="reserved">if</span>(dDeg &lt;= 0.06)
+		dDeg = 0.06;//0.001 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt;= 0.12)
+		dDeg = 0.12;//0.002 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt;= 0.3)
+		dDeg = 0.3;//0.005 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt;= 0.6)
+		dDeg = 0.6;//0.01 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  1.2)
+		dDeg = 1.2;//0.02 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt;= 3)
+		dDeg = 3;//0.05 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt;= 6)
+		dDeg = 6;//0.1 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  12)
+		dDeg = 12;//0.2 degrees
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  30)
+		dDeg = 30;//0.5
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  60)
+		dDeg = 30;//1
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  (60*2))
+		dDeg = 60*2;
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  (60*5))
+		dDeg = 60*5;
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  (60*10))
+		dDeg = 60*10;
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  (60*20))
+		dDeg = 60*20;
+	  <span class="reserved">else</span> <span class="reserved">if</span> (dDeg &lt;=  (60*30))
+		dDeg = 60*30;
+	  <span class="reserved">else</span>
+		dDeg = 60*45;
+	  
+		
+	  <span class="reserved">return</span> dDeg;
+	
+}
+
+
+	
+	<span class="comment">/* Calculate grid label precision from grid interval in degrees
+	*
+	*<span class="attrib">@param</span> dDeg difference in degrees.
+	*/</span>
+	<span class="reserved">this</span>.gridPrecision = <span class="reserved">function</span>(dDeg) {
+		<span class="reserved">if</span>(dDeg &lt; 0.01)
+			<span class="reserved">return</span> 3;
+		<span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt; 0.1)
+			<span class="reserved">return</span> 2;
+		<span class="reserved">else</span> <span class="reserved">if</span>(dDeg &lt; 1)
+			<span class="reserved">return</span> 1;
+		<span class="reserved">else</span> <span class="reserved">return</span> 0;
+	}
+
+	<span class="comment">/* Draw graticules
+	*
+	*<span class="attrib">@param</span> objRef pointer to this object.
+	*/</span>
+	<span class="reserved">this</span>.draw= <span class="reserved">function</span>(objRef){
+<span class="comment">
+		//Delete old graticule</span>
+		objRef.remove(objRef);
+		
+		var bbox=objRef.getBbox(objRef);
+		
+		var l=bbox.ll.lon; //////ll:lower left coordinates 
+		var b=bbox.ll.lat;		//ll:lower left ,ll.long : latitude(y) de coin en bas a gauche
+		var r=bbox.ur.lon;			//ur:upper right ,ur.long : longitude de coin en haut a droite
+		var t=bbox.ur.lat;		
+<span class="comment">		
+		 //test if coords are valid</span>
+		  <span class="reserved">if</span> (b &lt; -90.0)
+			b = -90.0;
+		  <span class="reserved">if</span>(t &gt; 90.0)
+			t = 90.0;
+		  <span class="reserved">if</span>(l &lt; -180.0)
+		    l = -180.0;  
+		  <span class="reserved">if</span>(r &gt; 180.0)
+		    r = 180.0;
+		    
+		  <span class="reserved">if</span>(l == r){
+			l = -180.0;
+			r = 180.0;
+		  }
+		
+		  <span class="reserved">if</span>(t == b){
+			b = -90.0;
+			t = 90.0;
+		  }
+<span class="comment">		 
+		  
+		  
+		  //grid interval in minutes    </span>
+		  var dLat = objRef.gridIntervalMins(t-b);
+		  var dLng; 
+		  <span class="reserved">if</span>(r&gt;l)
+			dLng = objRef.gridIntervalMins(r-l);
+		  <span class="reserved">else</span>
+		    dLng = objRef.gridIntervalMins((180-l)+(r+180));
+<span class="comment">		
+		  //round iteration limits to the computed grid interval</span>
+		  l = Math.floor(l*60/dLng)*dLng/60;
+		  b = Math.floor(b*60/dLat)*dLat/60;
+		  t = Math.ceil(t*60/dLat)*dLat/60;
+		  r = Math.ceil(r*60/dLng)*dLng/60;
+<span class="comment">		  
+		
+		
+		  //Tes if coords are valid</span>
+		  <span class="reserved">if</span> (b &lt;= -90.0)
+			b = -90;
+		  <span class="reserved">if</span>(t &gt;= 90.0)
+			t = 90;
+		  <span class="reserved">if</span>(l &lt; -180.0)
+		    l = -180.0;  
+		  <span class="reserved">if</span>(r &gt; 180.0)
+		    r = 180.0;
+<span class="comment">		    
+		  //to whole degrees</span>
+		  dLat /= 60;
+		  dLng /= 60;
+
+		  objRef.dLat=dLat;
+		  objRef.dLon=dLng;
+<span class="comment">		  
+		  //# digits after DP for labels</span>
+		  var latDecs = objRef.gridPrecision(dLat);
+		  var lonDecs = objRef.gridPrecision(dLng);
+<span class="comment">		 
+		  //array for divs used for lines and labels</span>
+		  objRef.divs = new Array();
+		  var i=0;//count inserted divs
+<span class="comment">		
+		  //min and max x and y pixel values for graticule lines</span>
+		  var pbl = objRef.fromLatLngToDivPixel(objRef,b,l);
+		  var ptr = objRef.fromLatLngToDivPixel(objRef,t,r);
+		
+		  
+		  objRef.maxX = ptr.x;
+		  objRef.maxY = pbl.y;
+		  objRef.minX = pbl.x;
+		  objRef.minY = ptr.y;
+		  var x;//coord <span class="reserved">for</span> label
+<span class="comment">		  
+		  //labels on second column to avoid peripheral controls</span>
+		  var y = objRef.fromLatLngToDivPixel(objRef,b+dLat+dLat,l).y + 2;//coord <span class="reserved">for</span> label
+<span class="comment">		  
+		  //pane/layer to write on</span>
+		  var mapDiv = objRef.map;//objRef.map_.getPane(G_MAP_MARKER_SHADOW_PANE);
+		  
+		  var lo = l;
+		  
+		  <span class="reserved">if</span>(r&lt;lo)
+		      r += 360.0;
+<span class="comment">		
+		  //vertical lines</span>
+		  <span class="reserved">while</span>(lo&lt;=r){
+				
+				 var p = objRef.fromLatLngToDivPixel(objRef,b,lo);
+<span class="comment">				 //line</span>
+				 objRef.divs[i] = objRef.createVLine(objRef,p.x);
+				 mapDiv.insertBefore(objRef.divs[i],null);
+				 i++;
+<span class="comment">				  	
+				 //label	 </span>
+				 var d = document.createElement(<span class="literal">"DIV"</span>);
+				 x = p.x + 3;
+				 
+				 d.style.position = <span class="literal">"absolute"</span>;
+		         d.style.left = x.toString() + <span class="literal">"px"</span>;
+		         d.style.top = y.toString() + <span class="literal">"px"</span>;
+				 d.style.color = objRef.color;
+				 d.style.fontFamily=<span class="literal">'Arial'</span>;
+				 d.style.fontSize=<span class="literal">'x-small'</span>;
+		         
+		         <span class="reserved">if</span> (lo==0)
+		         {
+		         	d.innerHTML = (Math.abs(lo)).toFixed(lonDecs);
+		         }
+			     <span class="reserved">else</span> <span class="reserved">if</span>(lo&lt;0)
+				{	d.title = <span class="literal">"West (WGS84)"</span>;
+					d.innerHTML = (Math.abs(lo)).toFixed(lonDecs)+<span class="literal">" E"</span>;
+				 }
+				 <span class="reserved">else</span> 
+				{	d.title = <span class="literal">"East (WGS84)"</span>;
+					d.innerHTML = (Math.abs(lo)).toFixed(lonDecs)+<span class="literal">" W"</span>;
+				 }
+				 mapDiv.insertBefore(d,null);
+				 objRef.divs[i] = d;
+			
+				 i++;
+				 lo += dLng;	
+				 <span class="reserved">if</span> (lo &gt; 180.0){
+					r -= 360.0;
+					lo -= 360.0;
+					}		 		
+  	}
+  
+
+
+	var j = 0;
+<span class="comment">	      
+	  //labels on second row to avoid controls</span>
+	  x = objRef.fromLatLngToDivPixel(objRef,b,l+dLng+dLng).x + 3;
+<span class="comment">	  
+	  //horizontal lines</span>
+	  <span class="reserved">while</span>(b&lt;=t){
+
+			 var p = objRef.fromLatLngToDivPixel(objRef,b,l);
+<span class="comment">			 
+			 //line</span>
+			 <span class="reserved">if</span>(r &lt; l){ //draw lines across the dateline
+				objRef.divs[i] = objRef.createHLine3(objRef,b);
+				mapDiv.insertBefore(objRef.divs[i],null);
+				i++;
+			 }
+			 <span class="reserved">else</span> <span class="reserved">if</span> (r == l){ //draw lines <span class="reserved">for</span> world scale zooms
+			
+				objRef.divs[i] = objRef.createHLine3(objRef,b);
+				mapDiv.insertBefore(objRef.divs[i],null);
+				i++;
+			 }
+			 <span class="reserved">else</span>{
+			 	
+				objRef.divs[i] = objRef.createHLine(objRef,p.y);
+				mapDiv.insertBefore(objRef.divs[i],null);
+				i++;
+			 }
+<span class="comment">			 
+			 
+			 
+			 
+			 //label</span>
+			 var d = document.createElement(<span class="literal">"DIV"</span>);
+			 y = p.y + 2;
+			 d.style.position = <span class="literal">"absolute"</span>;
+			 d.style.left =x.toString() + <span class="literal">"px"</span>;
+			 d.style.top = y.toString()+ <span class="literal">"px"</span>;
+			 d.style.color = objRef.color;
+			 d.style.fontFamily=<span class="literal">'Arial'</span>;
+			 d.style.fontSize=<span class="literal">'x-small'</span>;
+			 
+			 <span class="reserved">if</span> (b==0)
+	         {
+	         	d.innerHTML = (Math.abs(b)).toFixed(lonDecs);
+	         }
+			 <span class="reserved">else</span> <span class="reserved">if</span>(b&lt;0)
+			{	d.title = <span class="literal">"South (WGS84)"</span>;
+				d.innerHTML = (Math.abs(b)).toFixed(latDecs)+<span class="literal">" S"</span>;
+			}
+			 <span class="reserved">else</span> 
+			{	d.title = <span class="literal">"North (WGS84)"</span>;
+				d.innerHTML = (Math.abs(b)).toFixed(latDecs)+<span class="literal">" N"</span>;
+			}
+			 <span class="reserved">if</span>(j != 2)//dont put two labels in the same place
+			 {
+				 mapDiv.insertBefore(d,null);
+				 objRef.divs[i] = d;
+				 i++;
+			 }
+			 j++;
+			 b += dLat;
+	  }
+	 
+
+	}
+	
+	<span class="comment">/*Transform lat/lon coordinates in pixels coordinates
+	* Returns an object container pixel coordinates
+	*<span class="attrib">@param</span> objRef pointer to this object.
+	*<span class="attrib">@param</span> lat lon  coordiantes in degrees 
+	*/</span>
+	<span class="reserved">this</span>.fromLatLngToDivPixel = <span class="reserved">function</span>(objRef,lat,lon){
+	
+		var xy=objRef.proj.Forward(new Array(lon,lat));
+		var platlon=new Object();
+		
+		platlon.x=objRef.targetModel.extent.getPL(xy)[0];
+		platlon.y=objRef.targetModel.extent.getPL(xy)[1];
+		<span class="reserved">return</span> platlon;
+	}
+	
+	<span class="comment">/*Create a vertical line
+	* Returns a div that is a vertical single pixel line
+	*<span class="attrib">@param</span> objRef pointer to this object.
+	*<span class="attrib">@param</span> x left style property for div element 
+	*/</span>
+	
+	<span class="reserved">this</span>.createVLine = <span class="reserved">function</span> (objRef,x) {
+
+		var div = document.createElement(<span class="literal">"DIV"</span>);
+		div.style.position = <span class="literal">"absolute"</span>;
+		div.style.overflow = <span class="literal">"hidden"</span>;
+		div.style.backgroundColor = objRef.color;
+		div.style.left = x + <span class="literal">"px"</span>;
+		div.style.top = objRef.minY + <span class="literal">"px"</span>;
+		div.style.width = <span class="literal">"1px"</span>;
+		div.style.height = (objRef.maxY-objRef.minY) +<span class="literal">"px"</span>;				
+	    <span class="reserved">return</span> div;
+	
+	}
+ 
+	<span class="comment">/*Create a horizontal line
+	* Returns a div that is a horizontal single pixel line
+	*<span class="attrib">@param</span> objRef pointer to this object.
+	*<span class="attrib">@param</span> y top style property for div element 
+	*/</span>  	  
+	<span class="reserved">this</span>.createHLine = <span class="reserved">function</span>(objRef,y) {
+
+		var div = document.createElement(<span class="literal">"DIV"</span>);
+		div.style.position = <span class="literal">"absolute"</span>;
+		div.style.overflow = <span class="literal">"hidden"</span>;
+		div.style.backgroundColor = objRef.color;
+		div.style.left = objRef.minX + <span class="literal">"px"</span>;
+		div.style.top = y + <span class="literal">"px"</span>;
+		div.style.width = (objRef.maxX-objRef.minX) + <span class="literal">"px"</span>;
+		div.style.height = <span class="literal">"1px"</span>;
+	    <span class="reserved">return</span> div;
+	
+	}
+	<span class="comment">/*Create a horizontal line
+	* Returns a div that is a horizontal single pixel line, across the dateline  
+	* we find the start and width of a 180 degree line and draw the same amount
+	* to its left and right	
+	*<span class="attrib">@param</span> objRef pointer to this object.
+	*<span class="attrib">@param</span> lat latitude of  div element.
+	*/</span>  
+		<span class="reserved">this</span>.createHLine3 = <span class="reserved">function</span>(objRef,lat) {
+		
+			var f = objRef.fromLatLngToDivPixel(objRef,lat,0);
+			var t = objRef.fromLatLngToDivPixel(objRef,lat,180);		
+		
+			var div = document.createElement(<span class="literal">"DIV"</span>);
+			div.style.position = <span class="literal">"absolute"</span>;
+			div.style.overflow = <span class="literal">"hidden"</span>;
+			div.style.backgroundColor = objRef.color;
+			
+			var x1 = f.x;
+			var x2 = t.x;
+			
+			<span class="reserved">if</span>(x2 &lt; x1)
+			{
+				x2 = f.x;
+				x1 = t.x;
+			}
+			div.style.left = (x1-(x2-x1)) + <span class="literal">"px"</span>;
+			div.style.top = f.y + <span class="literal">"px"</span>;
+			div.style.width = ((x2-x1)*2) + <span class="literal">"px"</span>;
+			div.style.height = <span class="literal">"1px"</span>;
+		    <span class="reserved">return</span> div;
+			
+}  
+
+		<span class="comment">/*Initialize Graticule's property 
+		* 
+		*<span class="attrib">@param</span> objRef pointer to this object.
+		*/</span> 
+		<span class="reserved">this</span>.init= <span class="reserved">function</span> (objRef){
+			objRef.width=parseInt(objRef.targetModel.getWindowWidth());
+			objRef.height=parseInt(objRef.targetModel.getWindowHeight());
+			
+			objRef.bbox=objRef.targetModel.getBoundingBox();
+			objRef.proj=new Proj( objRef.targetModel.getSRS());
+		
+			<span class="reserved">if</span> (objRef.bbox[1]&lt;0)
+				<span class="reserved">if</span>(objRef.bbox[3]&lt;0)
+					objRef.diffLat=objRef.bbox[1]-objRef.bbox[3];
+				<span class="reserved">else</span>
+					objRef.diffLat=objRef.bbox[3]-objRef.bbox[1];
+			<span class="reserved">else</span>
+				objRef.diffLat=objRef.bbox[3]+objRef.bbox[1];
+				
+			<span class="reserved">if</span> (objRef.bbox[0]&lt;0)
+				<span class="reserved">if</span>(objRef.bbox[2]&lt;0)		
+					objRef.diffLon=objRef.bbox[0]-objRef.bbox[2];
+				<span class="reserved">else</span>
+					objRef.diffLon=objRef.bbox[2]-objRef.bbox[0];
+			<span class="reserved">else</span>
+				objRef.diffLon=objRef.bbox[2]+objRef.bbox[0];
+		
+			
+		  	objRef.draw(objRef);
+
+}
+
+		<span class="comment">/*Display graticule when click on button
+		* 
+		*<span class="attrib">@param</span> objRef pointer to this object.
+		*<span class="attrib">@param</span> selected boolean true if button has been clicked , false if no
+		*/</span> 
+		<span class="reserved">this</span>.doSelect = <span class="reserved">function</span>(selected,objRef) {
+		
+		 
+		  
+		<span class="reserved">if</span>(selected &amp;&amp; objRef.display==false)
+		 { 	
+		 	<span class="reserved">this</span>.targetModel.addListener(<span class="literal">"bbox"</span>, <span class="reserved">this</span>.init, <span class="reserved">this</span> );
+		 	objRef.display=true;
+		 	objRef.map = document.getElementById(objRef.mapContainerId);
+			objRef.init(objRef);
+		}
+		<span class="reserved">else</span> <span class="reserved">if</span> (objRef.display==true)
+		{	<span class="reserved">this</span>.targetModel.removeListener(<span class="literal">"bbox"</span>, <span class="reserved">this</span>.init, <span class="reserved">this</span> );
+			objRef.display=false;
+			objRef.remove(objRef);
+		}      
+	}
+}
+</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Fri Dec 22 07:58:58 2006</div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+<a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006 Overview
+</title>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="ButtonBase.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>ButtonBase.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'ButtonBase.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+    <table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr bgcolor="#CCCCFF" class="TableHeadingColor">
+    <td colspan=2><font size="+2">
+    
+        <b>Class Summary</b>
+    
+    </font></td>
+    </tr>
+    
+    <tr bgcolor="white" class="TableRowColor">
+    <td width="15%"><b><a href="ButtonBase.html">ButtonBase</a></b></td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    </table>
+    <hr/> 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*
+License: LGPL as per: http://www.gnu.org/copyleft/lesser.html
+$Id: ButtonBase.js 2361 2006-11-30 09:18:38Z dirk $
+*/</span>
+<span class="comment">
+// Ensure this object's dependancies are loaded.</span>
+mapbuilder.loadScript(baseDir+<span class="literal">"/widget/WidgetBaseXSL.js"</span>);
+
+<span class="comment">/**
+ * Abstract base Button object that all Buttons extend.  
+ * A Button is a widget which renders an image and an optional second image 
+ * for the enabled state.
+ * <span class="attrib">@constructor</span>
+ * <span class="attrib">@base</span> WidgetBase
+ * <span class="attrib">@author</span> Mike Adair mike.adairATccrs.nrcan.gc.ca
+ * <span class="attrib">@param</span> button Pointer to the button instance being created.
+ * <span class="attrib">@param</span> widgetNode The tool node from the Config XML file.
+ * <span class="attrib">@param</span> model The parent model object (optional).
+ */</span>
+<span class="reserved">function</span> ButtonBase(widgetNode, model) {
+<span class="comment">
+  //stylesheet is fixed to this one</span>
+  <span class="reserved">this</span>.stylesheet = new XslProcessor(baseDir+<span class="literal">"/widget/Button.xsl"</span>, model.namespace);
+  var buttonBarNode = widgetNode.selectSingleNode(<span class="literal">"mb:buttonBar"</span>);
+  <span class="reserved">if</span> ( buttonBarNode ) {
+    <span class="reserved">this</span>.htmlTagId = buttonBarNode.firstChild.nodeValue;
+<span class="comment">    //1Row added DVDE  </span>
+    <span class="reserved">this</span>.buttonBarGroup = <span class="reserved">this</span>.htmlTagId;    
+  }   
+<span class="comment">  //3 rows deleted  -7Rows added DVDE      </span>
+  var htmlTagNode = widgetNode.selectSingleNode(<span class="literal">"mb:htmlTagId"</span>);    
+  <span class="reserved">if</span> (htmlTagNode) {
+    <span class="reserved">this</span>.htmlTagId = htmlTagNode.firstChild.nodeValue;
+  }
+ <span class="reserved">if</span> ((!buttonBarNode) &amp;&amp; (!htmlTagNode)){
+   alert(<span class="literal">"buttonBar property required for object:"</span> + widgetNode.nodeName );
+ }
+
+  WidgetBaseXSL.apply(<span class="reserved">this</span>, new Array(widgetNode, model));
+<span class="comment">
+  //set the button type</span>
+  <span class="reserved">this</span>.buttonType = widgetNode.selectSingleNode(<span class="literal">"mb:class"</span>).firstChild.nodeValue;
+  <span class="reserved">if</span> (<span class="reserved">this</span>.buttonType == <span class="literal">"RadioButton"</span>) <span class="reserved">this</span>.enabled = false;
+<span class="comment">
+  //pre-load the button bar images; add them to the config</span>
+  var disabledImage = widgetNode.selectSingleNode(<span class="literal">"mb:disabledSrc"</span>);
+  <span class="reserved">if</span> (disabledImage) {
+    <span class="reserved">this</span>.disabledImage = document.createElement(<span class="literal">"IMG"</span>);
+    <span class="reserved">this</span>.disabledImage.src = config.skinDir + disabledImage.firstChild.nodeValue;
+  }
+<span class="comment">
+  //optional second image to be displayed in the enabled state</span>
+  var enabledImage = widgetNode.selectSingleNode(<span class="literal">"mb:enabledSrc"</span>);
+  <span class="reserved">if</span> (enabledImage) {
+    <span class="reserved">this</span>.enabledImage = document.createElement(<span class="literal">"IMG"</span>);
+    <span class="reserved">this</span>.enabledImage.src = config.skinDir + enabledImage.firstChild.nodeValue;
+  }
+<span class="comment">  
+  // Check for cursor override</span>
+  var cursorNode = <span class="reserved">this</span>.widgetNode.selectSingleNode(<span class="literal">"mb:cursor"</span>);
+  <span class="reserved">if</span>( cursorNode != null ) {
+    var cursor = cursorNode.firstChild.nodeValue;
+    <span class="reserved">this</span>.cursor = cursor;
+  } <span class="reserved">else</span> {
+    <span class="reserved">this</span>.cursor = <span class="literal">"default"</span>; // Adding support <span class="reserved">for</span> customized cursors
+  }
+
+  <span class="comment">/**
+   * Override of widgetBase prePaint to set the doc to be styled as the widget
+   * node in config for this button.
+   * <span class="attrib">@param</span> objRef Pointer to this object.
+   */</span>
+  <span class="reserved">this</span>.prePaint = <span class="reserved">function</span>(objRef) {
+    objRef.resultDoc = objRef.widgetNode;
+  }
+
+  <span class="comment">/**
+   * Override this in buttons which inherit from this object to carry out the action.
+   * This is the function that will be called either when the button is selected
+   * via the select() method or on a mouseup event if there is an associated 
+   * mouseHandler property in config.
+   */</span>
+  <span class="reserved">this</span>.doAction = <span class="reserved">function</span>() {}
+
+  <span class="comment">/**
+   * Called when a user clicks on a this.  Switches the image to the enabled 
+   * button source, enables and disables associated tools, then calls the 
+   * doSelect method defined in derived classes.
+   */</span>
+  <span class="reserved">this</span>.select = <span class="reserved">function</span>() {
+<span class="comment">  
+    // Add support to change cursors in the map area based on:</span>
+<span class="comment">    // either user selected cursor in config file using &lt;cursor&gt; tag</span>
+<span class="comment">    // or default tool cursor as defined in constructor   </span>
+    var a = document.getElementById(<span class="literal">"mainMapContainer"</span>);
+    <span class="reserved">if</span>( a != null ) {
+<span class="comment">      // default or user selected cursor</span>
+      a.style.cursor = <span class="reserved">this</span>.cursor;
+    }  
+<span class="comment">
+    //changed 3 lines: this.node -&gt; this.groupnode DVDE       </span>
+    <span class="reserved">if</span> (<span class="reserved">this</span>.buttonType == <span class="literal">"RadioButton"</span>) {
+      <span class="reserved">if</span> (<span class="reserved">this</span>.groupnode.selectedRadioButton) {
+        with (<span class="reserved">this</span>.groupnode.selectedRadioButton) {
+          <span class="reserved">if</span> (disabledImage) image.src = disabledImage.src;
+          enabled = false;
+          <span class="reserved">if</span> ( mouseHandler ) mouseHandler.enabled = false;
+          link.className = <span class="literal">"mbButton"</span>;
+          doSelect(false,<span class="reserved">this</span>);
+        }
+      }
+      <span class="reserved">this</span>.groupnode.selectedRadioButton = <span class="reserved">this</span>;
+      <span class="reserved">if</span> (<span class="reserved">this</span>.enabledImage) <span class="reserved">this</span>.image.src = <span class="reserved">this</span>.enabledImage.src;
+      <span class="reserved">this</span>.link.className = <span class="literal">"mbButtonSelected"</span>;
+    }
+<span class="comment">    
+    //enable this tool and any dependancies</span>
+    <span class="reserved">this</span>.enabled = true;
+    <span class="reserved">if</span> ( <span class="reserved">this</span>.mouseHandler ) <span class="reserved">this</span>.mouseHandler.enabled = true;
+    <span class="reserved">this</span>.doSelect(true,<span class="reserved">this</span>);
+  }
+
+  <span class="comment">/**
+   * Method overriden by subclasses
+   * <span class="attrib">@param</span> selected True when selected, false when deselected.
+   * <span class="attrib">@param</span> objRef Reference to this object.
+   */</span>
+  <span class="reserved">this</span>.doSelect = <span class="reserved">function</span>(selected, objRef) {
+  }
+<span class="comment">
+  //a button may be set as selected in the config file</span>
+  var selected = widgetNode.selectSingleNode(<span class="literal">"mb:selected"</span>);
+  <span class="reserved">if</span> (selected &amp;&amp; selected.firstChild.nodeValue) <span class="reserved">this</span>.selected = true;
+
+  <span class="comment">/**
+   * A listener method to initialize the mouse handler, if configured.  This is
+   * called as an init event so that the object pointed to is guaranteed to 
+   * be instantiated.
+   * <span class="attrib">@param</span> objRef Reference to this object.
+   */</span>
+  <span class="reserved">this</span>.initMouseHandler = <span class="reserved">function</span>(objRef) {
+    <span class="comment">/** Mouse handler which this tool will register listeners with. */</span>
+    var mouseHandler = objRef.widgetNode.selectSingleNode(<span class="literal">"mb:mouseHandler"</span>);
+    <span class="reserved">if</span> (mouseHandler) {
+      objRef.mouseHandler = window.config.objects[mouseHandler.firstChild.nodeValue];
+      <span class="reserved">if</span> (!objRef.mouseHandler) {
+        alert(<span class="literal">"error finding mouseHandler:"</span>+mouseHandler.firstChild.nodeValue+<span class="literal">" for button:"</span>+objRef.id);
+      }
+    } <span class="reserved">else</span> {
+      objRef.mouseHandler = null;
+    }
+  }
+
+  <span class="comment">/**
+   * Initialise image for the button and select it if required.
+   * <span class="attrib">@param</span> objRef Reference to this object.
+   */</span>
+  <span class="reserved">this</span>.buttonInit = <span class="reserved">function</span>(objRef) {
+    objRef.image = document.getElementById( objRef.id+<span class="literal">"_image"</span> );
+    objRef.link = document.getElementById( objRef.outputNodeId );
+    <span class="reserved">if</span> (objRef.selected) objRef.select();
+  }
+
+  <span class="reserved">this</span>.model.addListener(<span class="literal">"refresh"</span>,<span class="reserved">this</span>.buttonInit,<span class="reserved">this</span>);
+  <span class="reserved">this</span>.model.addListener(<span class="literal">"init"</span>, <span class="reserved">this</span>.initMouseHandler, <span class="reserved">this</span>);
+}
+</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Fri Dec 22 07:58:58 2006</div>
+</body>
+</html>

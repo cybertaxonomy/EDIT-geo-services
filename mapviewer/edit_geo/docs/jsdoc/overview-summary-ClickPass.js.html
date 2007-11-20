@@ -1,0 +1,354 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+<a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006 Overview
+</title>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="ClickPass.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>ClickPass.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'ClickPass.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+	<a name="method_summary"><!-- --></a>
+	<table border="1" cellpadding="3" cellspacing="0" width="100%">
+		<tr bgcolor="#CCCCFF" class="TableHeadingColor">
+			<td colspan=2>
+				<font size="+2">
+					<b>Method Summary</b>
+				</font>
+			</td>
+		</tr>
+	
+		
+		   <tr bgcolor="white" class="TableRowColor">
+		      <td align="right" valign="top" width="1%">
+			 <font size="-1">
+			    <code>static&nbsp;void</code>
+			 </font>
+		      </td>
+		      <td>
+			 <code>
+			    <b>
+			       <a href="GLOBALS.html#ClickPass">ClickPass</a></b>(widgetNode, model)
+			 </code>
+			 <br>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 Button widget to be installed in the menubar
+ It calls a user defined javascript function when a user clicks on the map
+ An icon appears for a few seconds to give visual feedback
+ 
+ Here is an example of the configuration file entry:
+
+
+		      </td>
+		   </tr>
+		
+		   <tr bgcolor="white" class="TableRowColor">
+		      <td align="right" valign="top" width="1%">
+			 <font size="-1">
+			    <code>static&nbsp;void</code>
+			 </font>
+		      </td>
+		      <td>
+			 <code>
+			    <b>
+			       <a href="GLOBALS.html#hideClickPass">hideClickPass</a></b>( id )
+			 </code>
+			 <br>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 
+		      </td>
+		   </tr>
+		
+	
+	</table>
+    <p>
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*
+License: LGPL as per: http://www.gnu.org/copyleft/lesser.html
+Author:  Pat Cappelaere patATcappelaere.com
+
+$Id$
+*/</span>
+<span class="comment">
+// Ensure this object's dependancies are loaded.</span>
+mapbuilder.loadScript(baseDir+<span class="literal">"/widget/ButtonBase.js"</span>);
+
+<span class="comment">/**
+  * Button widget to be installed in the menubar
+  * It calls a user defined javascript function when a user clicks on the map
+  * An icon appears for a few seconds to give visual feedback
+  * 
+  * Here is an example of the configuration file entry:
+  *
+     &lt;ClickPass id="clickPass"&gt;
+      &lt;buttonBar&gt;mainButtonBar&lt;/buttonBar&gt;
+      &lt;targetModel&gt;mainMap&lt;/targetModel&gt;
+      &lt;mouseHandler&gt;mainAoi&lt;/mouseHandler&gt;
+      &lt;class&gt;RadioButton&lt;/class&gt;
+      &lt;enabledSrc&gt;/images/HelpEnable.png&lt;/enabledSrc&gt;
+      &lt;disabledSrc&gt;/images/HelpDisable.png&lt;/disabledSrc&gt;
+      &lt;ClickPassId&gt;1&lt;/ClickPassId&gt;
+      &lt;icon&gt;../../lib/skin/default/images/dot.gif&lt;/icon&gt;
+      &lt;topOffset&gt;11&lt;/topOffset&gt;
+      &lt;leftOffset&gt;-7&lt;/leftOffset&gt;
+    &lt;/ClickPass&gt;
+  */</span>
+<span class="reserved">function</span> ClickPass(widgetNode, model) {
+<span class="comment">  // Extend ButtonBase</span>
+  ButtonBase.apply(<span class="reserved">this</span>, new Array(widgetNode, model));
+  
+  var clickPassId = widgetNode.selectSingleNode(<span class="literal">"mb:ClickPassId"</span>);
+  <span class="reserved">if</span>( clickPassId != null ) {
+    <span class="reserved">this</span>.clickPassId = clickPassId.firstChild.nodeValue;
+  } <span class="reserved">else</span> {
+    alert( <span class="literal">"unspecified clickPassId"</span> );
+  }
+<span class="comment">  
+  // get icon from the config file and create the dynamic div</span>
+  var icon = widgetNode.selectSingleNode(<span class="literal">"mb:icon"</span>);
+  <span class="reserved">if</span>( icon != null ) {
+    <span class="reserved">this</span>.icon = icon.firstChild.nodeValue;
+    
+    var iconDiv = document.createElement(<span class="literal">"div"</span>);
+    iconDiv.setAttribute(<span class="literal">"id"</span>,<span class="literal">"clickPass"</span>+<span class="reserved">this</span>.clickPassId);
+    iconDiv.style.position = <span class="literal">"relative"</span>;
+    iconDiv.style.visibility = <span class="literal">"hidden"</span>;
+    iconDiv.style.height = <span class="literal">"20px"</span>;
+    iconDiv.style.width = <span class="literal">"20px"</span>;
+    iconDiv.style.top = <span class="literal">"120px"</span>;
+    iconDiv.style.left = <span class="literal">"120px"</span>;
+  
+    iconDiv.style.zIndex = 300;
+    iconDiv.title = <span class="literal">"clickPass"</span>+<span class="reserved">this</span>.clickPassId;
+  
+    var newImage = document.createElement(<span class="literal">"img"</span>);
+    newImage.src = <span class="reserved">this</span>.icon;
+ 
+    <span class="reserved">this</span>.iconDiv = iconDiv;
+    iconDiv.appendChild(newImage);
+    
+    var mainMapPane = document.getElementById(<span class="literal">"mainMapPane"</span>);
+    mainMapPane.appendChild( iconDiv );
+    
+  } <span class="reserved">else</span> {
+    alert( <span class="literal">"unspecified icon"</span> );
+  }
+<span class="comment"> 
+  // unfortunately, exact positioning of an image is hard</span>
+<span class="comment">  // depending on icon, you may have to specify some offsets</span>
+  var topOffset = widgetNode.selectSingleNode(<span class="literal">"mb:topOffset"</span>);
+  <span class="reserved">if</span>( topOffset != null ) {
+    <span class="reserved">this</span>.topOffset = parseInt(topOffset.firstChild.nodeValue);
+  } <span class="reserved">else</span> {
+    alert( <span class="literal">"unspecified topOffset"</span> );
+  }
+  
+  var leftOffset = widgetNode.selectSingleNode(<span class="literal">"mb:leftOffset"</span>);
+  <span class="reserved">if</span>( leftOffset != null ) {
+    <span class="reserved">this</span>.leftOffset = parseInt(leftOffset.firstChild.nodeValue);
+  } <span class="reserved">else</span> {
+    alert( <span class="literal">"unspecified topOffset"</span> );
+  } 
+  
+  <span class="comment">/**
+    * User click action in the map
+    */</span>
+  <span class="reserved">this</span>.doAction = <span class="reserved">function</span>(objRef,targetNode) {
+	  <span class="reserved">if</span> (objRef.enabled) {
+	      point=objRef.mouseHandler.model.extent.getXY(targetNode.evpl);
+        var x = point[0];
+        var y = point[1];
+        
+        objRef.iconDiv.style.top = targetNode.evpl[1] + objRef.topOffset + <span class="literal">"px"</span>;
+        objRef.iconDiv.style.left = targetNode.evpl[0] + objRef.leftOffset + <span class="literal">"px"</span>;
+        objRef.iconDiv.style.visibility = <span class="literal">"visible"</span>;
+<span class="comment">
+        //alert( "Action:"+objRef.clickPassId + " " + x + " " + y );</span>
+        clickIt( x, y )
+<span class="comment">        
+        // hide icon in 5 seconds</span>
+        <span class="reserved">if</span>( document.all ) { // ie guy
+          window.setTimeout( <span class="literal">"hideClickPass("</span> +objRef.clickPassId+<span class="literal">" )"</span>, 5000);
+        } <span class="reserved">else</span> { 
+          setTimeout( <span class="literal">"hideClickPass("</span> +objRef.clickPassId+<span class="literal">" )"</span>, 5000);
+        }
+	  }
+  }
+  
+  
+  <span class="reserved">this</span>.hideClickPass = <span class="reserved">function</span>() {
+    var div = document.getElementById( <span class="literal">"clickPass"</span>+<span class="reserved">this</span>.clickPassId );
+    <span class="reserved">if</span>( div != null ) {
+<span class="comment">      //alert( "hide icon" );</span>
+      div.style.visibility = <span class="literal">"hidden"</span>;
+    } <span class="reserved">else</span> {
+      alert( <span class="literal">"div clickPass"</span>+<span class="reserved">this</span>.clickPassId+<span class="literal">" not found"</span> );
+    }
+  }
+  
+   <span class="comment">/**
+   * Register for mouseUp events.
+   * <span class="attrib">@param</span> objRef  Pointer to this object.
+   */</span>
+  <span class="reserved">this</span>.setMouseListener = <span class="reserved">function</span>(objRef) {
+    <span class="reserved">if</span> (objRef.mouseHandler) {
+      objRef.mouseHandler.model.addListener(<span class="literal">'mouseup'</span>,objRef.doAction,objRef);
+    }
+  }
+  <span class="reserved">this</span>.model.addListener( <span class="literal">"loadModel"</span>, <span class="reserved">this</span>.setMouseListener, <span class="reserved">this</span> );
+}
+<span class="comment">
+// For IE Only</span>
+<span class="reserved">function</span> hideClickPass( id ) {
+  var div = document.getElementById( <span class="literal">"clickPass"</span>+id );
+  <span class="reserved">if</span>( div != null ) {
+<span class="comment">      //alert( "hide icon" );</span>
+    div.style.visibility = <span class="literal">"hidden"</span>;
+  } <span class="reserved">else</span> {
+    alert( <span class="literal">"div clickPass"</span>+id+<span class="literal">" not found"</span> );
+  }
+}
+ </pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Fri Dec 22 07:58:58 2006</div>
+</body>
+</html>

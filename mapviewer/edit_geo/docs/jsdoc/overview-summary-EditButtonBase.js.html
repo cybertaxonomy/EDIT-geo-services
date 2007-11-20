@@ -1,0 +1,259 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+<a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006 Overview
+</title>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="EditButtonBase.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>EditButtonBase.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'EditButtonBase.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+    <table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr bgcolor="#CCCCFF" class="TableHeadingColor">
+    <td colspan=2><font size="+2">
+    
+        <b>Class Summary</b>
+    
+    </font></td>
+    </tr>
+    
+    <tr bgcolor="white" class="TableRowColor">
+    <td width="15%"><b><a href="EditButtonBase.html">EditButtonBase</a></b></td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    </table>
+    <hr/> 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*
+License: LGPL as per: http://www.gnu.org/copyleft/lesser.html
+$Id: EditButtonBase.js 2200 2006-09-26 13:28:58Z steven $
+*/</span>
+<span class="comment">
+// Ensure this object's dependancies are loaded.</span>
+mapbuilder.loadScript(baseDir+<span class="literal">"/widget/ButtonBase.js"</span>);
+
+<span class="comment">/**
+ * Base class for tools which update GML by clicking on the mapPane.
+ * <span class="attrib">@constructor</span>
+ * <span class="attrib">@base</span> ButtonBase
+ * <span class="attrib">@author</span> Cameron Shorter cameronATshorter.net
+ * <span class="attrib">@param</span> widgetNode The node from the Config XML file.
+ * <span class="attrib">@param</span> model  The ButtonBar widget.
+ */</span>
+<span class="reserved">function</span> EditButtonBase(widgetNode, model) {
+<span class="comment">  // Extend ButtonBase</span>
+  ButtonBase.apply(<span class="reserved">this</span>, new Array(widgetNode, model));
+<span class="comment">
+  // override default cursor by user</span>
+<span class="comment">  // cursor can be changed by specifying a new cursor in config file</span>
+  <span class="reserved">this</span>.cursor = <span class="literal">"crosshair"</span>; 
+
+  <span class="reserved">this</span>.trm=widgetNode.selectSingleNode(<span class="literal">"mb:transactionResponseModel"</span>);
+  <span class="reserved">if</span>(<span class="reserved">this</span>.trm)<span class="reserved">this</span>.trm=<span class="reserved">this</span>.trm.firstChild.nodeValue;
+
+  <span class="comment">/** Empty GML to load when this tool is selected. */</span>
+  <span class="reserved">this</span>.defaultModelUrl=widgetNode.selectSingleNode(<span class="literal">"mb:defaultModelUrl"</span>).firstChild.nodeValue;
+
+  <span class="comment">/** Reference to GML node to update when a feature is added. */</span>
+  <span class="reserved">this</span>.featureXpath=widgetNode.selectSingleNode(<span class="literal">"mb:featureXpath"</span>).firstChild.nodeValue;
+
+  <span class="comment">/**
+   * If tool is selected and the Edit Tool has changed (eg, changed from
+   * LineEdit to PointEdit) then load new default feature.
+   * This function is called when a tool is selected or deselected.
+   * <span class="attrib">@param</span> objRef Pointer to this object.
+   * <span class="attrib">@param</span> selected True when selected.
+   */</span>
+  <span class="reserved">this</span>.doSelect = <span class="reserved">function</span>(selected,objRef) {
+<span class="comment">    // Model that will be populated with the WFS response.</span>
+    <span class="reserved">if</span> (objRef.trm &amp;&amp; !objRef.transactionResponseModel){
+      objRef.transactionResponseModel=window.config.objects[objRef.trm];
+    }
+<span class="comment">    // Load default feature.</span>
+    <span class="reserved">if</span> (objRef.enabled &amp;&amp; selected &amp;&amp; objRef.targetModel.url!=objRef.defaultModelUrl){
+      objRef.loadDefaultModel(objRef);
+    }
+<span class="comment">    // Remove the transactionResponseModel (and result of last transaction)</span>
+<span class="comment">    // when a transaction button is deselected</span>
+    <span class="reserved">if</span>(!selected &amp;&amp; objRef.transactionResponseModel){
+      objRef.transactionResponseModel.setModel(objRef.transactionResponseModel,null);
+    }
+  }
+
+  <span class="comment">/**
+   * Load the defaultModel into the targetModel.
+   */</span>
+  <span class="reserved">this</span>.loadDefaultModel=<span class="reserved">function</span>(objRef){
+    objRef.targetModel.url=objRef.defaultModelUrl;
+<span class="comment">    // load default GML</span>
+    var httpPayload=new Object();
+    httpPayload.url=objRef.defaultModelUrl;
+    httpPayload.method=<span class="literal">"get"</span>;
+    httpPayload.postData=null;
+    objRef.targetModel.newRequest(objRef.targetModel,httpPayload);
+   }
+  <span class="comment">/**
+   * Register for mouseup events, called after model loads.
+   * <span class="attrib">@param</span> objRef Pointer to this object.
+   */</span>
+  <span class="reserved">this</span>.setMouseListener = <span class="reserved">function</span>(objRef) {
+    <span class="reserved">if</span> (objRef.mouseHandler) {
+      objRef.mouseHandler.model.addListener(<span class="literal">'mouseup'</span>,objRef.doAction,objRef);
+    }
+  }
+
+  <span class="comment">/**
+   * Set the loadModel listener in response to init event
+   * <span class="attrib">@param</span> objRef Pointer to this object.
+   */</span>
+  <span class="reserved">this</span>.initButton = <span class="reserved">function</span>(objRef) {
+    objRef.targetModel.addListener(<span class="literal">"loadModel"</span>,objRef.setMouseListener, objRef);
+  }
+
+  <span class="reserved">this</span>.model.addListener(<span class="literal">"init"</span>,<span class="reserved">this</span>.initButton, <span class="reserved">this</span>);
+}
+</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b><a href='http://mapbuilder.sourceforge.net'>Community Map Builder</a> 22 Dec 2006</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Fri Dec 22 07:58:58 2006</div>
+</body>
+</html>

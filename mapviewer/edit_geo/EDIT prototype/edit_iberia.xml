@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<ViewContext version="1.0.0" id="atlas_world" xmlns="http://www.opengis.net/context" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/context http://schemas.opengis.net/context/1.0.0/context.xsd">
+  <General>
+    <Window width="638" height="363"/>
+    <BoundingBox SRS="EPSG:4326" minx="-9.65" miny="35.6" maxx="4.85" maxy="43.85"/>
+    <Title>Iberian Map</Title>
+    <Abstract>Mapa iberico</Abstract>
+  </General>
+  <LayerList>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:landcover_glcf_iberia_30sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:landcover_glcf_iberia_30sec</Name>
+      <Title>Landcover GLCF (resol.= 30 sec)</Title>
+	  <Grup>landcover</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/lc.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+ 			
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio12_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:bio12_iberia_150sec</Name>
+      <Title>Annual Precipitation (resol.= 150 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/preciberia.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio1_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:bio1_iberia_150sec</Name>
+      <Title>Mean Temperature (resol.= 150 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/mitempiberia.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:elevation_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:elevation_iberia_150sec</Name>
+      <Title>Elevation a.s.l. (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/mimispain.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:dist_coast_deg_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:dist_coast_deg_iberia_150sec</Name>
+      <Title>Dist. to coast (deg), (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/distcoastiberia.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:sea_land_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:sea_land_europe_150sec</Name>
+      <Title>Sea / Land (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/sea_land.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+      <Layer queryable="0" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:coast_earth">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:coast_earth</Name>
+      <Title>Coast line</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+	  <StyleList>
+	      <Style current="1">
+          <Name>coast</Name>
+          <Title>coast</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/coastline.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+	
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp%3Autm_scarab</Name>
+      <Title>Uncertainity of Genera Inventory</Title>
+      <Abstract>Uncertainity of Genera Inventory.</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>incertidumbre</Name>
+          <Title>population</Title>
+		  	  <LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/leyrojo2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+
+    </Layer>
+	
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserv/wms"/>
+      </Server>
+      <Name>topp:utm_genera</Name>
+      <Title>Number of Genera</Title>
+      <Abstract>Number of genera of Scarabaeidae.</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm_generos</Name>
+          <Title>Genera</Title>
+		  	  <LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/leyverde2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+
+    </Layer>
+	
+		  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm_scarab</Name>
+      <Title>Number of Records (sampling effort)</Title>
+      <Abstract>Number of Records of Scarabaeidae.</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>regs</Name>
+          <Title>regs</Title>
+		  	  <LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/maps/edit/prototipo/images/leyazul2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+
+    </Layer>
+
+	 
+	 <Layer queryable="0" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:province_europe</Name>
+      <Title>Provinces</Title>
+	  <Grup>Administrative</Grup>
+      <Abstract>Provinces of Europe.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>paisesrojo</Name>
+          <Title>Provinces</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	 
+	 <Layer queryable="0" hidden="0">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:country_iberia</Name>
+      <Title>Countries</Title>
+	  <Grup>Administrative</Grup>
+      <Abstract>Countries of the Iberian Peninsula.</Abstract>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>paisesrojo</Name>
+          <Title>Countries</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	 
+	<Layer queryable="0" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:scarabeidos</Name>
+      <Title>Sample points</Title>
+      <Abstract>Scarabaeidae of the Iberian Peninsula.</Abstract>
+	  <Grup>puntos</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>scarabeidos</Name>
+          <Title>puntosazules</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+ <Layer queryable="0" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm2500sqkm_europe</Name>
+      <Title>utm 2500 sq km</Title>
+      <Abstract>utm 2500 sq km</Abstract>
+	  <Grup>utm</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+	<Layer queryable="0" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm10000sqkm_europe</Name>
+      <Title>utm 10000 sq km</Title>
+      <Abstract>utm 10000 sq km.</Abstract>
+	  <Grup>utm</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+
+
+
+  </LayerList>
+</ViewContext>

@@ -1,0 +1,249 @@
+
+body {
+	font-family: Verdana, arial, sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+	margin					: 0px;
+	padding					: 0px;
+	height					: 100%;
+	background-color		: #f0f0f0;
+	bottom					: 0px;
+	display: inline;
+	}
+table {
+	font-size: 1em;
+	border-spacing: 0;
+	border-collapse: collapse;
+	width: 40%;
+	width: 100%;
+    background-color: #f0f0f0;
+	} 
+table.resultat {
+	background-color: #FFFFFF;
+	border: none;
+	color: #006633;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-align: center;
+	width: 35px;
+}
+table.layerControl {
+	background-color: #FFFFFF;
+	border: none;
+	color: #495E49;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 9px;
+	text-align: left;
+}
+td.left {
+align: top;
+color: #495E49;
+width: 5px;
+}
+
+table.resultat a:hover {
+	background: transparent;
+	color: #000000;
+	text-decoration: underline;
+}
+
+table.resultat tbody td, tbody th {
+	background-color: #D6F2C3;
+	border-bottom: 2px solid #B3DE94;
+	border-top: 3px solid #FFFFFF;
+	padding: 0px;
+	width: 12px;
+}
+
+table.layerControl tbody td, tbody th {
+	background-color: #D6F2C3;
+	border-bottom: 2px solid #B3DE94;
+	border-top: 3px solid #FFFFFF;
+	padding: 3px;
+}
+
+
+table.resultat tbody tr:hover td, tbody tr:hover th {
+	background-color: #BAE899;
+}
+
+table.resultat td, th {
+	vertical-align: middle;
+}
+
+a {
+	color: blue;
+	font-weight: bold;
+	}
+#locatorContainer {
+     top: 1px;
+         } 
+#header {
+	font-family: Verdana, geneva, arial, sans-serif;
+	width: 99%;
+  	height: 15px;
+	margin-bottom: 0px;
+	margin-top: 20px;
+	valign: bottom;
+}
+
+ #menubar  dt {
+	/* background: #6699FF; */
+	font-size: 12px;
+	padding: 5px;
+	margin: 2px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	color: #333333;
+	border: thin solid #999999;
+	font-style: italic;
+}
+    dl { width: 230px; }
+	dl,dd { margin: 0; }
+.layerControl table {
+	font-size: 0px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	width: 40%;
+	width: 100%;
+	} 
+	th {
+	padding: 4px 6px;
+}  
+ .layerControl TD {
+  padding: 0px;
+  font: 80% Verdana, geneva, arial, sans-serif;
+}
+
+ .altRow_1 {
+	background-color: #CCCCCC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+	border: ridge;
+	width: auto;
+}
+ .altRow_0 {
+	background-color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+	border: ridge;
+	width: auto;
+}
+#header .left {
+	 margin-top: 20px; 
+	}
+#header .right {
+	margin-top: 20px;
+	}	
+#middle {
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	display: inline;
+	}
+#menubar {
+	display: block;
+	position: absolute;
+	left: 1px;
+	top: 5px;
+	bottom: 60px;
+	width: 230px;
+	font-family: Verdana, geneva, arial, sans-serif;
+	font-size: 8pt;
+	bottom: 60px;
+	background-color: #CCCCCC;
+	height: 540;
+	}
+	#menubar a {
+font-weight: normal;
+	color: white;
+	}
+	
+	#menubar ul {
+	background:  #3c78b5;
+margin: 0px;
+  padding: 0px;
+  display: inline;
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: outside;
+  font-size: 10px;
+}
+
+
+/* th= table header Cabezera tabla (ex: listado capabilities) */
+th {
+	background: #ddd;
+	color: #666;
+	border-bottom: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	border-left: 2px solid #dadada;
+	border-top: 2px solid #dadada;
+	text-align: left;
+	font-weight: bold;
+}
+
+#menubar li {
+	background:  #3c78b5;
+	margin: 0px;
+	padding: 2px;
+	display: block;
+	}
+
+
+dt a {
+	color: #00000;
+}
+	dd a {
+	color: #000;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bold;
+}
+	ul {
+	list-style: none;
+	padding: 5px;
+	background-color: #00FFCC;
+}
+
+/* Hides from IE-mac \*/
+* html #mainbody {height: 1%;}
+/* End hide from IE-mac */
+#mainbody .left{
+	position: relative;
+	height: 10%;
+	top: 0px;
+	bottom: 0px;
+	left: 2px;
+	width: 30%;
+	display: block;
+	float: center;
+	margin: 0px;
+	overflow-x: auto;
+	overflow: scroll;
+}
+#mainbody .right{
+	position: relative;
+display: block;
+		height: 99%;		
+		width: 76%;
+		margin-left: 0%;
+		right: 0px;
+float: right;
+		margin: 0px;
+		
+}
+
+#mainMapPane { width: 640;}
+#mainMapContainer {
+  border: 1px solid olive;
+  cursor: crosshair;
+  
+}
+#cursorTrack INPUT {
+	border: none;
+	}
