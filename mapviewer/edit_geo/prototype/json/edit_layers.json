@@ -1,0 +1,416 @@
+[
+       	{
+    "extent": "iberia",
+    "theme": "enviranalysis",	
+    "layers": [{
+	  "id":"envanal1",
+      "nom":"Slope at the end of collector curve",
+	  "Abstract":"Slope at the end of collector curve",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:slopefin2\')",	  
+	  },
+	  {
+	  "id":"envanal2",
+      "nom":"Number of Genera / Number of Records",
+	  "Abstract":"Number of Genera / Number of Records",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:taxisregis2\')",	  
+	  },
+	  	  {
+	  "id":"envanal13",
+      "nom":"Number of Genera",
+	  "Abstract":"Number of Genera",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:nutaxis2\')",	  
+	  },
+	  	  {
+	  "id":"ianalysis4",
+      "nom":"Number of Records (sampling effort)",
+	  "Abstract":"Number of Records (sampling effort)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:nuregis2\')",	  
+	  }],
+	},
+   	{
+    "extent": "iberia",
+    "theme": "analysis",	
+    "layers": [{
+	  "id":"ianalysis1",
+      "nom":"Uncertainity of Genera Inventory",
+	  "Abstract":"Uncertainity of Genera Inventory",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm_incertidum\')",	  
+	  },
+	  {
+	  "id":"ianalysis2",
+      "nom":"Number of Genera / Number of Records",
+	  "Abstract":"Number of Genera / Number of Records",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:scarab2500new\')",	  
+	  },
+	  	  {
+	  "id":"ianalysis3",
+      "nom":"Number of Genera",
+	  "Abstract":"Number of Genera",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm_numgenus\')",	  
+	  },
+	  	  {
+	  "id":"ianalysis4",
+      "nom":"Number of Records (sampling effort)",
+	  "Abstract":"Number of Records (sampling effort)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm_scarab\')",	  
+	  }],
+	},
+   {
+    "extent": "world",
+    "theme": "administrative",	
+    "layers": [{
+	  "id":"wa1",
+      "nom":"Countries world",
+	  "Abstract":"abstract Administrative countries",	  
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:country_earth\')",
+
+	  },
+	  {
+	   "id":"wa2",
+      "nom":"TDWG Level 1",
+	  "Abstract":"abstact TDWG Level 1",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_1\')",
+	  },
+	  	  {
+	   "id":"wa3",
+      "nom":"TDWG Level 2",
+	  "Abstract":"abstact TDWG Level 2",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_2\')",
+	  },
+	  	  {
+	   "id":"wa4",
+      "nom":"TDWG Level 3",
+	  "Abstract":"abstact TDWG Level 3",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_3\')",
+	  },
+	  	  {
+	  "id":"wa4",
+      "nom":"TDWG Level 4",
+	  "Abstract":"abstact TDWG Level 4",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_4\')",
+	  }],
+    
+  },
+     {
+    "extent": "world",
+    "theme": "utm",	
+    "layers": [{
+	   "id":"wutm1",
+      "nom":"Icos. Triangles 250000 sqkm",
+	  "Abstract":"abstract Icos Triangles 250000 sqkm",	  
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:itr250000sqkm_earth\')",
+
+	  },
+	  {
+	  "id":"wutm2",
+      "nom":"Icos. Triangles 1000000 sqkm",
+	  "Abstract":"abstract Icos Triangles 1000000 sqkm",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:itr1000000sqkm_earth\')",
+	  },
+	  	  {
+	  "id":"wutm3",
+      "nom":"Latitudinal squares 250000 sqkm",
+	  "Abstract":"abstact Latitudinal squares 250000 sqkm",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elrs250000sqkm\')",
+	  },
+	  	  {
+	  "id":"wutm4",
+      "nom":"Latitudinal squares 1000000 sqkm",
+	  "Abstract":"Latitudinal squares 1000000 sqkm",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elrs1000000sqkm\')",
+	  },
+	  	  {
+	  "id":"wutm5",
+      "nom":"UTM squares 250000 sqkm",
+	  "Abstract":"abstact UTM squares 250000 sqkm",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm250000sqkm_earth\')",
+	  },
+	  	  	  {
+	  "id":"wutm6",
+      "nom":"UTM squares 1000000 sqkm",
+	  "Abstract":"abstact UTM squares 1000000 sqkm",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm1000000sqkm_earth\')",
+	  }],
+    
+  },
+    {
+    "extent": "world",
+    "theme": "topography",	
+    "layers": [{
+	  "id":"wtop1",
+      "nom":"Elevation a s l (resol 300 sec)",
+	  "Abstract":"abstract Elevation a.s.l. (resol. 300 sec)",	
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elevation_earth_300sec\')", 
+	  },
+	  {
+	  "id":"wtop2",
+      "nom":"Distance coast (km) (resol 300 sec)",
+	  "Abstract":"abstact Distance coast (km) (resol.300 sec)",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:distcoast_earth_300sec\')",
+	  },
+	  	  {
+	  "id":"wtop3",
+      "nom":"Sea / Land (resol 300 sec)",
+	  "Abstract":"abstact Sea / Land (resol. 300 sec)",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:sea_land_300sec\')",
+	  },
+	  	  {
+	  "id":"wtop4",
+      "nom":"Coast line",
+	  "Abstract":"abstact Coast line)",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:coast_earth\')",
+	  }],
+    },
+	    {
+	  "id":"wtop5",
+    "extent": "world",
+    "theme": "climate",	
+    "layers": [{
+      "nom":"Annual Precipitation (resol. 300 sec)",
+	  "Abstract":"abstract Annual Precipitation (resol 300 sec)",	
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'opp:bio12_earth_300sec\')", 
+	  },
+	  {
+	  "id":"wtop6",
+      "nom":"DMean Temperature (resol. 300 sec)",
+	  "Abstract":"abstact Mean Temperature (resol. 300 sec)",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:bio1_earth_300sec\')",
+	  }],
+    },
+		    {
+	"id":"wland",
+    "extent": "world",
+    "theme": "landcover",	
+    "layers": [{
+      "nom":"Landcover GLCF (resol. 225 sec)",
+	  "Abstract":"abstract Landcover GLCF (resol. 225 sec)",	
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:landcover_glcf_earth_225sec\')", 
+	  }],
+    },
+	   {
+    "extent": "world",
+    "theme": "user_points",	
+    "layers": [{
+	  "id":"wuser",
+      "nom":"user points ",
+	  "Abstract":"abstract user points",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:test_csvimportgispoints\')",	  
+	  }],
+  },
+   {
+    "extent": "europe",
+    "theme": "administrative",	
+    "layers": [{
+	  "id":"eadm1",
+      "nom":"Provinces",
+	  "Abstract":"Provinces of Europe.",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:province_europe\')",	  
+	  },
+	  {
+	  "id":"eadm2",
+      "nom":"Countries",
+	  "Abstract":"Countries of Europe.",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:country_earth_europe\')",	  
+	  }],
+  },
+     {
+    "extent": "europe",
+    "theme": "utm",	
+    "layers": [{
+	  "id":"eutm1",
+      "nom":"Icos. Triangles 10000 sqkm",
+	  "Abstract":"10000 sq km Icosaedric Triangles of Europe",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:itr10000sqkm_europe\')",	  
+	  },
+	  {
+	  "id":"eutm2",
+      "nom":"Icos Triangles 250000 sqkm",
+	  "Abstract":"250000 sq km Icosaedric Triangles of Europe",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:itr250000sqkm_europe\')",	  
+	  },
+	  {
+	  "id":"eutm3",
+      "nom":"Latitudinal squares 10000 sqkm",
+	  "Abstract":"Latitudinal squares 10000 sqkm of Europe",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elrs10000sqkm_europe\')",	  
+	  },
+	  	  {
+	  "id":"eutm4",
+      "nom":"Latitudinal squares 250000 sqkm",
+	  "Abstract":"Latitudinal squares 250000 sqkm",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elrs250000sqkm_europe\')",	  
+	  },
+	  	  	  {
+		"id":"eutm5",
+      "nom":"UTM 10000 sqkm",
+	  "Abstract":"10000 sq km UTM squares of Europe",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm10000sqkm_europe\')",	  
+	  },
+	  	  	  {
+	  "id":"eutm6",
+      "nom":"UTM 250000 sqkm",
+	  "Abstract":"250000 sq km UTM squares of Europe",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm250000sqkm_europe\')",	  
+	}],
+    },
+
+	{
+    "extent": "europe",
+    "theme": "topography",	
+    "layers": [{
+	  "id":"etop1",
+      "nom":"Elevation a.s.l. (resol 150 sec)",
+	  "Abstract":"Provinces of Europe.",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elevation_europe_150sec\')",	  
+	  },
+	  {
+	  "id":"etop2",
+      "nom":"Sea / Land (resol 150 sec)",
+	  "Abstract":"Sea / Land (resol 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:sea_land_europe_150sec\')",	  
+	  },
+	  	  {
+	  "id":"etop3",
+      "nom":"Distance coast",
+	  "Abstract":"Distance coast (km) (resol 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:distcoast_europe_150sec\')",	  
+	  },
+	  	  	  {
+		"id":"etop4",
+      "nom":"Coast line",
+	  "Abstract":"Coast line",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:coast_europe\')",	  
+		}],
+	  },
+	{
+    "extent": "europe",
+    "theme": "climate",	
+    "layers": [{
+	  "id":"eclima1",
+      "nom":"Annual Precipitation",
+	  "Abstract":"Annual Precipitation",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:bio12_europe_150sec\')",	  
+	  },
+	  {
+	  "id":"eclima2",
+      "nom":"Mean Temperature",
+	  "Abstract":"Mean Temperature",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:bio1_europe_150sec\')",	  
+	  }],
+	  },
+	{
+    "extent": "europe",
+    "theme": "landcover",	
+    "layers": [{
+	  "id":"eland",
+      "nom":"Landcover GLCF",
+	  "Abstract":"Landcover GLCF (resol. 225 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:landcover_glcf_europe_225sec\')",	  
+		}],
+	  },
+	 
+	{
+    "extent": "iberia",
+    "theme": "administrative",	
+    "layers": [{
+	  "id":"ibadm1",
+      "nom":"Provinces of Europe",
+	  "Abstract":"Provinces of Europe",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:province_europe\')",	  
+	  },
+	  {
+	  "id":"ibadm2",
+      "nom":"Countries",
+	  "Abstract":"Countries",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:country_earth\')",	  
+	    }],
+	  },
+	{
+    "extent": "iberia",
+    "theme": "utm",	
+    "layers": [{
+	  "id":"ibutm1",
+      "nom":"Icos. Triangles 10000 sq km",
+	  "Abstract":"Icosaedric Triangles 10000 sq km.",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:itr10000sqkm_spain\')",	  
+	  },
+	  {
+	  "id":"ibadm2",
+      "nom":"Latitudinal squares 10000 sq km",
+	  "Abstract":"Latitudinal squares 10000 sq km",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elrs10000sqkm_iberia\')",	  
+	  },
+	  {
+	  "id":"ibadm3",
+      "nom":"UTM squares 2500 sqkm",
+	  "Abstract":"UTM squares 2500 sqkm",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm2500sqkm_iberia\')",	  
+	  },
+	  	  {	  
+	  "id":"ibadm4",
+      "nom":"UTM squares 10000 sqkm",
+	  "Abstract":"UTM squares 10000 sqkm",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm10000sqkm_iberia\')",	  
+	  }],
+	  },
+	{
+    "extent": "iberia",
+    "theme": "topography",	
+    "layers": [{
+	  "id":"itop1",
+      "nom":"Elevation",
+	  "Abstract":"Elevation a.s.l. (resol. 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:elevation_iberia_150sec\')",	  
+	  },
+	  {
+	  "id":"itop2",
+      "nom":"Distance coast",
+	  "Abstract":"Distance coast (km) (resol. 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:distcoast_iberia_150sec\')",	  
+	  },
+	  {
+	  "id":"itop3",
+      "nom":"Sea / Land",
+	  "Abstract":"Sea / Land (resol 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:sea_land_europe_150sec\')",	  
+	  },
+	  	  {
+		"id":"itop4",
+      "nom":"Coast line",
+	  "Abstract":"Coast line",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:coast_iberia\')",	  
+	  }],
+	  },
+	{
+    "extent": "iberia",
+    "theme": "climate",	
+    "layers": [{
+	   "id":"iclim1",
+      "nom":"Annual Precipitation (resol. 150 sec)",
+	  "Abstract":"Annual Precipitation (resol. 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:bio12_iberia_150sec\')",	  
+	  },
+	  {
+	  "id":"iclim2",
+      "nom":"Mean Temperature",
+	  "Abstract":"Mean Temperature (resol. 150 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:bio1_iberia_150sec\')",	  
+	  }],
+	  },
+	{
+    "extent": "iberia",
+    "theme": "landcover",	
+    "layers": [{
+	  "id":"ilandc",
+      "nom":"Landcover GLCF",
+	  "Abstract":"Landcover GLCF (resol. 30 sec)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:landcover_glcf_iberia_30sec\')",	  
+	  }],
+	  }
+		  
+]
+	  
+	 
+	  
+	  
+
