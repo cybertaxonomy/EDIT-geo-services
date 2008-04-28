@@ -1547,12 +1547,6 @@ mapviewer/edit_geo/lib/widget/DragPan.js -text
 mapviewer/edit_geo/lib/widget/EditButtonBase.js -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.js -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.xsl -text
-mapviewer/edit_geo/lib/widget/FeatureList.js -text
-mapviewer/edit_geo/lib/widget/FeatureList.xsl -text
-mapviewer/edit_geo/lib/widget/FeatureListSF.js -text
-mapviewer/edit_geo/lib/widget/FeatureList_edit2.xsl -text
-mapviewer/edit_geo/lib/widget/FilterAttributes.js -text
-mapviewer/edit_geo/lib/widget/FilterAttributes.xsl -text
 mapviewer/edit_geo/lib/widget/Forward.js -text
 mapviewer/edit_geo/lib/widget/GeoRssParser.js -text
 mapviewer/edit_geo/lib/widget/GeoRssRenderer.js -text
