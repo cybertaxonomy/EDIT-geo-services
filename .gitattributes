@@ -1611,7 +1611,13 @@ mapviewer/edit_geo/prototype/GetFeatureInfo.js -text
 mapviewer/edit_geo/prototype/config.xml -text
 mapviewer/edit_geo/prototype/edit.html -text
 mapviewer/edit_geo/prototype/edit_europe.xml -text
+mapviewer/edit_geo/prototype/edit_europe2.xml -text
+mapviewer/edit_geo/prototype/edit_europe_conic.xml -text
 mapviewer/edit_geo/prototype/edit_iberia.xml -text
+mapviewer/edit_geo/prototype/edit_iberia_utm30.xml -text
+mapviewer/edit_geo/prototype/edit_project.html -text
+mapviewer/edit_geo/prototype/edit_project_unload.html -text
+mapviewer/edit_geo/prototype/edit_user_sld.html -text
 mapviewer/edit_geo/prototype/images/arrow-back_16.gif -text
 mapviewer/edit_geo/prototype/images/arrow-back_16.png -text
 mapviewer/edit_geo/prototype/images/arrow-forward_16.gif -text
