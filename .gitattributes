@@ -1668,7 +1668,6 @@ mapviewer/edit_geo/lib/widget/WidgetBase.js -text
 mapviewer/edit_geo/lib/widget/WidgetBaseWZ.js -text
 mapviewer/edit_geo/lib/widget/WidgetBaseXSL.js -text
 mapviewer/edit_geo/lib/widget/WidgetBaseXSL_original.js -text
-mapviewer/edit_geo/lib/widget/WktParser.js -text
 mapviewer/edit_geo/lib/widget/WmsCapabilitiesImport.js -text
 mapviewer/edit_geo/lib/widget/WmsCapabilitiesImport.xsl -text
 mapviewer/edit_geo/lib/widget/XmlForm.xsl -text
