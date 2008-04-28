@@ -1549,8 +1549,6 @@ mapviewer/edit_geo/lib/widget/FeatureInfo.js -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.xsl -text
 mapviewer/edit_geo/lib/widget/Forward.js -text
 mapviewer/edit_geo/lib/widget/GetFeatureInfo.js -text
-mapviewer/edit_geo/lib/widget/GetMarkerInfo.js -text
-mapviewer/edit_geo/lib/widget/Gml2ScreenCoords.xsl -text
 mapviewer/edit_geo/lib/widget/GmlCooordinates2Coord.xsl -text
 mapviewer/edit_geo/lib/widget/GmlPointRenderer.js -text
 mapviewer/edit_geo/lib/widget/GmlRenderer.js -text
