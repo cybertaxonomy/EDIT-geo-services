@@ -1428,8 +1428,6 @@ mapviewer/edit_geo/lib/tool/EditSLD.js -text
 mapviewer/edit_geo/lib/tool/Extent.js -text
 mapviewer/edit_geo/lib/tool/History.js -text
 mapviewer/edit_geo/lib/tool/MouseClickHandler.js -text
-mapviewer/edit_geo/lib/tool/MovieLoop.js -text
-mapviewer/edit_geo/lib/tool/Timer.js -text
 mapviewer/edit_geo/lib/tool/ToolBase.js -text
 mapviewer/edit_geo/lib/tool/WebServiceRequest.js -text
 mapviewer/edit_geo/lib/tool/ZoomToAoi.js -text
