@@ -1,0 +1,17 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 \
+Some general notes:\
+\
+-upload_data.php inserts CSV and generates a SLD file based on genus (can be extended to species or any other kind of info); this file and its path is updated in (some of) the WebMapContext files; these WMC (xml files) say to mapbuilder which and where take data from and are primarly in php "format" (to allow a dynamic change using simpleXML methods; check world.php, europe.php...).\
+\
+-mapbuilder works following a config.xml file (in our case some parameters are defined dynamically by php in the file: config_user.php --> will become config_user_sld.xml) which says which models, tools and widgets to use (that's all javascript stuff); a lot of the mapbuilder source has been modified to get what we want.\
+\
+-there is a lot of javascript code based on jquery (a very very useful javascript library) ; Check file edit_project_commented.html in order to understand some pieces of this jquery code (no compressed; the functional EDIT mapviewer uses compressed code in order to get better performance).\
+\
+A good hint: if you really want to know what, where and why happens something, use Firebug (with Firefox). Very useful.\
+}
