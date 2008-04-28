@@ -30,8 +30,9 @@ fclose($handle);
 header("Content-type: text/xml");
 
 // Return XML snippet with file reference.
-echo '
+/* echo '
 <XmlSerializer xmlns:xlink="http://www.w3.org/1999/xlink">
   <OnlineResource xlink:type="simple" xlink:href="' . $tmpfname . '"/>
 </XmlSerializer>';
+*/
 ?> 
