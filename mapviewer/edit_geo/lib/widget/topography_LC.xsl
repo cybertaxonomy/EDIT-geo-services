@@ -54,9 +54,40 @@
 
 
 </tr>
-<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td colspan="5"><xsl:if test="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL"><xsl:element name="IMG"><xsl:attribute name="SRC"><xsl:value-of select="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL/wmc:OnlineResource/@xlink:href"/>
+<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td colspan="5">
+<xsl:choose>
+<xsl:when test="$layerName='topp:elevation_earth_300sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/elev.jpg"/>
+</xsl:when>
 
-</xsl:attribute></xsl:element></xsl:if></td></tr>
+<xsl:when test="$layerName='topp:distcoast_earth_300sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/distcoast.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:sea_land_300sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/sea_land.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:coast_earth'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/coastline.jpg"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:elevation_iberia_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/mimispain.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:distcoast_iberia_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/distcoastiberia.jpg"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:sea_land_europe_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/sea_land.jpg"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:coast_iberia'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/coastline.jpg"/>
+</xsl:when>
+
+</xsl:choose>
+
+</td></tr>
 
 </xsl:if>
 </xsl:template><xsl:template match="text()|@*"/></xsl:stylesheet>

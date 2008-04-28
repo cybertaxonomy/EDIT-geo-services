@@ -26,10 +26,7 @@ this.model.addListener("refresh",this.paint,this);
 this.model.addListener("modelStatus",this.update,this);
 }
 Loading2.prototype.paint=function(objRef){
-objRef.node=document.getElementById(objRef.htmlTagId);
 if(objRef.node){
-if(objRef.model.template)return;
-if(!objRef.model.url)return;
 var outputNode=document.getElementById(objRef.outputNodeId+"_loading");
 if(!outputNode){
 outputNode=document.createElement("div");
@@ -37,19 +34,17 @@ outputNode.setAttribute("id",objRef.outputNodeId+"_loading");
 objRef.node.appendChild(outputNode);
 }
 outputNode.className="loadingIndicator";
-outputNode.style.zIndex=1000;
-if(objRef.mapContainerNode){
+outputNode.style.zindex=1000;
 outputNode.style.position="absolute";
 outputNode.style.left='0px';
 outputNode.style.top='0px';
-}
 if(objRef.imageSrc){
 var imageNode=document.getElementById(objRef.outputNodeId+"_imageNode");
 if(!imageNode){
 imageNode=document.createElement("img");
 imageNode.setAttribute("id",objRef.outputNodeId+"_imageNode");
 outputNode.appendChild(imageNode);
-imageNode.style.zIndex=1000;
+imageNode.style.zindex=1000;
 }
 imageNode.src=objRef.imageSrc;
 }
@@ -65,10 +60,8 @@ messageNode.innerHTML=objRef.updateMessage;
 }
 }
 Loading2.prototype.clear=function(objRef){
-objRef.updateMessage=null;
 var outputNode=document.getElementById(objRef.outputNodeId+"_loading");
 if(outputNode)objRef.node.removeChild(outputNode);
-objRef.node=null;
 }
 Loading2.prototype.update=function(objRef,message){
 if(message){

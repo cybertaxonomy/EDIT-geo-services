@@ -56,9 +56,41 @@
 
 
 </tr>
-<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td colspan="5"><xsl:if test="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL"><xsl:element name="IMG"><xsl:attribute name="SRC"><xsl:value-of select="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL/wmc:OnlineResource/@xlink:href"/>
+<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')">
+<td colspan="5">
 
-</xsl:attribute></xsl:element></xsl:if></td></tr>
+
+<xsl:choose>
+<xsl:when test="$layerName='topp:bio12_earth_300sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/mitempeuro.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:bio1_europe_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/prec.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:bio1_earth_300sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/mitemp.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:bio1_europe_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/prec.jpg"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:bio12_europe_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/preceuro.jpg"/>
+</xsl:when>
+
+<xsl:when test="$layerName='topp:bio12_iberia_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/preciberia.jpg"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:bio1_iberia_150sec'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/mitempiberia.jpg"/>
+</xsl:when>
+
+
+</xsl:choose>
+
+</td></tr>
 
 </xsl:if>
 </xsl:template><xsl:template match="text()|@*"/></xsl:stylesheet>

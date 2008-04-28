@@ -13,22 +13,13 @@
 <xsl:param name="context">config.objects.<xsl:value-of select="$modelId"/></xsl:param>
 
 <xsl:template match="/wmc:ViewContext">
-
 <div>
-
 <table class="layerControl" cellspacing="0" width="340px">
-
-
-
 <xsl:apply-templates select="wmc:LayerList/wmc:Layer">
-
-
 <xsl:sort select="position()" order="descending" data-type="number"/>
 </xsl:apply-templates>
-
 </table>
 </div>
-
 </xsl:template>
 
 <xsl:template match="wmc:Layer">
@@ -37,8 +28,11 @@
 
 <xsl:if test="$grup='utm2500analysis'">
 <xsl:variable name="rowClass">altRow_<xsl:value-of select="position() mod 2"/></xsl:variable>
-<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td><input type="checkbox" id="vis_{$layerName}" title="{$toggleVisTip}" onclick="{$context}.setHidden('{$layerName}',!document.getElementById('vis_{$layerName}').checked)">
-<xsl:if test="@hidden='0'"><xsl:attribute name="checked"/></xsl:if>
+<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')">
+<td><input type="checkbox" id="vis_{$layerName}" title="{$toggleVisTip}" onclick="{$context}.setHidden('{$layerName}',!document.getElementById('vis_{$layerName}').checked)">
+<xsl:if test="@hidden='0'">
+<xsl:attribute name="checked"/>
+</xsl:if>
 </input>
 </td>
 
@@ -54,9 +48,22 @@
 
 
 </tr>
-<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td colspan="5"><xsl:if test="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL"><xsl:element name="IMG"><xsl:attribute name="SRC"><xsl:value-of select="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL/wmc:OnlineResource/@xlink:href"/>
-
-</xsl:attribute></xsl:element></xsl:if></td></tr>
+<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td colspan="5">
+<xsl:choose>
+<xsl:when test="$layerName='topp:utm_incertidum'">
+<img src="http://edit.csic.es:8080/geoserver/filesweb/leyrojo2.jpg"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:scarab2500new'">
+<img src="http://edit3.csic.es:80/geoserver/wms/GetLegendGraphic?VERSION=1.1.1&amp;FORMAT=image/png&amp;LAYER=topp:scarab2500new"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:utm_scarab'">
+<img src="http://edit3.csic.es:80/geoserver/wms/GetLegendGraphic?VERSION=1.1.1&amp;FORMAT=image/png&amp;LAYER=topp:utm_scarab"/>
+</xsl:when>
+<xsl:when test="$layerName='topp:utm_numgenus'">
+<img src="http://edit3.csic.es:80/geoserver/wms/GetLegendGraphic?VERSION=1.1.1&amp;FORMAT=image/png&amp;LAYER=topp:utm_numgenus"/>
+</xsl:when>
+</xsl:choose>
+</td></tr>
 
 </xsl:if>
 </xsl:template><xsl:template match="text()|@*"/></xsl:stylesheet>

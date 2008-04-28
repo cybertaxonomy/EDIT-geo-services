@@ -24,15 +24,19 @@
 <xsl:variable name="layerName" select="wmc:Name"/>
 <xsl:variable name="grup" select="wmc:Grup"/>
 
-<xsl:if test="$grup='landcover'">
+<xsl:if test="$grup='enviranalysis'">
 <xsl:variable name="rowClass">altRow_<xsl:value-of select="position() mod 2"/></xsl:variable>
-<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td><input type="checkbox" id="vis_{$layerName}" title="{$toggleVisTip}" onclick="{$context}.setHidden('{$layerName}',!document.getElementById('vis_{$layerName}').checked)">
-<xsl:if test="@hidden='0'"><xsl:attribute name="checked"/></xsl:if>
+<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')">
+<td><input type="checkbox" id="vis_{$layerName}" title="{$toggleVisTip}" onclick="{$context}.setHidden('{$layerName}',!document.getElementById('vis_{$layerName}').checked)">
+<xsl:if test="@hidden='0'">
+<xsl:attribute name="checked"/>
+</xsl:if>
 </input>
 </td>
-<td onclick="config.objects.{$widgetId}.showLayerMetadata('{$layerName}')"><xsl:choose><xsl:when test="wmc:Title/@xml:lang"><xsl:value-of select="wmc:Title[@xml:lang=$lang]"/></xsl:when><xsl:otherwise><xsl:value-of select="wmc:Title"/></xsl:otherwise></xsl:choose></td>
+
+<td onclick="config.objects.{$widgetId}.showLayerMetadata('{$layerName}')"><xsl:value-of select="wmc:Title"/>
+</td>
+
 </tr>
-<tr class="{$rowClass}" onmouseover="config.objects.{$widgetId}.highlightLayer('{$layerName}')"><td colspan="5"><xsl:if test="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL"><xsl:element name="IMG"><xsl:attribute name="SRC"><xsl:value-of select="wmc:StyleList/wmc:Style[@current='1']/wmc:LegendURL/wmc:OnlineResource/@xlink:href"/>
-</xsl:attribute></xsl:element></xsl:if></td></tr>
 </xsl:if>
 </xsl:template><xsl:template match="text()|@*"/></xsl:stylesheet>

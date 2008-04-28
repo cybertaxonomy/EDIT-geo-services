@@ -1676,7 +1676,9 @@ mapviewer/edit_geo/lib/widget/XmlSchemaForm.xsl -text
 mapviewer/edit_geo/lib/widget/ZoomIn.js -text
 mapviewer/edit_geo/lib/widget/ZoomOut.js -text
 mapviewer/edit_geo/lib/widget/admin_LC.xsl -text
+mapviewer/edit_geo/lib/widget/altres_LC.xsl -text
 mapviewer/edit_geo/lib/widget/climate_LC.xsl -text
+mapviewer/edit_geo/lib/widget/environ_LC.xsl -text
 mapviewer/edit_geo/lib/widget/landcover_LC.xsl -text
 mapviewer/edit_geo/lib/widget/owsMapPane.xsl -text
 mapviewer/edit_geo/lib/widget/puntos_LC.xsl -text
