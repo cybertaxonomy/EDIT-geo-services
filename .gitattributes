@@ -1629,11 +1629,6 @@ mapviewer/edit_geo/lib/widget/SelectMapLayers2.xsl -text
 mapviewer/edit_geo/lib/widget/SetAoi.js -text
 mapviewer/edit_geo/lib/widget/ShowDistance.js -text
 mapviewer/edit_geo/lib/widget/ShowDistance.xsl -text
-mapviewer/edit_geo/lib/widget/TabbedContent.js -text
-mapviewer/edit_geo/lib/widget/TabbedContent.xsl -text
-mapviewer/edit_geo/lib/widget/TimeSeries.js -text
-mapviewer/edit_geo/lib/widget/Timestamp.js -text
-mapviewer/edit_geo/lib/widget/Timestamp.xsl -text
 mapviewer/edit_geo/lib/widget/TipWidget.js -text
 mapviewer/edit_geo/lib/widget/TransactionResponse.js -text
 mapviewer/edit_geo/lib/widget/TransactionResponse.xsl -text
