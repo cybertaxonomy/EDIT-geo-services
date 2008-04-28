@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+      
+<html xmlns="http://www.w3.org/1999/xhtml" >
+  <head>
+    <title>Geoplatform MNCN - Map viewer (prototype)</title>
+    <script type="text/javascript" src="js_code/jquery.js"></script>
+	<link type="text/css" rel="stylesheet" media="all" href="css/edit_all.css">
+	<link type="text/css" rel="stylesheet" media="all" href="css/farbtastic.css">
+	<link type="text/css" rel="stylesheet" media="all" href="css/tables.css">
+	<script type="text/javascript" src="js_code/compressed_code.js"></script>	
+	<script>
+
+		//IMPORTANT: THIS IS THE UNCOMPRESSED CODE VERSION OF EDIT MAPVIEWER; I HOPE IT WILL MAKE easier to understand some pieces of code...
+		//original js files that compose the js_code/compressed_code.js can be checked at JQ_win_files folder:
+//		-dimensions: width&height functions 
+//		-jqDnR: drag&resize jqModal functions
+//		-jqModal: floating windows&events
+//		(and of course all these plug-ins need jquery.js)
+//		-also jquery THAT MANAGES TABS (LEFT MENU CREATING LAYERS, METADATA AND LEGEND MENU), DEPENDING ON THE SELECTED EXTENT (GETLAYERS)
+
+		//OTHER NECESSARY SCRIPTS WILL BE CALLED ON.THE-FLY, ONLY WHEN USER NEEDS THEM (EX: REMOTE_WMS.js, SYMBOLOGY.js); as some necessary code is already loaded (jqModal window), these scripts will be very light.
+		
+	//XML file that stores the configuration files; will be load by mapbilder -->
+	 var mbConfigUrl='config.xml';
+	 alert('This site only works completely fine, for the moment, with Firefox 2.0!');
+	
+	$(document).ready(function() {
+	//extent loaded initially
+	var extent="world";
+	//we hide many many things...
+     $(".tabs").hide();$('#workspace').hide();
+    $('#query_result,#ex2,#ex3,#ex_info,.tabs,div[@id*="_lay"],#help,dd:not(:first),#workspace,#user_dates, #demo2_data,#demo3_data').hide();
+	//we assign behaviours, events, to HTML nodes
+	//click on a dt makes the currently visible dd to be closed (slideUp) and the ones from the selected td, slideDown (visible)
+	$("dt a").click(function(){$("dd:visible").slideUp("slow");$(this).parent().next().slideDown("slow");return false});
+	//symbolize script is loaded when you click to the "Symbolize tool"
+	$('#id').click(function()
+   {   
+   $.getScript('js_code/symbology.js');
+   });	
+	//load remote_wms script 
+	$('#letter-f form').submit(function() {
+		 $.getScript('js_code/remote_wms.js');
+		return false;
+	});		
+	//load bind_it script after clicking the query_aoi 
+	////it binds events (bindbehaviors function) to the recently constructed table (via ajax GET php request, check below code); it will allow pagination, sorting columns and closing jqmodal window
+		$('#query_AOI').click(function()
+		{
+		 $.getScript('js_code/bind_it.js');
+		
+		$('#content').remove();
+		//we get the previously selected Area of Interest (after using the SetAOI tool in ButtonBar)
+		var aoiBox=config.objects.mainMap.getParam("aoi");				
+		var x_ul=aoiBox[0][0];
+		var y_ul=aoiBox[0][1];
+		var x_br=aoiBox[1][0];
+		var y_br=aoiBox[1][1];
+		bbox=[];
+		//the bbox is pushed and passed to the bind_it.js, that will perform an ajax request (php code) to postGIS with bbox as parameters
+	    bbox.push(x_ul,y_ul,x_br,y_br);	
+		});
+	//function that constructs menus with different layers, metadata and legend to visualize depending on the extent parameter (iberia selected context will construct menu only with layers related to iberia...)
+	var getlayers=function(extent) {
+	$('#climate_layers,#topo_layers,#admin_layers,#utm_layers,#analysis_layers').empty();
+	$.getJSON('json/edit_layers.json', function(data) {
+	$.each(data, function(entryIndex, entry) { 
+		//if JSON extent parameter is == passed extent parameter...
+	 if (entry['extent']==extent) { 
+	    html = '<ul class="Layers">';
+		//we construct "thematic" menus 
+		//if JSON theme parameter is == administrative...
+	    if (entry['theme']=='administrative') {	
+	   $.each(entry['layers'], function(lineIndex, info) {    		
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';		
+		   });	  
+		html += '</ul>'; 
+		//function that binds the "click" on this link to the automatical fill of the thematically related "metadata" tab 
+		bindFirstEvents();
+		//we add the created html to html id=admin_layers
+		$('#admin_layers').append(html);  	
+	   }
+	   	if (entry['theme']=='analysis') {	
+	   $.each(entry['layers'], function(lineIndex, info) {    		
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';		
+		   });	  
+		html += '</ul>'; 
+		bindFirstEvents();
+		$('#analysis_layers').append(html);  	
+	   }
+	   	if (entry['theme']=='enviranalysis') {	
+	   $.each(entry['layers'], function(lineIndex, info) {    		
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';		
+		   });	  
+		html += '</ul>'; 
+		bindFirstEvents();
+		$('#enviranalysis_layers').append(html);  	
+	   }
+	   if (entry['theme']=='utm') {
+	   $.each(entry['layers'], function(lineIndex, info) {
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';
+		   });	
+		html += '</ul>'; 
+		bindFirstEvents();
+		$('#utm_layers').append(html);    	
+	    		
+	   }   
+	    if (entry['theme']=='climate') {
+	   $.each(entry['layers'], function(lineIndex, info) {    		
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';			
+		   });	 
+		html += '</ul>'; 
+		bindFirstEvents();	
+		$('#climate_layers').append(html);        
+	   }
+	    if (entry['theme']=='topography') {
+	   $.each(entry['layers'], function(lineIndex, info) {	 		
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';
+		});
+		html += '</ul>';
+		$('#topo_layers').append(html); 	
+	    bindFirstEvents();	
+	   
+	   };
+       	if (entry['theme']=='landcover') {
+	   $.each(entry['layers'], function(lineIndex, info) {	 
+		html += ' <li><a href="#" id='+ info['id'] +'>' +info['nom'] +'</a></li>';
+		$('#landcover_layers').append(html); 	 
+		 $("#landcover_lay").toggle("slow");	   
+	   });
+	   html += '</ul>';
+	    bindFirstEvents();	
+	   };	   
+	   
+	   };
+	   });
+	   });
+	}; //FI GETLAYERS FUNCTION
+	getlayers(extent);
+	
+    $('#iberian_context').click(function() 
+	{	
+	$('#user_dates, #demo2_data, #demo3_data,a[id="tab1"],a[id="tab2"],a[id="tab3"]').show();
+    var extent='iberia';
+	getlayers(extent);
+ 	});	
+	
+	 $("#europe_conic_context").click(function() 
+	{
+     var extent='iberian_conic';
+	$('#user_dates, #demo2_data,#demo3_data,.layers, .metadata, a[id="tab2"],a[id="tab1"]').hide();
+	//we cannot create on-the-fly menus, becausee projection is not EPSG 4326 (we have to specify it on the Web Map context file); to solve it we should reproject on-the-fly the postGIS table (it's now in 4326) or createa new tables in conic projection
+	$("div[@id*='layers']").empty();
+	$("div[@id*='legend']").show();
+    });	
+	
+	$("#iberian_30_context").click(function() {
+	 var extent='iberian_30';
+	$('#user_dates, #demo2_data,#demo3_data,.layers, .metadata, a[id="tab2"],a[id="tab1"]').hide();
+		//we cannot create on-the-fly menus, becausee projection is not EPSG 4326 (we have to specify it on the Web Map context file); to solve it we should reproject on-the-fly the postGIS table (it's now in 4326) or createa new tables in utm30 projection
+	$("div[@id*='layers']").empty();
+	$("div[@id*='legend']").show();
+	 });
+	$('#europe_context').click(function() {
+	$('a[id="tab2"],a[id="tab1"],a[id="tab3"]').show();
+	$('#user_dates, #demo2_data,#demo3_data').hide();
+    var extent='europe';
+	getlayers(extent);
+	
+    });	
+   $('#world_context').click(function() {
+    $('#user_dates, #demo2_data,#demo3_data').hide();   
+    var extent='world';
+	getlayers(extent);
+    });	 
+	//tab menus (layers, metadata, legend)
+			var tabContainers = $('div.tabs > div');
+			//first only show the first(layers)
+		    tabContainers.hide().filter(':first').show();			
+			$('div.tabs ul.tabNavigation a').click(function () {
+				tabContainers.hide();
+				//as each "div.tabs ul.tabNavigation a" has the same name as a tabContainer (div.tabs > div), we will show only the tabContainer with the corresponding a link
+				tabContainers.filter(this.hash).show();
+				$('div.tabs ul.tabNavigation a').removeClass('selected');
+				$(this).addClass('selected');
+				return false;
+			}).filter(':first').click();			
+			
+		var bindSecondEvents=function() {
+	
+		};
+		//Up and Down menu tags (dt, dd)
+		$("#puntos_info").click(function(){$("#puntos_lay").slideDown("slow");});
+		$("li a[@id*='_dates2']").click(function(){
+		$(this).next().toggle("slow")});
+		$("li a[@id*='_dates']").click(function()
+		{
+		$(this).parent().next().toggle("slow").children('.layers').slideDown("slow").end().children('.metadata').hide();
+		$(".tabNavigation li a[@href*='_layers']").addClass('selected');
+		$(".tabNavigation li a[@href*='_metadata']").removeClass('selected');
+		});
+		
+		//function called when thematic menus are constructed. It binds the "click" on the recently created link to the automatical fill of the thematically related "metadata" tab 
+		var bindFirstEvents=function() {
+		$('ul.Layers a').click(function() {		
+			var layerid = this.id;	
+			$.getJSON('json/edit_layers.json',  function(data) {	
+			    $.each(data, function(entryIndex, entry) { 								
+				 $.each(entry['layers'], function(lineIndex, info) {	
+					
+                if (layerid==info['id']) {
+				   if (entry['theme']=='climate') {	  
+				  html='<h5>'+info['Abstract']+'</h5>';	
+				  html+='<a href='+info['link']+'>Add this layer<br>';
+				  html+='<a href='+info['link3']+'>Download (idrisi)';
+				tabContainers.hide();	
+				var metadata=$("#climate_metadata");
+				metadata.empty().html(html).show();				
+				$('a[@href=#climate_metadata]').addClass('selected').prev().removeClass('selected');			
+				}
+				  if (entry['theme']=='topography') {	
+				    html='<h5>'+info['Abstract']+'</h5>';
+					html+='<a href='+info['link']+'>Add this layer<br>';
+					html+='<a href='+info['link3']+'>Download (idrisi)';					
+				tabContainers.hide();	
+				$("#topo_metadata").empty().html(html).show();
+				$('a[@href=#climate_metadata]').addClass('selected').prev().removeClass('selected')				
+				}
+				 if (entry['theme']=='analysis') {	
+				    html='<h5>'+info['Abstract']+'</h5>';	
+					html+='<a href='+info['link']+'>Add this layer<br>';						
+				tabContainers.hide();	
+				$("#analysis_metadata").empty().html(html).show();
+				$('a[@href=#analysis_metadata]').addClass('selected');			
+				}
+				if (entry['theme']=='enviranalysis') {	
+				    html='<h5>'+info['Abstract']+'</h5>';	
+					html+='<a href='+info['link']+'>Add this layer<br>';						
+				tabContainers.hide();	
+				$("#enviranalysis_metadata").empty().html(html).show();
+				$('a[@href=#enviranalysis_metadata]').addClass('selected');				
+				}
+				if (entry['theme']=='landcover') {					
+				   html='<h5>'+info['Abstract']+'</h5>';
+				   html+='<a href='+info['link']+'>Add this layer<br>';
+				   html+='<a href='+info['link3']+'>Download (idrisi)';						
+				$("#landcover_metadata").empty().html(html).show();		
+				$('a[@href=#landcover_metadata]').addClass('selected');
+				$('a[@href=#landcover_layers]').removeClass('selected');
+
+				}
+				if (entry['theme']=='utm') {	
+				
+				   html='<h5>'+info['Abstract']+'</h5>';	
+				   html+='<a href='+info['link']+'>Add this layer<br>';
+				   html+='<a href='+info['link2']+'>Download (shapefile)<br>';
+				   html+='<a href='+info['link3']+'>Download (idrisi)';	
+					tabContainers.hide();					   	
+				$("#utm_metadata").empty().html(html).show();		
+				$('a[@href=#utm_metadata]').addClass('selected');
+				$('a[@href=#utm_layers]').removeClass('selected');
+				}
+				if (entry['theme']=='administrative') {					
+				  html='<h5>'+info['Abstract']+'</h5>';	
+				   html+='<a href='+info['link']+'>Add this layer<br>';
+				   html+='<a href='+info['link2']+'>Download (shapefile)<br>';
+				   html+='<a href='+info['link3']+'>Download (idrisi)';		
+						tabContainers.hide();	
+				$("#admin_metadata").empty().html(html).show();		
+				$('a[@href=#admin_metadata]').addClass('selected');
+				$('a[@href=#admin_layers]').removeClass('selected');
+
+				}
+				}
+					});
+					});					
+					}
+					
+					);
+					});
+			};
+	});
+    </script>
+    <script type="text/javascript" src="../lib/Mapbuilder.js"></script>
+  </head>
+  <body onload="mbDoLoad()" >
+  <div id="header"> 
+		  <h3 align="center">Geoplatform MNCN </h3>
+  </div><div id="middle">
+  <div id="menubar">
+      <div id="locatorMap" align="center">
+    </div>
+ <dl>
+	<dt><a id="xml_data" href="javascript:">Context/Extent . . . (projection)</a></dt>
+	<dd>
+	<ul>   
+		<li><a id="world_context" href="javascript:config.loadModel('mainMap','world2.xml')">World . . . (latlong)</a></li>
+		<li><a  id="europe_context" href="javascript:config.loadModel('mainMap','edit_europe2.xml')">Europe . . . (latlong)</a></li>
+		<li><a  id="europe_conic_context" href="javascript:config.loadModel('mainMap','edit_europe_conic.xml')">Europe . . . (lambert conic 10º)</a></li>
+		<li><a  id="iberian_context" href="javascript:config.loadModel('mainMap','edit_iberia.xml')">Iberian Peninsula . . . (latlong)</a></li>
+		<li><a  id="iberian_30_context" href="javascript:config.loadModel('mainMap','edit_iberia_utm30.xml')">Iberian Peninsula . . . (utm 30n)</a></li>
+	</ul>
+	</dd>
+	
+	<dt id="areal_data"><a id="2" href="javascript:">Surface Units</a></dt>
+	<dd>
+	<ul>
+		<li><a id="admin_dates"><em>Administrative Units</em></a>   
+		</li>
+		   
+			<div id="admin_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#admin_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#admin_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#admins_legend">Legend</a></li>
+		        </ul>
+			    <div id="admin_layers" class="layers">			      
+			    </div>
+			    <div id="admin_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			    </div>
+			    <div id="admins_legend">			            	            
+						<div id="admin_legend"></div>
+			    </div>		
+			</div>
+           
+		<li><a id="utm_dates"><em>Regular equal-area units</em></a>
+		</li>
+		
+		   <div id="utm_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#utm_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#utm_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#utms_legend">Legend</a></li>
+		        </ul>
+			    <div id="utm_layers" class="layers">			      
+			    </div>
+			    <div id="utm_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			    </div>
+			    <div id="utms_legend">			            	            
+					<div id="utm_legend"></div>
+			    </div>		
+			</div>
+	  </ul>
+	</dd>
+	
+	<dt id="raster_data"><a id="2" href="javascript:">Environmental Variables </a></dt>
+		<dd>
+	  <ul>
+
+	  
+	    <li><a id="topography_dates"><em>Topography</em></a>
+		</li>
+
+            <div id="topo_tabs" class="tabs">
+				<ul class="tabNavigation">
+		            <li><a id="tab1" href="#topo_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#topo_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#topo_legend">Legend</a></li>
+		        </ul>			  
+		      
+			  <div  id="topo_layers" class="layers">			      
+			    </div>
+			   <div id="topo_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			    </div>
+			    <div id="topo_legend" class="legend">
+			            		            
+						<div id="topography_legend"></div>
+			    </div>	
+       			   
+		</div> 			
+		<li><a id="climate_dates"><em>Climate</em></a>  
+		 </li>   		
+	
+			<div id="climate_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#climate_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#climate_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#climates_legend">Legend</a></li>
+		        </ul>
+			    <div id="climate_layers" class="layers">
+			    </div>
+			    <div id="climate_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			   </div>
+			    <div id="climates_legend" class="legend">
+			         <div id="climate_legend"></div> 
+			    </div>		
+			
+		</div>
+		<li><a id="landcover_dates2"><em>Landcover</em></a>   
+		</li><div id="landcover_lay"><table id="control"><td id="landcover_legend"></a></li></td></table></div>
+	  </ul>
+	</dd>
+	<dt id="remote_data"><a id="2" href="javascript:">Remote WMS</a></dt>
+	<dd>
+	  <ul>
+	    <li><a id="WMS_data">Enter a search parameter</a>	
+		<div class="search" id="letter-f">
+          <strong>Some ideas: NASA, FAO, Brasil, SPOT, flora... </strong><br>
+		  This tool searchs in wms-sites.com  <br>
+		  May be they don't have what you are looking for...
+          <form>
+            <input type="text" name="term" value="" id="term">
+            <input type="submit" name="search" value="search" id="wms_data">
+          </form>
+	</div>
+	    <li><a id="altres_dates2">Remote WMS layers</a>   		
+		</li><div id="altres_lay">
+		     <div id="alert">You can move up/down the layers</div>
+		     <table id="control"><td id="altres_legend"></a></li></td></table></div>
+		</li>
+		<div id="ex3" class="jqmDialog">
+		  <div class="jqmdTL">
+		    <div class="jqmdTR">
+		   <input type="image" src="JQ_win_files/close_icon.png" class="jqmdX jqmClose" />
+			     <div class="jqmdTC jqDrag">WMS Servers (you can click and drag me)</div>
+				 <a id="repaginate2">Click here to repaginate the layers</a>
+			        <div id="wrapper">
+			  		  <div id="container">
+					    <div id="workspace2"/>
+					   </div>
+				    </div>
+		       </div>
+		  </div>
+		</div><!-- fi ex3-->
+		</ul>
+		</dd>
+	
+	<dt id="user_dates"><a id="iberian_data" href="javascript:"><em>Demo 1: Sample Point Data</em></a></dt>	
+	<dd>
+	<ul>
+		    <li>
+            <a id="puntos_info">
+            Sample Point Data</a><br>
+			<div id="puntos_lay"><table id="control"><td id="puntos_legend"></a></li></td> </table></div>
+			<a id="id" href="#" class="ex2trigger">Data Symbolization </a><br>
+			<div id="aoi_info">
+			<a id="query_AOI" style="color: blue;" href="#">Get data from Area of Interest (AOI)</a>
+			Click here after selecting the AOI <p> through the <image src="images/SetAoiDisable.png"/>  tool
+			</div>
+			
+			</li>
+			
+	  </ul>
+	  
+	</dd>
+
+	<dt id="demo2_data">
+	<a  href="javascript:"><em>Demo 2: Spatial Completeness</em></a></dt>
+	
+	<dd>
+	<ul>
+			<li>
+			<a id="analysis_dates">Spatial Completeness Analysis</a>
+             </li>
+			<div id="analysis_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#analysis_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#analysis_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#analysis_legend">Legend</a></li>
+		        </ul>
+			    <div id="analysis_layers" class="layers">
+			    </div>
+			    <div id="analysis_metadata" class="metadata">
+					  <ul>			           
+			          </ul>
+			   </div>
+			    <div id="analysis_legend" class="legend">
+			         <div id="UTM2500_legend"></div> 
+			    </div>				
+		    </div>
+			</li>
+			<li>
+			<a href="editcurves.html" target="_blank"><em>Collector's curves (graphic)</em></a>
+			</li>
+			<li>
+			<a href="http://edit.csic.es/web/docs/Demo_explanation_spatial.htm" target="_blank"><em>Demo 2 Explanation</em></a>
+			
+			</li>
+	  </ul>
+	</dd>
+
+	<dt id="demo3_data"><a id="iberian_data" href="javascript:"><em>Demo 3: Environmental Completeness</em></a></dt>	
+	<dd>
+	<ul>
+			<li>
+			<a id="environ_scarab_dates">
+            Analysis of Environmental Completeness</a>
+			</li>
+			<div id="enviranalysis_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#enviranalysis_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#enviranalysis_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#enviranalysis_legend">Legend</a></li>
+		        </ul>
+			    <div id="enviranalysis_layers" class="layers">
+			    </div>
+			    <div id="enviranalysis_metadata" class="metadata">
+					  <ul>			           
+			          </ul>
+			   </div>
+			    <div id="enviranalysis_legend" class="legend">
+			         <div id="environ_legend"></div> 
+			    </div>					
+		    </div>		
+		    <li>
+			<a href="editcurvesenviron.html" target="_blank"><em>Collector's curves (graphic)</em></a>
+			</li>
+			<li>
+			<a href="http://edit.csic.es/web/docs/Demo_explanation_environmental.htm" target="_blank"><em>Demo 3 Explanation</em></a>
+			</li>
+	  </ul>
+	</dd>
+	
+
+	
+		<dt id="user_dates"><a id="2" href="javascript:">User data</a></dt>
+		<dd>
+		  <ul>
+				<li>
+				<a href="http://edit.csic.es/fitxers/data_upload.php" target="_blank"><em>Sample point data</em></a>
+				</li>
+				</ul>		
+		</dd>
+		</dl>
+		<div id="demo"> For viewing the Demo click on "Iberian Peninsula (latlon)"</div>
+		<div class="sld_info" style="color:blue" align="center"><div align="center"><strong>NEW!!</strong></div>  You can already filter, symbolize and get the legend from you own data! Go to "User data"->"Sample point data"<p>
+We appreciate any feedback (comments, critics)<p>
+<a style="color:black" href="mailto:peroc79@gmail.com">EDIT team in Madrid</a>   peroc79@gmail.com
+</div>
+		</div>
+
+	     <div id="query_result" class="jqmDialog">
+		  <div class="jqmdTL">
+		    <div class="jqmdTR">
+		   <input type="image" src="JQ_win_files/close_icon.png" class="jqmdX jqmClose" />
+			     <div class="jqmdTC jqDrag">Query results(you can click and drag me)</div>
+			        <div id="wrapper">
+			  		  <div id="query_container">					  
+					   </div>
+				    </div>
+		       </div>
+		  </div>
+		</div><!-- fi ex3-->		
+    <div id="ex2" class="jqmDialog">
+	</div>
+	<div id="mainbody"> 
+  	<div class="right">
+
+  	  <table class="mapa" >
+            
+            <tr>
+              <td align="center">
+                <table>
+				    <tr>
+                    <td align="left">
+                      <div id="mainButtonBar"/>
+                    </td>
+                    <td align="center" id="cursorTrack" />
+					
+                  </tr>
+				
+                  <tr>
+                    <td colspan="2">
+                      <div id="mainMapPane"/>
+                    </td>
+                  </tr>
+				   
+                  <tr>
+				
+                    <td align="left">
+                    
+                    </td>
+                
+                  </tr>
+               </table>
+              </td>
+			  <tr>
+              <td id="left" align="left"/>
+              </tr>
+              </tr>           
+       </table>
+	   <td>
+	   <div id="creditss" align="center">
+		  <ul>
+		  <li><a href="http://edit.csic.es/web/index.html" target="_blank" >Home</a></li>
+		  <li><a href="http://edit.csic.es/web/docs/EDIT_GIS_layers.htm" target="_blank">GIS layers description - Surface units & Environmental variables</a></li>
+		  <li><a href="http://edit.csic.es/web/page1/page1.html" target="_blank">GIS Downloads</a></li>
+		  <li><a href="http://edit.csic.es/web/docs/Application.htm" target="_blank">Technical aspects of the Map Viewer Prototype</a></li>
+		  </ul>
+		  <p></p>
+		<a class="Estilo1">2007 Geoplatform MNCN - EDIT</a>&nbsp;		  
+<br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">
+<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/88x31.png" />
+</a>
+<br />
+<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">Creative Commons License</a>.
+		  
+		  <p></p>
+		  <img alt="Logo EDIT" align="center" style="border-width:0" src="http://edit.csic.es/web/dingen/logoEDIT.png" />
+<br />
+		  <img alt="Logo Museo" style="border-width:0" src="http://edit.csic.es/web/dingen/logomuseo.gif" />
+	     </div>
+		  </td>
+	   <table>
+
+	  </div>
+	</div>
+  </div>
+  
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=2805959; 
+var sc_invisible=0; 
+var sc_partition=28; 
+var sc_security="068a88d1"; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c29.statcounter.com/2805959/0/068a88d1/0/" alt="web page hit counter" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+  
+  </body>
+</html>

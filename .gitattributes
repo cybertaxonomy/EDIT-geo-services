@@ -1629,6 +1629,7 @@ mapviewer/edit_geo/prototype/JQ_win_files/resize.gif -text
 mapviewer/edit_geo/prototype/JQ_win_files/sprite.gif -text
 mapviewer/edit_geo/prototype/JQ_win_files/x-click-but04.gif -text
 mapviewer/edit_geo/prototype/config.xml -text
+mapviewer/edit_geo/prototype/css/README_EDIT.rtf -text
 mapviewer/edit_geo/prototype/css/edit_all.css -text
 mapviewer/edit_geo/prototype/css/farbtastic.css -text
 mapviewer/edit_geo/prototype/css/marker.png -text
@@ -1653,6 +1654,7 @@ mapviewer/edit_geo/prototype/edit_europe_conic.xml -text
 mapviewer/edit_geo/prototype/edit_iberia.xml -text
 mapviewer/edit_geo/prototype/edit_iberia_utm30.xml -text
 mapviewer/edit_geo/prototype/edit_project.html -text
+mapviewer/edit_geo/prototype/edit_project_commented.html -text
 mapviewer/edit_geo/prototype/edit_project_unload.html -text
 mapviewer/edit_geo/prototype/edit_user_sld.html -text
 mapviewer/edit_geo/prototype/images/arrow-back_16.gif -text
