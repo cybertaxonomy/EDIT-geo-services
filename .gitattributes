@@ -1609,6 +1609,12 @@ mapviewer/edit_geo/prototype/FeatureList_edit.xsl -text
 mapviewer/edit_geo/prototype/FeatureList_edit3.xsl -text
 mapviewer/edit_geo/prototype/GetFeatureInfo.js -text
 mapviewer/edit_geo/prototype/config.xml -text
+mapviewer/edit_geo/prototype/css/edit_all.css -text
+mapviewer/edit_geo/prototype/css/farbtastic.css -text
+mapviewer/edit_geo/prototype/css/marker.png -text
+mapviewer/edit_geo/prototype/css/mask.png -text
+mapviewer/edit_geo/prototype/css/tables.css -text
+mapviewer/edit_geo/prototype/css/wheel.png -text
 mapviewer/edit_geo/prototype/edit.html -text
 mapviewer/edit_geo/prototype/edit_europe.xml -text
 mapviewer/edit_geo/prototype/edit_europe2.xml -text
