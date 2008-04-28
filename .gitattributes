@@ -1541,12 +1541,6 @@ mapviewer/edit_geo/lib/widget/Back.js -text
 mapviewer/edit_geo/lib/widget/Button.js -text
 mapviewer/edit_geo/lib/widget/Button.xsl -text
 mapviewer/edit_geo/lib/widget/ButtonBase.js -text
-mapviewer/edit_geo/lib/widget/CatSearchForm.js -text
-mapviewer/edit_geo/lib/widget/CatSearchForm.xsl -text
-mapviewer/edit_geo/lib/widget/CdnWatershedForm.xsl -text
-mapviewer/edit_geo/lib/widget/ClickPass.js -text
-mapviewer/edit_geo/lib/widget/CollectionList.js -text
-mapviewer/edit_geo/lib/widget/CollectionList.xsl -text
 mapviewer/edit_geo/lib/widget/CursorTrack.js -text
 mapviewer/edit_geo/lib/widget/CursorTrack.xsl -text
 mapviewer/edit_geo/lib/widget/DeleteFeature.js -text
