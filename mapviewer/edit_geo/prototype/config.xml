@@ -6,9 +6,8 @@
   <!--
     Description: This configuration file determines what components from the
                  Mapbuilder library are to be included in a Main Mapbuilder web
-                 page.
+                 page.			 
     Licence:     GPL as per: http://www.gnu.org/copyleft/gpl.html 
-
     $Id: MapPreviewAction.java 5891 2007-01-29 11:30:25Z aaime $
   -->
   <!--
@@ -17,14 +16,17 @@
   -->
   <models>
     <Context id="mainMap">
-      <defaultModelUrl>world.xml</defaultModelUrl>
+      <defaultModelUrl>world2.xml</defaultModelUrl><!-- default WebMapContext file to load-->
 	  <nodeSelectXpath>/wmc:ViewContext/wmc:LayerList/wmc:Layer</nodeSelectXpath>
       <widgets>
         <MapPane id="mainMapWidget">
-          <htmlTagId>mainMapPane</htmlTagId>
+          <htmlTagId>mainMapPane</htmlTagId> <!--THE ID WHERE THE MAPS WILL BE PRINTED-->
           <mapContainerId>mainMapContainer</mapContainerId>
         </MapPane>
-        <AoiBoxWZ id="aoiBox2">
+	    <Loading2 id="loading"><!--TOOL TO SHOW WHILE DATA IS LOADING-->
+		<mapContainerId>mainMapContainer</mapContainerId>
+		</Loading2>
+        <AoiBoxWZ id="aoiBox2"><!--Widget to draw an Area Of Interest box of a model (in this case, Context model)-->
           <htmlTagId>mainMapPane</htmlTagId>
           <stylesheet>../lib/widget/GmlRenderer.xsl</stylesheet>
           <lineColor>#FF0000</lineColor>
@@ -32,204 +34,140 @@
           <crossSize>15</crossSize>
           <mapContainerId>mainMapContainer</mapContainerId>
         </AoiBoxWZ>
-	
-        <CursorTrack id="cursorTrack">
+        <CursorTrack id="cursorTrack"><!--Widget to display the mouse coordinates when it is over a MapContainer widget.
+ -->
           <mouseHandler>mainMap</mouseHandler>
+		  <showLatLong>false</showLatLong>
+		  <showXY>true</showXY>
         </CursorTrack>
-        <Legend id="Legend"> </Legend>
-		<LegendGraphic id="legendGraphic"/>
+        <Legend id="Legend"> </Legend><!--Functions to render and update a Legend from a Web Map Context.-->
+		<!--Widget to allow control of layer ordering, visibility, deleting...-->
+		<!-- As we want different legends (showing each thematic info)  to be displayed in different places (different <htmlTagId>), we must have more than one LayerControl... -->
+		<!--TODO: It should be solved... as it means loading too much files-->
+		<LayerControl id="altresLegend">
+		  <htmlTagId>altres_legend</htmlTagId><!--where legend will be displayed in the HTML-->
+		  <stylesheet>../lib/widget/altres_LC.xsl</stylesheet>
+		   <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+          <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
+          <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
+        </LayerControl>	
 		<LayerControl id="contextLegend">
-		  
 		  <htmlTagId>admin_legend</htmlTagId>
 		  <stylesheet>../lib/widget/admin_LC.xsl</stylesheet>
 		  <outputNodeId>admin_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+		   <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
           <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
           <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
-        </LayerControl>
-			
+        </LayerControl>	
 		<LayerControl id="contextLegend2">  
 		  <htmlTagId>utm_legend</htmlTagId>
 		  <stylesheet>../lib/widget/utm_LC.xsl</stylesheet>
 		  <outputNodeId>utm_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+		   <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
           <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
           <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
-        </LayerControl>
-		
-		<LayerControl id="contextLegend3">  
-		  <htmlTagId>remote_legend</htmlTagId>
-		  <stylesheet>../lib/widget/remote_LC.xsl</stylesheet>
-		  <outputNodeId>remote_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
-          <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
-          <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
-        </LayerControl>
-		
+        </LayerControl>		
 		<LayerControl id="contextLegend3">  
 		  <htmlTagId>topography_legend</htmlTagId>
 		  <stylesheet>../lib/widget/topography_LC.xsl</stylesheet>
 		  <outputNodeId>topography_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+		  <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
           <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
           <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
         </LayerControl>
-		
 		<LayerControl id="contextLegend3">  
 		  <htmlTagId>climate_legend</htmlTagId>
 		  <stylesheet>../lib/widget/climate_LC.xsl</stylesheet>
 		  <outputNodeId>climate_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+		  <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
           <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
           <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
         </LayerControl>
-		
-				
 		<LayerControl id="contextLegend3">  
 		  <htmlTagId>landcover_legend</htmlTagId>
 		  <stylesheet>../lib/widget/landcover_LC.xsl</stylesheet>
 		  <outputNodeId>landcover_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
-          <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
-          <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
         </LayerControl>
-		
 		<LayerControl id="contextLegend4">  
 		  <htmlTagId>puntos_legend</htmlTagId>
 		  <stylesheet>../lib/widget/puntos_LC.xsl</stylesheet>
 		  <outputNodeId>puntos_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+		  <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
           <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
-          <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
         </LayerControl>
-		
 		<LayerControl id="contextLegend4">  
 		  <htmlTagId>UTM2500_legend</htmlTagId>
 		  <stylesheet>../lib/widget/Analysis_UTM2500_LC.xsl</stylesheet>
 		  <outputNodeId>UTM2500_legendCanvas</outputNodeId>
-          <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+		  <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
           <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
           <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
-		   <legendImageEnable>/images/eye.png</legendImageEnable>
-		  <legendImageDisable>/images/eye.png</legendImageDisable> 
+        </LayerControl>	
+		<LayerControl id="contextLegend4">  
+		  <htmlTagId>environ_legend</htmlTagId>
+		  <stylesheet>../lib/widget/environ_LC.xsl</stylesheet>
+		  <outputNodeId>environ_legendCanvas</outputNodeId>
+		  <moveUpImage>/images/LayerMoveUpDisable.png</moveUpImage>
+          <moveDownImage>/images/LayerMoveDownDisable.png</moveDownImage>
+          <deleteImage>/images/LayerRemoveDisable.png</deleteImage>
         </LayerControl>
 		
-        <MapScaleText id="mapScaleText"> </MapScaleText>
       </widgets>
-      <tools>
-        <AoiMouseHandler id="mainAoi"/>
-        <DragPanHandler id="mainDragPan">
-          <enabled>false</enabled>
-        </DragPanHandler>
-        <MouseClickHandler id="mainMouseClick"/>
-        <History id="extentHistory">
-          <targetModel>mainMap</targetModel>
-        </History>
-		<WebServiceRequest id="featureInfoController">
-					<targetModel>featureInfoResponse</targetModel>
-					<requestName>wms:GetFeatureInfo</requestName>
-          <!--infoFormat>text/html</infoFormat-->
-          <infoFormat>application/vnd.ogc.gml</infoFormat>
-          <featureCount>9</featureCount>
-		</WebServiceRequest>
-		</tools>
+	      <tools>
+	        <AoiMouseHandler id="mainAoi"/><!-- Tool which implements a click and drag behaviour to set the Area Of Interest on the model from mouse events.-->
+	        <DragPanHandler id="mainDragPan"><!--Tool to click and drag a map pane to achieve a recentering of the map.
+ -->
+	          <enabled>false</enabled>
+	        </DragPanHandler>
+	        <MouseClickHandler id="mainMouseClick"/>
+	        <History id="extentHistory"><!--Tool which processes mouse clicks on a widget.-->
+	          <targetModel>mainMap</targetModel>
+	        </History>
+			<WebServiceRequest id="featureInfoController">
+						<targetModel>featureInfoResponse</targetModel>
+						<requestName>wms:GetFeatureInfo</requestName>
+	          <infoFormat>application/vnd.ogc.gml</infoFormat>
+	          <featureCount>3</featureCount>
+			</WebServiceRequest>
+			</tools>
 	</Context>
-	<ContextCollection id="myMapCollection">
-      <!--defaultModelUrl>../data/context/demoCollection.xml</defaultModelUrl-->
-      <widgets>
-        <CollectionList id="collectionList">
-          <htmlTagId>left</htmlTagId>
-          <outputNodeId>leftCanvas</outputNodeId>
-          <targetModel>mainMap</targetModel>
-          <title>Select a map as your base map</title>
-        </CollectionList>
-      </widgets>
-    </ContextCollection>
-	<WmsCapabilities id="wmsCapTemplate">
-      <!--defaultModelUrl>http://www.bsc-eoc.org/cgi-bin/bsc_ows.asp?version=1.1.1&amp;service=WMS&amp;request=GetCapabilities</defaultModelUrl-->
-      <nodeSelectXpath>//Layer</nodeSelectXpath>
-      <title>OGC Web Map Server (WMS)</title>
-      <models>
-       <!-- <GetFeatureInfo id="featureTypeTemplate" template="true">
-          <widgets>
-            <Widget id="attributeFilter">
-              <stylesheet>../../lib/widget/FilterAttributes.xsl</stylesheet>
-              <outputNodeId>filterForm</outputNodeId>
-            </Widget>
-          </widgets>
-        </GetFeatureInfo>-->
-        <!--GetMap id="getMapTemplate" template="true">
-          <widgets>
-            <MapImage id="renderMap">
-              <targetModel>mainMap</targetModel>
-              <htmlTagId>mainMapPane</htmlTagId>
-              <mapContainerId>mainMapContainer</mapContainerId>
-            </MapImage>
-          </widgets>
-        </GetMap-->
-      </models>
-      <widgets>
-        <Widget id="layerList">
-          <stylesheet>../lib/widget/SelectMapLayers.xsl</stylesheet>
-          <htmlTagId>remoteWMS</htmlTagId>
-          <outputNodeId>remoteWMSCanvas</outputNodeId>
-        </Widget>
-        <Loading2 id="loading3">
-					<htmlTagId>remoteWMS</htmlTagId>
-					<outputNodeId>remoteWMSCanvas</outputNodeId>
-        </Loading2>
-      </widgets>
-      <tools>
-        <!--WebServiceRequest id="wmsController">
-          <targetModel>getMapTemplate</targetModel>
-          <requestName>GetMap</requestName>
-        </WebServiceRequest-->
-        <!--WebServiceRequest id="wmsController">
-          <targetModel>getFeatureInfoTemplate</targetModel>
-          <requestName>wms:GetFeatureInfo</requestName>
-        </WebServiceRequest-->
-        <EditContext id="editContext">
-          <targetModel>mainMap</targetModel>
-        </EditContext>
-      </tools>
-    </WmsCapabilities>
-
-	<Transaction id="transaction">
-			<widgets>
-				<TransactionResponse id="transactionResponse">
-				
-				</TransactionResponse>
+	<WmsCapabilities id="wmsCapTemplate"><!--Stores a Web Map Server (WMS) Capabilities document as defined by the Open Geospatial Consortium-->
+										<!--It will allow us to get our own WMS without loading them first inthe WMC but interactively  -->
+			<defaultModelUrl>http://synthesys.csic.es:8080/geoserver/wms?request=GetCapabilities</defaultModelUrl>
+			<title>OGC Web Map Server (WMS)</title>
+			<widgets>		
+				<Loading2 id="loading3">
+					<htmlTagId>workspace</htmlTagId>
+					<outputNodeId>workspaceCanvas</outputNodeId>
+				</Loading2>
 			</widgets>
-	</Transaction>
-	<FeatureCollection id="featureCollection">
-	     <namespace>xmlns:gml='http://www.opengis.net/gml' xmlns:wfs='http://www.opengis.net/wfs' xmlns:topp='http://www.openplans.org/topp'</namespace>
-      <widgets>
-        <GmlRendererWZ id="testGmlRenderer">
-          <htmlTagId>mainMapPane</htmlTagId>
-          <targetModel>mainMap</targetModel>
-          <mapContainerId>mainMapContainer</mapContainerId>
-          <lineColor>#FF0000</lineColor>
-          <lineWidth>3</lineWidth>
-          <pointDiameter>1</pointDiameter>
-        </GmlRendererWZ>
-      
-      </widgets>
-    </FeatureCollection>
-    <Context id="locator">
+			<tools>
+				<EditContext id="editContext"><!--Tool which manipulates the Layer list of a Web Map Context document (tool used to insert our own Layers interactively)-->
+					<targetModel>mainMap</targetModel>
+				</EditContext>
+			</tools>
+			<nodeSelectXpath>//Layer</nodeSelectXpath><!--XPATH to thsi Getcapabilities.xml-->
+		</WmsCapabilities>
+	<WmsCapabilities id="wmsCapTemplate2"><!--We have another WmsCapabilities that manages remote WMS Layers -->
+			<widgets>  
+			        <Widget id="layerList">
+					<stylesheet>../lib/widget/SelectMapLayers2.xsl</stylesheet><!--manipulate GetCapabilities.xml to construct HTML table-->
+					<htmlTagId>workspace2</htmlTagId>
+					<outputNodeId>workspace2Canvas</outputNodeId>
+			       </Widget>  
+					<Loading2 id="loading3">
+						<htmlTagId>workspace2</htmlTagId>
+						<outputNodeId>workspace2Canvas</outputNodeId>
+					</Loading2>
+			</widgets>
+			<tools>
+				<EditContext id="editContext2"><!--will manipulate remote WMS Layers-->
+					<targetModel>mainMap</targetModel>
+				</EditContext>
+			</tools>
+			<nodeSelectXpath>//Layer</nodeSelectXpath>
+	</WmsCapabilities>
+    <Context id="locator"><!--Locator map-->
       <defaultModelUrl>topp_worlds.xml</defaultModelUrl>
       <widgets>
         <MapPane id="locatorWidget">
@@ -238,7 +176,8 @@
           <mapContainerId>locatorContainer</mapContainerId>
           <fixedWidth>230</fixedWidth>
         </MapPane>
-        <AoiBoxDHTML id="aoiBox2">
+        <AoiBoxDHTML id="aoiBox2"><!--Widget to draw an Area Of Interest box of a model.-->
+								  <!--Difference with AoiBoxWZ widget??-->
           <htmlTagId>locatorMap</htmlTagId>
           <stylesheet>../lib/widget/GmlRenderer.xsl</stylesheet>
           <lineColor>#FF0000</lineColor>
@@ -254,7 +193,8 @@
         </ZoomToAoi>
       </tools>
     </Context>   
-	<Model id="featureInfoResponse" template="true">
+	
+	<Model id="featureInfoResponse" template="true"> <!-- IN FACT NOT USED...-->
       <namespace>xmlns:gml='http://www.opengis.net/gml' xmlns:wfs='http://www.opengis.net/wfs' xmlns:topp='http://www.openplans.org/topp'</namespace>
       <widgets>
         <FeatureInfo id="FeatureInfo">
@@ -266,7 +206,6 @@
 		</FeatureInfo>
       </widgets>
      </Model>
-
   </models>
   <widgets>
     <ZoomIn id="zoomIn">
@@ -277,8 +216,7 @@
       <selected>true</selected>
       <enabledSrc>/images/ZoomInEnable.gif</enabledSrc>
       <disabledSrc>/images/ZoomInDisable.gif</disabledSrc>
-      <tooltip xml:lang="en">click and drag to zoom in</tooltip>
-   
+      <tooltip xml:lang="en">click and drag to zoom in</tooltip> 
     </ZoomIn>
     <ZoomOut id="zoomOut">
       <buttonBar>mainButtonBar</buttonBar>
@@ -288,9 +226,7 @@
       <enabledSrc>/images/ZoomOutEnable.gif</enabledSrc>
       <disabledSrc>/images/ZoomOutDisable.gif</disabledSrc>
       <tooltip xml:lang="en">click to zoom out</tooltip>
-
     </ZoomOut>
-
     <DragPan id="dragPan">
       <buttonBar>mainButtonBar</buttonBar>
       <targetModel>mainMap</targetModel>
@@ -298,32 +234,36 @@
       <class>RadioButton</class>
       <enabledSrc>/images/PanEnable.gif</enabledSrc>
       <disabledSrc>/images/PanDisable.gif</disabledSrc>
-      <tooltip xml:lang="en">click and drag to pan</tooltip>
-   
+      <tooltip xml:lang="en">click and drag to pan</tooltip>  
     </DragPan>
     <Reset id="reset">
       <buttonBar>mainButtonBar</buttonBar>
       <targetModel>mainMap</targetModel>
       <class>Button</class>
       <disabledSrc>/images/ResetExtentDisable.gif</disabledSrc>
-      <tooltip xml:lang="en">reset the map to full extent</tooltip>
-  
-    </Reset>
-	
+      <tooltip xml:lang="en">reset the map to full extent</tooltip>  
+    </Reset>	
+	<SetAoi id="setAoi"><!--When this button is selected, the AOI box stays visible and no zoom happens. We will get the drawed bbox to query our database -->
+      <buttonBar>mainButtonBar</buttonBar>
+      <targetModel>mainMap</targetModel>
+      <mouseHandler>mainAoi</mouseHandler>
+      <class>RadioButton</class>
+      <enabledSrc>/images/SetAoiEnable.png</enabledSrc>
+      <disabledSrc>/images/SetAoiDisable.png</disabledSrc>
+	  <tooltip xml:lang="en">Set an area of interest to query (only point data in the Demo)</tooltip>  
+    </SetAoi>
 	 <GetFeatureInfo id="GetFeatureInfo">
-	 <!--Implements WMS GetFeatureInfo functionality, popping up a query result
- window when user clicks on map. EL .JS EXTREU ELS PAR�ETRES DEL WMC I ELS PASSA AL .XLS QUE HO TRANSFORMA EN UN HTML-->
-      <scriptFile>GetFeatureInfo.js</scriptFile>
+	 <!--Implements WMS GetFeatureInfo functionality, popping up a query result window when user clicks on map-->
+      <scriptFile>js_code/GetFeatureInfo_q.js</scriptFile><!--COMPLETELY modified js file -->
       <buttonBar>mainButtonBar</buttonBar>
 	  <tooltip>Query tool</tooltip>
       <targetModel>mainMap</targetModel>
       <mouseHandler>mainAoi</mouseHandler>
       <class>RadioButton</class>
-	  <typeName>topp:scarabeidos, topp:utm_genera</typeName>
       <enabledSrc>/images/QueryEnable.gif</enabledSrc>
       <disabledSrc>/images/QueryDisable.gif</disabledSrc>
+	  <tooltip xml:lang="en">Query tool (point data in the Demo)</tooltip>
     </GetFeatureInfo>
-
     <Back id="back">
       <buttonBar>mainButtonBar</buttonBar>
       <targetModel>mainMap</targetModel>
