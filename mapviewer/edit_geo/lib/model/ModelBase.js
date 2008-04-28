@@ -1,4 +1,7 @@
 function ModelBase(modelNode,parentModel){
+
+//var sldNode=modelNode.selectSingleNode("mb:StyledLayerDescriptor").firstChild;
+
 Listener.apply(this);
 this.async=true;this.contentType="text/xml";
 this.modelNode=modelNode;
@@ -14,6 +17,7 @@ this.title=titleNode.firstChild.nodeValue;
 }else{
 this.title=this.id;
 }
+//console.info(titleNode);
 if(modelNode.selectSingleNode("mb:debug"))this.debug="true";
 if(window.cgiArgs[this.id]){ 
 this.url=window.cgiArgs[this.id];
@@ -23,8 +27,10 @@ this.url=window[this.id];
 this.url=modelNode.url;
 }else{
 var defaultModel=modelNode.selectSingleNode("mb:defaultModelUrl");
+
 if(defaultModel)this.url=defaultModel.firstChild.nodeValue;
 }
+//console.warn(defaultModel);
 var method=modelNode.selectSingleNode("mb:method");
 if(method){
 this.method=method.firstChild.nodeValue;
@@ -190,13 +196,36 @@ parentNode.removeChild(model.modelNode);
 }
 }
 }
+
+
 this.saveModel=function(objRef){
 if(config.serializeUrl){
-var response=postGetLoad(config.serializeUrl,objRef.doc,"text/xml","/temp","sld.xml");
+//alert("serialitzem ");
+//config.serializeUrl --> /mapbuild/writeXML (el treu de mapbuilderConfig.xml)
+//console.dirxml(objRef.doc); //és el SLD que hem creat!! (desprñes d'aplicar XSL, etc)
+var response=postGetLoad(config.serializeUrl,objRef.doc,"text/xml","/temp","sld.sld");
+//console.warn(response);
+//postGetLoad
 response.setProperty("SelectionLanguage","XPath");
-Sarissa.setXpathNamespaces(response,"xmlns:xlink='http://www.w3.org/1999/xlink'");
+Sarissa.setXpathNamespaces(response,"xmlns:xlink='http://www.w333.org/1999/xlink'");
+
 var onlineResource=response.selectSingleNode("//OnlineResource");
+//console.dirxml(onlineResource);
 var fileUrl=onlineResource.attributes.getNamedItem("xlink:href").nodeValue;
+//console.log(fileUrl);
+//    /mapbuild/temp/pere_test43995.sld
+
+var temp = new Array();
+temp = fileUrl.split('/');
+//console.log(temp['3']); //nom de l'arxiu creat
+var nou_sld=temp['3'];
+var sld_url='http://edit.csic.es/edit_geo/temp/'+nou_sld;
+//console.log(sld_url);
+config.objects.mainMap.setSLD(sld_url);
+this.callListeners("refresh");
+//setSLDModel=function(sldmodel)
+//config.objects.mainMap.doc(setParam("refreshWmsLayers");
+//console.info("feet");
 objRef.setParam("modelSaved",fileUrl);
 }else{
 alert("serializeUrl must be specified in config to save a model");
