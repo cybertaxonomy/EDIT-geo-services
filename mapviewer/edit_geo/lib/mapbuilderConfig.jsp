@@ -30,7 +30,7 @@
 
   <proxyUrl><%= request.getContextPath() %>/proxy</proxyUrl>
 
-  <serializeUrl><%= request.getContextPath() %>/writeXml</serializeUrl>
+  <serializeUrl><%= request.getContextPath() %>/writeXml2</serializeUrl>
 
 </MapbuilderConfig>
 
