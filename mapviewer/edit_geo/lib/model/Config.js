@@ -16,6 +16,8 @@ if(configDoc.parseError<0){
 configDoc.setProperty("SelectionLanguage","XPath");
 Sarissa.setXpathNamespaces(configDoc,this.namespace);
 var node=configDoc.selectSingleNode("/mb:MapbuilderConfig/mb:proxyUrl");
+//console.dirxml(configDoc);
+//console.dirxml(node);
 if(node)this.proxyUrl=node.firstChild.nodeValue;
 node=configDoc.selectSingleNode("/mb:MapbuilderConfig/mb:serializeUrl");
 if(node)this.serializeUrl=node.firstChild.nodeValue;
@@ -38,6 +40,7 @@ this.lang=window.cgiArgs["language"];
 this.lang=window.language;
 }
 var modelNode=this.doc.documentElement;
+
 this.skinDir=modelNode.selectSingleNode("mb:skinDir").firstChild.nodeValue;
 var proxyUrl=modelNode.selectSingleNode("mb:proxyUrl");
 if(proxyUrl)this.proxyUrl=proxyUrl.firstChild.nodeValue;
