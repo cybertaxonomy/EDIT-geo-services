@@ -1533,7 +1533,6 @@ mapviewer/edit_geo/lib/util/scalebar/scalebar-fat.css -text
 mapviewer/edit_geo/lib/util/scalebar/scalebar-thin.css -text
 mapviewer/edit_geo/lib/util/scalebar/scalebar.js -text
 mapviewer/edit_geo/lib/util/wz_jsgraphics/wz_jsgraphics.js -text
-mapviewer/edit_geo/lib/widget/Abstract.xsl -text
 mapviewer/edit_geo/lib/widget/Analysis_UTM2500_LC.xsl -text
 mapviewer/edit_geo/lib/widget/AoiBox2.js -text
 mapviewer/edit_geo/lib/widget/AoiBoxDHTML.js -text
