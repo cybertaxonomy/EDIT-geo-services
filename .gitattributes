@@ -1592,7 +1592,6 @@ mapviewer/edit_geo/lib/widget/MapScaleBar.js -text
 mapviewer/edit_geo/lib/widget/Measurement.js -text
 mapviewer/edit_geo/lib/widget/ModelUrlInput.js -text
 mapviewer/edit_geo/lib/widget/Reset.js -text
-mapviewer/edit_geo/lib/widget/SLDEditor.js -text
 mapviewer/edit_geo/lib/widget/Save.js -text
 mapviewer/edit_geo/lib/widget/SaveModel.js -text
 mapviewer/edit_geo/lib/widget/SaveModel.xsl -text
