@@ -1604,7 +1604,6 @@ mapviewer/edit_geo/lib/widget/remote_LC.xsl -text
 mapviewer/edit_geo/lib/widget/scarabeidos_LC.xsl -text
 mapviewer/edit_geo/lib/widget/topography_LC.xsl -text
 mapviewer/edit_geo/lib/widget/utm_LC.xsl -text
-mapviewer/edit_geo/prototype/Copia[!!-~]de[!!-~]edit.html -text
 mapviewer/edit_geo/prototype/FeatureList_edit.xsl -text
 mapviewer/edit_geo/prototype/FeatureList_edit3.xsl -text
 mapviewer/edit_geo/prototype/GetFeatureInfo.js -text
