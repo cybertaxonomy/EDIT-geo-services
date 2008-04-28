@@ -1635,6 +1635,17 @@ mapviewer/edit_geo/prototype/css/marker.png -text
 mapviewer/edit_geo/prototype/css/mask.png -text
 mapviewer/edit_geo/prototype/css/tables.css -text
 mapviewer/edit_geo/prototype/css/wheel.png -text
+mapviewer/edit_geo/prototype/curves/FeatureList_edit3.xsl -text
+mapviewer/edit_geo/prototype/curves/GetFeatureInfo.js -text
+mapviewer/edit_geo/prototype/curves/configcurves.xml -text
+mapviewer/edit_geo/prototype/curves/configcurvesenviron.xml -text
+mapviewer/edit_geo/prototype/curves/custom_rhino.jar -text
+mapviewer/edit_geo/prototype/curves/edit_curves.xml -text
+mapviewer/edit_geo/prototype/curves/edit_curves_environ.xml -text
+mapviewer/edit_geo/prototype/curves/editcurves.html -text
+mapviewer/edit_geo/prototype/curves/editcurvesenviron.html -text
+mapviewer/edit_geo/prototype/curves/topp_curves.xml -text
+mapviewer/edit_geo/prototype/curves/topp_curves_environ.xml -text
 mapviewer/edit_geo/prototype/edit.html -text
 mapviewer/edit_geo/prototype/edit_europe.xml -text
 mapviewer/edit_geo/prototype/edit_europe2.xml -text

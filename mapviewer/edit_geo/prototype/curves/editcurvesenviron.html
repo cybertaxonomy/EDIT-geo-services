@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+      
+<html xmlns="http://www.w3.org/1999/xhtml" >
+  <head>
+    <title>Geoplatform MNCN - Map viewer (prototype)</title>
+       <link rel='StyleSheet' type='text/css' href='../../lib/skin/default/editStyles.css'/>
+    <link rel='StyleSheet' type='text/css' href='../../lib/skin/default/button.css'>
+   
+
+     <script>
+      // URL of Mapbuilder configuration file.
+      var mbConfigUrl='configcurvesenviron.xml';
+
+    </script>
+    <script type="text/javascript" src="../../lib/Mapbuilder.js"></script>
+	<script type="text/javascript" src="../js_code/jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		$("dd:not(:first)").hide();
+		$("#help").hide();
+		$("dt a").click(function(){
+			$("dd:visible").slideUp("slow");
+			$(this).parent().next().slideDown("slow");
+			return false;
+		});
+				});
+	</script>
+	
+  </head>
+  <body onload="mbDoLoad()" >
+  <div id="header"> 
+		  <h3 align="center">Geoplatform MNCN: Environmental completeness - Collector's curves</h3>
+  </div><div id="middle">
+  <div id="menubar">
+      <div id="locatorMap" align="center">
+    </div>
+ <dl>
+
+	
+	<dt id="second"><a id="iberian_data" href="javascript:"><em>Demo: Environmental Completeness<p></p>Collector's Curves (graphic)</em></a></dt>	
+	<dd>
+	<ul>
+			<li>
+			<a id="environ_scarab_data"><em></em></a><div id="environ_lay"><table id="control"><tr align="center"></tr><td id="environ_legend"></a></li></td> </table></div>
+			</li>
+			<li>
+			<em>Dataset: Iberian Scarabaeidae<p></p>Taxonomic level: Genus<p></p>Environmental variable: Annual Precipitation<p></p>Representative range: 10 mm<p></p>Extent: Iberian Peninsula</em>
+			</li>
+			<li>
+			<a href="http://edit.csic.es/web/docs/Demo_explanation_environmental.htm" target="_blank"><em>Demo 3 Explanation</em></a>
+			</li>
+	  </ul>
+	</dd>
+	
+</dl>
+<div align="center">Select the information tool (i) and click on the lines to get curve information.  Image width is distorted to fit in the screen, select zoom or drag tools to restore the actual graphic proportions.</div>
+
+
+</div>
+
+	
+
+
+	
+	<div id="mainbody">
+
+
+
+    	 
+  	<div class="right">
+
+  	  <table class="mapa" >
+            
+            <tr>
+              <td align="center">
+                <table>
+				    <tr>
+                    <td align="left">
+                      <div id="mainButtonBar"/>
+                    </td>
+                    <td align="center" id="cursorTrack" />
+					
+                  </tr>
+				
+                  <tr>
+                    <td colspan="2">
+                      <div id="mainMapPane"/>
+                    </td>
+                  </tr>
+				   
+                  <tr>
+				
+                    <td align="left">
+                    
+                    </td>
+                
+                  </tr>
+               </table>
+              </td>
+			  <tr>
+              <td id="left" align="left"/>
+              </tr>
+              </tr>           
+       </table>
+	   <td>
+	   <div id="creditss" align="center">
+		  <ul>
+		  <li><a href="http://edit.csic.es/web/index.html" target="_blank" >Home</a></li>
+		  <li><a href="http://edit.csic.es/web/docs/EDIT_GIS_layers.htm" target="_blank">GIS layers description - Surface units & Environmental variables</a></li>
+		  <li><a href="http://edit.csic.es/web/page1/page1.html" target="_blank">GIS Downloads</a></li>
+		  <li><a href="http://edit.csic.es/web/docs/Application.htm" target="_blank">Technical aspects of the Map Viewer Prototype</a></li>
+		  </ul>
+		  <p></p>
+		<a class="Estilo1">2007 Geoplatform MNCN - EDIT</a>&nbsp;		  
+<br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">
+<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/88x31.png" />
+</a>
+<br />
+<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">Creative Commons License</a>.
+		  
+		  <p></p>
+		  <img alt="Logo EDIT" align="center" style="border-width:0" src="http://edit.csic.es/web/dingen/logoEDIT.png" />
+<br />
+		  <img alt="Logo Museo" style="border-width:0" src="http://edit.csic.es/web/dingen/logomuseo.gif" />
+	     </div>
+		  </td>
+	   <table>
+
+	  </div>
+	</div>
+  </div>
+  
+  </body>
+</html>
