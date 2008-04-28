@@ -1616,9 +1616,6 @@ mapviewer/edit_geo/lib/widget/MapPane2.js -text
 mapviewer/edit_geo/lib/widget/MapPane2.xsl -text
 mapviewer/edit_geo/lib/widget/MapPaneOL.js -text
 mapviewer/edit_geo/lib/widget/MapScaleBar.js -text
-mapviewer/edit_geo/lib/widget/MapScaleText.js -text
-mapviewer/edit_geo/lib/widget/MapScaleText.xsl -text
-mapviewer/edit_geo/lib/widget/MapTitle.xsl -text
 mapviewer/edit_geo/lib/widget/Measurement.js -text
 mapviewer/edit_geo/lib/widget/ModelStatus.js -text
 mapviewer/edit_geo/lib/widget/ModelStatus.xsl -text
