@@ -1545,10 +1545,6 @@ mapviewer/edit_geo/lib/widget/CursorTrack.js -text
 mapviewer/edit_geo/lib/widget/CursorTrack.xsl -text
 mapviewer/edit_geo/lib/widget/DragPan.js -text
 mapviewer/edit_geo/lib/widget/EditButtonBase.js -text
-mapviewer/edit_geo/lib/widget/EditLine.js -text
-mapviewer/edit_geo/lib/widget/EditPoint.js -text
-mapviewer/edit_geo/lib/widget/EditPolygon.js -text
-mapviewer/edit_geo/lib/widget/EventLog.xsl -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.js -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.xsl -text
 mapviewer/edit_geo/lib/widget/FeatureList.js -text
