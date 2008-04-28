@@ -1607,8 +1607,6 @@ mapviewer/edit_geo/lib/widget/LegendGraphic.xsl -text
 mapviewer/edit_geo/lib/widget/Loading.js -text
 mapviewer/edit_geo/lib/widget/Loading.xsl -text
 mapviewer/edit_geo/lib/widget/Loading2.js -text
-mapviewer/edit_geo/lib/widget/Locations.js -text
-mapviewer/edit_geo/lib/widget/Locations.xsl -text
 mapviewer/edit_geo/lib/widget/MapContainerBase.js -text
 mapviewer/edit_geo/lib/widget/MapImage.js -text
 mapviewer/edit_geo/lib/widget/MapImage.xsl -text
