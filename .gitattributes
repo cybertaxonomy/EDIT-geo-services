@@ -1548,8 +1548,6 @@ mapviewer/edit_geo/lib/widget/EditButtonBase.js -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.js -text
 mapviewer/edit_geo/lib/widget/FeatureInfo.xsl -text
 mapviewer/edit_geo/lib/widget/Forward.js -text
-mapviewer/edit_geo/lib/widget/GeoRssParser.js -text
-mapviewer/edit_geo/lib/widget/GeoRssRenderer.js -text
 mapviewer/edit_geo/lib/widget/GetFeatureInfo.js -text
 mapviewer/edit_geo/lib/widget/GetMarkerInfo.js -text
 mapviewer/edit_geo/lib/widget/Gml2ScreenCoords.xsl -text
