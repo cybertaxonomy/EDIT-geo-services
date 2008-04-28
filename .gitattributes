@@ -1631,9 +1631,6 @@ mapviewer/edit_geo/prototype/images/numgeneros_legend.png -text
 mapviewer/edit_geo/prototype/images/red-button.png -text
 mapviewer/edit_geo/prototype/images/registros_legend.png -text
 mapviewer/edit_geo/prototype/jquery.js -text
-mapviewer/edit_geo/prototype/jquery_code.js -text
-mapviewer/edit_geo/prototype/jquery_code2.js -text
-mapviewer/edit_geo/prototype/jquerys.css -text
 mapviewer/edit_geo/prototype/js_code/GetFeatureInfo_q.js -text
 mapviewer/edit_geo/prototype/js_code/GetFeatureInfo_sld.js -text
 mapviewer/edit_geo/prototype/js_code/bind_it.js -text
