@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<ViewContext version="1.0.0" id="atlas_world" xmlns="http://www.opengis.net/context" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/context http://schemas.opengis.net/context/1.0.0/context.xsd">
+  <General>
+    <Window width="760" height="380"/>
+    <BoundingBox SRS="EPSG:4326" minx="-32" miny="27" maxx="58" maxy="72"/>
+    <Title>European Map</Title>
+    <Abstract>Mapa europeu</Abstract>
+  </General>
+  <LayerList>
+	
+      <Layer queryable="1" hidden="0">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:coast_earth">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:coast_earth</Name>
+      <Title>Coast line</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:4326</SRS>
+	  <StyleList>
+	      <Style current="1">
+          <Name>coast</Name>
+          <Title>coast</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/coastline.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+	 	 
+    <Layer queryable="1" hidden="0">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:itr10000sqkm_europe">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:itr10000sqkm_europe</Name>
+      <Title>Icos. Triangles 10000 sqkm</Title>
+      <Abstract>10000 sq km Icosaedric Triangles of Europe.</Abstract>
+	  <Grup>utm</Grup>
+      <SRS>EPSG:4326</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>utms</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+
+  </LayerList>
+</ViewContext>
