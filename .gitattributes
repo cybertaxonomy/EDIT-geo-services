@@ -1431,7 +1431,6 @@ mapviewer/edit_geo/lib/tool/MouseClickHandler.js -text
 mapviewer/edit_geo/lib/tool/ToolBase.js -text
 mapviewer/edit_geo/lib/tool/WebServiceRequest.js -text
 mapviewer/edit_geo/lib/tool/ZoomToAoi.js -text
-mapviewer/edit_geo/lib/tool/jquery.js -text
 mapviewer/edit_geo/lib/tool/xsl/GetMap.xsl -text
 mapviewer/edit_geo/lib/tool/xsl/wmc_AddResource.xsl -text
 mapviewer/edit_geo/lib/tool/xsl/wmc_AddSld.xsl -text
