@@ -8,9 +8,14 @@ if(objRef.started)objRef.started=false;
 }
 this.mouseDownHandler=function(objRef,targetNode){
 if(objRef.enabled){
+//using this tool we create a BBox, whose values will be used to perform a query (check $('#query_AOI').click event on EDIT mapViewer)
+//var aoiBox=config.objects.mainMap.getParam("aoi");
 objRef.started=true;
 objRef.anchorPoint=targetNode.evpl;
 objRef.dragBox(targetNode.evpl);
+//open #user_dates <div> on EDIT mapViewer, showing the link to click on to get data from BBox (AOI)
+$('#user_dates').next().slideDown("slow");
+$("#aoi_info").addClass("sld_info");
 }
 }
 this.mouseMoveHandler=function(objRef,targetNode){
