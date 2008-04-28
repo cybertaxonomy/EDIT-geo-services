@@ -1618,13 +1618,6 @@ mapviewer/edit_geo/lib/widget/MapPaneOL.js -text
 mapviewer/edit_geo/lib/widget/MapScaleBar.js -text
 mapviewer/edit_geo/lib/widget/Measurement.js -text
 mapviewer/edit_geo/lib/widget/ModelUrlInput.js -text
-mapviewer/edit_geo/lib/widget/ModelUrlInput.xsl -text
-mapviewer/edit_geo/lib/widget/NtsForm.xsl -text
-mapviewer/edit_geo/lib/widget/Null.xsl -text
-mapviewer/edit_geo/lib/widget/OpenLSForm.js -text
-mapviewer/edit_geo/lib/widget/OpenLSForm.xsl -text
-mapviewer/edit_geo/lib/widget/OpenLSResponse.js -text
-mapviewer/edit_geo/lib/widget/OpenLSResponse.xsl -text
 mapviewer/edit_geo/lib/widget/Reset.js -text
 mapviewer/edit_geo/lib/widget/SLDEditor.js -text
 mapviewer/edit_geo/lib/widget/SLDEditor.xsl -text
