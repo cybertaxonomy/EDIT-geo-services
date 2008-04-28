@@ -1624,7 +1624,6 @@ mapviewer/edit_geo/lib/widget/Save.js -text
 mapviewer/edit_geo/lib/widget/SaveModel.js -text
 mapviewer/edit_geo/lib/widget/SaveModel.xsl -text
 mapviewer/edit_geo/lib/widget/SelectAllMapLayers.xsl -text
-mapviewer/edit_geo/lib/widget/SelectFeatureType.xsl -text
 mapviewer/edit_geo/lib/widget/SelectMapLayers.xsl -text
 mapviewer/edit_geo/lib/widget/SelectTimeFrame.js -text
 mapviewer/edit_geo/lib/widget/SelectTimeFrame.xsl -text
