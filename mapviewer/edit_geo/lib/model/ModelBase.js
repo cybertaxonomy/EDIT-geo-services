@@ -1,7 +1,5 @@
 function ModelBase(modelNode,parentModel){
 
-//var sldNode=modelNode.selectSingleNode("mb:StyledLayerDescriptor").firstChild;
-
 Listener.apply(this);
 this.async=true;this.contentType="text/xml";
 this.modelNode=modelNode;
@@ -17,7 +15,7 @@ this.title=titleNode.firstChild.nodeValue;
 }else{
 this.title=this.id;
 }
-//console.info(titleNode);
+
 if(modelNode.selectSingleNode("mb:debug"))this.debug="true";
 if(window.cgiArgs[this.id]){ 
 this.url=window.cgiArgs[this.id];
@@ -30,7 +28,7 @@ var defaultModel=modelNode.selectSingleNode("mb:defaultModelUrl");
 
 if(defaultModel)this.url=defaultModel.firstChild.nodeValue;
 }
-//console.warn(defaultModel);
+
 var method=modelNode.selectSingleNode("mb:method");
 if(method){
 this.method=method.firstChild.nodeValue;
