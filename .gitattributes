@@ -1537,8 +1537,6 @@ mapviewer/edit_geo/lib/widget/Analysis_UTM2500_LC.xsl -text
 mapviewer/edit_geo/lib/widget/AoiBox2.js -text
 mapviewer/edit_geo/lib/widget/AoiBoxDHTML.js -text
 mapviewer/edit_geo/lib/widget/AoiBoxWZ.js -text
-mapviewer/edit_geo/lib/widget/AoiForm.js -text
-mapviewer/edit_geo/lib/widget/AoiForm.xsl -text
 mapviewer/edit_geo/lib/widget/Back.js -text
 mapviewer/edit_geo/lib/widget/Button.js -text
 mapviewer/edit_geo/lib/widget/Button.xsl -text
