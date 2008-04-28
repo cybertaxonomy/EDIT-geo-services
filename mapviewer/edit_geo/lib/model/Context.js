@@ -77,6 +77,19 @@ this.getWindowSize=function(size){
 var win=this.doc.selectSingleNode("/wmc:ViewContext/wmc:General/wmc:Window");
 return new Array(win.getAttribute("width"),win.getAttribute("height"));
 }
+//config.objects.mainMap.setSLD(sld_url);
+this.setSLD=function(sld_url){
+var online=this.doc.selectSingleNode("//wmc:SLD/wmc:OnlineResource");
+online.setAttribute("xlink:href",sld_url);
+var legend_url="http://edit3.csic.es/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:test_csvimportgispoints2&sld="+sld_url;
+//var button=document.getElementById("send");
+var image=document.getElementById("llegenda");
+image.setAttribute("src",legend_url);
+//this.callListeners("refresh");
+//console.warn(online);
+}
+
+
 this.setWindowSize=function(size){
 var width=size[0];
 var height=size[1];
