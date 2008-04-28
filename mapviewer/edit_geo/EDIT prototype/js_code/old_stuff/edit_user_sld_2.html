@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+      
+<html xmlns="http://www.w3.org/1999/xhtml" >
+  <head>
+    <title>Geoplatform MNCN - Map viewer (prototype)</title>
+    <script type="text/javascript" src="js_code/jquery.js"></script>
+	<link type="text/css" rel="stylesheet" media="all" href="css/edit_all.css">
+	<link type="text/css" rel="stylesheet" media="all" href="css/farbtastic.css">
+	<link type="text/css" rel="stylesheet" media="all" href="css/tables.css">
+	<script type="text/javascript" src="js_code/compressed_24abril_sld.js"></script>	
+      <script>
+	//this is the config.xml file (mapBuilder configuration file) used for EDIT SLD mapviewer; here are defined models, widgets and tools to be used (some of them are defined dynamically)
+	 var mbConfigUrl='http://edit.csic.es/fitxers/config_user_sld.xml';
+
+    <script type="text/javascript" src="../lib/Mapbuilder.js"></script>
+  </head>
+  <body onload="mbDoLoad();" >
+  <div id="header"> 
+		  <h3 align="center">Geoplatform MNCN </h3>
+  </div><div id="middle">
+  <div id="menubar">
+      <div id="locatorMap" align="center">
+    </div>
+ <dl>
+	<dt><a id="xml_data" href="javascript:">Context/Extent . . . (projection)</a></dt>
+	<dd>
+	<ul>   
+				<li><a id="world_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/world.xml')">World . . . (latlong)</a></li>
+		<li><a  id="europe_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/europe.xml')">Europe . . . (latlong)</a></li>
+		<li><a  id="europe_conic_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/edit_europe_conic.xml')">Europe . . . (lambert conic 10º)</a></li>
+		<li><a  id="iberian_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/iberia.xml')">Iberian Peninsula . . . (latlong)</a></li>
+		<li><a  id="iberian_30_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/edit_iberia_utm30.xml')">Iberian Peninsula . . . (utm 30n)</a></li>
+	</ul>
+	</dd>
+	
+	<dt id="areal_data"><a id="2" href="javascript:">Surface Units</a></dt>
+	<dd>
+	<ul>
+		<li><a id="admin_dates"><em>Administrative Units</em></a>   
+		</li>
+		   
+			<div id="admin_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#admin_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#admin_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#admins_legend">Legend</a></li>
+		        </ul>
+			    <div id="admin_layers" class="layers">			      
+			    </div>
+			    <div id="admin_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			    </div>
+			    <div id="admins_legend">			            	            
+						<div id="admin_legend"></div>
+			    </div>		
+			</div>
+           
+		<li><a id="utm_dates"><em>Regular equal-area units</em></a>
+		</li>
+		
+		   <div id="utm_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#utm_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#utm_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#utms_legend">Legend</a></li>
+		        </ul>
+			    <div id="utm_layers" class="layers">			      
+			    </div>
+			    <div id="utm_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			    </div>
+			    <div id="utms_legend">			            	            
+					<div id="utm_legend"></div>
+			    </div>		
+			</div>
+	  </ul>
+	</dd>
+				
+	<dt id="raster_data"><a id="2" href="javascript:">Environmental Variables </a></dt>
+		<dd>
+	  <ul>
+
+	  
+	    <li><a id="topography_dates"><em>Topography</em></a>
+		</li>
+
+            <div id="topo_tabs" class="tabs">
+				<ul class="tabNavigation">
+		            <li><a id="tab1" href="#topo_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#topo_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#topo_legend">Legend</a></li>
+		        </ul>			  
+		      
+			  <div  id="topo_layers" class="layers">			      
+			    </div>
+			   <div id="topo_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			    </div>
+			    <div id="topo_legend" class="legend">
+			            		            
+						<div id="topography_legend"></div>
+			    </div>	
+       			   
+		</div> 			
+		<li><a id="climate_dates"><em>Climate</em></a>  
+		 </li>   		
+	
+			<div id="climate_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#climate_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#climate_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#climates_legend">Legend</a></li>
+		        </ul>
+			    <div id="climate_layers" class="layers">
+			    </div>
+			    <div id="climate_metadata" class="metadata">
+					  <ul >			           
+			          </ul>
+			   </div>
+			    <div id="climates_legend" class="legend">
+			         <div id="climate_legend"></div> 
+			    </div>		
+			
+		</div>
+		<li><a id="landcover_dates2"><em>Landcover</em></a>   
+		</li><div id="landcover_lay"><table id="control"><td id="landcover_legend"></a></li></td></table></div>
+	  </ul>
+	</dd>
+	<dt id="remote_data"><a id="2" href="javascript:">Remote WMS</a></dt>
+	<dd>
+	  <ul>
+	   	    <li><a id="WMS_data">Enter a search parameter</a>	
+		<div class="search" id="letter-f">
+          <strong>Some ideas: NASA, FAO, Brasil, SPOT, flora... </strong><br>
+		  This tool searchs in wms-sites.com  <br>
+		  May be they don't have what you are looking for...
+          <form>
+            <input type="text" name="term" value="" id="term">
+            <input type="submit" name="search" value="search" id="wms_data">
+          </form>
+	</div>
+	    <li><a id="altres_dates2">Remote WMS layers </a>   		
+		</li><div id="altres_lay">
+		     <div id="alert">You can move up/down the layers</div>
+		     <table id="control"><td id="altres_legend"></a></li></td></table></div>
+		</li>
+		<div id="ex3" class="jqmDialog">
+		  <div class="jqmdTL">
+		    <div class="jqmdTR">
+		   <input type="image" src="JQ_win_files/close.gif" class="jqmdX jqmClose" />
+			     <div class="jqmdTC jqDrag">WMS Servers (you can click and drag me)</div>
+				 <a id="repaginate2">Click here to repaginate the layers</a>
+			        <div id="wrapper">
+			  		  <div id="container">
+					    <div id="workspace2"/>
+					   </div>
+				    </div>
+		       </div>
+		  </div>
+		</div>
+		</ul>
+		</dd>
+		
+		<dt id="user_dates"><a id="2" href="javascript: ">User data</a></dt>
+		<dd>
+		  <ul>	
+		    <li>
+			<div id="puntos_lay"><table id="control"><td id="puntos_legend"></a></li></td> </table></div>
+			<div><img id="llegenda" src=""/></div>
+			<a id="id2" href="#" class="ex2trigger">Data Symbolization</a><br>
+			<div id="aoi_info">
+			<a id="query_AOI" style="color: blue;" href="#">Get data from Area of Interest (AOI)</a>
+			Click here after selecting the AOI <p> through the <image src="images/SetAoiDisable.png"/>  tool
+			</div>
+			</li>
+
+				<li>
+				<a href="http://edit.csic.es/fitxers/data_upload.php" target="_blank"><em>Enter sample point data</em></a>
+				</li>
+			</ul>
+		</dd>
+
+	<dt id="demo2_data">
+	<a  href="javascript:"><em>Demo 1: Spatial Completeness</em></a></dt>
+	
+	<dd>
+	<ul>
+			<li>
+			<a id="analysis_dates">Spatial Completeness Analysis</a>
+             </li>
+			<div id="analysis_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#analysis_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#analysis_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#analysis_legend">Legend</a></li>
+		        </ul>
+			    <div id="analysis_layers" class="layers">
+			    </div>
+			    <div id="analysis_metadata" class="metadata">
+					  <ul>			           
+			          </ul>
+			   </div>
+			    <div id="analysis_legend" class="legend">
+			         <div id="UTM2500_legend"></div> 
+			    </div>		
+			
+		    </div>
+			<li>
+			<a href="editcurves.html" target="_blank"><em>Collector's curves (graphic)</em></a>
+			</li>
+			<li>
+			<a href="http://edit.csic.es/web/docs/Demo_explanation_spatial.htm" target="_blank"><em>Demo 2 Explanation</em></a>
+			
+			</li>
+			<div id="demo" align="center">For visualizing the DEMO, please select first Context:Iberian Peninsula: then, Demo: Spatial Completeness</div>
+			</li>
+			
+	  </ul>
+	</dd>
+
+	<dt id="demo3_data"><a id="iberian_data" href="javascript:"><em>Demo 2: Environmental Completeness</em></a></dt>	
+	<dd>
+	<ul>
+			<li>
+			<a id="environ_scarab_dates">
+            Analysis of Environmental Completeness</a>
+			</li>
+			<div id="enviranalysis_tabs" class="tabs">
+		        <ul class="tabNavigation">
+		            <li><a id="tab1" href="#enviranalysis_layers">Layers</a></li>
+		            <li><a id="tab2"  href="#enviranalysis_metadata">Metadata</a></li>
+		            <li><a id="tab3" href="#enviranalysis_legend">Legend</a></li>
+		        </ul>
+			    <div id="enviranalysis_layers" class="layers">
+			    </div>
+			    <div id="enviranalysis_metadata" class="metadata">
+					  <ul>			           
+			          </ul>
+			   </div>
+			    <div id="enviranalysis_legend" class="legend">
+			         <div id="environ_legend"></div> 
+			    </div>		
+			
+		    </div>
+			</li>
+		    <li>
+			<a href="editcurvesenviron.html" target="_blank"><em>Collector's curves (graphic)</em></a>
+			</li>
+			<li>
+			<a href="http://edit.csic.es/web/docs/Demo_explanation_environmental.htm" target="_blank"><em>Demo 2 Explanation</em></a>
+
+			</li>
+	  </ul>
+	</dd>
+		</dl>
+</div>
+      <div id="query_result" class="jqmDialog">
+		  <div class="jqmdTL">
+		    <div class="jqmdTR">
+		   <input type="image" src="JQ_win_files/close_icon.png" class="jqmdX jqmClose" />
+			     <div class="jqmdTC jqDrag">Query results (you can click and drag me)</div>
+			        <div id="wrapper">
+			  		  <div id="query_container">					  
+					   </div>
+				    </div>
+		       </div>
+		  </div>
+		</div><!-- fi ex3-->		
+    <div id="ex2" class="jqmDialog">
+	</div>
+	<div id="mainbody"> 
+  	<div class="right">
+
+  	  <table class="mapa" >
+            
+            <tr>
+              <td align="center">
+                <table>
+				    <tr>
+                    <td align="left">
+                      <div id="mainButtonBar"/>
+                    </td>
+                    <td align="center" id="cursorTrack" />
+					
+                  </tr>
+				
+                  <tr>
+                    <td colspan="2">
+                      <div id="mainMapPane"/>
+                    </td>
+                  </tr>
+				   
+                  <tr>
+				
+                    <td align="left">
+                    
+                    </td>
+                
+                  </tr>
+               </table>
+              </td>
+			  <tr>
+              <td id="left" align="left"/>
+              </tr>
+              </tr>           
+       </table>
+	   <td>
+	   <div id="creditss" align="center">
+		  <ul>
+		  <li><a href="http://edit.csic.es/web/index.html" target="_blank" >Home</a></li>
+		  <li><a href="http://edit.csic.es/web/docs/EDIT_GIS_layers.htm" target="_blank">GIS layers description - Surface units & Environmental variables</a></li>
+		  <li><a href="http://edit.csic.es/web/page1/page1.html" target="_blank">GIS Downloads</a></li>
+		  <li><a href="http://edit.csic.es/web/docs/Application.htm" target="_blank">Technical aspects of the Map Viewer Prototype</a></li>
+		  </ul>
+		  <p></p>
+		<a id="edit" class="Estilo1">2007 Geoplatform MNCN - EDIT</a>&nbsp;		  
+<br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">
+<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/88x31.png" />
+</a>
+<br />
+<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">Creative Commons License</a>.
+		  
+		  <p></p>
+		  <img alt="Logo EDIT" align="center" style="border-width:0" src="http://edit.csic.es/web/dingen/logoEDIT.png" />
+<br />
+		  <img alt="Logo Museo" style="border-width:0" src="http://edit.csic.es/web/dingen/logomuseo.gif" />
+	     </div>
+		  </td>
+	   <table>
+
+	  </div>
+	</div>
+  </div>
+  
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=2805959; 
+var sc_invisible=0; 
+var sc_partition=28; 
+var sc_security="068a88d1"; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c29.statcounter.com/2805959/0/068a88d1/0/" alt="web page hit counter" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+  
+  </body>
+</html>
