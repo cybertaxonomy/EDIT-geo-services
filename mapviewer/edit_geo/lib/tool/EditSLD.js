@@ -48,40 +48,19 @@ this.insertSldToWmc=function(layerName)
 { 
 if(layerName)
 { 
-//config.objects.editSLD.insertSldToWmc('topp:tasmania_roads')
-//var feature=this.model.getSldNode();
 
-//aqui aplicarem 
 var feature=this.model.getFilterNode();
 
-//getSldNode retorna //StyledLayerDescriptor
 var newNode=this.stylesheet.transformNodeToObject(feature);
 
 Sarissa.setXpathNamespaces(newNode,this.targetModel.namespace);
-//alert(newNode.xml);
-//if(this.debug)alert(newNode.xml);
+
 console.dirxml(newNode.xml);
 var layerName='topp:tasmania_roads';
 
-/*
-legendURLNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList/wmc:Style/wmc:LegendURL");
-layerNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']");
-styleNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList");
-*/
-/*if(styleNode)
-{
-layerNode.removeChild(styleNode);
-}
-*/
+
 this.targetModel.setParam('addSLD',newNode.documentElement);
-//setParam ('addSLD', filter);
-/*
-if(legendURLNode)
-{ 
-styleNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList/wmc:Style") 
-styleNode.appendChild(legendURLNode);
-}
-*/
+
 config.objects.mainMap.setParam("refresh");
 }
 else alert("Select a layer if you want insert sld in wmc");
