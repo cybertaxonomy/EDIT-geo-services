@@ -1644,12 +1644,6 @@ mapviewer/edit_geo/prototype/js_code/select_recompressed.js -text
 mapviewer/edit_geo/prototype/js_code/symbology.js -text
 mapviewer/edit_geo/prototype/js_code/symbology_sld.js -text
 mapviewer/edit_geo/prototype/topp_worlds.xml -text
-mapviewer/edit_geo/prototype/widget/Analysis_UTM2500_LC.xsl -text
-mapviewer/edit_geo/prototype/widget/admin_LC.xsl -text
-mapviewer/edit_geo/prototype/widget/puntos_LC.xsl -text
-mapviewer/edit_geo/prototype/widget/remote_LC.xsl -text
-mapviewer/edit_geo/prototype/widget/scarabeidos_LC.xsl -text
-mapviewer/edit_geo/prototype/widget/utm_LC.xsl -text
 mapviewer/edit_geo/prototype/world.xml -text
 mapviewer/edit_geo/server/php/mapbuilderConfig.xml -text
 mapviewer/edit_geo/server/php/proxy.php -text
