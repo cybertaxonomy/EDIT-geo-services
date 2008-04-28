@@ -8,7 +8,13 @@ this.stylesheet.setParameter(toolNode.childNodes[j].nodeName,toolNode.childNodes
 }
 }
 this.addNodeToModel=function(featureName){
+//console.warn(featureName);
+//layer name=config.objects.mainMap.getFeatureNode('featureName').childNodes['1'].firstChild.nodeValue;
+//this.stylesheet.setParameter("layerName",this.model.getFeatureNode(featureName).childNodes['1'].firstChild.nodeValue);
 var feature=this.model.getFeatureNode(featureName);
+//console.dirxml(feature);
+//console.info(feature.childNodes['0'].firstChild.nodeValue);
+this.stylesheet.setParameter("layerName",feature.childNodes['0'].firstChild.nodeValue);
 this.stylesheet.setParameter("version",this.model.getVersion());
 this.stylesheet.setParameter("serverUrl",this.model.getServerUrl("GetMap","get"));
 this.stylesheet.setParameter("serverTitle",this.model.getServerTitle());

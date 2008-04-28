@@ -2,6 +2,7 @@ mapbuilder.loadScript(baseDir+"/tool/ToolBase.js");
 function EditSLD(toolNode,model){
 ToolBase.apply(this,new Array(toolNode,model));
 var styleUrl=baseDir+"/tool/xsl/wmc_AddSld.xsl";this.stylesheet=new XslProcessor(styleUrl);
+
 this.checkThis=function(){
 if(document.getElementById("textStyle").checked==true)
 { 
@@ -14,7 +15,8 @@ alert(Sarissa.serialize(this.model.doc));
 else 
 {
 if(this.model.doc.selectSingleNode("//TextSymbolizer")!=null)
-{xpath="//FeatureTypeStyle";
+{
+xpath="//FeatureTypeStyle";
 node=this.model.doc.selectSingleNode(xpath);
 node.removeChild(this.model.doc.selectSingleNode("//TextSymbolizer").parentNode);
 this.addNodeToSLD(document.getElementById("choixFeatureType").value+"Symbolizer");
@@ -23,6 +25,7 @@ alert(Sarissa.serialize(this.model.doc));
 }
 }
 }
+
 this.updateNode=function(xpath,value){
 if(xpath=='//MinScaleDenominator2')
 {
@@ -39,34 +42,57 @@ else if((this.model.doc.selectSingleNode(xpath)!=null)&&(value))
 this.model.setXpathValue(this.model,xpath,value,false);
 }
 }
+
+
 this.insertSldToWmc=function(layerName)
 { 
 if(layerName)
 { 
-var feature=this.model.getSldNode();
+//config.objects.editSLD.insertSldToWmc('topp:tasmania_roads')
+//var feature=this.model.getSldNode();
+
+//aqui aplicarem 
+var feature=this.model.getFilterNode();
+
+//getSldNode retorna //StyledLayerDescriptor
 var newNode=this.stylesheet.transformNodeToObject(feature);
+
 Sarissa.setXpathNamespaces(newNode,this.targetModel.namespace);
-if(this.debug)alert(newNode.xml);
+//alert(newNode.xml);
+//if(this.debug)alert(newNode.xml);
+console.dirxml(newNode.xml);
+var layerName='topp:tasmania_roads';
+
+/*
 legendURLNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList/wmc:Style/wmc:LegendURL");
 layerNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']");
 styleNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList");
-if(styleNode)
+*/
+/*if(styleNode)
 {
 layerNode.removeChild(styleNode);
 }
+*/
 this.targetModel.setParam('addSLD',newNode.documentElement);
+//setParam ('addSLD', filter);
+/*
 if(legendURLNode)
 { 
 styleNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList/wmc:Style") 
 styleNode.appendChild(legendURLNode);
 }
+*/
 config.objects.mainMap.setParam("refresh");
 }
 else alert("Select a layer if you want insert sld in wmc");
 }
-this.insertSldaToWmc=function(layerName){
+
+
+
+this.insertSldToWmc=function(layerName){
 if(layerName)
 {
+//alert("sí layername");
 sl=this.targetModel.doc.createElement("StyleList");
 st=this.targetModel.doc.createElement("Style");
 st.setAttribute("current","1");
@@ -79,13 +105,20 @@ layerNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerNa
 styleNode=this.targetModel.doc.selectSingleNode("//wmc:Layer[wmc:Name='"+layerName+"']/wmc:StyleList");
 if(styleNode)
 {
+alert("sí stylenode al wmc  "+layerNode);
+console.dirxml(layerNode);
+console.dirxml(styleNode);
 layerNode.removeChild(styleNode);
+//afegim elnou stylenode
 layerNode.appendChild(sl);
+console.dirxml(sl);
 config.objects.mainMap.setParam("refresh");
 }
 else
 { 
+alert("no stylenode");
 layerNode.appendChild(sl);
+
 config.objects.mainMap.setParam("refresh");
 }
 alert("Apres : "+Sarissa.serialize(this.targetModel.doc));
