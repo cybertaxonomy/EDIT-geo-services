@@ -1421,7 +1421,6 @@ mapviewer/edit_geo/lib/skin/default/tabList.css -text
 mapviewer/edit_geo/lib/skin/default/taula.css -text
 mapviewer/edit_geo/lib/skin/default/taula2.css -text
 mapviewer/edit_geo/lib/tool/AoiMouseHandler.js -text
-mapviewer/edit_geo/lib/tool/AutoResize.js -text
 mapviewer/edit_geo/lib/tool/Caps2Context.js -text
 mapviewer/edit_geo/lib/tool/DragPanHandler.js -text
 mapviewer/edit_geo/lib/tool/EditContext.js -text
