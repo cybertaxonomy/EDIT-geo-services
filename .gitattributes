@@ -1436,7 +1436,6 @@ mapviewer/edit_geo/lib/tool/ToolBase.js -text
 mapviewer/edit_geo/lib/tool/WebServiceRequest.js -text
 mapviewer/edit_geo/lib/tool/ZoomToAoi.js -text
 mapviewer/edit_geo/lib/tool/jquery.js -text
-mapviewer/edit_geo/lib/tool/xsl/Caps2Context.xsl -text
 mapviewer/edit_geo/lib/tool/xsl/GetMap.xsl -text
 mapviewer/edit_geo/lib/tool/xsl/ols_GeocodeRequest.xsl -text
 mapviewer/edit_geo/lib/tool/xsl/wcs_GetCoverage.xsl -text
