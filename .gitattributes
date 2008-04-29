@@ -1349,3 +1349,4 @@ mapviewer/php[!!-~]files/fitxers/toXML/iberia_sld.php -text
 mapviewer/php[!!-~]files/fitxers/toXML/world.php -text
 mapviewer/php[!!-~]files/fitxers/wms_table.php -text
 postgis_script/edit_import_csvgis.sql -text
+postgis_script/edit_import_prova.sql -text
