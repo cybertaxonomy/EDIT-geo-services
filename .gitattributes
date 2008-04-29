@@ -1179,7 +1179,6 @@ mapviewer/edit_geo/prototype/curves/topp_curves_environ.xml -text
 mapviewer/edit_geo/prototype/edit.html -text
 mapviewer/edit_geo/prototype/edit_project.html -text
 mapviewer/edit_geo/prototype/edit_project_commented.html -text
-mapviewer/edit_geo/prototype/edit_project_unload.html -text
 mapviewer/edit_geo/prototype/edit_user_sld.html -text
 mapviewer/edit_geo/prototype/images/arrow-back_16.gif -text
 mapviewer/edit_geo/prototype/images/arrow-back_16.png -text
