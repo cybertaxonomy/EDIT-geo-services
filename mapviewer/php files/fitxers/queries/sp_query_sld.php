@@ -1,10 +1,8 @@
 <?php
 @session_start();
 $sessionid=session_id();
-//if (@$_REQUEST['ajax']) {
 
-
-   $conn = pg_connect("host=localhost port=5432 password=Edit3.dsa user=postgres dbname=gbif3");
+   $conn = pg_connect("host=localhost port=5432 password= user= dbname=");
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }
@@ -18,7 +16,6 @@ if (pg_ErrorMessage($conn)) {
     $count=count($array);
 	
 	$geom='POLYGON((';
-    //foreach ($array as $key=>$value)
 	for ($i=0;$i<($count -1);$i++)
 	{	
 	$array[$i]=str_replace(","," ",$array[$i]);
@@ -57,22 +54,12 @@ if (pg_ErrorMessage($conn)) {
 	 while ($row = pg_fetch_array($query_result, NULL, PGSQL_ASSOC)) {
 
 		 print "<tr class='even' style='display: table-row;'>";
-		 /*
-        $numero=1; 	
-		while ($numero<=$count)
-		 {
-		 print "<td><a id='repaginate'>".$numero."</a></td>\n";	
-		$numero++;		 
-		}
-		*/
 		 print "<td><a id='repaginate'>".$row['genus']."</a></td>\n";
 		 print "<td><a id='repaginate'>".$row['specie']."</a></td>\n";
 		  print "</tr>";
 		
 		 }
 		
-        //echo $result;
-		//} 
 	print "</table>
        </div>
 	   </tbody>";

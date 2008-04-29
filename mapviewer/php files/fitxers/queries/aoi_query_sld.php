@@ -3,7 +3,7 @@
 $sessionid=session_id();
 //if (@$_REQUEST['ajax']) {
 
-   $conn = pg_connect("host=localhost port=5432 password=Edit3.dsa user=postgres dbname=gbif3");
+   $conn = pg_connect("host=localhost port=5432 password= user= dbname=");
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }
@@ -18,8 +18,7 @@ if (pg_ErrorMessage($conn)) {
 
 	$geom="select astext(SetSRID(";
 	$geom.="'BOX(".$array[0]." ".$array[1].",".$array[2]."	".$array[3].")'::box2d,-1))";
-  //  echo $geom;
-//	-5.7107,41.443878042328045&-5.7107,40.84387804232805&-5.1107000000000005,41.443878042328045&-5.1107000000000005,40.84387804232805
+
 	$geom_result=pg_query($geom) or die ("algun errorrrr");
 	while ($row = pg_fetch_array($geom_result, NULL, PGSQL_ASSOC)) {
 	$polygon=$row['astext'];
@@ -63,11 +62,11 @@ if (pg_ErrorMessage($conn)) {
 		 print "<td><a id='repaginate'>".$row['genus']."</a></td>\n";
 		 print "<td><a id='repaginate'>".$row['specie']."</a></td>\n";
 		 print "</tr>";
-        //echo $result;
+      
 		} 
 		}
 	print "</table>
        </div>
 	   </tbody>";
-//}
+
 	?>
