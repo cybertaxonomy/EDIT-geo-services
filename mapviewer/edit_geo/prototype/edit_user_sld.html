@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="js_code/compressed_sld.js"></script>	
       <script>
 	//this is the config.xml file (mapBuilder configuration file) used for EDIT SLD mapviewer; here are defined models, widgets and tools to be used (some of them are defined dynamically)
-	 var mbConfigUrl='http://edit.csic.es/fitxers/config_user_sld.xml';
+	 var mbConfigUrl='http://edit.csic.es/fitxers/XMLs/config_user_sld.xml';
      var borrar=function() {$.get('http://edit.csic.es/fitxers/borrar.php');alert("your data has been removed")};
     </script>
     <script type="text/javascript" src="../lib/Mapbuilder.js"></script>
@@ -27,10 +27,10 @@
 	<dt><a id="xml_data" href="javascript:">Context/Extent . . . (projection)</a></dt>
 	<dd>
 	<ul>   
-				<li><a id="world_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/world.xml')">World . . . (latlong)</a></li>
-		<li><a  id="europe_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/europe.xml')">Europe . . . (latlong)</a></li>
-		<li><a  id="europe_conic_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/edit_europe_conic.xml')">Europe . . . (lambert conic 10º)</a></li>
-		<li><a  id="iberian_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/iberia.xml')">Iberian Peninsula . . . (latlong)</a></li>
+				<li><a id="world_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/XMLs/world.xml')">World . . . (latlong)</a></li>
+		<li><a  id="europe_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/XMLs/europe.xml')">Europe . . . (latlong)</a></li>
+		<li><a  id="europe_conic_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/XMLs/edit_europe_conic.xml')">Europe . . . (lambert conic 10º)</a></li>
+		<li><a  id="iberian_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/XMLs/iberia.xml')">Iberian Peninsula . . . (latlong)</a></li>
 		<li><a  id="iberian_30_context" href="javascript:config.loadModel('mainMap','http://edit.csic.es/fitxers/edit_iberia_utm30.xml')">Iberian Peninsula . . . (utm 30n)</a></li>
 	</ul>
 	</dd>
