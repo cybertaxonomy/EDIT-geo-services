@@ -1,0 +1,12 @@
+jQuery MultiSelects plugin v0.2
+Copyright (c) 2007 Rob Desbois
+http://code.google.com/p/jqmultiselects/
+http://www.jquery.com/
+
+Dual licensed under the MIT and GPL licenses:
+http://www.opensource.org/licenses/mit-license.php
+http://www.gnu.org/licenses/gpl.html
+
+Example icons from http://www.famfamfam.com/lab/icons/silk/
+Licenced under Creative Commons Attribution 2.5 License
+http://creativecommons.org/licenses/by/2.5/
