@@ -21,7 +21,6 @@ mapviewer/edit_geo/WEB-INF/lib/log4j-1.2.8.jar -text
 mapviewer/edit_geo/WEB-INF/lib/standard.jar -text
 mapviewer/edit_geo/WEB-INF/web.xml -text
 mapviewer/edit_geo/WEB-INF/x.tld -text
-mapviewer/edit_geo/config.xml -text
 mapviewer/edit_geo/docs/arrow.gif -text
 mapviewer/edit_geo/docs/config/config.html -text
 mapviewer/edit_geo/docs/config/extend.html -text
@@ -483,7 +482,6 @@ mapviewer/edit_geo/docs/start/troubleshoot.html -text
 mapviewer/edit_geo/docs/userGuide.css -text
 mapviewer/edit_geo/docs/userGuideServlet.jsp -text
 mapviewer/edit_geo/docs/userGuideServletStatic.jsp -text
-mapviewer/edit_geo/index.html -text
 mapviewer/edit_geo/lib/LoadScripts.xsl -text
 mapviewer/edit_geo/lib/Mapbuilder.js -text
 mapviewer/edit_geo/lib/MapbuilderCompressed.js -text
