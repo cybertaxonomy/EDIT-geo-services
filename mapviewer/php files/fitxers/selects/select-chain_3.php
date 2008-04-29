@@ -3,7 +3,7 @@
 $sessionid=session_id();
 if (@$_REQUEST['ajax']) {
 
-   $conn = pg_connect("host=localhost port=5432 password=Edit3.dsa user=postgres dbname=gbif3");
+   $conn = pg_connect("host=localhost port=5432 password= user=postgres dbname=");
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }
