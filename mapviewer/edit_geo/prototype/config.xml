@@ -16,7 +16,7 @@
   -->
   <models>
     <Context id="mainMap">
-      <defaultModelUrl>world2.xml</defaultModelUrl><!-- default WebMapContext file to load-->
+      <defaultModelUrl>XMLs/world.xml</defaultModelUrl><!-- default WebMapContext file to load-->
 	  <nodeSelectXpath>/wmc:ViewContext/wmc:LayerList/wmc:Layer</nodeSelectXpath>
       <widgets>
         <MapPane id="mainMapWidget">
@@ -168,7 +168,7 @@
 			<nodeSelectXpath>//Layer</nodeSelectXpath>
 	</WmsCapabilities>
     <Context id="locator"><!--Locator map-->
-      <defaultModelUrl>topp_worlds.xml</defaultModelUrl>
+      <defaultModelUrl>XMLs/topp_worlds.xml</defaultModelUrl>
       <widgets>
         <MapPane id="locatorWidget">
           <htmlTagId>locatorMap</htmlTagId>
