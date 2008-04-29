@@ -1,21 +1,24 @@
 <?php
-$upload_dir = "/var/www/synthesys/www/fitxers/loaded_CSVs/"; // Directory for file storing
+$upload_dir = "/var/www/synthesys/www/fitxers/loaded_CSVs/"; // Directory for file storing// Directory for file storing
 
 session_start();
+//if some user comes back from edit mapViewer tool to insert again data... don't use the same sessionid! destroy it and create a new one
 session_regenerate_id();
 $sessionid=session_id();
 $userid	= safehtml($_POST['userid']);
 session_register("userid");
 
+//these next 3 php files have a Web Map Context (WMC) as a XML string to be modified later (we will add the path to the newly created SLD)
 include 'toXML/world.php';
-include 'toXML/config_user.php';
 include 'toXML/europe.php';
-include 'toXML/edit_europe_conic.php';
-//include 'edit_iberia.php';
 include 'toXML/iberia_sld.php';
+//will be modified in order to insert the path to SLD in mySLD (defaultUrl parameter). It allows to manipulate the SLD easily later (in mapViewer tool)
+include 'toXML/config_user.php';
+
+//just a userid filter in a <SLD> in the WMC because EPSG in WMC is not 4326... TODO
+include 'toXML/edit_europe_conic.php';
 include 'toXML/edit_iberia_utm30.php';
-//include 'borrar_usuari.php';
-//$userid=$_POST['userid'];
+
 $tf = $upload_dir.'/'.md5(rand()).".test";
 $f = @fopen($tf, "w");
 if ($f == false) 
@@ -23,6 +26,7 @@ if ($f == false)
         or something like this");
 fclose($f);
 unlink($tf);
+
 if (isset($_POST['fileframe'])) 
 {
     $result = 'ERROR';
@@ -78,109 +82,94 @@ if (isset($_POST['userid']) )
     $date = date('r', filemtime($upload_dir.'/'.$filename));
     
 	$userid	= safehtml($_POST['userid']);
-	global $userid;
+	
 	$lat= safehtml($_POST['lat']);
 	$lon= safehtml($_POST['lon']);
 	$fields= safehtml($_POST['fields']);
-    $user=$GLOBALS['userid'];
+	//we give a name we "know" to the future SLD
+	$sld_file=$userid.".sld";	
+	$sld_path="http://edit.csic.es/fitxers/sld/$sld_file";
+	//load and manipulate config_file
+	$config_file=simplexml_load_string($config_xmlstr);
+	$config_file->models->StyledLayerDescriptor->defaultModelUrl=$sld_path;
+	//update <OnlineResource> to point to SLD path
+	$xml_iberia= simplexml_load_string($xmlstr1);
+	$xml_iberia->LayerList->Layer[2]->StyleList->Style->SLD->OnlineResource['xlink:href']=$sld_path;
 
-$sld_file=$userid.".sld";	
-//$sld_file=$sessionid.".sld";
-$sld_path="http://edit.csic.es/fitxers/sld/$sld_file";
+	$xml_world= simplexml_load_string($xmlstr2);
+	$xml_world->LayerList->Layer[1]->StyleList->Style->SLD->OnlineResource['xlink:href']=$sld_path;
 
-$config_file=simplexml_load_string($config_xmlstr);
-$config_file->models->StyledLayerDescriptor->defaultModelUrl=$sld_path;
+	$xml_europe= simplexml_load_string($xmlstr3);
+	$xml_europe->LayerList->Layer[2]->StyleList->Style->SLD->OnlineResource['xlink:href']=$sld_path;
 
-$xml_iberia= simplexml_load_string($xmlstr1);
-//abans era layer 9
-//$xml_iberia->LayerList->Layer[2]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
-$xml_iberia->LayerList->Layer[2]->StyleList->Style->SLD->OnlineResource['xlink:href']=$sld_path;
+	//update Literal value (filter by userid)
+	$xml_iberia_utm30= simplexml_load_string($xmlstr4);
+	$xml_iberia_utm30->LayerList->Layer[9]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
 
-$xml_world= simplexml_load_string($xmlstr2);
-//$xml_world->LayerList->Layer[1]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
-$xml_world->LayerList->Layer[1]->StyleList->Style->SLD->OnlineResource['xlink:href']=$sld_path;
+	$xml_europe_conic= simplexml_load_string($xmlstr5);
+	$xml_europe_conic->LayerList->Layer[7]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
 
-$xml_europe= simplexml_load_string($xmlstr3);
-$xml_europe->LayerList->Layer[2]->StyleList->Style->SLD->OnlineResource['xlink:href']=$sld_path;
-//$xml_europe->LayerList->Layer[1]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
-
-$xml_iberia_utm30= simplexml_load_string($xmlstr4);
-$xml_iberia_utm30->LayerList->Layer[9]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
-
-$xml_europe_conic= simplexml_load_string($xmlstr5);
-$xml_europe_conic->LayerList->Layer[7]->StyleList->Style->SLD->StyledLayerDescriptor->NamedLayer->UserStyle->FeatureTypeStyle->Rule->Filter->And->PropertyIsEqualTo->Literal=$userid;
-
-//$xml_iberia->asXML('edit_iberia.xml');
-$xml_iberia->asXML('XMLs/iberia.xml');
-$config_file->asXML('XMLs/config_user_sld.xml');
-$xml_world->asXML('XMLs/world.xml');
-$xml_europe->asXML('XMLs/europe.xml');
-$xml_iberia_utm30->asXML('XMLs/edit_iberia_utm30.xml');
-$xml_europe_conic->asXML('XMLs/edit_europe_conic.xml');
-	
-			$conn = pg_connect("host=localhost port=5432 password=Edit3.dsa user=postgres dbname=gbif3");
+	//we save these new XML (will be used as WMC files in MapBuilder to get layers)
+	$xml_iberia->asXML('XMLs/iberia.xml');
+	$config_file->asXML('XMLs/config_user_sld.xml');
+	$xml_world->asXML('XMLs/world.xml');
+	$xml_europe->asXML('XMLs/europe.xml');
+	$xml_iberia_utm30->asXML('XMLs/edit_iberia_utm30.xml');
+	$xml_europe_conic->asXML('XMLs/edit_europe_conic.xml');
+		
+			$conn = pg_connect("host=localhost port=5432 password= user= dbname=");
 			if (pg_ErrorMessage($conn)) { 
 			echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 			}
 			else {
-			//$inserta="select * from edit_import_csvgis ('$total',2,1,2,4326,',','$userid',current_date::timestamp)";
-		$inserta="SET CLIENT_ENCODING TO 'LATIN1';select * from edit_import_prova ('$total','$fields','$lon','$lat',4326,',','$userid',current_date::timestamp);insert into user_table values ('$userid','$sessionid');vacuum analyze test_csvimportgispoints2;vacuum analyze test_csvimportpk;";
-		//	$inserta="select * from edit_import_csvgis ('$total',2,1,2,4326,',','$userid',current_date::timestamp)";
-			//$inserta2="insert into tbname (nom) values ('$userid')";
+		//edit_import_prova is Franck's Teethen script (RMCA)  modified to insert CSV file 
+		//check also edit_import_csvgis (original script) 
+		$inserta="SET CLIENT_ENCODING TO 'LATIN1';select * from edit_import_prova ('$total','$fields','$lon','$lat',4326,',','$userid',current_date::timestamp);insert into user_table values ('$userid','$sessionid');";
+
 			pg_exec($inserta) or die ("Some error occurred; is your data format right? Did you fill all the parameters correctly? Does your data have some 'strange' (non LATIN1 encoding) character ??");
-			//$inserta2="insert into tbname (nom) values (userid)";
-			//$inserta2="";
-		    //pg_exec($inserta2);
-			
-			
+
 			$misql="select distinct(genus) from test_csvimportgispoints2 where userid='$userid'";//family='".$GET['family']."'";
-	$postgis_result=pg_exec($misql) or die;
-	$numFilas =pg_NumRows($postgis_result);
-$gml = new DOMDocument;
-$gml ="<?xml version=\"1.0\" encoding=\"LATIN1\"?>";
-$gml.="<featureType>";
-//per cada gènere....
-for($i=0;$i<$numFilas;$i++)
-{
-//ponga cada fila de la resulta en una matriz
-$result_matriz = pg_Fetch_Array($postgis_result,$i);
-//$result_matriz2 = pg_Fetch_Array($postgis_result2,$i2);
-$gml .="<genus>";
-$gml .="<name>".$result_matriz[0]."</name>";
-
-
-$sql2="select distinct(specie) from test_csvimportgispoints2 where genus='".$result_matriz[0]."' and userid='$userid'";
-$postgis_result2=pg_exec($sql2) or die;
-
-//quantes especies hem trobat per cada gènere?
-$numFilas2 =pg_NumRows($postgis_result2);
-//$gml .="<numero>".var_dump($postgis_result2)."</numero>";
-//posem les especies per genere dins d'un array
-$gml .="<species>";
-for($z=0;$z<$numFilas2;$z++)
-{
-$result_matriz2 = pg_Fetch_Array($postgis_result2,$z);
-$gml .="<spname>".$result_matriz2[0]."</spname>";
-//$gml .=$result_matriz[2]."\n";
-}
-$gml .="</species>";
-$gml .="</genus>";
-}
-$gml .="</featureType>";
-pg_close($conn);
-$dom_new = new DOMDocument();
-$xsl = new XSLTProcessor;
-$xsl->setParameter( '', 'user', "$userid");
-$style = realpath('php_xsl/SLD_php.xsl');
-$dom_new->load($style);
-$xsl->importStyleSheet($dom_new);
-$dom_new->loadXML($gml);
-$out = $xsl->transformToXML($dom_new);
-//echo $xsl->transformToXML($dom_new);
-//echo $out;
-$sld_path_towrite="/var/www/synthesys/www/fitxers/sld/$sld_file";
-$fp=fopen("$sld_path_towrite","w");
-$write=fwrite($fp,$out);
+			$postgis_result=pg_exec($misql) or die;
+			$numFilas =pg_NumRows($postgis_result);	
+    //we will create a new XML file that will be used to be get the user SLD	
+	//this SLD has to filters: userid and Genus name  but could be different (classification by species, etc.)
+	$gml = new DOMDocument;
+	$gml ="<?xml version=\"1.0\" encoding=\"LATIN1\"?>";
+	$gml.="<featureType>";
+	//for each genus...
+	for($i=0;$i<$numFilas;$i++)
+	{
+	$result_matriz = pg_Fetch_Array($postgis_result,$i);
+	$gml .="<genus>";
+	$gml .="<name>".$result_matriz[0]."</name>";
+	$sql2="select distinct(specie) from test_csvimportgispoints2 where genus='".$result_matriz[0]."' and userid='$userid'";
+	$postgis_result2=pg_exec($sql2) or die;
+	//how many species for each genus?
+	$numFilas2 =pg_NumRows($postgis_result2);
+	$gml .="<species>";
+	for($z=0;$z<$numFilas2;$z++)
+	{
+	$result_matriz2 = pg_Fetch_Array($postgis_result2,$z);
+	$gml .="<spname>".$result_matriz2[0]."</spname>";
+	}
+	$gml .="</species>";
+	$gml .="</genus>";
+	}
+	$gml .="</featureType>";
+	pg_close($conn);
+	//we will create the SLD 
+	$dom_new = new DOMDocument();
+	$xsl = new XSLTProcessor;
+	//userid filtering
+	$xsl->setParameter( '', 'user', "$userid");
+	$style = realpath('php_xsl/SLDs_php.xsl');
+	$dom_new->load($style);
+	$xsl->importStyleSheet($dom_new);
+	$dom_new->loadXML($gml);
+	$out = $xsl->transformToXML($dom_new);
+	$sld_path_towrite="/var/www/synthesys/www/fitxers/sld/$sld_file";
+	$fp=fopen("$sld_path_towrite","w");
+	$write=fwrite($fp,$out);
 
 	if (isset($_POST['selectContext'])) 
 	{
@@ -200,7 +189,7 @@ $write=fwrite($fp,$out);
 	
 	elseif ($context=="iberiaContext")  {
 	$final="edit_user_sld.html?context=iberia";
-
+	//header("Location: http://edit3.csic.es/fitxers/borrar_usuari.php"); 
 	header("Location: http://edit.csic.es/edit_geo/prototype/$final"); 
     exit(); 
 	}	
@@ -374,14 +363,13 @@ function jsUpload(upload_field)
 
 <textarea rows="1" cols="3" name="fields"></textarea>
 <br>
+<label>Position of longitude</label>
 
+<textarea rows="1" cols="5" name="lon"></textarea><br>
 <label>Position of latitude</label>
 
 <textarea rows="1" cols="3" name="lat"></textarea>
 <br>
-<label>Position of longitude</label>
-
-<textarea rows="1" cols="5" name="lon"></textarea>
 
 <br>
 
@@ -389,12 +377,12 @@ function jsUpload(upload_field)
 </form>
 <p><strong>Here you can download an example of a CSV file:</strong></p>
 <p><strong> <a href="http://edit3.csic.es/web/page1/Downloads/scarabeidae.csv">	Iberian Scarabaeidae (15143 rows)</a></strong></p>
-<p><strong>Number of fields: 5. Position of latitude: 1. Position of longitude: 2.  </p>
+<p><strong>Number of fields: 5. Position of longitude: 1. Position of latitude: 2. </p>
 <div id="author">Data of iberian Scarabaeidae collected by Dr. Jorge Miguel Lobo (Associate Professor of Research at MNCN) from different sources <br>
 Contact:  mcnj117@mncn.csic.es</div>
 <p><br>
 <strong><a href="http://edit3.csic.es/web/page1/Downloads/crocuta.csv">	Download "Crocuta crocuta" CSV (2813 rows)</a>
-<p>Number of fields: 4. Position of latitude: 1. Position of longitude: 2.</strong></p>
+<p>Number of fields: 2. Position of latitude: 1. Position of longitude: 2.</strong></p>
 <div id="author">Data collected by Sara Varela González (phD student at MNCN (Madrid)) mainly from the book "Status survey and conservation action plan. Hyaenas" (IUCN/SSC Hyaena specialist group; Mills, G. & Hofer, H., 1998) and different faunal lists of African Wildlife Parks. <br>
 				Contact:  mcnsv707@mncn.csic.es</div>
 <br>	
