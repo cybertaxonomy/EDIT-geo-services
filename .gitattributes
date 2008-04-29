@@ -1157,6 +1157,12 @@ mapviewer/edit_geo/prototype/JQ_win_files/pixel.gif -text
 mapviewer/edit_geo/prototype/JQ_win_files/resize.gif -text
 mapviewer/edit_geo/prototype/JQ_win_files/sprite.gif -text
 mapviewer/edit_geo/prototype/JQ_win_files/x-click-but04.gif -text
+mapviewer/edit_geo/prototype/XMLs/edit_europe.xml -text
+mapviewer/edit_geo/prototype/XMLs/edit_europe_conic.xml -text
+mapviewer/edit_geo/prototype/XMLs/edit_iberia.xml -text
+mapviewer/edit_geo/prototype/XMLs/edit_iberia_utm30.xml -text
+mapviewer/edit_geo/prototype/XMLs/topp_worlds.xml -text
+mapviewer/edit_geo/prototype/XMLs/world.xml -text
 mapviewer/edit_geo/prototype/config.xml -text
 mapviewer/edit_geo/prototype/css/README_EDIT.rtf -text
 mapviewer/edit_geo/prototype/css/edit_all.css -text

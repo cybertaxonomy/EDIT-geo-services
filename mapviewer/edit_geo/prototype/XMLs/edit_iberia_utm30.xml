@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<ViewContext version="1.0.0" id="atlas_world" xmlns="http://www.opengis.net/context" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/context http://schemas.opengis.net/context/1.0.0/context.xsd">
+  <General>
+    <Window width="595" height="363"/>
+    <BoundingBox SRS="EPSG:32630" minx="-150500" miny="3970000" maxx="1200739.66942149" maxy="4870000"/>
+    <Title>Iberian Map</Title>
+    <Abstract>Mapa iberico</Abstract>
+  </General>
+  <LayerList>
+
+		
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:landcover_glcf_iberia_30sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:landcover_glcf_iberia_30sec</Name>
+      <Title>Landcover GLCF (resol.= 30 sec)</Title>
+	  <Grup>landcover</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/lc.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+ 			
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio12_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:bio12_iberia_150sec</Name>
+      <Title>Annual Precipitation (resol.= 150 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/preciberia.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:bio1_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:bio1_iberia_150sec</Name>
+      <Title>Mean Temperature (resol.= 150 sec)</Title>
+	  <Grup>climate</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/mitempiberia.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:elevation_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:elevation_iberia_150sec</Name>
+      <Title>Elevation a.s.l. (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/mimispain.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:distcoast_iberia_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:distcoast_iberia_150sec</Name>
+      <Title>Distance coast (km) (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/distcoastiberia.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+    <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:sea_land_europe_150sec">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:sea_land_europe_150sec</Name>
+      <Title>Sea / Land (resol.= 150 sec)</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  	<StyleList>
+				<Style current="1">
+					<Name>raster</Name>
+					<Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/sea_land.jpg"/>
+		</LegendURL>
+				</Style>
+			</StyleList>
+    </Layer>
+	
+      <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:coast_iberia">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:coast_iberia</Name>
+      <Title>Coast line</Title>
+	  <Grup>topography</Grup>
+      <SRS>EPSG:32630</SRS>
+	  <StyleList>
+	      <Style current="1">
+          <Name>coast</Name>
+          <Title>coast</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/coastline.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+		
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:slopefin2">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:slopefin2</Name>
+      <Title>Slope at the end of collector curve</Title>
+      <Abstract>Slope at the end of collector curve</Abstract>
+	  <Grup>enviranalysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <StyleList>
+        <Style current="1">
+          <Name>raster</Name>
+          <Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/leyrojo2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+		
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:taxisregis2">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:taxisregis2</Name>
+      <Title>Number of Genera / Number of Records</Title>
+      <Abstract>Number of Genera / Number of Records</Abstract>
+	  <Grup>enviranalysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <StyleList>
+        <Style current="1">
+          <Name>raster</Name>
+          <Title>default</Title>
+        </Style>
+      </StyleList>
+      <FormatList><Format current="1">image/png</Format></FormatList>
+	  </Layer>
+		
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:nutaxis2">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:nutaxis2</Name>
+      <Title>Number of Genera</Title>
+      <Abstract>Number of Genera</Abstract>
+	  <Grup>enviranalysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <StyleList>
+        <Style current="1">
+          <Name>raster</Name>
+          <Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/leyverde2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+	  <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+		
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:nuregis2">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:nuregis2</Name>
+      <Title>Number of Records (sampling effort)</Title>
+      <Abstract>Number of Records (sampling effort)</Abstract>
+	  <Grup>enviranalysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <StyleList>
+        <Style current="1">
+          <Name>raster</Name>
+          <Title>default</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/nuregisley.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+	  <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+			
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="topp:pointraster">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:pointraster</Name>
+      <Title>(click here to activate the 'i' tool)</Title>
+      <Abstract>pointraster</Abstract>
+	  <Grup>enviranalysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <StyleList>
+        <Style current="1">
+          <Name>pointraster_style</Name>
+          <Title>default</Title>
+        </Style>
+      </StyleList>
+	  <FormatList><Format current="1">image/png</Format></FormatList>
+    </Layer>
+	
+	
+	  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:userpr</Name>
+      <Title>Slope at the end of collector's curve</Title>
+      <Abstract>Slope at the end of collector curve</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>slope</Name>
+          <Title>population</Title>
+		<LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/leyrojo2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+
+    </Layer>
+		
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:scarab2500new</Name>
+      <Title>Number of Genera / Number of Records</Title>
+      <Abstract>Number of taxa / Number of records.</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>incertidumbre</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm_numgenus</Name>
+      <Title>Number of Genera</Title>
+      <Abstract>Number of genera of Scarabaeidae.</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm_generos</Name>
+          <Title>Genera</Title>
+		  	  <LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/leyverde2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+		  <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm_scarab</Name>
+      <Title>Number of Records (sampling effort)</Title>
+      <Abstract>Number of Records of Scarabaeidae.</Abstract>
+	  <Grup>utm2500analysis</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>regs</Name>
+          <Title>regs</Title>
+		  	  <LegendURL format="image/jpg">
+			<OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/filesweb/leyazul2.jpg"/>
+		</LegendURL>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:province_europe</Name>
+      <Title>Provinces</Title>
+	  <Grup>Administrative</Grup>
+      <Abstract>Provinces of Europe.</Abstract>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>paisesrojo</Name>
+          <Title>Provinces</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	 
+	 <Layer queryable="0" hidden="0">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:country_iberia</Name>
+      <Title>Countries</Title>
+	  <Grup>Administrative</Grup>
+      <Abstract>Countries of the Iberian Peninsula.</Abstract>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>paisesrojo</Name>
+          <Title>Countries</Title>
+        </Style>
+      </StyleList>
+	 </Layer>
+	
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:scarabeidos</Name>
+      <Title>Sample points</Title>
+      <Abstract>Scarabaeidae of the Iberian Peninsula.</Abstract>
+	  <Grup>puntos</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+
+	<SLD>
+
+	<StyledLayerDescriptor version="1.0.0" id="sld vide">
+
+	<NamedLayer>
+<Name>topp:scarabeidos</Name>
+
+	<UserStyle>
+<Title>werwer</Title>
+<Abstract/>
+	<FeatureTypeStyle>
+
+    <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Onitis</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+		 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+    <Rule>
+    <Filter>
+     
+	   <And>
+	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Copris</Literal></PropertyIsEqualTo>
+		</Or>
+		</And>
+		  
+     </Filter>
+
+	 	 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+</Rule>
+  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Bubas</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+		 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+	  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Cheironitis</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+		 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+	  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Euoniticell</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+	 	 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+	  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Onthophagus</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+		 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+	  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Gymnopleuru</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+		 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+	  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Caccobius</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+	 	 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+	    
+	  <Rule>
+	 <Filter>
+     	   <And>	    
+                        <PropertyIsEqualTo>
+                          <PropertyName>family</PropertyName>
+                          <Literal>Scarabaeida</Literal>
+                        </PropertyIsEqualTo>
+		<Or>
+		<PropertyIsEqualTo>
+		<PropertyName>genus</PropertyName>
+		<Literal>Euothophagu</Literal>
+		</PropertyIsEqualTo>
+		</Or>
+		</And>		  
+     </Filter>
+		 <PointSymbolizer>
+							                  <Graphic>
+                            <Mark>
+                                <WellKnownName>square</WellKnownName>
+                        		<Fill>
+                        			<CssParameter name="fill">
+                        				<Literal>#FF0000</Literal>
+                        			</CssParameter>
+                        			<CssParameter name="fill-opacity">
+                        				<Literal>0.2</Literal>
+                        			</CssParameter>
+                        		</Fill>
+                            </Mark>
+                            <Size>2</Size>
+                        </Graphic>
+                    </PointSymbolizer>
+    </Rule>
+
+</FeatureTypeStyle>
+	
+</UserStyle>
+</NamedLayer>
+</StyledLayerDescriptor>
+</SLD>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:itr10000sqkm_spain</Name>
+      <Title>Icos. Triangles 10000 sq km</Title>
+	  <Grup>utm</Grup>
+      <Abstract>Icosaedric Triangles 10000 sq km.</Abstract>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+				
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:elrs10000sqkm_iberia</Name>
+      <Title>Latitudinal squares 10000 sq km</Title>
+      <Abstract>Latitudinal squares 10000 sq km.</Abstract>
+	  <Grup>utm</Grup>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+ <Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm2500sqkm_iberia</Name>
+      <Title>UTM squares 2500 sqkm</Title>
+	  <Grup>utm</Grup>
+      <Abstract>utm 2500 sq km</Abstract>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+	
+	<Layer queryable="1" hidden="1">
+      <Server service="OGC:WMS" version="1.1.1" title="Local">
+        <OnlineResource xlink:type="simple" xlink:href="http://edit.csic.es:8080/geoserver/wms"/>
+      </Server>
+      <Name>topp:utm10000sqkm_iberia</Name>
+      <Title>UTM squares 10000 sqkm</Title>
+	  <Grup>utm</Grup>
+      <Abstract>utm 10000 sq km.</Abstract>
+      <SRS>EPSG:32630</SRS>
+      <FormatList>
+        <Format current="1">image/png</Format>
+      </FormatList>
+      <StyleList>
+        <Style current="1">
+          <Name>utm</Name>
+          <Title>population</Title>
+        </Style>
+      </StyleList>
+    </Layer>
+
+
+
+  </LayerList>
+</ViewContext>
