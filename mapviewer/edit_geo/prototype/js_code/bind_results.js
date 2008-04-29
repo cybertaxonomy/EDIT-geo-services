@@ -21,7 +21,7 @@ var $table=$(this);$table.alternateRowColors();$table.find('th').each(function(c
 
 
 
- $.get('http://edit.csic.es/fitxers/sp_query.php', {param: bbox.join('&') }, function(data) {$("#query_container").append(data); bindBehaviors(data);});
+ $.get('http://edit.csic.es/fitxers/queries/sp_query.php', {param: bbox.join('&') }, function(data) {$("#query_container").append(data); bindBehaviors(data);});
 
 
 

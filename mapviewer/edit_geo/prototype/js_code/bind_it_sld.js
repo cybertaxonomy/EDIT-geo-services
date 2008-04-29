@@ -20,7 +20,7 @@ var $table=$(this);$table.alternateRowColors();$table.find('th').each(function(c
 }; //fi de funcion BindBehaviours
 
 
-$.get('http://edit.csic.es/fitxers/aoi_query_sld.php', {param: bbox.join('&') }, function(data) {$('#content').empty();$("#query_container").append(data);bindBehaviors(data)});
+$.get('http://edit.csic.es/fitxers/queries/aoi_query_sld.php', {param: bbox.join('&') }, function(data) {$('#content').empty();$("#query_container").append(data);bindBehaviors(data)});
 
 
 });
