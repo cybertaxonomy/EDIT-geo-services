@@ -1301,7 +1301,6 @@ mapviewer/php[!!-~]files/fitxers/XMLs/iberia.xml -text
 mapviewer/php[!!-~]files/fitxers/XMLs/world.xml -text
 mapviewer/php[!!-~]files/fitxers/borrar.php -text
 mapviewer/php[!!-~]files/fitxers/data_upload.php -text
-mapviewer/php[!!-~]files/fitxers/loaded_CSVs/scarabeidae.csv -text
 mapviewer/php[!!-~]files/fitxers/php_xsl/SLD_php.xsl -text
 mapviewer/php[!!-~]files/fitxers/php_xsl/generantSLDs_php.xsl -text
 mapviewer/php[!!-~]files/fitxers/php_xsl/generantSLDs_php_LATIN.xsl -text
