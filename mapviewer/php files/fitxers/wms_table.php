@@ -1,21 +1,10 @@
 <?php
-
-
-//header("Content-type: text/xml; charset=UTF-8");
- 
-
- 
- 
-//header('Content-Type: text/xml');
-//BOOOO  $wms="http://wms-sites.com/search_rss?SearchableText=".$_GET['term'];
-//$wms="http://wms-sites.com/search_rss?SearchableText=spain";
-
-// print "<h1>$wms</h1>\n";
+//we pass the SEARCH PARAMETER  and get a RSS file with the title and the URL to the GetCapabilities!!! (that's all we need)
 $wms="http://wms-sites.com/search_rss?SearchableText=".$_GET['term'];
-//$wms="spain_rss.xml";
+
 $xml=simplexml_load_file($wms);
-//print file_get_contents($wms);
- 
+
+//THE DATA "PRINTED" HERE WILL BE THE ANSWER TO THE AJAX REQUEST; WILL BE PRINTED IN A NEWLY CREATED <DIV>
  print "<div id='content'>
 		<table border='0' class='sortable paginated'>
 			 
@@ -35,6 +24,8 @@ $xml=simplexml_load_file($wms);
  $title=$item->title;
  $link=$item->link;
 
+ //WHEN WE CLICK THIS LINK WE WILL GET THE LAYERS OF THIS WMS SERVICE (this last action is done by mapbuilder)
+//then, user click on any result and get the layer 
  $show_link="javascript:config.loadModel('wmsCapTemplate2','$link')";
  
 
