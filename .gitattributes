@@ -1,4 +1,8 @@
 * text=auto !eol
+distribution-map-service/areas.php -text
+distribution-map-service/areas.xsl -text
+distribution-map-service/points.php -text
+distribution-map-service/points.xsl -text
 mapviewer/edit_geo/CHANGES -text
 mapviewer/edit_geo/ExceptionHandler.jsp -text
 mapviewer/edit_geo/LGPL -text
