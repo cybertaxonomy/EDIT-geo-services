@@ -1348,5 +1348,7 @@ mapviewer/php[!!-~]files/fitxers/toXML/europe.php -text
 mapviewer/php[!!-~]files/fitxers/toXML/iberia_sld.php -text
 mapviewer/php[!!-~]files/fitxers/toXML/world.php -text
 mapviewer/php[!!-~]files/fitxers/wms_table.php -text
+point-map-service/points.php -text
+point-map-service/points.xsl -text
 postgis_script/edit_import_csvgis.sql -text
 postgis_script/edit_import_prova.sql -text
