@@ -1248,9 +1248,6 @@ mapviewer/edit_geo/prototype/js_code/old_stuff/symbology_sld.js -text
 mapviewer/edit_geo/prototype/js_code/old_stuff/symbology_sld_ie.js -text
 mapviewer/edit_geo/prototype/js_code/remote_wms.js -text
 mapviewer/edit_geo/prototype/js_code/select_formulari.html -text
-mapviewer/edit_geo/prototype/js_code/select_recompressed.js -text
-mapviewer/edit_geo/prototype/js_code/symbology.js -text
-mapviewer/edit_geo/prototype/js_code/symbology_sld.js -text
 mapviewer/edit_geo/prototype/json/edit_layers.json -text
 mapviewer/edit_geo/prototype/web_WMS/GetFeatureInfo.js -text
 mapviewer/edit_geo/prototype/web_WMS/config-country-earth.xml -text
