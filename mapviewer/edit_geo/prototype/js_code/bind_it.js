@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//hi hi
 var bindBehaviors=function(){$(document).ready(function()
 {
 
