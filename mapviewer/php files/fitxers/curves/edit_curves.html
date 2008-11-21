@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<script type="text/javascript" src="jsonp_processor.js"></script>
+		<script type="text/javascript" src="../jquery/jquery.js"></script>
+		
+		<link href="flot/layout.css" rel="stylesheet" type="text/css"></link>		
+	    <!--[if IE]><script language="javascript" type="text/javascript" src="../excanvas.pack.js"></script><![endif]-->
+	    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			wbase="http://edit.csic.es/fitxers/curves/";
+
+				url = "http://edit.csic.es/fitxers/curves/data.php?format=json&callback=curves";
+			$.getJSON(url,{geotable:"userre"});
+		  		}); 
+		</script>
+		</head>
+		<body>
+						<h1>Inventory uncertainty demo</h1>
+					<div> Number of records (X axis) / Number of Genera (Y axis)</div>
+					    <div style="float:left">
+					<div id="placeholder" style="width:500px;height:450px"></div>
+						    </div>
+
+				    <div id="miniature" style="float:left;margin-left:20px;margin-top:50px;">
+
+			
+					      <div id="overview" style="width:200px;height:150px"></div>
+
+						      <p id="overviewLegend" style="margin-left:10px"></p>
+				<div id="explicacio" style="width:300px;">
+													The first measure of inventory uncertainty is the simple rate richness/effort (<b>number of genera / number of records in each surface unit</b>). <br>The slope at the end of the collector’s curve (or rarefaction curve) is based not only on the number of taxa and the number of records but also on the relative frequency of the taxa, and represents the <b>mean effort dedicated to discover the last species found in each surface unit</b><br>
+													This is only a simulation of the analysis we want to perform on the future. This is a graphical representation of the "Uncertainity of Genera Inventory" analysis performed on EDIT mapViewer (see "Iberian Peninsula" context) but here only 22 surface units are plotted because of the big legend. Of course we will plot all of them in the future.
+													</div>
+							<!-->						 <p><input id="clearSelection" type="button" value="Clear selection" />
+												       <input id="setSelection" type="button" value="20-40" /></p></div>
+						-->
+	
+					</body>
+			</html>
