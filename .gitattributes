@@ -1187,7 +1187,6 @@ mapviewer/edit_geo/prototype/edit.html -text
 mapviewer/edit_geo/prototype/edit_project.html -text
 mapviewer/edit_geo/prototype/edit_project_commented.html -text
 mapviewer/edit_geo/prototype/edit_user.html -text
-mapviewer/edit_geo/prototype/edit_user_sld.html -text
 mapviewer/edit_geo/prototype/formularis/select_formulari.html -text
 mapviewer/edit_geo/prototype/formularis/select_formulari_sld.html -text
 mapviewer/edit_geo/prototype/images/arrow-back_16.gif -text
