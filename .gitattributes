@@ -1206,8 +1206,6 @@ mapviewer/edit_geo/prototype/js_code/bind_it.js -text
 mapviewer/edit_geo/prototype/js_code/bind_it_sld.js -text
 mapviewer/edit_geo/prototype/js_code/bind_results.js -text
 mapviewer/edit_geo/prototype/js_code/bind_results_sld.js -text
-mapviewer/edit_geo/prototype/js_code/compressed_code.js -text
-mapviewer/edit_geo/prototype/js_code/compressed_sld.js -text
 mapviewer/edit_geo/prototype/js_code/edit_no_sld/main.js -text
 mapviewer/edit_geo/prototype/js_code/edit_no_sld/print.js -text
 mapviewer/edit_geo/prototype/js_code/edit_no_sld/symbology.js -text
