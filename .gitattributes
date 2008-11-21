@@ -1182,6 +1182,7 @@ mapviewer/edit_geo/prototype/curves/editcurves.html -text
 mapviewer/edit_geo/prototype/curves/editcurvesenviron.html -text
 mapviewer/edit_geo/prototype/curves/topp_curves.xml -text
 mapviewer/edit_geo/prototype/curves/topp_curves_environ.xml -text
+mapviewer/edit_geo/prototype/densityLayer.sld -text
 mapviewer/edit_geo/prototype/edit.html -text
 mapviewer/edit_geo/prototype/edit_project.html -text
 mapviewer/edit_geo/prototype/edit_project_commented.html -text
