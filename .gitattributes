@@ -1212,6 +1212,7 @@ mapviewer/edit_geo/prototype/js_code/edit_no_sld/symbology.js -text
 mapviewer/edit_geo/prototype/js_code/edit_sld/main_sld.js -text
 mapviewer/edit_geo/prototype/js_code/edit_sld/print_sld.js -text
 mapviewer/edit_geo/prototype/js_code/edit_sld/symbology_sld.js -text
+mapviewer/edit_geo/prototype/js_code/gbif.js -text
 mapviewer/edit_geo/prototype/js_code/jquery.js -text
 mapviewer/edit_geo/prototype/js_code/old_stuff/compressed_24abril.js -text
 mapviewer/edit_geo/prototype/js_code/old_stuff/compressed_24abril_2.js -text
