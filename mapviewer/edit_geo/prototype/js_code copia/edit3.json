@@ -1,0 +1,93 @@
+[
+    {
+    "extent": "iberia",
+    "theme": "enviranalysis",	
+    "layers": [{
+	  "id":"envanal1",
+      "nom":"Slope at the end of collector curve",
+	  "Abstract":"Slope at the end of collector curve",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:slopefin2\')"	  
+	  },
+	  {
+	  "id":"envanal2",
+      "nom":"Number of Genera / Number of Records",
+	  "Abstract":"Number of Genera / Number of Records",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:taxisregis2\')"	  
+	  },
+	  	  {
+	  "id":"envanal13",
+      "nom":"Number of Genera",
+	  "Abstract":"Number of Genera",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:nutaxis2\')"	  
+	  },
+	  	  {
+	  "id":"ianalysis4",
+      "nom":"Number of Records (sampling effort)",
+	  "Abstract":"Number of Records (sampling effort)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:nuregis2\')"	  
+	  }]
+	},
+   	{
+    "extent": "iberia",
+    "theme": "analysis",	
+    "layers": [{
+	  "id":"ianalysis1",
+      "nom":"Uncertainity of Genera Inventory",
+	  "Abstract":"Uncertainity of Genera Inventory",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm_incertidum\')"	  
+	  },
+	  {
+	  "id":"ianalysis2",
+      "nom":"Number of Genera / Number of Records",
+	  "Abstract":"Number of Genera / Number of Records",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:scarab2500new\')"	  
+	  },
+	  	  {
+	  "id":"ianalysis3",
+      "nom":"Number of Genera",
+	  "Abstract":"Number of Genera",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm_numgenus\')"	  
+	  },
+	  	  {
+	  "id":"ianalysis4",
+      "nom":"Number of Records (sampling effort)",
+	  "Abstract":"Number of Records (sampling effort)",	
+      "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:utm_scarab\')"	  
+	  }]
+	},
+   {
+    "extent": "world",
+    "theme": "administrative",	
+    "layers": [{
+	  "id":"wa1",
+      "nom":"Countries world",
+	  "Abstract":"abstract Administrative countries",	  
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:country_earth\')"
+
+	  },
+	  {
+	   "id":"wa2",
+      "nom":"TDWG Level 1",
+	  "Abstract":"abstact TDWG Level 1",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_1\')"
+	  },
+	  	  {
+	   "id":"wa3",
+      "nom":"TDWG Level 2",
+	  "Abstract":"abstact TDWG Level 2",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_2\')"
+	  },
+	  	  {
+	   "id":"wa4",
+      "nom":"TDWG Level 3",
+	  "Abstract":"abstact TDWG Level 3",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_3\')"
+	  },
+	  	  {
+	  "id":"wa4",
+      "nom":"TDWG Level 4",
+	  "Abstract":"abstact TDWG Level 4",
+	  "link": "javascript:config.objects.editContext.addNodeToModel(\'topp:tdwg_level_4\')"
+	  }]   
+  }
+]	  
