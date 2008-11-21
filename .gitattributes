@@ -1301,6 +1301,11 @@ mapviewer/php[!!-~]files/fitxers/XMLs/iberia.xml -text
 mapviewer/php[!!-~]files/fitxers/XMLs/world.xml -text
 mapviewer/php[!!-~]files/fitxers/borrar.php -text
 mapviewer/php[!!-~]files/fitxers/data_upload.php -text
+mapviewer/php[!!-~]files/fitxers/images/edit_images.php -text
+mapviewer/php[!!-~]files/fitxers/images/fpdf.php -text
+mapviewer/php[!!-~]files/fitxers/images/images.php -text
+mapviewer/php[!!-~]files/fitxers/images/makepdf2.php -text
+mapviewer/php[!!-~]files/fitxers/images/pdf_images2.php -text
 mapviewer/php[!!-~]files/fitxers/php_xsl/SLD_php.xsl -text
 mapviewer/php[!!-~]files/fitxers/php_xsl/generantSLDs_php.xsl -text
 mapviewer/php[!!-~]files/fitxers/php_xsl/generantSLDs_php_LATIN.xsl -text
