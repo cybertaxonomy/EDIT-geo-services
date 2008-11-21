@@ -1,31 +1,118 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
       
 <html xmlns="http://www.w3.org/1999/xhtml" >
-  <head>
+<head>
     <title>Geoplatform MNCN - Map viewer (prototype)</title>
     <script type="text/javascript" src="js_code/jquery.js"></script>
-	<script type="text/javascript" src="js_code/compressed_code.js"></script>	
-	<link type="text/css" rel="stylesheet" media="all" href="css/edit_all.css">
+<!--	<script type="text/javascript" src="js_code/jqbrowser-compressed.js"></script>-->
+	<script type="text/javascript" src="js_code/edit_no_sld/main.js"></script>	
+	
+<!--		<script type="text/javascript" src="js_code/jquery.browser.js"></script>	-->
+	 <link rel='StyleSheet' type='text/css' href='../lib/skin/default/scalebar-fat.css'><!-- This style sheet is needed for the scalebar -->
+	<link type="text/css" rel="stylesheet" media="all" href="css/edit_test.css">
 	<link type="text/css" rel="stylesheet" media="all" href="css/farbtastic.css">
 	<link type="text/css" rel="stylesheet" media="all" href="css/tables.css">
-
       <script>
-	 var mbConfigUrl='config.xml';
-	 alert('This site only works completely fine, for the moment, with Firefox 2.0!');
+$(document).ready(function(){
+
+if (! $.browser.mozilla)
+{
+	mainMap="http://edit.csic.es/edit_geo/prototype/XMLs/edit_iberia_ie.xml";
+	$("#world_context").attr('href','javascript:config.loadModel("mainMap","XMLs/world_ie.xml")');
+	$("#europe_context").attr('href','javascript:config.loadModel("mainMap","XMLs/edit_europe_ie.xml")');
+	$("#iberian_context").attr('href','javascript:config.loadModel("mainMap","XMLs/edit_iberia_ie.xml")');
 	
+//	alert("using ie");
+}
+else 
+{
+		mainMap="http://edit.csic.es/edit_geo/prototype/XMLs/edit_iberia.xml";
+}
+
+//   $("#demo").show()
+ //var browser = $.browser.browser();
+   // alert(browser); 
+//-->Firefox
+/* 
+if (browser=="Firefox" && $.browser.version.string()=="3.0.0")
+ {
+ 	alert ("If you are using Firebug on Firefox 3 you have to uninstall it. Sorry...");
+//     console.info($.browser.version.string());
+ 
+ }
+else {};
+*/
+	$("#mainButtonBar").click(function(event)
+	{
+	    if (event.target.id=='setAoi_image' || event.target.id=='GetFeatureInfo_image')
+	    {
+		  if (event.target.id=='setAoi_image')
+		       {
+				$("#header em").not("#em1").hide();
+	            
+	            $("#em1").animate({opacity: "show" , top: "-45"}, "slow");
+				
+				$("#em1").addClass("aoi_selected");
+	  //  console.log($("#em1").className);
+
+				}
+	   	  if (event.target.id=='GetFeatureInfo_image')
+			{
+			//	if ($.browser.msie)
+			//	{
+				$("#em3").css('padding','5px 8px 0px 10px;');					
+			//	}
+		
+		     $("#em3").animate({opacity: "show" , top: "-50"}, "slow");
+		     $("#header em").not("#em3").hide();
+				
+/*				if	($("#em1").hasClass("aoi_selected")!==true)
+				{
+					alert("select aoi first")
+				}
+		else { 		$("#header em").not("#em2").hide();
+			  
+				$("#em1").removeClass("aoi_selected");
+				} */
+			 }
+		}
+     else { 
+	    $("#header em").hide();
+        }    	    
+
+});
+});
+	
+//	   .show();
+	 var mbConfigUrl='config.xml';
+	 //alert('This site only works completely fine, for the moment, with Firefox 2.0!');
+
+/*
+		var bindAoi=function () { 
+			$('#user_dates').next().slideDown("slow"); 
+		$("#aoi_info").addClass("sld_info");
+				};*/
+
     </script>
     <script type="text/javascript" src="../lib/Mapbuilder.js"></script>
+
   </head>
   <body onload="mbDoLoad()" >
-  <div id="header"> 
-		  <h3 align="center">Geoplatform MNCN </h3>
-  </div><div id="middle">
+<div id="mainbody">
+<div id="header">
+	<em id="em1">Use this tool to select an Area of Interest to query only user point data</em>
+		<em id="em2">You have already selecte the area to query.<br>Now click on this <a link href="#" id="query_AOI">link</a></em>
+	  <em id="em3">Query only user point data in 11x11 km buffer<br>You can use the context "Iberian Peninsula Demo" or <a link href="http://edit.csic.es/data/fitxers/data_upload.php">upload your own data </a>to query</em>
+	<div style="position:relative; left: 40%;font: bold 16pt Arial, Helvetica, sans-serif; padding:5px;width:300px">EDIT mapViewer [prototype]</div>
+ </div><!--fi header-->
+
+<div id="middle">
   <div id="menubar">
       <div id="locatorMap" align="center">
     </div>
  <dl>
-	<dt><a id="xml_data" href="javascript:">Context/Extent . . . (projection)</a></dt>
+	<dt>Context/Extent</dt>
 	<dd>
 	<ul>   
 		<li><a id="world_context" href="javascript:config.loadModel('mainMap','XMLs/world.xml')">World . . . (latlong)</a></li>
@@ -35,14 +122,39 @@
 		<li><a  id="iberian_30_context" href="javascript:config.loadModel('mainMap','XMLs/edit_iberia_utm30.xml')">Iberian Peninsula . . . (utm 30n)</a></li>
 	</ul>
 	</dd>
-	
-	<dt id="areal_data"><a id="2" href="javascript:">Surface Units</a></dt>
+	<dt id="download_data">Printing options</dt>
 	<dd>
 	<ul>
-		<li><a id="admin_dates"><em>Administrative Units</em></a>   
+
+			 <form id="format_form" action="#">
+				<select>
+				<option value="png/gray">PNG gray</option>	
+				<option value="jpeg/gray">JPEG gray</option>	
+				<option value="gif/gray">GIF gray</option>	
+				<option value="image/png">PNG</option>
+				<option value="PDF/jpeg">PDF/jpeg</option>
+				<option value="PDF/png">PDF/png</option> 
+				<option value="image/jpeg">JPEG</option>
+				<option value="image/gif">GIF</option>
+				</select><br><br>
+<!--				<input type="submit" value="Get it!" />-->
+		 <div id="get_image">click <b>here</b> to GET this image and just wait a little.<p>
+			This is an still inestable tool, specially when dealing with remote WMS.<p>We expect to provide soon high-quality printing (300dpi)</div>
+			</form>
+<!--		<div id="print">print he</div>-->
+		<div id="print" href="#" class="ex2trigger"></div>
+    <div id="ex_print" class="jqmDialog">
+		</div>
+	</ul>
+	</dd>
+	</dt>
+	<dt id="areal_data">Surface Units</dt>
+	<dd>
+	<ul class="classif">
+		<li><a href="#" id="admin_dates"><em>Administrative Units</em></a>   
 		</li>
 		   
-			<div id="admin_tabs" class="tabs">
+			<div style="left:0px;" id="admin_tabs" class="tabs">
 		        <ul class="tabNavigation">
 		            <li><a id="tab1" href="#admin_layers">Layers</a></li>
 		            <li><a id="tab2"  href="#admin_metadata">Metadata</a></li>
@@ -54,12 +166,12 @@
 					  <ul >			           
 			          </ul>
 			    </div>
-			    <div id="admins_legend">			            	            
+			    <div id="admins_legend" class="legend">			            	            
 						<div id="admin_legend"></div>
 			    </div>		
 			</div>
            
-		<li><a id="utm_dates"><em>Regular equal-area units</em></a>
+		<li><a href="#" id="utm_dates"><em>Regular equal-area units</em></a>
 		</li>
 		
 		   <div id="utm_tabs" class="tabs">
@@ -74,19 +186,19 @@
 					  <ul >			           
 			          </ul>
 			    </div>
-			    <div id="utms_legend">			            	            
+			    <div id="utms_legend" class="legend">			            	            
 					<div id="utm_legend"></div>
 			    </div>		
 			</div>
 	  </ul>
 	</dd>
 	
-	<dt id="raster_data"><a id="2" href="javascript:">Environmental Variables </a></dt>
+	<dt id="raster_data">Environmental Variables</dt>
 		<dd>
 	  <ul>
 
 	  
-	    <li><a id="topography_dates"><em>Topography</em></a>
+	    <li><a href="#" id="topography_dates"><em>Topography</em></a>
 		</li>
 
             <div id="topo_tabs" class="tabs">
@@ -108,7 +220,7 @@
 			    </div>	
        			   
 		</div> 			
-		<li><a id="climate_dates"><em>Climate</em></a>  
+		<li><a href="#" id="topography_dates"><em>Climate</em></a>
 		 </li>   		
 	
 			<div id="climate_tabs" class="tabs">
@@ -128,71 +240,65 @@
 			    </div>		
 			
 		</div>
-		<li><a id="landcover_dates2"><em>Landcover</em></a>   
+		<li><a href="#" id="landcover_dates2"><em>Landcover</em></a>   
 		</li><div id="landcover_lay"><table id="control"><td id="landcover_legend"></a></li></td></table></div>
 	  </ul>
 	</dd>
-	<dt id="remote_data"><a id="2" href="javascript:">Remote WMS</a></dt>
-	<dd>
+	<dt id="remote_data">Remote WMS</dt>
+
+	<dd >
 	  <ul>
-	    <li><a id="WMS_data">Enter a search parameter</a>	
+		 <li><a href="#" id="altres_dates2">Remote WMS layers</a>   		
+			</li><div id="altres_lay">
+			     
+			     <table id="control"><td id="altres_legend"></a></li></td></table></div>
+			</li>
+
+	    <li>
+				<a id="gbif_trigger" href="#" class="ex2trigger">Explore GBIF data</a><br>
+				<b>Only works using Firefox!!</b><br>
+		
 		<div class="search" id="letter-f">
-          <strong>Some ideas: NASA, FAO, Brasil, SPOT, flora... </strong><br>
-		  This tool searchs in wms-sites.com  <br>
-		  May be they don't have what you are looking for...
+
+          <strong>Enter a search parameter to find remote WMS layers in wms-sites.com<strong><br>
+	      <h4>Some ideas: NASA, FAO, Brasil, SPOT, flora... </h4>
           <form>
             <input type="text" name="term" value="" id="term">
             <input type="submit" name="search" value="search" id="wms_data">
           </form>
 	</div>
-	    <li><a id="altres_dates2">Remote WMS layers</a>   		
-		</li><div id="altres_lay">
-		     <div id="alert">You can move up/down the layers</div>
-		     <table id="control"><td id="altres_legend"></a></li></td></table></div>
-		</li>
-		<div id="ex3" class="jqmDialog">
-		  <div class="jqmdTL">
-		    <div class="jqmdTR">
-		   <input type="image" src="JQ_win_files/close_icon.png" class="jqmdX jqmClose" />
-			     <div class="jqmdTC jqDrag">WMS Servers (you can click and drag me)</div>
-				 <a id="repaginate2">Click here to repaginate the layers</a>
-			        <div id="wrapper">
-			  		  <div id="container">
-					    <div id="workspace2"/>
-					   </div>
-				    </div>
-		       </div>
-		  </div>
-		</div><!-- fi ex3-->
+	     <div id="workspace_wms"></div><!-- remote WMS list will be appended here-->
+	    		
 		</ul>
 		</dd>
 	
-	<dt id="user_dates"><a id="iberian_data" href="javascript:"><em>Demo 1: Sample Point Data</em></a></dt>	
+	<dt id="user_dates">Demo 1: Sample Point Data</dt>	
 	<dd>
 	<ul>
 		    <li>
-            <a id="puntos_info">
+            <a href="#" id="puntos_info">
             Sample Point Data</a><br>
 			<div id="puntos_lay"><table id="control"><td id="puntos_legend"></a></li></td> </table></div>
-			<a id="id" href="#" class="ex2trigger">Data Symbolization </a><br>
-			<div id="aoi_info">
-			<a id="query_AOI" style="color: blue;" href="#">Get data from Area of Interest (AOI)</a>
-			Click here after selecting the AOI <p> through the <image src="images/SetAoiDisable.png"/>  tool
-			</div>
+			<div><img name="llegenda" id="llegenda" src=""/></div>
+			<a id="id" href="#" class="ex2trigger">Symbolize your data</a><br>
 			
+		<!--	<div id="aoi_info">
+			<a id="query_AOI" style="color: blue;" href="#">Get data from Area of Interest (AOI)</a><p>
+			Click here after selecting the AOI <p> through the <image src="images/SetAoiDisable.png"/>  tool<p>Only avaible for Iberian Peninsula Demo
+			</div>
+		-->
 			</li>
 			
 	  </ul>
 	  
 	</dd>
 
-	<dt id="demo2_data">
-	<a  href="javascript:"><em>Demo 2: Spatial Completeness</em></a></dt>
+	<dt id="demo2_data">Demo 2: Spatial Completeness</dt>
 	
 	<dd>
 	<ul>
 			<li>
-			<a id="analysis_dates">Spatial Completeness Analysis</a>
+			<a href="#" id="analysis_dates">Spatial Completeness Analysis</a>
              </li>
 			<div id="analysis_tabs" class="tabs">
 		        <ul class="tabNavigation">
@@ -212,7 +318,7 @@
 		    </div>
 			</li>
 			<li>
-			<a href="curves/editcurves.html" target="_blank"><em>Collector's curves (graphic)</em></a>
+			<a href="http://edit.csic.es/fitxers/webservices/edit_curves.html" target="_blank"><em>Collector's curves (graphic)</em></a>
 			</li>
 			<li>
 			<a href="http://edit.csic.es/web/docs/Demo_explanation_spatial.htm" target="_blank"><em>Demo 2 Explanation</em></a>
@@ -221,11 +327,11 @@
 	  </ul>
 	</dd>
 
-	<dt id="demo3_data"><a id="iberian_data" href="javascript:"><em>Demo 3: Environmental Completeness</em></a></dt>	
+	<dt id="demo3_data">Demo 3: Environmental Completeness</dt>	
 	<dd>
 	<ul>
 			<li>
-			<a id="environ_scarab_dates">
+			<a href="#"id="environ_scarab_dates">
             Analysis of Environmental Completeness</a>
 			</li>
 			<div id="enviranalysis_tabs" class="tabs">
@@ -251,11 +357,8 @@
 			<a href="http://edit.csic.es/web/docs/Demo_explanation_environmental.htm" target="_blank"><em>Demo 3 Explanation</em></a>
 			</li>
 	  </ul>
-	</dd>
-	
-
-	
-		<dt id="user_dates"><a id="2" href="javascript:">User data</a></dt>
+	</dd>	
+		<dt id="user_dates"><em>User data</em></dt>
 		<dd>
 		  <ul>
 				<li>
@@ -263,103 +366,115 @@
 				</li>
 				</ul>		
 		</dd>
+	<dt id="links">Information&links</dt>
+		<dd>
+		  <ul>
+			<li><a href="http://edit.csic.es/web/index.html" target="_blank" >EDIT Home</a></li>
+			 <li><a href="http://edit.csic.es/web/page1/page1.html" target="_blank">EDIT GIS downloads</a></li>
+			  <li><a href="http://edit.csic.es/web/docs/EDIT_GIS_layers.htm" target="_blank">GIS layers description - Surface units & Environmental variables</a></li>
+			  <li><a href="http://edit.csic.es/web/docs/Application.htm" target="_blank">Technical aspects</a></li>
+			  <li><a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/88x31.png" />
+			</a>
+			</li>
+			<li>
+			<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">Creative Commons License</a>.
+			</li>
+		</ul>		
+		</dd>
 		</dl>
-		<div id="demo"> For viewing the Demo click on "Iberian Peninsula (latlon)"</div>
-		<div class="sld_info" style="color:blue" align="center"><div align="center"><strong>NEW!!</strong></div>  You can already filter, symbolize and get the legend from you own data! Go to "User data"->"Sample point data"<p>
+		<!--
+		<div id="tots"/>
+		<div id="demo" style="float:left" class="close_win"><input type="image" src="images/JQ_win_files/close_icon.png" class="close_win"/>Wellcome to EDIT mapViewer<br>
+		&nbsp; &nbsp; &nbsp; This tool allows you to filter, visualize and print your point data  (follow User data link)  and compose your maps.<br>
+		&nbsp; &nbsp; &nbsp; "Iberian Peninsula" context is a simulation of what you can get in the future (spatial analysis of your data).
+		</div>
+		<div class="sld_info" class="close_win"><input type="image" src="images/JQ_win_files/close_icon.png" class="close_win"/>You can already filter, symbolize and get the legend from you own data! Go to "User data"->"Sample point data"<p>
 We appreciate any feedback (comments, critics)<p>
 <a style="color:black" href="mailto:peroc79@gmail.com">EDIT team in Madrid</a>   peroc79@gmail.com
 </div>
-		</div>
 
-	     <div id="query_result" class="jqmDialog">
-		  <div class="jqmdTL">
-		    <div class="jqmdTR">
-		   <input type="image" src="JQ_win_files/close_icon.png" class="jqmdX jqmClose" />
-			     <div class="jqmdTC jqDrag">Query results(you can click and drag me)</div>
-			        <div id="wrapper">
-			  		  <div id="query_container">					  
-					   </div>
-				    </div>
-		       </div>
-		  </div>
-		</div><!-- fi ex3-->		
-    <div id="ex2" class="jqmDialog">
-	</div>
-	<div id="mainbody"> 
-  	<div class="right">
+      </div>
+-->
+</div> <!-- fi middle -->
+</div>
+<div id="ex2"  style="width:380px;height:325px"class="jqmDialog">
+</div>
+<div id="gbif_win"  style="width:380px;height:325px"class="jqmDialog">
+</div>
+ <div id="query_result" class="jqmDialog">
+  <div class="jqmdTL">
+    <div class="jqmdTR">
 
-  	  <table class="mapa" >
-            
-            <tr>
-              <td align="center">
-                <table>
-				    <tr>
-                    <td align="left">
-                      <div id="mainButtonBar"/>
-                    </td>
-                    <td align="center" id="cursorTrack" />
-					
-                  </tr>
-				
-                  <tr>
-                    <td colspan="2">
-                      <div id="mainMapPane"/>
-                    </td>
-                  </tr>
-				   
-                  <tr>
-				
-                    <td align="left">
-                    
-                    </td>
-                
-                  </tr>
-               </table>
-              </td>
-			  <tr>
-              <td id="left" align="left"/>
-              </tr>
-              </tr>           
-       </table>
-	   <td>
-	   <div id="creditss" align="center">
-		  <ul>
-		  <li><a href="http://edit.csic.es/web/index.html" target="_blank" >Home</a></li>
-		  <li><a href="http://edit.csic.es/web/docs/EDIT_GIS_layers.htm" target="_blank">GIS layers description - Surface units & Environmental variables</a></li>
-		  <li><a href="http://edit.csic.es/web/page1/page1.html" target="_blank">GIS Downloads</a></li>
-		  <li><a href="http://edit.csic.es/web/docs/Application.htm" target="_blank">Technical aspects of the Map Viewer Prototype</a></li>
-		  </ul>
-		  <p></p>
-		<a class="Estilo1">2007 Geoplatform MNCN - EDIT</a>&nbsp;		  
-<br />
-  <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">
-<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/88x31.png" />
-</a>
-<br />
-<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank" rel="license">Creative Commons License</a>.
-		  
-		  <p></p>
-		  <img alt="Logo EDIT" align="center" style="border-width:0" src="http://edit.csic.es/web/dingen/logoEDIT.png" />
-<br />
-		  <img alt="Logo Museo" style="border-width:0" src="http://edit.csic.es/web/dingen/logomuseo.gif" />
-	     </div>
-		  </td>
-	   <table>
-
-	  </div>
-	</div>
+	     <div class="jqmdTC jqDrag">Query results (you can click and drag me)</div>   
+	        <div id="wrapper">
+	  		  <div id="query_container">					  
+			   </div>
+		    </div>
+       </div>
   </div>
-  
-<!-- Start of StatCounter Code -->
+<input  class="jqmdX jqmClose" />
+</div><!-- fi ex3-->
+<div id="right" class="right">
+
+            <table id="map">
+			    <tr>
+                <td style="float:left;">
+                  <div id="mainButtonBar"/>
+                </td>
+                <td id="cursorTrack" />
+				
+              </tr>
+			
+              <tr>
+                <td colspan="2">
+                  <div id="mainMapPane"/>
+                </td>
+              </tr>
+			  
+            
+           </table>
+         
+
+
+   <table id="scales">
+		  <tr>
+       <td id="scalebar" style="float:left;"/>             
+		  <td id="mapScaleText"/>
+       </tr>
+   </table>
+	<table id="edit_logo">
+			    <tr>
+               <td><img src="http://edit.csic.es/web/dingen/logoEDIT.png"/><td>
+		</tr>
+	</table>
 <script type="text/javascript">
 var sc_project=2805959; 
 var sc_invisible=0; 
 var sc_partition=28; 
 var sc_security="068a88d1"; 
 </script>
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script> visits
+  </div>
 
-<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c29.statcounter.com/2805959/0/068a88d1/0/" alt="web page hit counter" /></a></div></noscript>
-<!-- End of StatCounter Code -->
-  
-  </body>
+<div id="ex3" class="jqmDialog">
+	
+  <div class="jqmdTL">
+    <div class="jqmdTR">
+   <input  class="jqmdX jqmClose" />
+	     <div class="jqmdTC jqDrag">WMS Servers (you can click and drag me)</div>
+		 <a id="repaginate2">Click here to repaginate the layers</a>
+	        <div id="wrapper">
+	  		  <div id="container">
+			    <div id="workspace2"/>
+			   </div><!--fi container-->
+		    </div><!-- fi wrapper-->
+       </div><!-- fi jqmdTR-->
+<input  class="jqmdX jqmClose" />
+  </div>
+</div><!-- fi ex3-->
+
+
+</div>
+</body>
 </html>
