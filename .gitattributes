@@ -1,4 +1,5 @@
 * text=auto !eol
+coordinateConverter/CoordinateConverter.cs -text
 distribution-map-service/areas.php -text
 distribution-map-service/areas.xsl -text
 mapviewer/edit_geo/CHANGES -text
