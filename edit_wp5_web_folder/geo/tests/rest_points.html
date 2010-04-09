@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Geoplatform MNCN - Map viewer (prototype)</title>
+	<link rel="stylesheet" href="theme/default/style.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+	  <script src="../mapviewer/OpenLayers.js"></script>
+	<script src="jquery.js"></script>
+    <script type="text/javascript">
+
+		        var map,layer;
+				
+  function init()
+    {
+
+				     	map = new OpenLayers.Map('map');
+						var base_layer = new OpenLayers.Layer.WMS( 
+						                  "OpenLayers WMS",
+						                  "http://labs.metacarta.com/wms/vmap0",
+						                  {layers: 'basic'}, 
+						                  {
+						                   maxExtent: new OpenLayers.Bounds(-180, -90, 180, 90),
+						                   isBaseLayer: true,
+						                   displayInLayerSwitcher: false 
+						                   }
+						                );
+				
+		edit_tdwg4 = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG4 layer","http://193.190.223.46:8080/geoserver/wms",{layers:"topp:tdwg_level_4",transparent:"true"});
+map.addLayers([base_layer,edit_tdwg4]);
+
+layer = new OpenLayers.Layer.WMS.Untiled("point layer", "http://193.190.223.46:8080/geoserver/wms", {layers: "rest_points", transparent:"true", format:"image/png"}, {maxExtent: new OpenLayers.Bounds(-180, -90, 180, 90), isBaseLayer: false, displayInLayerSwitcher: false});
+ 
+  foo=function(data){
+                if(!data){
+                 console.log("no data");
+                }else{
+
+ layer.params.SLD = 'http://edit.africamuseum.be/synthesys/www/v1/sld/'+ data.points_sld;
+				if (map.layer==null)
+				{
+				map.addLayer(layer);
+				}	legend_url="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?SERVICE=WMS&VERSION=1.1.1&format=image/png&TRANSPARENT=TRUE&WIDTH=64&HEIGHT=36&";
+				legend_url+="layer=rest_points&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&SLD=http://edit.africamuseum.be/synthesys/www/v1/sld/"+data.points_sld;
+
+				$("#legend").attr('src',legend_url).width('100');
+					$("div[id='div_legend']").css({'top':-($("#map").height()-30),'left':$("#map").width()-130});
+							var bounds=new OpenLayers.Bounds.fromString(data.bbox);
+							var zoom=map.getZoomForExtent(bounds);
+							center=bounds.getCenterLonLat();
+maxExtent: new OpenLayers.Bounds(-180, -90, 180, 90)
+			 			map.setCenter(center,map.getZoomForExtent(bounds));
+				}
+			}
+
+ 
+				
+					var bbox='-180, -90, 180, 90';
+
+									var bounds=new OpenLayers.Bounds.fromString(bbox);
+									var zoom=map.getZoomForExtent(bounds);
+									center=bounds.getCenterLonLat();
+
+					 			map.setCenter(center,map.getZoomForExtent(bounds));
+					
+	}			
+    </script>
+    <script>
+
+	$(document).ready(function(){
+
+$('#url_form :button').click(function() { 
+rest_url=$('#url_form option:selected').val();
+ $.ajax({url: rest_url, dataType: "script",type: "GET", cache: true, callback: foo, data:null});
+
+	});
+})	
+	
+	
+	
+	</script> 
+		</head>
+	  <body onload="init()">
+	<div> Testing REST URL callback</div>
+	 <form id="url_form" action="#">
+		<select>
+			<option value="http://edit.africamuseum.be/edit_wp5/v1/points_new.php?od=1:0,0|-5,30||2:44.19195,7.44663|-20,30&os=2:s/ed1d8b/30/myspecie|1:c/8B0000/10/Histopona%20italica&image=false">url 1</option>
+					<option value="http://edit.africamuseum.be/edit_wp5/v1/points_new.php?od=1:71,14||2:80,28|82,36&os=2:s/ed1d8b/40/myspecie 1|1:c/8B0000/10/myspecie 2&image=false">url 2</option>
+		</select>
+			<input type="button" name="search" value="submit" id="search"/> 
+	 </form>
+	 <div id="map" class="smallmap"></div>
+	  <div id="paths"></div>
+	 	 <div id="div_legend" style="position:relative;z-index:30000"><img style="background-color:white" id="legend" style="width:0;" src=''/></div>
+
+	</body>
+</html>

@@ -1,0 +1,11 @@
+body {
+  font-family: verdana;
+  font-size: 12px;
+  margin: 50px;
+}
+
+#miniature,#overview
+{
+width:200px;
+height:200px;	
+}
