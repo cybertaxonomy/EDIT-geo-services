@@ -40,7 +40,7 @@
 	define("LEG_IMG_REL","images/download/legends");	
 	define("V1_IMG",DIR_SLD_EXT."/v1/img");
 	define("V1_SLD",DIR_SLD_EXT."/v1/sld");
-	define("V1_SLD_URL", "http://edit.africamuseum/synthesys/v1/sld");
+	define("V1_SLD_URL", "http://edit.africamuseum.be/synthesys/www/v1/sld");
 	define("FONT_DIRECTORY","/var/www/edit/synthesys/Data_Directory/Fonts");
 	define("IMG_DOWNLOAD", "images/download");//? used in "general_legend.php" + relative path (check folder permissions)
 	define("PHP_XSL", "php_xsl");

@@ -793,7 +793,8 @@ $json.='{"tdwg": "' . $feature. '","session": "'.$sessionid.'",';
 
 //$json.='"sld": "' . $feature."_".$random.'"}';
 //correction ftheeten 09/04/2010
-$json.='"sld": "' . V1_SLD_URL."/".$feature."_".$random.'"}';
+$nameSLDFile=$feature."_".$random;
+$json.='"sld": "' . V1_SLD_URL."/".$nameSLDFile.'"}';
 
 
 if ($i < $c)
@@ -802,7 +803,7 @@ $json.=',';
 }
 
 $url=URL_GEOSERVER."?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&TRANSPARENT=TRUE&SERVICE=WMS&EPSG=4326&layers=";
-$url.=$layer."&format=image/png&bbox=".$bbox."&WIDTH=".$width."&HEIGHT=".$height."&SLD=".URL_SITE."/synthesys/www/v1/sld/".$feature."_".$random;
+$url.=$layer."&format=image/png&bbox=".$bbox."&WIDTH=".$width."&HEIGHT=".$height."&SLD=".V1_SLD_URL."/".$nameSLDFile;
 
 //print($url);
 
@@ -977,6 +978,7 @@ clearstatcache();
 $time=time();
 
 
+/* commented by ftheeten 2010/04/13 (to have sld still available) -> should be repalced by a Cron job*/
 while($entry = $d->read()) { 
  if ($entry!= "." && $entry!= "..") { 
 
@@ -990,6 +992,7 @@ unlink($sld_dir."/".$entry);
  } 
 } 
 
+
 while($entry = $e->read()) { 
  if ($entry!= "." && $entry!= "..") { 
 
@@ -1002,7 +1005,10 @@ unlink($img_dir."/".$entry);
 
  } 
 } 
-$d->close(); 
+
+
+
+//$d->close(); 
 $e->close();
 
 
