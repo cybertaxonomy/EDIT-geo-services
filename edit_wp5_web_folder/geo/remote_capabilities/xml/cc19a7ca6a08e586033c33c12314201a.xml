@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<WFS_Capabilities version="1.0.0" xmlns:ionic="http://www.ionicsoft.com/versions/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/get/DATA/LPR/wfs/1.0.0/WFS-capabilities.xsd" xmlns="http://www.opengis.net/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ogc="http://www.opengis.net/ogc" xmlns:ogcwfs="http://www.opengis.net/wfs">
+  <Service>
+    <Name>WFS Feature Server</Name>
+    <Title>RMCA_ZOOLOGY</Title>
+    <Abstract>WFS Server maintained by Ionic Software (http://www.ionicsoft.com).</Abstract>
+
+    <OnlineResource>http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?</OnlineResource>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <DCPType>
+          <HTTP>
+            <Get onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?"/>
+            <Post onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG"/>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <DescribeFeatureType>
+        <SchemaDescriptionLanguage>
+          <XMLSCHEMA/>
+        </SchemaDescriptionLanguage>
+        <DCPType>
+          <HTTP>
+            <Get onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?"/>
+            <Post onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG"/>
+          </HTTP>
+        </DCPType>
+      </DescribeFeatureType>
+      <GetFeature>
+        <ResultFormat>
+          <GML2/>
+        </ResultFormat>
+        <DCPType>
+          <HTTP>
+            <Get onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?"/>
+            <Post onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG"/>
+          </HTTP>
+        </DCPType>
+      </GetFeature>
+      <LockFeature>
+        <DCPType>
+          <HTTP>
+            <Get onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?"/>
+            <Post onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG"/>
+          </HTTP>
+        </DCPType>
+      </LockFeature>
+      <Transaction>
+        <DCPType>
+          <HTTP>
+            <Get onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?"/>
+            <Post onlineResource="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG"/>
+          </HTTP>
+        </DCPType>
+      </Transaction>
+    </Request>
+  </Capability>
+  <FeatureTypeList>
+    <Operations>
+      <Query/>
+      <Insert/>
+      <Delete/>
+      <Update/>
+      <Lock/>
+    </Operations>
+    <FeatureType xmlns:wfs="http://www.ionicsoft.com/wfs">
+      <Name>wfs:birds_mayotte</Name>
+      <Title>Birds Observations Mayotte</Title>
+      <Abstract>The Royal Museum for Central Africa in Tervuren (Belgium) has elaborated a census method for the distribution of insular birds. This method was implemented on the island Mayotte for the period October 2003 . November 2004 by a team of volunteers, organised by the study agency « Espaces ». The data of the bird observations were encoded by « Espaces », by means of an Access database, developped at the RMCA for this purpose. The data retained here (3226 in total) are daily observations per grid, i.o.w. all observations of a species in the same grid on the same day are just counted for one daily observation. The grids are indicated by the numbering used by the team. Original data reside in a database &apos;AtlasMayotte&apos; dealing with all the details of the project. Intermediate (exported) data hold family name [Zoological record compliant], taxon name [RMCA verified], grid, day.</Abstract>
+
+      <SRS>EPSG:4326</SRS>
+      <Operations>
+        <Query/>
+        <Insert/>
+      </Operations>
+      <LatLongBoundingBox minx="45.0" miny="-13.01" maxx="45.3" maxy="-12.61"/>
+      <MetadataURL type="TC211" format="XML">http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/birds_mayotte.xml</MetadataURL>
+    </FeatureType>
+    <FeatureType xmlns:wfs="http://www.ionicsoft.com/wfs">
+      <Name>wfs:neuroptera_mrac</Name>
+      <Title>Neuroptera (RMCA)</Title>
+      <Abstract>The database is restricted to representatives of the following target groups: Neuroptera. It contains all the data on the labels of specimens identified to the species level.</Abstract>
+
+      <SRS>EPSG:4326</SRS>
+      <Operations>
+        <Query/>
+        <Insert/>
+      </Operations>
+      <LatLongBoundingBox minx="-12.51" miny="-33.58" maxx="39.18" maxy="13.42"/>
+      <MetadataURL type="TC211" format="XML">http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/neuroptera_mrac.xml</MetadataURL>
+    </FeatureType>
+    <FeatureType xmlns:wfs="http://www.ionicsoft.com/wfs">
+      <Name>wfs:neuroptera_not_mrac</Name>
+      <Title>Neuroptera (other institutes)</Title>
+      <Abstract>The database is restricted to representatives of the following target groups: Neuroptera. It contains all the data on the labels of specimens identified to the species level.</Abstract>
+
+      <SRS>EPSG:4326</SRS>
+      <Operations>
+        <Query/>
+        <Insert/>
+      </Operations>
+      <LatLongBoundingBox minx="-98.2" miny="-34.49" maxx="116.5" maxy="46.45"/>
+      <MetadataURL type="TC211" format="XML">http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/neuroptera_not_mrac.xml</MetadataURL>
+    </FeatureType>
+    <FeatureType xmlns:wfs="http://www.ionicsoft.com/wfs">
+      <Name>wfs:vissen_congo_rwanda_burundi</Name>
+      <Title>Testdata Fishes RMCA R.D. Congo Rwanda Burundi</Title>
+      <Abstract>Original data reside in the database &apos;Museum&apos; dealing with the holdings of the Vertebrate Section. The amount of information was reduced by grouping data on a systematical (family), geographical (grid) and temporary (time period) level. Query limited to georeferenced fish specimens [cl. Pisces] identified at species or subspecies level, with collecting date [at least year] available and with coordinates falling inside the countours of Congo RD., Rwanda and Burundi and with accuracy better than .5 arcdegree. Intermediate (exported) data holds family name [Zoological record compliant], taxon name [RMCA verified as valid in 9/2004], grid, collecting year, number of specimens [as in &apos;Museum&apos; database].</Abstract>
+
+      <SRS>EPSG:4326</SRS>
+      <Operations>
+        <Query/>
+        <Insert/>
+      </Operations>
+      <LatLongBoundingBox minx="10.5" miny="-14.0" maxx="32.0" maxy="8.0"/>
+      <MetadataURL type="TC211" format="XML">http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/vissen_congo_rwanda_burundi.xml</MetadataURL>
+    </FeatureType>
+    <FeatureType xmlns:wfs="http://www.ionicsoft.com/wfs">
+      <Name>wfs:vlinders_albertine_rift</Name>
+      <Title>Butterflies of Central Africa</Title>
+      <Abstract>The database is restricted to representatives of the following target groups: families Papilionidae and Nymphalide (Charaxes), in the Afro tropical region. It contains all the data on the labels of specimens identified to the species level.</Abstract>
+
+      <SRS>EPSG:4326</SRS>
+      <Operations>
+        <Query/>
+        <Insert/>
+      </Operations>
+      <LatLongBoundingBox minx="-9.0" miny="-20.0" maxx="56.5" maxy="23.0"/>
+      <MetadataURL type="TC211" format="XML">http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/vlinders_albertine_rift.xml</MetadataURL>
+    </FeatureType>
+    <FeatureType xmlns:wfs="http://www.ionicsoft.com/wfs">
+      <Name>wfs:vogels_albertine_rift</Name>
+      <Title>Testdata Birds RMCA Albertine Rift</Title>
+      <Abstract>Original data reside in the database &apos;Museum&apos; dealing with the holdings of the Vertebrate Section. The amount of information was reduced by grouping data on a systematical (family), geographical (grid) and temporary (time period) level. Query limited to georeferenced bird specimens [cl. Aves] identified at species or subspecies level, with collecting date [at least year] available and with coordinates falling inside the Albertine Rift bounding box [27°E 3°N / 33°E -9°S] and with accuracy better than .5 arcdegree. Intermediate (exported) data holds family name [Zoological record compliant], taxon name [RMCA verified as valid in 9/2004], grid, collecting year, number of specimens [as in &apos;Museum&apos; database].</Abstract>
+
+      <SRS>EPSG:4326</SRS>
+      <Operations>
+        <Query/>
+        <Insert/>
+      </Operations>
+      <LatLongBoundingBox minx="26.0" miny="-9.0" maxx="34.0" maxy="3.0"/>
+      <MetadataURL type="TC211" format="XML">http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/vogels_albertine_rift.xml</MetadataURL>
+    </FeatureType>
+  </FeatureTypeList>
+  <Filter_Capabilities xmlns="http://www.opengis.net/ogc">
+    <Spatial_Capabilities>
+      <Spatial_Operators>
+        <BBOX/>
+        <Equals/>
+        <Disjoint/>
+        <Intersect/>
+        <Touches/>
+        <Crosses/>
+        <Within/>
+        <Contains/>
+        <Overlaps/>
+        <Beyond/>
+        <DWithin/>
+      </Spatial_Operators>
+    </Spatial_Capabilities>
+    <Scalar_Capabilities>
+      <Logical_Operators/>
+      <Comparison_Operators>
+        <Simple_Comparisons/>
+        <Like/>
+        <Between/>
+        <NullCheck/>
+      </Comparison_Operators>
+      <Arithmetic_Operators>
+        <Simple_Arithmetic/>
+        <Functions>
+          <Function_Names>
+            <Function_Name nArgs="1">Upper</Function_Name>
+            <Function_Name nArgs="1">Lower</Function_Name>
+            <Function_Name nArgs="2">Distance</Function_Name>
+          </Function_Names>
+        </Functions>
+      </Arithmetic_Operators>
+    </Scalar_Capabilities>
+  </Filter_Capabilities>
+</WFS_Capabilities>
