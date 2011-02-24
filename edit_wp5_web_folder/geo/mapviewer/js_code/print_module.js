@@ -1,4 +1,4 @@
-  $.get('http://edit.africamuseum.be/edit_wp5/geo/modules/print_module.php',function(data)
+  $.get('http://edit.br.fgov.be/edit_wp5/geo/modules/print_module.php',function(data)
 {
 
  var iframe=$('iframe#info2');
@@ -27,12 +27,12 @@ points_legend(edit_4th_points.params.SLD);
 })
 $("#sp_g_legend").click(function()
 {
-points_legend(edit_points.params.SLD);
+points_legend(edit_sp_points.params.SLD);
 })
 
 	var points_legend=function(sld)
 	{
-		$.get('http://edit.africamuseum.be/edit_wp5/geo/points_legend.php?sld='+sld,function(url_image)
+		$.get('http://edit.br.fgov.be/edit_wp5/geo/points_legend.php?sld='+sld,function(url_image)
 										{
 									
 										bindFrameActions();
@@ -95,20 +95,19 @@ points_legend(edit_points.params.SLD);
 				}
 				else
 				{ 
-							$.get('http://edit.africamuseum.be/edit_wp5/geo/test_scalebar2.php',{g_units:g_units,proj:proj,bbox:bbox,w:width,h:height,units:units,label_size:label_size,l_size:l_size,intervals:intervals},function(s)
+							$.get('http://edit.br.fgov.be/edit_wp5/geo/test_scalebar2.php',{g_units:g_units,proj:proj,bbox:bbox,w:width,h:height,units:units,label_size:label_size,l_size:l_size,intervals:intervals},function(s)
 
 					        {
 
-					        d='http://edit.africamuseum.be/edit_wp5/geo/images/scalebars/'+s;
+					        d='http://edit.br.fgov.be/edit_wp5/geo/images/scalebars/'+s;
 
 							//wwhy not directly scalebar?????? (it's a local variable)
 
 							img_scalebar=s;		
 
-							t=$("#map").position().top+$("#map").height()-30;
-			 l=$("#map").position().left;
+		
 
-			$("#scalebar").css('top',t).css('left',l+50);
+			$("#scalebar").css('top','-30px').css('left',-$("#map").height()/2);
 
 							//windrose=$("#windrose_form option:selected").val();
 
@@ -116,7 +115,7 @@ points_legend(edit_points.params.SLD);
 									{
 
 			//				$("#scalebar").css('top','0px');
-							$("#scalebar").css('top',height-30);
+							$("#scalebar").css('top',-30);
 
 							}
 
@@ -213,7 +212,7 @@ points_legend(edit_points.params.SLD);
 
 
 				var img=$("#choose_windrose_form option:selected").val();
-					var windrose_path="http://edit.africamuseum.be/edit_wp5/geo/images/windroses/"+img;
+					var windrose_path="http://edit.br.fgov.be/edit_wp5/geo/images/windroses/"+img;
 
 					$("#windrose").attr('src',windrose_path);
 
@@ -221,11 +220,9 @@ points_legend(edit_points.params.SLD);
 					$("#windrose").css('visibility','visible').css('width','100');
 
 			$("#windrose").css({position:'absolute'});
-			//$("img[id='windrose']").position().top 
-			t=$("#map").position().top;
-			l=$("#map").position().left+$("#map").width()-100;
-			$("#windrose").css('top',t);
-			$("#windrose").css('left',l);
+			
+			$("#windrose").css('top',-$("#map").height());
+			$("#windrose").css('left',$("#map").height()-50);
 
 					});
 
@@ -251,6 +248,7 @@ points_legend(edit_points.params.SLD);
 
 					        {	
 										$("img[id='ajax_image']").css('visibility','visible');
+
 					        			$.getScript('js_code/print_s2.js')
 
 						})
@@ -271,7 +269,7 @@ points_legend(edit_points.params.SLD);
 								var zoom=$("#print_params input[name='radio']:checked").attr('id');
 									
 					
-					$.get('http://edit.africamuseum.be/edit_wp5/v1/keymap.php?bbox='+bbox+"&dpi="+dpi+"&area="+area+"&zoom="+zoom+"&img=false",function(url_image)
+					$.get('http://edit.br.fgov.be/edit_wp5/v1/keymap.php?bbox='+bbox+"&dpi="+dpi+"&area="+area+"&zoom="+zoom+"&img=false",function(url_image)
 										{
 									
 										bindFrameActions();

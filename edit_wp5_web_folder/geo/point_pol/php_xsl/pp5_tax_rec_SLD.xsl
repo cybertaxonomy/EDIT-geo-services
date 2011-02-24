@@ -11,16 +11,7 @@
 				<NamedLayer>
 					 <Name>topp:taxa_record</Name>
 				    <UserStyle>
-				<!--	<total>	<xsl:value-of select="total"/></total>-->
-				<!--		<xsl:choose>
-							<xsl:when test="count(polygon) = total ">
-								<id>number 3></id>
-							</xsl:when>
-						<xsl:otherwise>
-								<id>NO ERROR: 'headingText' is a required parameter.</id>
-						</xsl:otherwise>
-					</xsl:choose>
-				-->
+
 				      <FeatureTypeStyle>
 						<xsl:apply-templates select="polygon"/>
 					</FeatureTypeStyle>
@@ -39,14 +30,14 @@
 		  			      <ogc:PropertyIsEqualTo>
 				             <ogc:PropertyName>userid</ogc:PropertyName>
 				          <ogc:Literal><xsl:value-of select="$userid"/></ogc:Literal>
-<!--				          <ogc:Literal>pere</ogc:Literal>-->
+
 				           </ogc:PropertyIsEqualTo>  
 		            
 					  <ogc:PropertyIsEqualTo>
 		                <ogc:PropertyName>taxa_record</ogc:PropertyName>
 		                <ogc:Literal><xsl:value-of select="$tax_rec"/></ogc:Literal>
 		              </ogc:PropertyIsEqualTo>
-		        <!--    </ogc:And>-->
+		     
 		          </ogc:Filter>
 				<xsl:call-template name="colors">
 							<xsl:with-param name="position" select="order"/>
@@ -55,6 +46,8 @@
 				</Rule>
 </xsl:template>						 
 <xsl:template name="colors">
+<xsl:param name="position" select="order"/>
+							<xsl:param name="total" select="../total"/>
 	<xsl:choose>
 	<xsl:when test="$position = $total">
 	<xsl:call-template name="symbology">
@@ -100,6 +93,7 @@
 </xsl:template>
 
 <xsl:template name="symbology">
+<xsl:param name="color" />
 	<PolygonSymbolizer>
 	  <Fill>
 	    <CssParameter name="fill" ><xsl:value-of select="$color"/></CssParameter>

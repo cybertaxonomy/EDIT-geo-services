@@ -3,16 +3,16 @@ $code='	<li>Image format
 			<ul style="height:20px">
 					 <form id="format_form" >
 						<select>
-						<option value="png/gray">PNG gray</option>	
-						<option value="jpeg/gray">JPEG gray</option>	
-						<option value="gif/gray">GIF gray</option>	
-						<option value="tif/gray">TIF gray</option>					
+						
 						<option value="image/png">PNG</option>
 
 						<option value="image/jpeg">JPEG</option>
 							<option value="tif">TIF</option>
 						<option value="image/gif">GIF</option>
-
+<option value="png/gray">PNG gray</option>	
+						<option value="jpeg/gray">JPEG gray</option>	
+						<option value="gif/gray">GIF gray</option>	
+						<option value="tif/gray">TIF gray</option>					
 						</select>
 
 					</form>

@@ -11,7 +11,8 @@ else
 {
 //@session_start();
 //$sessionid=session_id();
-   $conn = pg_connect(POSTGIS_CS);
+ //  $conn = pg_connect(POSTGIS_CS);
+$conn = pg_connect('host=localhost port=5432  password=fv30714$A  user=postgres dbname=edit_geo_mirror');
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }
@@ -19,7 +20,7 @@ if (pg_ErrorMessage($conn)) {
 	 else 
 	{ 
 	
-//		$postgis_result=pg_query("select distinct(genus) from scarabeidos");
+
 		$userid=$_GET['userid'];
 				$postgis_result=pg_query("select distinct(specie) from user_points where userid='$userid' order by specie");
 

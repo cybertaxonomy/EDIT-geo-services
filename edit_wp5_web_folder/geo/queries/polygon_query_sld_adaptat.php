@@ -1,5 +1,5 @@
 <?php
-
+	$conn = pg_connect('host=localhost port=5432  password=fv30714$A  user=postgres dbname=edit_geo_mirror');
    $conn = pg_connect(POSTGIS_CS);
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 

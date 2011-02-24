@@ -9,7 +9,8 @@
 	    <!--[if IE]><script language="javascript" type="text/javascript" src="flot/excanvas.pack.js"></script><![endif]-->
 	    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
 		
-		<? 
+		<?php
+		require_once("../../path_index.php");
 		$bbox=$_GET['bbox']; 
 		$user=$_GET['user']; 
 			$sld=$_GET['sld'];
@@ -24,9 +25,9 @@ var user="'.$user.'";
 var layer="'.$layer.'";
 var layer2="'.$layer2.'";
 
-			wbase=URL_SITE."/edit_wp5/geo/";
+		
 
-				url = URL_SITE."/edit_wp5/geo/curves/data_user.php?format=json&callback=curves&columns=false&layer="+layer+"&user="+user;
+				url = "http://edit.br.fgov.be/edit_wp5/geo/curves/data_user.php?format=json&callback=curves&columns=false&layer="+layer+"&user="+user;
 
 
 			$.getJSON(url,{geotable:"point_pol"});
@@ -43,7 +44,7 @@ var layer2="'.$layer2.'";
 					$title="Records/genera for each polygon";
 					$text='
 					
-					<img  src=URL_GEOSERVER."?SERVICE=wms&VERSION=1.1.1&REQUEST=GetMap&SERVICE=WMS&LAYERS=taxa_record&SRS=EPSG:4326&BBOX=-11,35.57,6,44&WIDTH=400&HEIGHT=200&FORMAT=image/png&SLD=".URL_SITE."/synthesys/www/fitxers/sld/temp/'.$user.'/analysis/'.$sld.'&TRANSPARENT=TRUE&UNIQUEID="/>
+					<img  src="'.URL_GEOSERVER.'?SERVICE=wms&VERSION=1.1.1&REQUEST=GetMap&SERVICE=WMS&LAYERS=taxa_record&SRS=EPSG:4326&BBOX=-11,35.57,6,44&WIDTH=400&HEIGHT=200&FORMAT=image/png&SLD="'.URL_SITE.'/synthesys/www/fitxers/sld/temp/'.$user.'/analysis/'.$sld.'&TRANSPARENT=TRUE&UNIQUEID="/>
 					 
 				';
 
@@ -53,13 +54,13 @@ var layer2="'.$layer2.'";
 					$title="Number of records for each polygon";
 				$text='
 			
-				<img  src=URL_GEOSERVER."?SERVICE=wms&VERSION=1.1.1&REQUEST=GetMap&SERVICE=WMS&LAYERS=topp:country_earth,topp:num_regs&SRS=EPSG:4326&BBOX=-11,35.57,6,44&WIDTH=400&HEIGHT=200&FORMAT=image/png&SLD=".URL_SITE."/synthesys/www/fitxers/sld/temp/'.$user.'/analysis/'.$sld.'&TRANSPARENT=TRUE&UNIQUEID="/>';				
+				<img  src="'.URL_GEOSERVER.'?SERVICE=wms&VERSION=1.1.1&REQUEST=GetMap&SERVICE=WMS&LAYERS=topp:country_earth,topp:num_regs&SRS=EPSG:4326&BBOX=-11,35.57,6,44&WIDTH=400&HEIGHT=200&FORMAT=image/png&SLD="'.URL_SITE.'/synthesys/www/fitxers/sld/temp/'.$user.'/analysis/'.$sld.'&TRANSPARENT=TRUE&UNIQUEID="/>';				
 				}
 				if ($layer=="numgenus")
 				{
 						$title="Number of genera for each polygon";
 				$text='
-				<img  src=URL_GEOSERVER."?SERVICE=wms&VERSION=1.1.1&REQUEST=GetMap&SERVICE=WMS&LAYERS=topp:country_earth,topp:num_genus&SRS=EPSG:4326&BBOX=-11,35.57,6,44&WIDTH=400&HEIGHT=200&FORMAT=image/png&SLD=".URL_SITE."/synthesys/www/fitxers/sld/temp/'.$user.'/analysis/'.$sld.'&TRANSPARENT=TRUE&UNIQUEID="/>';
+				<img  src="'.URL_GEOSERVER.'?SERVICE=wms&VERSION=1.1.1&REQUEST=GetMap&SERVICE=WMS&LAYERS=topp:country_earth,topp:num_genus&SRS=EPSG:4326&BBOX=-11,35.57,6,44&WIDTH=400&HEIGHT=200&FORMAT=image/png&SLD="'.URL_SITE.'/synthesys/www/fitxers/sld/temp/'.$user.'/analysis/'.$sld.'&TRANSPARENT=TRUE&UNIQUEID="/>';
 				}				
 				?>
 			

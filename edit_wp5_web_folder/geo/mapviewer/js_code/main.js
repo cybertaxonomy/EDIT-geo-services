@@ -1,11 +1,48 @@
 
  $(document).ready(function() {
 
+var check_ie=function()
+{
+if ($.browser.msie==true)
+{
+$("#map").fadeOut('slow');
+$("#browser_info").fadeIn('slow')
+setTimeout(function()
+{
+$("#browser_info").fadeOut('slow')
 
-	   if ($.browser.mozilla==false) 
-	{
-	      alert("EDIT mapViewer currently only works perfectly with Firefox 3");
-		}
+$("#map").fadeIn();
+},5000)
+}
+}
+setTimeout(check_ie,"6000");
+
+
+t_img_format='image/png';
+t=$("#map").position().top+$("#map").height();
+l=$("#map").position().left;
+$("#escala,#escala2").css({position:'absolute'});
+ if ($.browser.version!=='6.0')
+ {
+$("#escala").css('top',t).css('left',l+50);
+$("#escala2").css('top',t).css('left',l+250);
+$("#coords").css('top',t).css('left',l+$("#map").width()-200);
+$("#image").css('top',$("#map").position().top+(($("#map").height()/2)-75)).css('left',l+(($("#map").width()/2)-75));
+}else
+{
+$("#escala").css('top',t).css('left',l);
+$("#escala2").css('top',t).css('left',l+250);
+$("#coords").css('top',t).css('left',l+$("#map").width()-200);
+}
+
+
+if($.browser.opera){
+    alert("EDIT mapViewer doesn't work properly with Opera")   
+    }
+    if ($.browser.msie=='msie')
+    {
+    alert("EDIT mapViewer doesn't work properly with Internet Explorer")           
+    }
 
 		$("#google_proj").click(function()
 		{
@@ -21,8 +58,8 @@
 			create_json(true);
 		})
 
-$("div[id='symbolize'],#projections").hide();
-							$("#g_data,#sp_data,#4th_data,#google_projections,#geotools").hide();
+$("div[id='symbolize'],#projections,#remote_layers").hide();
+							$("#g_data,#sp_data,#4th_data,#google_projections,#geotools,#upload_projects").hide();
 
 
 //this function COULD be used to transform map extents from (latitutde/longitude) 4326 to other projections
@@ -160,10 +197,12 @@ $("input[id='edit_sp_points']").click(function()
 this.checked==true?edit_sp_points.setVisibility(true):edit_sp_points.setVisibility(false)
 })
 var up=1;
-ajax_top=($("#map").height()/2)-20;
-ajax_left=($("#map").width()/2)-20;
-$("img[id='ajax_image']").css('top',ajax_top);
+ajax_top=-(($("#map").height()/2)+20);
+ajax_left='0px';
+
+$("img[id='ajax_image'],#browser_info").css('top',ajax_top);
 $("img[id='ajax_image']").css('left',ajax_left);
+$("#browser_info").css('left','-150px');
 
 $(".olControlLoadingPanel").css('top',ajax_top);
 $(".olControlLoadingPanel").css('left',ajax_left);
@@ -300,10 +339,24 @@ getlayers2=function(json,proj) {
 
 					create_layers(proj); 
 		 eval("map.addLayers(["+g_layer+",edit_admin])");
+if ($("#analysis_lay").children().size()>0)
+{
+$("#analysis_lay").empty();
+$("img[id='num_regs'],img[id='num_genus'],img[id='taxa_record']").remove()
+}
+   $("#escala").hide()
 	}else
 	{
 
 		create_layers(proj); 
+//coming from google layers, scale gets duplicated, distorted, is better to hide it
+//$("#escala").show()
+$("#escala").hide()
+if ($("#analysis_lay").children().size()>0)
+{
+$("#analysis_lay").empty();
+$("img[id='num_regs'],img[id='num_genus'],img[id='taxa_record']").remove()
+}
 
 	}	
 
@@ -351,6 +404,7 @@ $.ajax({
 			if (sp_checked=="true"){
 				//$("input[id='edit_sp_points']").trigger('click')
 							edit_sp_points.setVisibility(true);
+
 			}
 		}
 	reprojecting=false;
@@ -402,7 +456,7 @@ $.ajax({
 
 	layer_name='edit_'+info.id;
 
-    eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.223.46:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
+    eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.116.6:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
     if (info.grup=='s_america' || info.grup=='africa' || info.grup=='asia' || 
         info.grup=='oceania' || info.grup=='n_america' || info.grup=='antartica'
 		|| info.grup=='c_america' || info.grup=='west_europe' || info.grup=='east_europe')
@@ -482,14 +536,14 @@ else
 				x+='<div class="form-item"><label for="color2">Stroke color:     </label><input type="text" id="stroke_color" name="stroke color" class="colorwell" value="#123456" /></div>';
 				x+='<div id="picker" style="position:absolute;left:195px;top:100"></div>';
 				x+='</form>';
-				x+='<form id="width_form"><label>Stroke width:  </label><select><option value="0">No border</option><option value="0.2">0.2</option><option value="0.5">0.5</option><option value="0.7">0.7</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></form><br>';
+				x+='<form id="width_form"><label>Stroke width:  </label><select><option value="0.2">0.2</option><option value="0.5">0.5</option><option value="0.7">0.7</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="0">No border</option></select></form><br>';
 				x+='<form id="style_form"><label>Stroke style: <select style="margin-left:20px;"><option value="1000000">solid</option><option value="2_3">dotted</option><option value="2_7">long dotted</option><option value="4_2">short dash</option><option value="5_7">dashed</option><option value="10_5">long dashed</option><option value="10_30">Very long dashed</option></select></form>';
-				x+='<div><button id="pol_symbolize" style="z-index:3000" value="symbolize it!">Symbolize it!</button></div>';
+				x+='<div id="pol_symbolize" class="ppol_message" style="width:100px;margin-top:30px;margin-left: 10px;">Symbolize it!</button></div>';
 				//console.log(x);
 				$("div#layer_symbol").append(x);
 				$("div#layer_symbol").show();
 				$("#picker").parent().prev().html('Choose the symbology for layer <b>'+s_title+'</b><br>');
-					$("#polygon_sld :button").click(function()
+					$("#pol_symbolize").click(function()
 					{
 		
 					layer_name='edit_'+s_layer;
@@ -499,7 +553,8 @@ else
 					s_color=$("input[id='stroke_color']").val();
 					s_color=s_color.substring(1);
 					l_name=s_layer; //utm_europe
-					sld='http://edit.africamuseum.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
+					sld='http://edit.br.fgov.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
+
 				   if (typeof(eval('edit_'+s_layer))=='object')  //edit_group still not defined object (first time symbolization)
 				   {
 				  input=$("#layers input[id='"+s_layer+"']");
@@ -514,7 +569,9 @@ else
 				grup=$("#layers input[id='"+s_layer+"']").attr('grup');
 				if (grup=='tdwg' || grup=='quadricules' || grup=='nature')  //STUPID SOLUTION!!! to remove layer from edit_tdwg and edit_quadricules
 				{
-				$("#layers input[id='"+s_layer+"']").trigger('click');
+
+
+				//$("#layers input[id='"+s_layer+"']").trigger('click');
 				$("#layers input[id='"+s_layer+"']").trigger('click');
 				$("#layers input[id='"+s_layer+"']").attr('checked',true);//abans era fallssse???
 
@@ -536,6 +593,7 @@ else
 				toogle_simple($(this).get(0),s_group);
 
 
+
 				})
 				}
 				s=layer_name+".params.SLD='"+sld+"'";
@@ -551,17 +609,21 @@ else
 				{
 				eval(layer_name+".redraw()");
 				}
+
 				}
 				else
 				{
-				c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.223.46:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
+				c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.116.6:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
 				eval(c)
 
 				map.addLayer(layer_name);
 
+
 				}
 
-
+		var path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+		path+="&LAYER="+s_layer+"&SLD="+sld+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
+		$("#images img[id='"+s_layer+"']").attr('src',path);
 				})
 
 					$('input.jqmdX').hover(function(){
@@ -571,10 +633,10 @@ else
 					if (msie)
 					{
 
-						$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+						$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 						}else 
 						{
-							$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+							$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 						}
 				$('input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){ $(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#layer_symbol').hide(); 
 				 });
@@ -664,8 +726,8 @@ else
  	$("#layers input:checkbox").attr('checked',false);    
 
  	  $("#layers input:checkbox[id='country_earth']").attr('checked',true);
- 		path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
-		html='<ul><img s="countries" style="height:20px" id="country_earth" src="'+path+'"/></ul>';
+ 		path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
+		html='<ul><img s="countries" style="height:40px" id="country_earth" src="'+path+'"/></ul>';
 		$("#images").append(html);
 	$('#layers li:has(ul),#print_params li:has(ul),#u_points li:has(ul),#3_4_fields li.y')
           .click(function(event){
@@ -800,12 +862,12 @@ $('#ex2,dd').hide();
    selected=($(this).hasClass("selected")==true)?true:false;
 
    if(selected) {
-
-		$("iframe#info,div[id*='_form']").hide();
-
-     $("#ex2,#color_form").fadeIn();
-
-  
+switch ($(this).attr('id'))
+				{
+					case 'sp_symbolize':$("#3_4th").fadeIn('slow');break;
+					case 'g_symbolize': $("#ex2").fadeIn('slow');break;
+					case '4th_symbolize':$("#4th").fadeIn('slow');break;
+				}
 
        }
 
@@ -827,17 +889,151 @@ $('#ex2,dd').hide();
 
 			       $("#what_todo,#informacio").hide();
 
-				$("iframe#info").fadeIn();
+				
 
 		};
 
 });
 
+ $("#ajax_image2")
+	.ajaxStart(function()
+	{
+		$(this).css('visibility','visible');
+	})
+	.ajaxComplete(function()
+	{
+		$(this).css('visibility','hidden');
+	});
+$("#abstract").hide();
+
+$("div[id='show_WMS']").click(function()
+{
+if ($(this).hasClass('show_it'))  //it's hidden
+{
+$(this).children().eq(0).text('Hide remote WMS description')
+$(this).removeClass('show_it');
+$("div[id='message']").fadeIn('slow')
+}
+else {                    //is visible
+$(this).children().eq(0).text('Show remote WMS description')  
+$(this).addClass('show_it');
+$("div[id='message']").fadeOut('slow')
+}
+})
+$("#wms_checkbox ul").css('height','auto')
+
+$("#ext_wms_form input").click(function()
+	{
+$("#wms_form,#abstract").hide()
+$("#transformResult,#transformResult input:button").hide()
+		if($("#custom_wms").attr('value').length>0)
+		{
+			remote_url=$("#custom_wms").attr('value');
+		}
+		else
+		{	   	
+			remote_url=$("#ext_wms_form option:selected").attr('value');
+		}
+		$.post('http://edit.br.fgov.be/edit_wp5/geo/remote_capabilities/capabilities.php', {url:remote_url},function(d)
+		{
+		    	$.ajax(
+			{
+				type: "POST",
+			  	url:'../remote_capabilities/xml/'+d, 
+				dataType: "text",
+				error: function() 
+				{
+					alert("some error occurred; possibly the server you are requesting is down");                   
+					if ($("#wms_form option").size()>0)
+					{
+						$("#wms_form").empty()
+					};
+					if ($("#abstract").size()>0)
+					{
+						$("#abstract").empty()
+					}
+
+
+				},
+				success: function(xml) 
+				{	$("#style").empty();
+//alert("empty");
+					new Transformation().setXml(xml) 
+					.setXslt("http://edit.br.fgov.be/edit_wp5/geo/remote_capabilities/xslt_form.xsl").transform("transformResult"); 
+$("#transformResult,#transformResult input:button").show()
+					doit=function()
+					{
+						getmap_url=$("#getmap_url").text();
+						$("#transformResult option").each(function(i)
+						{
+							$this=$(this);
+							$this.attr({value:i});
+						})
+						$("#wms_form").change(function()
+						{
+							var value=$(this).val();
+							$.get('http://edit.br.fgov.be/edit_wp5/geo/remote_capabilities/abstracts.php',{layer:value,capabilities:d},function(data)
+							{
+								$("#abstract").empty();
+								$("#abstract").append(data).fadeIn();
+							})
+						})
+						x=0;
+						toogle_ext=function(data)
+						{
+							var layer=data.id;
+							if (data.checked==true) 
+							{
+								eval(layer+".setVisibility(true)");
+							}
+							else
+							{
+								eval(layer+".setVisibility(false)");
+							}
+						}	
+						$("#transformResult input").click(function()
+						{
+							r_layer=$("#transformResult option:selected").text();
+//alert(r_layer);
+							r_style=$("#style option:selected").text();
+							r_layer2=r_layer;							
+
+var new_lay="var new_lay =new OpenLayers.Layer.WMS( '"+r_layer+"','"+getmap_url+"',{LAYERS:'"+r_layer+"',STYLES:'"+r_style+"',TRANSPARENT:'TRUE',GROUP:'remote'},{'displayInLayerSwitcher':true} );";
+							eval(new_lay);
+  
+
+
+							$("#wms_checkbox input:checked").attr('checked',false);
+var add='<li><input type="checkbox" checked id="'+r_layer2+'" onClick="toogle_wms(this)">'+r_layer+'</input></li>';
+							$("#wms_checkbox ul").append(add);
+eval("map.addLayer(new_lay)");
+
+var add_image='<li>'+r_layer2+'<br><input type=\'button\' value=\' Up \' onclick=\'map.raiseLayer(map.getLayersByName("'+r_layer+'")[0],1);\'></button><input type=\'button\' value=\'Down\'  onclick=\'map.raiseLayer(map.getLayersByName("'+r_layer+'")[0], -1);\'></button></li>';
+$("#images ul").append(add_image);
+
+eval("new_lay.redraw()");
+if($("#wms_checkbox label").css('visibility')=='visible')
+{
+$("#wms_checkbox label").hide()
+}
+r_style="";
+$('#sel_click').empty();
+for(i=0;i<map.layers.length;i++)
+{
+	$('#sel_click').append($("<option></option>").attr("value",i).text(map.layers[i].name)); 	
+
+}
+				
+							x++;
+						})			
+					}//end doit()				
+					setTimeout(doit,"2000");
+				}
+			})
+		})
+	})
  
 
- 
-
- 
 
 	});
 

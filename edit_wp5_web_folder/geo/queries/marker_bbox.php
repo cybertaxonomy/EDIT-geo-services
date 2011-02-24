@@ -1,6 +1,8 @@
 <?
 //THIS SCRIPT GENERATES THE BBOX THAT CONTAINS THE GENUS/SPECIES SELECTED BY USER
 //THIS BBOX WILL BE USED TO DRAW A BOX ON MAPVIEWER
+require_once("../../path_index.php");
+
 $userid=$_GET['userid'];
 $info=$_GET['info'];
 $BBOX_sql="select extent(the_geom) from user_points where userid='$userid' AND $info=";

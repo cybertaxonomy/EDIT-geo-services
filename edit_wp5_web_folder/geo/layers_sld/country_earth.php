@@ -27,8 +27,8 @@ $params=explode('/',$_GET['params']);
 	if (count($s)>1)
 	{
 	$s_style=$s[0]." ".$s[1];
-	}  
-	} else {  $s_style='3 3';}
+	}  else { $s_style=1000000; }
+	} else { $s_style=100000; }
 		 if (isset($params[5]))
 	    {
 			$label_size=$params[5];

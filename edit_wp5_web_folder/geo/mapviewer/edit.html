@@ -3,8 +3,10 @@
 <head>
     <title>Geoplatform MNCN - Map viewer (prototype)</title>
 <script src="OpenLayers.js"></script>
-<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAi2HAB6_leNrFj54_0dL4zxQoghU1uFXQJ1eg-nSW5sKG6YNakhQJbAdNz4ECqNkykKiUY3NVytYcDA'>
-	
+<!--<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAqe8Fn1ofjzKv4lcSjXFNgBSocJrjie1MZa7S9IpzZ_FI_ZyciBQ6Fqrz4xxG4aLlmhagsG6jmDJckw'>
+-->	
+<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAACssKAmlxPUo92fxird3eFRTOCpScaim5orMMP65YCigjgTlB1xTjcwHfWSc1Quk6oAN8zoDRHNjy3w'>
+
 </script>
 <!--<script src='http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2'></script>-->
 <script src="http://api.maps.yahoo.com/ajaxymap?v=3.0&amp;appid=euzuro-openlayers"></script>
@@ -14,18 +16,18 @@
 <!--	   <script src="js_code/jquery.pack.js"></script>-->
 <script src="jquery-1.3.2.js"></script>
 	<script type="text/javascript" src="js_code/main.js"></script>
-<!--	<script type="text/javascript" src="http://edit.africamuseum.be/edit_wp5/geo/mapviewer/js_code2/jquery.dimensions.js"></script>-->
+<!--	<script type="text/javascript" src="http://edit.br.fgov.be/edit_wp5/geo/mapviewer/js_code2/jquery.dimensions.js"></script>-->
 <!--	 <script type="text/javascript" src="js_code/all_to_resize_drag.js"></script>-->
 	<script type="text/javascript" src="js_code/ajaxfileupload.js"></script>
 	
 <!--		<script type="text/javascript" src="js_code/jquery.browser.js"></script>	-->
 	 <link rel='StyleSheet' type='text/css' href='../lib/skin/default/scalebar-fat.css'><!-- This style sheet is needed for the scalebar -->
-<link rel="stylesheet" href="theme/default/style2.css" type="text/css" />
-	<link rel="stylesheet" href="theme/default/style_ppol.css" type="text/css" />
+<link rel="stylesheet" href="theme/default/style2.css" type="text/css">
+	<link rel="stylesheet" href="theme/default/style_ppol.css" type="text/css">
 
 	<link type="text/css" rel="stylesheet" media="all" href="css/edit_test.css">
 		<link type="text/css" rel="stylesheet" media="all" href="css/lightbox.css">
-	<script type="text/javascript" src="http://edit.africamuseum.be/edit_wp5/geo/mapviewer/js_code/farbtastic/farbtastic.js"></script>
+	<script type="text/javascript" src="http://edit.br.fgov.be/edit_wp5/geo/mapviewer/js_code/farbtastic/farbtastic.js"></script>
 	<link type="text/css" rel="stylesheet" media="all" href="css/farbtastic.css">
 	<link type="text/css" rel="stylesheet" media="all" href="css/tables.css">
 <style type="text/css">
@@ -141,7 +143,7 @@ visibility:visible;
 
 input.jqmdX
 {
-	background: no-repeat top left url('http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif');
+	background: no-repeat top left url('http://edit.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif');
 }
 .olControlLoadingPanel {
             background-image:url(img/ajax_loading.gif);
@@ -344,10 +346,7 @@ position:absolute;
 				background:#78e2a6;	
 				padding:3px;			
 						padding-bottom:2px;
-						margin-bottom:2px;
-						cursor:pointer;
-			}
-#get_image
+			
 {
 cursor:pointer;
 }
@@ -472,7 +471,7 @@ vals+=key+">"+array[key]+"/";
 var bbox=map.getExtent().toBBOX();
 vals=vals.substring(0,vals.length-1);
 zoom=map.getZoomForExtent(bounds2);
-$.get('http://edit.africamuseum.be/edit_wp5/geo/c_json.php?data='+vals+'&bbox='+bbox+'&zoom='+zoom,function(d)
+$.get('http://edit.br.fgov.be/edit_wp5/geo/c_json.php?data='+vals+'&bbox='+bbox+'&zoom='+zoom,function(d)
 {
 
 if (reprojecting==false)
@@ -485,7 +484,7 @@ if (reprojecting==false)
 		$('#ex_print').html(jq_print);
 			$('#ex_print').jqDrag('.jqDrag').jqResize('.jqResize') ;
 
-		$("iframe#info2").attr("src","http://edit.africamuseum.be/edit_wp5/geo/json_show.php?file="+d);
+		$("iframe#info2").attr("src","http://edit.br.fgov.be/edit_wp5/geo/json_show.php?file="+d);
 		$("#ex_print").show();
 		$("#ex_print").hide();
 }
@@ -503,27 +502,31 @@ getlayers2(d,"EPSG:"+proj2);
 
 
 var print;
-var tot="";
+
 function print_legend ()
 {
+var tot="";
 x=new Array();
 i_count=$("#images img").size();
 
 $("#images img").each(function(i,d)
 {
-height=$(d).css('height');
-//console.log(display);
-if (height!=='0pt')
+var height=$(d).css('height');
+
+if (height!=='0px' && height!=='0pt' )
+{
+if (d.id !=='num_regs' && d.id !=='num_genus' && d.id !=='taxa_record')
 {
 var style=d.getAttribute("s");
 total=style+","+d.id+"|";
 tot+=total;
 }
+}
 })
 
 
  var iframe=$('iframe#info2');
-			var jq_print="<div class='jqmdTL' style='background-size: 0%; z-index: 300;'><div class='jqmdTR><div class='jqmdTC jqDrag'>PRINT IT</div><inputsrc='JQ_win_files/close.gif' class='jqmdX jqmClose' /></div></div>"; 
+			var jq_print="<div class='jqmdTL' style='background-size: 0%; z-index: 300;'><div class='jqmdTR><div class='jqmdTC jqDrag'>PRINT IT</div><inputsrc='JQ_win_files/close.gif' class='jqmdX jqmClose' ></div></div>"; 
 		 jq_print+="<iframe id='info2' class='jqDrag' marginWidth=0 marginHeight=0 src='' frameBorder='0' width='0' height='0'></iframe>";
 
 var bindFrameActions=function () {
@@ -533,7 +536,7 @@ var bindFrameActions=function () {
 			   .jqDrag('.jqDrag')
 			   .jqResize('.jqResize') ;
 		};
-$.get('http://edit.africamuseum.be/edit_wp5/geo/general_legend.php?data='+tot,
+$.get('http://edit.br.fgov.be/edit_wp5/geo/general_legend.php?data='+tot,
 		function(url_image)
 										{
 									
@@ -566,9 +569,9 @@ if (grup=="tdwg" || grup=="quadricules")
 		if (grup=="quadricules") { 
 		style=style+"_2";
 		}
-		path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+		path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 		path+="&LAYER="+data.id+"&STYLE="+style+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
-		html='<ul><img s="'+style+'" style="height:20px;position: relative; left: 0px;" id="'+data.id+'" src="'+path+'"/></ul>';
+		html='<ul><img s="'+style+'" style="height:20px;position: relative; left: 0px;" id="'+data.id+'" src="'+path+'"></ul>';
 		$("#images").append(html);
 		}
 		})
@@ -587,9 +590,9 @@ if (grup=='admin')
 	{
 		 if (style !=='countries')
 		{
-		path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+		path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 		path+="&LAYER="+data.id+"&STYLE="+style+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
-		html='<ul><img s="'+style+'" style="height:20px; position: relative; left: 0px;" id="'+data.id+'" src="'+path+'"/></ul>';
+		html='<ul><img s="'+style+'" style="height:20px; position: relative; left: 0px;" id="'+data.id+'" src="'+path+'"></ul>';
 		$("#images").append(html);return false;
 		}
 	}
@@ -597,9 +600,9 @@ if (grup=='admin')
 	{
 	//	console.warn($("#images img[s='"+style+"']"));
 	$("#images img[s='"+style+"']").height()
-	if ($("#images img[s='"+style+"']").height() !==0)	
+	if ($("#images img[s='"+style+"']").height() !=='0px')	
 	{
-		$("#images img[s='"+style+"']").height('20');$("#images img[s='"+style+"']").show();return false;
+		$("#images img[s='"+style+"']").height('20px');$("#images img[s='"+style+"']").show();return false;
 	}
 	else
 	{
@@ -619,9 +622,9 @@ $("#images img[id='"+data.id+"']").width(w).show();
 }else {
 
 
-path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 path+="&LAYER="+data.id+"&SLD="+eval("edit_"+data.id+".params.SLD");
-html='<ul><img s="'+style+'" id="'+data.id+'" style="height:'+h+';position: relative; left: 0px;" src="'+path+'"/></ul>';
+html='<ul><img s="'+style+'" id="'+data.id+'" style="height:'+h+';position: relative; left: 0px;" src="'+path+'"></ul>';
 $("#images").append(html);
 }
 }
@@ -629,12 +632,12 @@ else
 {
 if($("#images img[id='"+data.id+"']").length)
 {
-$("#images img[id='"+data.id+"']").height('20').show();
+$("#images img[id='"+data.id+"']").height('20px').show();
 }else {
 
-path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 path+="&LAYER="+data.id+"&STYLE="+style+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
-html='<ul><img s="'+style+'" style="height:20px; position: relative; left: 0px;" id="'+data.id+'" src="'+path+'"/></ul>';
+html='<ul><img s="'+style+'" style="height:20px; position: relative; left: 0px;" id="'+data.id+'" src="'+path+'"></ul>';
 $("#images").append(html);
 }
 }
@@ -679,7 +682,7 @@ case '1280': $("#map").width('850');
 			$("#map").height('425'); break;
 }*/
 /*
-$.get('http://edit.africamuseum.be/edit_wp5/geo/check.php?userid='+userid,function() {
+$.get('http://edit.br.fgov.be/edit_wp5/geo/check.php?userid='+userid,function() {
 
 ajax_show=true;
 });*/
@@ -815,8 +818,20 @@ if (id=='gbif_m')
 	{
 change2($("#gbif"));
     }
+
 }
 
+if (id=='projects_m')
+{
+	if (map.getProjection() !='EPSG:4326')
+	{
+		alert("This tool only can be used in latitude/longitude"); $(i).children().text('Show');
+	}
+	else
+	{
+change2($("#upload_projects"));
+    }
+}
 if (id=='others_m')
 {
 if (edit_points.map==null && edit_sp_points.map==null && edit_4th_points.map==null)	
@@ -988,14 +1003,14 @@ if (map.getProjection() !=='EPSG:4326')
 	alert("You only can upload data using latitude/longitude (unprojected)");
 	return false;
 }
-url='http://edit.africamuseum.be/edit_wp5/geo/upload_points.php?userid='+userid+'&new_data='+new_data+'&lon='+lon+'&lat='+lat+'&fields='+fields+u;
+url='http://edit.br.fgov.be/edit_wp5/geo/upload_points.php?userid='+userid+'&new_data='+new_data+'&lon='+lon+'&lat='+lat+'&fields='+fields+u;
 
 }
 else  //uploading json
 {
 datatype='json';
 id='json_file';
-url='http://edit.africamuseum.be/edit_wp5/geo/upload_json.php';
+url='http://edit.br.fgov.be/edit_wp5/geo/upload_json.php';
 my_json="true";
 }
 
@@ -1032,7 +1047,7 @@ my_json="true";
 				map.addLayer(edit_points);
 				}
 				var g_legend=document.getElementById("genera_legend");
-				g_legend.setAttribute("src",legend='http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
+				g_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
 //							$("#g_data div:first").text('Your '+third+' data').css('display','inline');
 						$("#g_data").get(0).firstChild.nodeValue='Your '+third+' data';
 							   $("#u_points input[id='edit_points']").bind('click',function() { set_Visible(this); });  
@@ -1050,7 +1065,7 @@ my_json="true";
 								map.addLayer(edit_4th_points);
 								}
 								var g_sp_legend=document.getElementById("4th_legend");
-								g_sp_legend.setAttribute("src",legend='http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_4th_points.params.SLD+'?date='+x);
+								g_sp_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_4th_points.params.SLD+'?date='+x);
 					//			$("#4th_data div:first").text('Your '+fourth+' data').css('display','inline');
 											$("#4th_data").get(0).firstChild.nodeValue='Your '+fourth+' data';
 								 $("#u_points input[id='edit_4th_points']").bind('click',function() { set_Visible(this); });  
@@ -1066,7 +1081,7 @@ my_json="true";
 									map.addLayer(edit_sp_points);
 									}
 										var sp_legend=document.getElementById("species_legend");
-										sp_legend.setAttribute("src",legend='http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+x);
+										sp_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+x);
 								//		$("#sp_data div:first").text('Your '+third+'&'+fourth+' data').css('display','inline');
 								$("#sp_data").get(0).firstChild.nodeValue='Your '+third+'&'+fourth+' data';
 										$("#u_points input[id='edit_sp_points']").bind('click',function() { set_Visible(this); });  
@@ -1087,7 +1102,7 @@ my_json="true";
 $("#user_dates").click(function()
 {x=new Date();
 		var image=document.getElementById("legend");
-			g_legend.setAttribute("src",'http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
+			g_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
 
 });
 */
@@ -1110,7 +1125,7 @@ map.zoomToExtent(bounds);
 		  $("#upload_data").trigger("click");
 		   $("#user_dates").trigger("click");
 
-		  $.get('http://edit.africamuseum.be/edit_wp5/geo/check2.php?userid='+userid);
+		  $.get('http://edit.br.fgov.be/edit_wp5/geo/check2.php?userid='+userid);
 						}
 				else
 				{
@@ -1357,8 +1372,8 @@ if (array.length > 0)
 {
 
 //	console.warn(styles_array);
-eval("edit_"+grup+".mergeNewParams({layers:'"+array+"'})");
-eval("edit_"+grup+".mergeNewParams({styles:'"+styles_array+"'})");
+eval("edit_"+grup+".mergeNewParams({layers:'"+array+"',styles:'"+styles_array+"'})");
+//eval("edit_"+grup+".mergeNewParams({styles:'"+styles_array+"'})");
 //if ("edit_"+grup+".params.length" > 0)
 } else { 
   		eval("map.removeLayer(edit_"+grup+")");
@@ -1376,7 +1391,7 @@ else
 array.push(val);
 styles_array.push(style);
 //TAMBÉ STYLE HAURIA DE SER PUSHAT
-eval("edit_"+grup+".mergeNewParams({layers:'"+array+"'})");
+eval("edit_"+grup+".mergeNewParams({layers:'"+array+"',styles:'"+styles_array+"'})");
 eval("edit_"+grup+".mergeNewParams({styles:'"+styles_array+"'})");
 
 }
@@ -1446,8 +1461,8 @@ $(nexts).css('visibility','hidden')
 $(ul).css('height','20');
 		}
 		})
-	eval(layer+".mergeNewParams({layers:'"+data.id+"'})");
-	eval(layer+".mergeNewParams({styles:'"+style+"'})");
+	eval(layer+".mergeNewParams({layers:'"+data.id+"',styles:'"+style+"'})");
+	//eval(layer+".mergeNewParams({styles:'"+style+"'})");
 		if (grup=="quadricules")
 			{
 	
@@ -1460,9 +1475,10 @@ $(ul).css('height','20');
 				case 'big':	style="grids_b";break;
 				
 			}
+
 		
-				eval("edit_quadricules.mergeNewParams({layers:'"+data.id+","+data.id+"_line'})");
-						eval(layer+".mergeNewParams({styles:'nl_grids,"+style+"'})");	
+				eval("edit_quadricules.mergeNewParams({layers:'"+data.id+","+data.id+"_line',styles:'nl_grids,"+style+"'})");
+						
 				edit_quadricules.setVisibility(true);
 			}
 
@@ -1483,9 +1499,9 @@ $(ul).css('height','20');
 		$("#ppol_form option[id='"+data.id+"']").remove()
 		} 
 			if (grup=="quadricules")
-				{
-					edit_quadricules.mergeNewParams({styles:''});
-					edit_quadricules.mergeNewParams({layers:''});	
+				{console.warn('sss4');
+					edit_quadricules.mergeNewParams({styles:'',layers:''});
+					
 					edit_quadricules.setVisibility(false);				
 				}
 				else
@@ -1546,7 +1562,7 @@ else
 	var g,drawControls; 
 	   function v_toggle(element) {
 	   }
-	/*
+	
 	   function v_toggle(element) {
 
                 if(element.checked==true) {
@@ -1557,7 +1573,7 @@ vectors.params.filter="<Filter><And><PropertyIsEqualTo><PropertyName>userid</Pro
 	             {
 
 	            	             map.addLayer(vectors);
-	            
+	            a
 	              
 	              $("#interactive_analysis_input").removeClass('first');
 	             }
@@ -1595,13 +1611,13 @@ vectors.params.filter="<Filter><And><PropertyIsEqualTo><PropertyName>userid</Pro
 
             	   vectors = new OpenLayers.Layer.WFS(
     "My polygons to hover",
-    "http://193.190.223.46:8080/geoserver/wfs",
-    {typename: "point_pol",
-    filter:"<Filter><And><PropertyIsEqualTo><PropertyName>userid</PropertyName><Literal>"+userid+"</Literal></PropertyIsEqualTo></And></Filter>"},
+    "http://193.190.116.6:8080/geoserver/wfs",
+    {typeName: "point_pol",version:"1.1.0",
+    FILTER:"<And><PropertyIsEqualTo><PropertyName>userid</PropertyName><Literal>"+userid+"</Literal></PropertyIsEqualTo></And>"},
     {isBaseLayer: false, extractAttributes: true, styleMap: myStyles2}
     
 );
-  */
+  
 
 var options,map;
 var controls,gsat,gmap,ghyb,veroad;
@@ -1729,54 +1745,54 @@ break;
 		}
 
 
-	edit_points = new OpenLayers.Layer.WMS.Untiled( "third field points","http://193.190.223.46:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
-	edit_sp_points = new OpenLayers.Layer.WMS.Untiled( "third&fourth field points","http://193.190.223.46:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
+	edit_points = new OpenLayers.Layer.WMS.Untiled( "third field points","http://193.190.116.6:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
+	edit_sp_points = new OpenLayers.Layer.WMS.Untiled( "third&fourth field points","http://193.190.116.6:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
 
-	edit_4th_points = new OpenLayers.Layer.WMS.Untiled( "fourth field points","http://193.190.223.46:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
+	edit_4th_points = new OpenLayers.Layer.WMS.Untiled( "fourth field points","http://193.190.116.6:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
 	edit_blank = new OpenLayers.Layer.WMS.Untiled( "EDIT WMS transparent",
-			"http://193.190.223.46:8080/geoserver/wms",
+			"http://193.190.116.6:8080/geoserver/wms",
 			                {layers:"blank",projection:proj_code,transparent:"false",format: t_img_format,styles:"transparent",group:"remote"},
 						{isBaseLayer: true},{singleTile: true, ratio: 1});
 	
 	edit_quadricules = new OpenLayers.Layer.WMS.Untiled( "Quadricules",
-		"http://193.190.223.46:8080/geoserver/wms",
+		"http://193.190.116.6:8080/geoserver/wms",
 		                {layers:[],width:'700',height:'350',transparent:"true",styles:[],format:t_img_format,GROUP:'quadricules'}
 						, {group:"vectorial"},{'displayInLayerSwitcher':true},{gutter: 1} );
 	edit_nature = new OpenLayers.Layer.WMS.Untiled( "Natural features",
-		"http://193.190.223.46:8080/geoserver/wms",
+		"http://193.190.116.6:8080/geoserver/wms",
 		                {layers:[],GROUP:"nature",transparent:"true",styles:[],format:t_img_format}
 						,{'displayInLayerSwitcher':true} );
 
 	edit_utm = new OpenLayers.Layer.WMS.Untiled( "UTM layer",
-		"http://193.190.223.46:8080/geoserver/wms",
+		"http://193.190.116.6:8080/geoserver/wms",
 		                {layers:[],transparent:"true",styles:[],group:"utm",format:t_img_format}
 						, {group:"vectorial"},{'displayInLayerSwitcher':true} );
 						
 	edit_admin = new OpenLayers.Layer.WMS.Untiled( "EDIT WMS",
-                "http://193.190.223.46:8080/geoserver/wms",
+                "http://193.190.116.6:8080/geoserver/wms",
                 {layers: [],group:"admin",transparent:"true",format:t_img_format,styles:[]});
              //   console.warn(edit_admin);
 
 	  edit_tdwg = new OpenLayers.Layer.WMS.Untiled( "TDWG layer",
-		"http://193.190.223.46:8080/geoserver/wms",
+		"http://193.190.116.6:8080/geoserver/wms",
 		                {layers:[],group:"tdwg",transparent:"true",styles:[],format:t_img_format});
  
-    	ms_url = "http://edit.africamuseum.be/cgi-bin/mapserv?map=/var/www/synthesys/www/geo/mapserver_data/test.map";
+    	ms_url = "http://edit.br.fgov.be/cgi-bin/mapserv?map=/var/www/synthesys/www/geo/mapserver_data/test.map";
 	//	shoreline = new OpenLayers.Layer.MapServer("Estados y Municipios",ms_url,{layers: "shoreline", transparent: true, format: "image/png"});
 
 		edit_num_regs = new OpenLayers.Layer.WMS.Untiled( "Number of Records",
-		"http://193.190.223.46:8080/geoserver/wms",
-		                {layers:'num_regs',transparent:"true",styles:[],format: t_img_format,group:'quadricules'}
+		"http://193.190.116.6:8080/geoserver/wms",
+		                {layers:'num_regs',transparent:"true",styles:[],format: t_img_format,group:'analysis'}
 						, {group:"vectorial"});
 				
 		edit_taxa_record = new OpenLayers.Layer.WMS.Untiled( "Taxa/Record",
-		"http://193.190.223.46:8080/geoserver/wms",
-		                {layers:'taxa_record',transparent:"true",styles:[],format:t_img_format,group:'quadricules'}
+		"http://193.190.116.6:8080/geoserver/wms",
+		                {layers:'taxa_record',transparent:"true",styles:[],format:t_img_format,group:'analysis'}
 						, {group:"vectorial"});
 						
 		edit_num_genus = new OpenLayers.Layer.WMS.Untiled( "Number of Genera",
-		"http://193.190.223.46:8080/geoserver/wms",
-		                {layers:'num_genus',transparent:"true",styles:[],format:t_img_format,group:'quadricules'}
+		"http://193.190.116.6:8080/geoserver/wms",
+		                {layers:'num_genus',transparent:"true",styles:[],format:t_img_format,group:'analysis'}
 						, {group:"vectorial"});
 		edit_gbif = new OpenLayers.Layer.WMS( "GBIF",
                 "http://geoserver.gbif.org/wms?", {group:"remote",layers: "gbif:gbifDensityLayer",version: "1.0.0", transparent: "true", 
@@ -1855,7 +1871,7 @@ options.maxExtent=bounds2;
 				controls2[i].disableZoomWheel(); 
 			}
 
-//  OpenLayers.ProxyHost="http://edit.africamuseum.be/edit_wp5/geo/proxy?url=";
+//  OpenLayers.ProxyHost="http://edit.br.fgov.be/edit_wp5/geo/proxy?url=";
 //REMOVED part  
  pan=new OpenLayers.Control.DragPan({displayClass:'olControlPanMap'});
 	//	var history = new OpenLayers.Control.NavigationHistory();
@@ -1894,14 +1910,14 @@ options.maxExtent=bounds2;
 								    toggleQueryMode2(); });
             		   
 		   var overview_map = new OpenLayers.Layer.WMS( "EDIT WMS",
-                "http://193.190.223.46:8080/geoserver/wms",
+                "http://193.190.116.6:8080/geoserver/wms",
                 {layers: "country_earth",group:"admin",transparent:"true",format:"image/png",styles:[]});
 
 		
 
 	//var o_options = {layers: [edit_blank]};
  var edit_blank2 = new OpenLayers.Layer.WMS( "EDIT WMS transparent",
-			"http://193.190.223.46:8080/geoserver/wms",
+			"http://193.190.116.6:8080/geoserver/wms",
 			                {layers:"blank",transparent:"false",format: t_img_format,styles:"transparent",group:"remote"},
 						{isBaseLayer: true});
  var o_options = {
@@ -1959,8 +1975,8 @@ $.getScript('js_code/4326_specific.js')
 	  map.setBaseLayer(edit_blank);
 	  edit_gbif.setVisibility(false);
 
-	       	edit_admin.mergeNewParams({layers:'country_earth'});
-			edit_admin.mergeNewParams({styles:'countries'});      
+	       	edit_admin.mergeNewParams({layers:'country_earth',styles:'countries'});
+			//edit_admin.mergeNewParams({styles:''});      
 	        edit_admin.setVisibility(true);
 			map.zoomToMaxExtent(bounds2);
 
@@ -1989,7 +2005,7 @@ $.getScript('js_code/4326_specific.js')
  <dl>
 	
 	<dd>
-		<dt id="google_projections">Google & others</dt>
+		<dt id="google_projections">Google & Yahoo</dt>
 		<dd>
 					<form id="google_form">
 						<select>
@@ -2082,8 +2098,8 @@ $.getScript('js_code/4326_specific.js')
 							<tbody>
 						<tr>
 							<td>
-					<input type="checkbox" onclick="toogle_gbif(this)" id="gbif"/><label style='font-size:11'>GBIF data for <b>Copris</b></label>
-							</td><tr><td><img src='http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/gbif_legend.png'/>
+					<input type="checkbox" onclick="toogle_gbif(this)" id="gbif"><label style='font-size:11'>GBIF data for <b>Copris</b></label>
+							</td><tr><td><img src='http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/gbif_legend.png'>
 							</td></tr>
 					</tr>
 					</tbody></table>
@@ -2163,7 +2179,7 @@ $.getScript('js_code/4326_specific.js')
 						<ul><input type="radio" name="3th"  checked id="genera">My 3th field is Genera data</input></ul>
 						<ul><input type="radio" name="3th" >My 3th field is NOT Genera data</input></ul>
 						<ul id="3th_name" style="visibility:hidden">Enter your field name
-						<input type="textarea"/>
+						<input type="textarea">
 						</ul>
 					</li>	
 						</li>
@@ -2177,7 +2193,7 @@ $.getScript('js_code/4326_specific.js')
 									<ul><input type="radio" name="4th"  checked id="genera">My 4th field is Species data</input></ul>
 									<ul><input type="radio" name="4th">My 4th field is NOT Species data</input></ul>
 									<ul id="4th_name" style="visibility:hidden">Enter your 4th field name
-						<input type="textarea"/>
+						<input type="textarea">
 						</ul>
 						</li>
 							</li>
@@ -2201,7 +2217,7 @@ $.getScript('js_code/4326_specific.js')
 	<input name="dataset" type="radio" id="add_data" >add to the current data</input><br>
 		<div id="show_csv" class="message3 show_it" style="width:auto;left:0px"><b>Show data format and CSV example</b>
 	<div id="message">
-	<a href="http://193.190.223.46:8080/geoserverweb/for_testing.zip" target="blank">Here</a> you can download an example of a valid CSV file (1000 records)<br><br>
+	<a href="http://edit.br.fgov.be/geoserverweb/for_testing.zip" target="blank">Here</a> you can download an example of a valid CSV file (1000 records)<br><br>
 	The parameters to fill <b>for this test file</b> are:
 	<ul>
 	<li>Number of fields:5</li>
@@ -2236,7 +2252,7 @@ Coordinates must follow Decimal notation (eg: 0.44, -79.9). To
             <input checked name='p_data' type='checkbox' id='edit_points'>Show/hide</input><br>
 	<a id="genus_g_legend" class="message3" href="#" style="top: 5px;" onClick="return false">Get the legend</a><br>	<br>				
 				<a id="g_symbolize" class="message3" href="#"  onClick="return false" class="ex2trigger">Symbolize it</a><br>
-			<div style="padding-top:10px"><img  id="genera_legend" style="margin-left:18px;margin-top:20px;" src=""/></div>
+			<div style="padding-top:10px"><img  id="genera_legend" style="margin-left:18px;margin-top:20px;" src=""></div>
 	</ul>	
 	</li>	
 	<li id='sp_data'>
@@ -2244,7 +2260,7 @@ Coordinates must follow Decimal notation (eg: 0.44, -79.9). To
 			<input  checked name='sp_data' type='checkbox' id='edit_sp_points'>Show/hide</input><br>
 <a id="sp_g_legend" class="message3" href="#" onClick="return false"><label>Get the legend</label></a><br><br>						
 				<a id="sp_symbolize" class="message3" href="#" onClick="return false" class="ex2trigger"><label>Symbolize it</label></a><br>
-			<div style="padding-top:10px;"><img  id="species_legend" style="margin-left:18px;margin-top:20px;" src=""/></div>
+			<div style="padding-top:10px;"><img  id="species_legend" style="margin-left:18px;margin-top:20px;" src=""></div>
 		
 			
 		</ul>
@@ -2252,10 +2268,10 @@ Coordinates must follow Decimal notation (eg: 0.44, -79.9). To
 	<li id='4th_data'>
 		<ul style="height:auto;margin-left:20px">
 			<input checked name='4th_data' type='checkbox' id='edit_4th_points'>Show/hide</input><br><br>	
-<a id="4th_g_legend" class="message3" href="#" onClick="return false"><label>Get the legend</label></a><br>			
+<a id="4th_g_legend" class="message3" href="#" onClick="return false"><label>Get the legend</label></a><br><br>			
 				<a id="4th_symbolize" class="message3" href="#" onClick="return false" class="ex2trigger"><label>Symbolize it</label></a><br>
 
-			<div style="padding-top:10px"><img  id="4th_legend" style="margin-left:18px;margin-top:20px;" src=""/></div>
+			<div style="padding-top:10px"><img  id="4th_legend" style="margin-left:18px;margin-top:20px;" src=""></div>
 		</ul>
 
 			</li>
@@ -2308,14 +2324,16 @@ Coordinates must follow Decimal notation (eg: 0.44, -79.9). To
 <tr><td id='code'>Polygon code:</td></tr>
 <tr><td id="num_regs">Number of records</td></tr>
 <tr><td id="num_genus">Number of genera</td></tr>
+
 <tr><td id="taxa_record">Taxa/record</td></tr>
 </tbody></table>
 
 		</dd>
 			<dt id="modules">Add/Remove modules</dt>
 				<dd>
+<div id='projects_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> Projects module</div>
 <div id='proj_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> Projections module</div>
-<div id='g_proj_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> Google & others module</div>
+<div id='g_proj_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> Google & Yahoo module</div>
 			<div id='analysis_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> analysis module</div>
 			<div id='gbif_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> GBIF module</div>
 			<div id='query_m' class='ppol_message visible' onclick="change($(this))"><b>Show</b> Query & draw module</div>
@@ -2324,9 +2342,11 @@ Coordinates must follow Decimal notation (eg: 0.44, -79.9). To
 			</dd>  
 <dt>Help&Contact
 <dd>
-We are updating documentation, but you can <a href="http://edit.africamuseum.be/edit_wp5/edit_info/edit_videos.html" target="blank">check these videos </a>(previous version)<br><br>
-We are in development, but you can share your experience, complain or just suggest something to peroc79@gmail.com (Pere Roca)<br>
-Most of the GIS layers here can be found on <a href="http://edit.africamuseum.be/edit_wp5/GISdownloads.html" target="blank">EDIT GIS download site</a>
+We are updating documentation, but you can <a href="http://edit.br.fgov.be/edit_wp5/edit_info/edit_videos.html" target="blank">check these videos </a><br><br>
+EDIT mapViewer has been developed by Pere Roca (peroc79@gmail.com)<br>
+We are in development, but you can share your experience, complain or just suggest something to davy.james@hotmail.com (James Davy)<br>
+
+Most of the GIS layers here can be found on <a href="http://edit.csic.es/GISdownloads.html" target="blank">EDIT GIS download site</a>
 </dd>
 </dt>
 		</dl>
@@ -2336,6 +2356,12 @@ Most of the GIS layers here can be found on <a href="http://edit.africamuseum.be
 
 
 <div id="ex2"  style="position:absolute;width:350px;height:345px;margin-left:0px" class="jqmDialog">
+	
+</div>
+<div id="3_4th"  style="position:absolute;width:350px;height:345px;margin-left:0px" class="jqmDialog">
+	
+</div>
+<div id="4th"  style="position:absolute;width:350px;height:345px;margin-left:0px" class="jqmDialog">
 	
 </div>
 <div id="geo_win"  style="position:absolute;width:370px;height:345px;margin-left:0px" class="jqmDialog">
@@ -2354,7 +2380,7 @@ Most of the GIS layers here can be found on <a href="http://edit.africamuseum.be
 	
 	<div class="jqmdTL">
     <div class="jqmdTR">
-	<input  class="jqmdX jqmClose" />
+	<input  class="jqmdX jqmClose" >
 	     <div class="jqmdTC jqDrag">Spatial Analysis (you can click and drag me)</div>
 
 			<div id="sp_query_container"></div>
@@ -2377,7 +2403,7 @@ Most of the GIS layers here can be found on <a href="http://edit.africamuseum.be
 		    </div>
        </div>
   </div>
-<input  class="jqmdX jqmClose" />
+<input  class="jqmdX jqmClose">
 </div>
 
 
@@ -2391,12 +2417,13 @@ Most of the GIS layers here can be found on <a href="http://edit.africamuseum.be
 <div id="images" style='position:absolute;top:40px;border: solid 1px #000000;'></div>
 <div id="escala" class=".olControlScale" style="left:40px;top:130px;"></div>
 <div id="escala2"  style="width:200px;font-size:12px"></div>
-<div id="coords"  style="position:absolute;width:250px;font-size:12px"></div>	
+<div id="coords"  style="position:absolute;width:250px;font-size:12px"></div>
+<div id="browser_info"  style="position:absolute;width:650px;font-size:18px;visibility:hidden">YOU ARE USING IE</div>		
 
-<img id="ajax_image" src='http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/ajax_loading.gif' style="visibility:hidden;width:100px;position:absolute"></img>
-<img id="windrose" src='http://edit.africamuseum.be/edit_wp5/geo/images/windroses/windrose1.png' style="visibility:hidden;display:block;width:0px;position:absolute;index:20000"></img>
-<!--<img id="2degrees" src=URL_GEOSERVER.'?LAYERS=topp%3Agrid2&TRANSPARENT=true&STYLES=deg2&FORMAT=image%2Fpng&GROUP=quadricules&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A4326&BBOX=-198.0,-99.0,198.0,99.0&WIDTH=800&HEIGHT=40' style="visibility:visible;display:block;position:relative;top:0;z-index:20000"></img>-->
-<img id="scalebar" src='http://edit.africamuseum.be/edit_wp5/geo/images/legends/275.png' style="visibility: hidden; display: block; width: 200px; position: absolute; z-index: 20000;"></img>	
+<img id="ajax_image" src='http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/ajax_loading.gif' style="visibility:hidden;width:100px;position:absolute"></img>
+<img id="windrose" src='http://edit.br.fgov.be/edit_wp5/geo/images/windroses/windrose1.png' style="visibility:hidden;display:block;width:0px;position:absolute;index:20000"></img>
+
+<img id="scalebar" src='http://edit.br.fgov.be/edit_wp5/geo/images/legends/275.png' style="visibility: hidden; display: block; width: 200px; position: absolute; z-index: 20000;"></img>	
 
 
 
@@ -2406,7 +2433,7 @@ Most of the GIS layers here can be found on <a href="http://edit.africamuseum.be
 </div>
 	<!--	<table id="edit_logo">
 			    <tr>
-               <td><img src="http://edit.africamuseum.be/edit_wp5/web/dingen/logoEDIT.png"/><td>
+               <td><img src="http://edit.br.fgov.be/edit_wp5/web/dingen/logoEDIT.png"/><td>
 		</tr>
 	</table>	-->
 <script type="text/javascript">

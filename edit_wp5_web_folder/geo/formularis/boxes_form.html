@@ -37,12 +37,15 @@ $("#fourth h2").text(p2);
         var el = $('#specieSelect');
         var attr = $('#attributeSelect');
 	$(cat).click(function () { 
+//cat2=$('#genusSelect option:selected');
+//	cat2.selects({
+//edited by james davy september 8 2010 to re-enable the ability to display species once a genus is selected in the draw box tool
 	cat.selects({
             target: el,
-            url: 'http://edit.africamuseum.be/edit_wp5/geo/selects/select-chain_2sld_s.php?userid='+userid,
+            url: 'http://edit.br.fgov.be/edit_wp5/geo/selects/select-chain_2sld_s.php?userid='+userid,
 			type: 'post',
-            data: { ajax:true, anotherval2: "anotherAction" }    
-       }).trigger('change');
+            data: { ajax:true}    
+       });
 	    });	
 	    });	
 	$(function () {	
@@ -55,7 +58,7 @@ $("#fourth h2").text(p2);
         cat.selectChain({
             target: cat,
 			
-            url: 'http://edit.africamuseum.be/edit_wp5/geo/selects/select-chain_3sld_s.php?userid='+userid,
+            url: 'http://edit.br.fgov.be/edit_wp5/geo/selects/select-chain_3sld_s.php?userid='+userid,
 			type: 'post',
             data: { ajax:true}
 	    }).trigger('change');

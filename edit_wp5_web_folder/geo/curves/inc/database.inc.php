@@ -21,8 +21,9 @@
  */
 function pgConnection() {
 	require_once("adodb5/adodb.inc.php");
+
 	$conn = ADONewConnection('postgres8'); 
-	$conn->PConnect('localhost','postgres','Edit3pass','geoest');
+	$conn->PConnect('localhost','postgres','fv30714$A','edit_geo_mirror');
 	$conn->SetFetchMode(ADODB_FETCH_ASSOC);
 	return $conn;
 }

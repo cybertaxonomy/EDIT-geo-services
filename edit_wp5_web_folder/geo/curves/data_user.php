@@ -32,6 +32,7 @@ else
 $sql="select code,numreg,numtax,slopend from ".$geotable." where slopend > 0.2";
 }
 $sql = sanitizeSQL($sql);
+
 $pgconn = pgConnection();
 $recordSet = $pgconn->Execute($sql);
 $totalRows = $recordSet->numrows();

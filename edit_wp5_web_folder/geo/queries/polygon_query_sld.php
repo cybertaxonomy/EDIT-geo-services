@@ -1,6 +1,7 @@
 <?php
 
-   $conn = pg_connect(POSTGIS_CS);
+ //  $conn = pg_connect(POSTGIS_CS);
+	$conn = pg_connect('host=localhost port=5432  password=fv30714$A  user=postgres dbname=edit_geo_mirror');
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }
@@ -13,7 +14,7 @@ if (pg_ErrorMessage($conn)) {
 
 	$query="SELECT genus,specie FROM user_points where user_points.userid='$userid' and user_points.the_geom && GeometryFromText('".$polygon."',4326)";
 
-	// echo $query;
+	echo $query;
 	//	-5.7 41.4,-5.7 40.800000000000004,-5.1000000000000005 40.800000000000004,-5.1000000000000005 41.4,-5.7 41.4
 	 $query_result=pg_query($query) or die ("algun errorrrr");
 	 $count=pg_numrows($query_result);

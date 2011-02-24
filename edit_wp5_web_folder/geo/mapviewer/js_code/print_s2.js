@@ -13,12 +13,13 @@ var bindFrameActions=function (data_format) {
 		};
 	ajax_show=true;
 var up=1;
-var d={};
+d={};
+
 var size=$("#img_size_form option:selected ").val();
 var dpi=$("#dpi_form option:selected").val();
 
 
-				
+		
 				switch (dpi)
 				{
 					case ('120'): 
@@ -108,12 +109,14 @@ d.proj=map.getProjection();
 				d.bits=bits;				
 				}
 
-
+if (map.getProjection()=="EPSG:4326")
+{
 			if ($("img[id='scalebar']").css('visibility')!=='hidden')
 			{
 			d.scalebar=img_scalebar;
 			//var img_scalebar='';
 			}
+}
 			if ($("img[id='windrose']").css('visibility')!=='hidden')
 			{
 			d.windrose=$("#choose_windrose_form option:selected")[0].value;
@@ -122,27 +125,29 @@ d.proj=map.getProjection();
 
 var array=new Array();	
 array['untiled_style']='';	
+
 d.point_position='';		
 for (i=0;i<map.layers.length;i++)
 				{
 				
 		if (map.layers[i].getVisibility())
 				{
+
 				if (map.layers[i].name !=='My polygons to hover' && 
 				map.layers[i].GROUP !=='commercial' &&
 				map.layers[i].name !=='Polygon to query' && 
 				map.layers[i].name !=='Polygon Layer' && 
+map.layers[i].name !=='Boxes' &&
 				map.layers[i].name !=='OpenLayers.Handler.Polygon' &&
-				map.layers[i].name !=='OpenLayers.Handler.Point' && map.layers[i].name !=='EDIT WMS transparent') 
-				
+				map.layers[i].name !=='OpenLayers.Handler.Point' && map.layers[i].name !=='EDIT WMS transparent'
+		&& map.layers[i].params.GROUP !=='remote') 
 				{
 
 
-//console.log(map.layers[i].params.LAYERS);
 		if (map.layers[i].CLASS_NAME=='OpenLayers.Layer.WMS.Untiled')
 {
 											
-//console.log("untiled is..."+map.layers[i].params.LAYERS);
+
 if (map.layers[i].params.SLD)
 {
 
@@ -166,8 +171,8 @@ if (map.layers[i].params.LAYERS=='user_points')
 			}
 			if (map.layers[i].name=='third&fourth field points')
 			{
-				sld_path=map.layers[i].params.SLD;	
-				d.sp_sld_path=sld_path;
+				spsld_path=map.layers[i].params.SLD;	
+				d.sp_sld_path=spsld_path;
 				d.point_position+="3_4_"+i+",";
 			}
 		
@@ -183,10 +188,11 @@ if (map.layers[i].name !=='Your symbolized polygons')
 {
 
 	var sld=map.layers[i].params.SLD;
+
 if (map.layers[i].params.GROUP !=='analysis')
 {
 	
-
+	var sld=map.layers[i].params.SLD;
 
 sld=sld.split("?");
 sld=sld[1];
@@ -194,19 +200,26 @@ sld=sld.split("=");
 sld=sld[1];
 
 sld=sld.substring(0,sld.length-1);
+
 var l=map.layers[i].params.LAYERS;
 array['untiled_style']+=i+"*"+l+","+sld+"@";
+
 }
 else
 {
+var sld=map.layers[i].params.SLD;
+
 	d.analysis_sld=sld;
 	d.analysis_layer=map.layers[i].params.LAYERS;
 }
 }
 else
 {
-	var sld=map.layers[i].params.SLD;
-d.serialized_sld=sld;
+
+var sld2=map.layers[i].params.SLD;
+
+	//var sld=map.layers[i].params.SLD;
+d.serialized_sld=sld2;
 
 }
 
@@ -301,7 +314,7 @@ x.ms_layer='shoreline';
 x.bbox=map.getExtent().toBBOX();
 x.w=width;x.h=height;
 
-$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/mapserver_map.php',data:x				
+$.ajax({type:'GET',url:'http://edit.br.fgov.be/edit_wp5/geo/images/mapserver_map.php',data:x				
 })//end ajax	
 
 //d.ms_layer=map.layers[i].params.LAYERS;
@@ -311,15 +324,17 @@ else
 {
 c=map.layers[i].params.LAYERS.split(',');
 s=map.layers[i].params.STYLES.split(',');
-//console.warn(c);
+
+
 if (c.length >1)
 {
+
 for (x=0;x< c.length;x++)
 {
 var l=c[x];
 //l=l.substring(5);
 var style=s[x];
-//console.warn(style)
+
 
 //admin_c_america,admin_level_1
 if(style.search("admin_level_")==-1)
@@ -338,8 +353,7 @@ else
 else //more than one lyaer
 {
 	l=c[0];
-	//console.warn(s);
-	//	9*admin_level_0,
+
 	if(s[0].search("admin_level_")==-1)
 	{ //NO ADMIN LEVE
 //	l=l.substring(5);
@@ -360,18 +374,19 @@ else //more than one lyaer
 }
 }
 //x=array.join('|');
-var untiled_style;
+
 var untiled_style=array['untiled_style'].substring(0,array['untiled_style'].length-1);
-//console.warn(array['untiled_style'])
+
 
 
 d.untiled=untiled_style;
 
 if (up!==1)
 {
+
 		var serialize_xml=function(url,taxa)
 		{
-	    	$.get(url,{},function(xml) 
+	    	$.get(url,{dataType:'xml'},function(xml) 
 		{
 
 		var format = new OpenLayers.Format.XML();
@@ -381,6 +396,7 @@ if (up!==1)
 					{
 						var size=$(this).find("Size").children();
 						$(size).each(function(i)
+
 							{
 
 							size_val=this.firstChild.nodeValue;
@@ -393,21 +409,23 @@ if (up!==1)
 						$(s_width).each(function()
 						{
 							s_width=this.firstChild;
-							s_width.nodeValue=(this.firstChild.nodeValue)*up;														
+s_width.nodeValue=(this.firstChild.nodeValue)*up;														
 						})	
 					})
 
 					 var text = format.write(xml)+"&user="+userid+"&to_filter="+taxa;
-		//	console.log(text);
-		$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',processData:false, type:'POST',
+			
+		$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',processData:false, type:'POST',
 		dataType:'text/xml',data:'data='+text,success:function(new_sld)
 		{
-			switch (taxa)
+
+	switch (taxa)
 			{
+
 				
 				case 'genus': d.sld_path=new_sld;break;
-				case 'fourth': d.fourth_sld_path=new_sld;break;
-				case '3_4': d.sp_sld_path=new_sld;break;
+				case 'fourth': d.fourth_sld_paths=new_sld;break;
+				case '3_4': d.sp_sld_paths=new_sld;break;
 			}
 		}
 	})
@@ -430,11 +448,13 @@ if (up!==1)
 	}
 	if (d.fourth_sld_path)
 	{
-		serialize_xml(d.sp_sld_path,"fourth");
+
+		serialize_xml(d.fourth_sld_path,"fourth");
 	}
 	 var exec=function()
 	{
-		$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
+
+  $.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
 
 												bindFrameActions();$("iframe#info2").attr("src",url_image);$("#ex_print").show(); 	
 																t=url_image.split('/');									
@@ -446,29 +466,37 @@ if (up!==1)
 													{
 
 														ajax_show=false;
-													$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
+													$.ajax({type:'GET',url:'http://edit.br.fgov.be/edit_wp5/geo/images/remove_img2.php',
 															data:{img:img},
 															success:function(){ //alert("sdfsdf")
 															}
 															});									
 													}
-												//	setTimeout("remove()",10000);
+												setTimeout("remove()",10000);
 											}
 					});
 	}
-setTimeout("exec()",1000);	
+//we set up a settimeou relative big, in order to be sure it works wiht low bandwith conns
+setTimeout("exec()",3000);	
 
 
 
 }
 else //up=1
 {
-if(typeof(sld_path) !== 'undefined')  
-{
-//d.sld_path=sld_path;
-}
 
-$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
+	if(d.sp_sld_path)
+	{
+	d.sp_sld_paths=d.sp_sld_path;
+	
+	}
+	if(d.fourth_sld_path)
+	{
+	d.fourth_sld_paths=d.fourth_sld_path;
+	
+	}
+
+$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
 									
 										bindFrameActions();$("iframe#info2").attr("src",url_image);$("#ex_print").show(); 	
 														t=url_image.split('/');									
@@ -480,7 +508,7 @@ $.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'G
 											{
 												
 												ajax_show=false;
-											$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
+											$.ajax({type:'GET',url:'http://edit.br.fgov.be/edit_wp5/geo/images/remove_img2.php',
 													data:{img:img},
 													success:function(){ //alert("sdfsdf")
 													}
@@ -491,3 +519,4 @@ $.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'G
 			});
 			
 }
+

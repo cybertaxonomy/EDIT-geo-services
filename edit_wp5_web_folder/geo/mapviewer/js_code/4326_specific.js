@@ -1,9 +1,9 @@
 
 
     serialized = new OpenLayers.Layer.WMS.Untiled( "Your symbolized polygons",
-		        "http://193.190.223.46:8080/geoserver/wms", {layers:'topp:serialized_pols',GROUP:'remote',sld: 'http://edit.africamuseum.be/edit_wp5/geo/permanent_sld/transparent_pols.sld',transparent:"true",format:t_img_format},{opacity:1},{'reproject': false});
+		        "http://193.190.116.6:8080/geoserver/wms", {layers:'topp:serialized_pols',GROUP:'remote',sld: '../../stable_sld/permanent_sld/transparent_pols.sld',transparent:"true",format:t_img_format},{opacity:1},{'reproject': false});
 
-	queryEventHandler = new OpenLayers.Handler.Click({ 'map': map }, {  ondblclick: function() {alert("dounle lick")}, 
+	queryEventHandler = new OpenLayers.Handler.Click({ 'map': map }, {  ondblclick: function() {alert("double click")}, 
 	'click': function(e) { doGetFeatureInfo(e); }});	
 
 
@@ -210,11 +210,11 @@ function serialize(feature)
 		if (msie)
 		{
 
-		 $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+		 $('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 		}
 		else 
 		{
-		$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+		$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 		}
 		$('input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){ $(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#ex2').hide(); 
 		 });
@@ -266,16 +266,17 @@ function serialize(feature)
 		   var wkt= new OpenLayers.Format.WKT(map.baseLayer.projection);
 			to_insert = wkt.write(feature);
 
-			$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/queries/data_insert.php',
+			$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/queries/data_insert.php',
 								processData:false, type:'GET',dataType:'text',data:'data='+to_insert+'&gid='+id+'&user='+userid,success:function()
 								{
 							//	alert("polygon inserted on dbase");
 								//let's create SLD
-		        $.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/gml_sld.php',
+		        $.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/gml_sld.php',
 								processData:false, type:'POST',dataType:'text',data:'data='+data+'&user='+userid,
 								success:function(url)
 								{
 								serialized.params.SLD=url;
+serialized.params.GROUP='no_remote';
 								if (serialized.map==null)
 								{
 								map.addLayer(serialized);
@@ -326,8 +327,8 @@ function serialize(feature)
 
 msie=($.browser.msie==true)?true:false; 
 if (msie)
-{$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');}
-else {$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');}
+{$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');}
+else {$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');}
 $('input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){        $(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#ex2').hide();  });
 $("#ex5").animate({width:'280',height:'105'},"slow");
 			}
@@ -407,7 +408,7 @@ $("#ex5").animate({width:'280',height:'105'},"slow");
 
 				            	   vectors = new OpenLayers.Layer.WFS(
 				    "My polygons to hover",
-				    "http://193.190.223.46:8080/geoserver/wfs",
+				    "http://193.190.116.6:8080/geoserver/wfs",
 				    {typename: "topp:point_pol",
 				    filter:"<Filter><And><PropertyIsEqualTo><PropertyName>userid</PropertyName><Literal>"+userid+"</Literal></PropertyIsEqualTo></And></Filter>"},
 				    {isBaseLayer: false, extractAttributes: true, styleMap: myStyles2}

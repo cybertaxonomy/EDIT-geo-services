@@ -1,6 +1,6 @@
 body {
 
-	font-family: Verdana, arial, sans-serif;
+	font-family: Verdana;
 	font-size: 7pt;
 	line-height: 11px;
 	margin					: 0px;
@@ -34,7 +34,7 @@ table .map_container {
           display:block;
         }
 		.olControlLoadingPanel {
-		            background-image:url(img/ajax_loading.gif);
+		            background-image:url(ajax_loading.gif);
 		            width:100px;
 
 		            position:relative;
@@ -76,36 +76,7 @@ table .map_container {
 			        z-index:10000;
 							padding-bottom:4px;
 				}
-		.jqHandle {
-			 background: red;
-			 height:15px;
-		}
-
-		.jqDrag {
-			width: 92%;
-			cursor: move;
-		}
-
-		.jqResize {
-			 width: 15px;
-			 position: absolute;
-			 bottom: 0;
-			 right: 0;
-			 cursor: se-resize;
-		}
-
-		.jqDnR {
-		    z-index: 3;
-		    position: relative;
-
-		    width: 180px;
-		    font-size: 0.77em;
-		    color: #618d5e;
-		    margin: 5px 10px 10px 10px;
-		    padding: 8px;
-		    background-color: #EEE;
-		    border: 1px solid #CCC;
-		}
+		
 		#em1,#em2,#em3{
 			font-weight: bold;
 			background: transparent url(img/hover.png) no-repeat scroll center;
@@ -218,7 +189,7 @@ table .map_container {
 					{
 					    border:2px solid #4ba037;
 						opacity:.85;filter: alpha(opacity=75); -moz-opacity: 0.85;
-						font-size:11px;
+						font-size:9px;
 						background:#78e2a6;	
 						padding:3px;			
 								padding-bottom:2px;
@@ -410,7 +381,8 @@ height: 65px;}
 height: 75px; }
 
 #menubar  dt {
-	background: #e9e7e7 url(../images/arrow-square.gif) no-repeat right -51px;
+	/*background: #e9e7e7 url(../images/arrow-square.gif) no-repeat right -51px;*/
+	background: #e9e7e7;
 	padding: 7px 15px;
 	margin: 0;
 
@@ -789,7 +761,7 @@ input.jqmdX {
   right: 7px;
   top: 4px;
   padding: 0 0 0 19px;
-  background: url(http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left;
+  background: url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left;
   overflow: hidden;
 }
 */
@@ -814,4 +786,657 @@ div.jqmDialog input:focus, div.jqmDialog input.iefocus { background-color: #eaff
 
 }
 
+#u_points div
 
+{
+
+	display:inline;
+
+}
+
+#jquery-overlay {
+
+	position: absolute;
+
+	top: 0;
+
+	left: 0;
+
+	z-index: 90;
+
+	width: 100%;
+
+	height: 500px;
+
+}
+
+#jquery-lightbox {
+
+	position: absolute;
+
+	top: 0;
+
+	left: 0;
+
+	width: 100%;
+
+	z-index: 100;
+
+	text-align: center;
+
+	line-height: 0;
+
+}
+
+#jquery-lightbox a img { border: none; }
+
+#lightbox-container-image-box {
+
+	position: relative;
+
+	background-color: #fff;
+
+	width: 250px;
+
+	height: 250px;
+
+	margin: 0 auto;
+
+}
+
+#lightbox-container-image { padding: 10px; }
+
+#lightbox-loading {
+
+	position: absolute;
+
+	top: 40%;
+
+	left: 0%;
+
+	height: 25%;
+
+	width: 100%;
+
+	text-align: center;
+
+	line-height: 0;
+
+}
+
+#pere {
+
+	position: absolute;
+
+	top: 40%;
+
+	left: 0%;
+
+	height: 25%;
+
+	width: 100%;
+
+	text-align: center;
+
+	line-height: 0;
+
+}
+
+
+
+#u_points div
+
+{
+
+display: inline;
+
+visibility:visible;	
+
+}
+
+#lightbox-nav {
+
+	position: absolute;
+
+	top: 0;
+
+	left: 0;
+
+	height: 100%;
+
+	width: 100%;
+
+	z-index: 10;
+
+}
+
+#lightbox-container-image-box > #lightbox-nav { left: 0; }
+
+#lightbox-nav a { outline: none;}
+
+#lightbox-nav-btnPrev, #lightbox-nav-btnNext,#lightbox-nav-btnNext_2  {
+
+	width: 49%;
+
+	height: 100%;
+
+	zoom: 1;
+
+	display: block;
+
+}
+
+#lightbox-nav-btnPrev { 
+
+	left: 0; 
+
+	float: left;
+
+}
+
+#lightbox-nav-btnNext { 
+
+	right: 0; 
+
+	float: right;
+
+}
+
+#lightbox-container-image-data-box {
+
+	font: 10px Verdana, Helvetica, sans-serif;
+
+	background-color: #fff;
+
+	margin: 0 auto;
+
+	line-height: 1.4em;
+
+	overflow: auto;
+
+	width: 100%;
+
+	padding: 0 10px 0;
+
+}
+
+#lightbox-container-image-data {
+
+	padding: 0 10px; 
+
+	color: #666; 
+
+}
+
+#lightbox-container-image-data #lightbox-image-details { 
+
+	width: 70%; 
+
+	float: left; 
+
+	text-align: left; 
+
+}	
+
+#lightbox-image-details-caption { font-weight: bold; }
+
+#lightbox-image-details-currentNumber {
+
+	display: block; 
+
+	clear: left; 
+
+	padding-bottom: 1.0em;	
+
+}			
+
+#lightbox-secNav-btnClose {
+
+	width: 66px; 
+
+	float: right;
+
+	padding-bottom: 0.7em;	
+
+}
+
+
+
+
+
+input.jqmdX
+
+{
+
+	background: no-repeat top left url('http://edit.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif');
+
+}
+
+.olControlLoadingPanel {
+
+            background-image:url(ajax_loading.gif);
+
+            width:100px;
+
+           
+
+            position:relative;
+
+            background-repeat:no-repeat;           
+
+            display: none;
+
+        }
+
+	 .colorwell {
+
+     border: 2px solid #fff;
+
+     width: 6em;
+
+     text-align: center;
+
+     cursor: pointer;
+
+   }
+
+      .symbolized {
+
+     text-align: center;
+
+     cursor: pointer;
+
+   }
+
+   body .colorwell-selected {
+
+     border: 2px solid #000;
+
+     font-weight: bold;
+
+   }	
+
+   
+
+   #upload_content label
+
+   {
+
+   margin-left: 15px;font-size:12
+
+   }
+
+.message3
+
+		{
+
+		    border:1px solid #4ba037;cursor:pointer;
+
+			position:relative;
+
+			width:150px;
+
+			font-size:10px;
+
+			background:#ebdac2;				
+
+			font-weight:bold;
+
+			padding:3px;
+
+			left:15px;
+
+		
+
+			top : 5px;
+
+			bottom : 5px;
+
+	        z-index:10000;
+
+					padding-bottom:4px;
+
+		}
+
+		.proj
+
+				{
+
+				    border:1px solid #4ba037;
+
+					position:relative;
+
+					width:220px;
+
+					font-size:10px;
+
+					background:#ebdac2;				
+					padding:3px;
+
+					left:0px;
+
+					cursor:pointer;
+
+					top : 0px;
+
+			        z-index:10000;
+
+							padding-bottom:4px;
+
+				}
+
+.jqHandle {
+
+	 background: red;
+
+	 height:15px;
+
+}
+
+
+
+.jqDrag {
+
+	width: 93%;
+
+	cursor: move;
+
+}
+
+
+
+.jqResize {
+
+	 width: 15px;
+
+	 position: absolute;
+
+	 bottom: 0;
+
+	 right: 0;
+
+	 cursor: se-resize;
+
+}
+
+
+
+.jqDnR {
+
+    z-index: 3;
+
+    position: relative;
+
+    
+
+    width: 180px;
+
+    font-size: 0.77em;
+
+    color: #618d5e;
+
+    margin: 5px 10px 10px 10px;
+
+    padding: 8px;
+
+    background-color: #EEE;
+
+    border: 1px solid #CCC;
+
+}
+
+#em1,#em2,#em3{
+
+	font-weight: bold;
+
+	background: transparent url(img/hover.png) no-repeat scroll center;
+
+	position: absolute;
+
+	top: 45px;
+
+	text-align: center;
+
+	padding: 20px 12px 0px 10px;
+
+	font-style: bold;
+
+	color:red;
+
+	
+
+	z-index: 3000;
+
+	opacity:.9;
+
+    display:none;
+
+}
+
+#em1,#em2 {	left: -10px; width: 150px;
+
+height: 45px;}
+
+
+
+.message
+
+		{
+
+		    border:4px solid #4ba037;
+
+			position:absolute;
+
+			width:450px;
+
+			font-size:11px;
+
+			background:#f0f83f;
+
+	opacity:.85;filter: alpha(opacity=75); -moz-opacity: 0.85;
+
+			padding:5px;
+
+			left:40%;
+
+			top : 0px;
+
+	        z-index:10000;
+
+					padding-bottom:10px;
+
+		}
+
+
+
+.extras, .label, .label2
+
+		{
+
+		    visibility:hidden;
+
+		    border:0.5px solid #4ba037;
+
+			position:relative;
+
+			width:180px;
+
+			background:#ebdac2;	
+
+			padding:3px;
+
+			left:10%;
+
+			cursor:pointer;
+
+		padding-bottom:4px;
+
+		}		
+
+.message2
+
+		{
+
+		    border:2px solid #4ba037;
+
+			position:relative;
+
+			width:150px;
+
+			font-size:11px;
+
+			background:#f0f83f;
+
+	opacity:.85;filter: alpha(opacity=75); -moz-opacity: 0.85;
+
+			padding:5px;
+
+			left:0%;
+
+			top : 0px;
+
+	        z-index:10000;
+
+					padding-bottom:10px;
+
+		}
+
+		.message p
+
+		{
+
+			padding-left:10px;
+
+
+
+		}
+
+		#edit_logo {
+
+		top:50px;
+
+left:1000px;
+
+padding-left:0;
+
+position:absolute;
+
+
+
+}
+
+
+
+
+
+#polygon_info{
+
+  border: 1px solid #03476F;
+
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+
+  color: #363636;
+
+  width: 200px;
+
+  background: #92C428;
+
+  }
+
+		#polygon_symbolize form label
+
+		{
+
+		font-size:12px;
+
+		}
+
+	.olControlMouseToolbar
+
+	{
+
+		top:200px;
+
+	}
+
+ #panel { 
+
+	position:relative;
+
+	width:35px;
+
+	height:200px;
+
+	top:20px;
+
+
+
+          display:block;
+
+        }
+
+			#message
+
+			{
+
+			    border:4px solid #4ba037;
+
+				opacity:.85;filter: alpha(opacity=75); -moz-opacity: 0.85;
+
+				font-size:14px bold;
+
+				background:#eff179;	
+
+				padding:2px;
+
+
+
+						padding-bottom:3px;
+
+			}
+
+				.ppol_message
+
+			{
+
+			    border:2px solid #4ba037;
+
+				opacity:.85;filter: alpha(opacity=75); -moz-opacity: 0.85;
+
+				font-size:10px;
+
+				background:#78e2a6;	
+
+				padding:3px;			
+
+						padding-bottom:2px;
+
+			
+
+{
+
+cursor:pointer;
+
+}
+
+
+
+.olControlEditingToolbar  {
+
+    float:right;
+
+    right: 0px;
+
+    height: 30px; 
+
+    width: 260px;
+
+    z-index:3000;
+/* sembla que sense draw el Pan no funcionna!*/
+    visibility:hidden;
+}
+#image {
+	z-index:10000;
+	position:absolute;
+width:150px;
+}

@@ -2,7 +2,7 @@
 require 'jsonwrapper.php';
 @session_start();
 $sessionid=session_id();
-
+require_once('../../path_index.php');
 function isAjax() {
 return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
     ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
@@ -28,12 +28,43 @@ session_register($user);
 }
 else
 {
+ $conn = pg_connect(POSTGIS_CS);
 //WE DELETE POINT_POL VALUES!!!!! (IT MUST BE IMPROVED OTHERWISE TWO USERS CANNOT ANALYZE ON THE SAME TIME)
-	$sql="delete from point_pol where userid='$user';vacuum analyze point_pol;";
-	
+	$sql="delete from point_pol where userid='$user';";
+
 	pg_exec ($conn, $sql) or die ("nooo");
-	
-//	echo $user." has 	YES  been there";
+$sql="vacuum analyze point_pol;";
+pg_exec ($conn, $sql) or die ("noooé");	
+
+    $t=time();
+
+                $s="select usuario,maxtime from user_table where not usuario='$user'";   
+            $r=pg_query($conn,$s);
+
+                $q="";
+                 while ($row = pg_fetch_array($r, NULL, PGSQL_ASSOC))
+                 {
+                    $s="select usuario,maxtime from user_table where not userid='$user'";
+                             $userid=$row['usuario'];
+
+                             $max_t=$row['maxtime'];
+        //            echo $userid." time".$t." and maxtime  ".$max_t;
+                    if ($t>$row['maxtime'])               
+                    {
+           
+                         $sql="delete from point_pol where userid='$userid';";
+                           $sql.="DELETE FROM sld10 where userid='$userid';";
+                   
+                }
+                 
+                 }
+                 
+                 $sql2="vacuum analyze point_pol;";        
+
+   
+    pg_exec ($conn, $sql) or die ("nooo");
+    pg_exec ($conn, $sql2) or die ("nooo");
+
 }
 
 
@@ -51,10 +82,10 @@ $sld_num_regs=(rand()%3000)."_num_regs.sld";
 $sld_taxa_rec=(rand()%3000)."_taxa_record.sld";
 $sld_genera=(rand()%3000)."_genera.sld";
 
-$sld_path=DIR_PLATFORM.'/edit_wp5/geo/sld/';
-$regs_path=DIR_PLATFORM.'/edit_wp5/geo/sld/'.$sld_num_regs;
-$taxa_xml_path=DIR_PLATFORM.'/edit_wp5/geo/sld/'.$sld_taxa_rec;
-$gen_path=DIR_PLATFORM.'/edit_wp5/geo/sld/'.$sld_genera;
+$sld_path=DIR_PLATFORM.'/geo/sld/';
+$regs_path=DIR_PLATFORM.'/geo/sld/'.$sld_num_regs;
+$taxa_xml_path=DIR_PLATFORM.'/geo/sld/'.$sld_taxa_rec;
+$gen_path=DIR_PLATFORM.'/geo/sld/'.$sld_genera;
 
 
 
@@ -103,6 +134,7 @@ for($i=0;$i<$numFilas_tax_rec;$i++)
 }
 $gml.="</gml>";
 //pg_close($conn);
+
 $dom_new = new DOMDocument();
 $xsl = new XSLTProcessor;
 $xsl->setParameter( '', 'userid', $user);
@@ -116,6 +148,7 @@ else
 {
 	$style = realpath('php_xsl/pp10_tax_rec_SLD.xsl');
 }
+
 $dom_new->load($style);
 $xsl->importStyleSheet($dom_new);
 $dom_new->loadXML($gml);
@@ -185,6 +218,7 @@ $dom_new = new DOMDocument();
 $xsl = new XSLTProcessor;
 $xsl->setParameter( '', 'userid', $user);
 //if we have very few records we generate a different legend!
+echo $numFilas;
 if ($numFilas<6)
 {
 $style = realpath('php_xsl/pp5_numreg_SLD.xsl');
@@ -222,7 +256,7 @@ $pol4.="UPDATE ONLY sld10 set min_g = ((max_g - ((select max (numtax) from point
 pg_exec($pol4) or die ("algun errorrrr444");
 
 
-$sql="select distinct(categoria) from sld10 where userid='$user'";
+$sql="select distinct(categoria) from sld10 where userid='$user' ORDER BY categoria;";
 $postgis_result=pg_query($sql) or die ("algun error");
 $numFilas =pg_NumRows($postgis_result);
 
@@ -238,6 +272,8 @@ $minimo = pg_Fetch_Array($min_result,0);
 
 for($z=0;$z<$numFilas;$z++)
 {
+
+
 $result_matriz2 = pg_Fetch_Array($postgis_result,$z);
 $categoria=$result_matriz2[0];
 

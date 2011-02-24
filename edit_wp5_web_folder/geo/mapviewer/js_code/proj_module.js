@@ -1,9 +1,13 @@
 
 
-  $.get('http://edit.africamuseum.be/edit_wp5/geo/modules/proj_module.php',function(data)
+  $.get('http://edit.br.fgov.be/edit_wp5/geo/modules/proj_module.php',function(data)
 {
 
+$("#area").change(function()
+{
 
+$("#crs_final").empty().hide()
+})
 	$("#proj_params").append(data);
 cat=$("input[id='crs_name_submit']");
 
@@ -11,15 +15,19 @@ $(cat).click(function () {
 	var area=$("#area option:selected").attr('id');
 	var type=$("#crs_type option:selected").attr('id');
 	var f=$("select[id='final']");
-$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/select_crs_name.php',{ ajax:true,area:area,type:type } ,
+$("#switch_4326").unbind('click')
+$("#change_proj").unbind('click')
+$.get('http://edit.br.fgov.be/edit_wp5/geo/crs_forms/select_crs_name.php',{ ajax:true,area:area,type:type } ,
    function(data)
 {
+$("#crs_final").show()
 	$("select[id='crs_final']").empty();
 	$("select[id='crs_final']").append(data)
 	var bind_proj=function()
 	{
 $("a[id='cancel']").click(function()
 {
+$("#crs_final").empty().hide();
 	$("#gallery").empty();
 	$("#jquery-lightbox,#jquery-overlay").remove();
 $("#right,#middle,#header,#escala,#area,#crs_type,#crs_final").css('visibility','visible');
@@ -28,10 +36,11 @@ $("#right,#middle,#header,#escala,#area,#crs_type,#crs_final").css('visibility',
 })
 	 $("a[id='ok']").click(function()
 	{
+
 	var proj=$("#crs_final option:selected").val();
 	var area=$("#area option:selected").attr('id');
 	$("#right").show();
-		$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&source=own',function(t)
+		$.get('http://edit.br.fgov.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&source=own',function(t)
 		{
 
 			eval(t);
@@ -44,13 +53,23 @@ $("#right,#middle,#header,#escala,#area,#crs_type,#crs_final").css('visibility',
 }
 		proj=proj.split(':');
 		proj=proj[1];
-
+$("#crs_final").empty().hide();
 	//s is used in getlayers2
 	s=$("div[id='EPSG:"+proj+"'] ul li").eq(1).children().text();
 
 		reprojecting=true;
 
 		create_json(reprojecting);
+if ($("#gbif").css('display')!=='none') change2($("#gbif"));$("#gbif_m").children().text('Show module');
+$("#gbif_m").removeClass('visible');
+if ($("#analysis").css('display')!=='none') change2($("#analysis"));$("#analysis_m").children().text('Show module');
+$("#analysis_m").removeClass('visible');
+if ($("#google_projections").css('display')!=='none') change2($("#google_projections"));$("#g_proj_m").children().text('Show module');
+$("#g_proj_m").removeClass('visible');
+if ($("#upload_projects").css('display')!=='none') change2($("#upload_projects"));$("#projects_m").children().text('Show module');
+$("#projects_m").removeClass('visible');
+if ($("#remote_layers").css('display')!=='none') change2($("#remote_layers"));$("#remote_m").children().text('Show module');
+$("#remote_m").removeClass('visible');
 
 	//	do_it(map,s,options,"EPSG:"+proj);
 
@@ -89,7 +108,7 @@ $("#switch_4326").click(function()
 	proj2=proj.split(':');
 	proj2=proj2[1];
 var area=$("#area option:selected").attr('id');
-	$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
+	$.get('http://edit.br.fgov.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
 
 		if ($("#gallery a").length>0)
 		{
@@ -113,6 +132,7 @@ var area=$("#area option:selected").attr('id');
 	}
 
 	})
+
 })
 })
 

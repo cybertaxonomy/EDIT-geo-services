@@ -62,11 +62,11 @@ $txt="MAP NAME ITASCA STATUS ON
   
 END";
 //echo $txt;
-$path_towrite=DIR_PLATFORM."/edit_wp5/geo/images/scalebars";
+$path_towrite=DIR_PLATFORM."/geo/images/scalebars";
 $img=$legend.".png";
 $fp=fopen("$path_towrite/$legend.map","w");
 $write=fwrite($fp,$txt);
-$c="/usr/lib/cgi-bin/mapserv56/scalebar $path_towrite/$legend.map ".DIR_PLATFORM."/edit_wp5/geo/images/scalebars/$img";
+$c="/usr/bin/scalebar $path_towrite/$legend.map ".DIR_PLATFORM."/geo/images/scalebars/$img";
 
 shell_exec($c);
 echo "$img";

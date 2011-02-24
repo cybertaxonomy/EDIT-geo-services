@@ -34,7 +34,7 @@
 				<xsl:param name="id" select="feature:features/feature:id"/>
 				<xsl:param name="color" select="feature:features/feature:fill_color"/>
 				<xsl:param name="opacity" select="feature:features/feature:fill_opacity"/>	
-				ç<xsl:param name="stroke_opacity" select="feature:features/feature:stroke_opacity"/>	
+				<xsl:param name="stroke_opacity" select="feature:features/feature:stroke_opacity"/>	
 				 <Rule>
 			          <Name>a</Name>
 							 <ogc:Filter>		

@@ -1,5 +1,5 @@
 <?
-require_once("../path_index.php");
+//require_once("../path_index.php");
 //$x="admin>topp:country_earth,topp:cities|world_negro,cities/remote>topp:coast_earth|transparent";
 
 //admin>topp:country_earth|world_negro/vectorial>topp:coast_earth|transparent/tdwg>topp:tdwg_level_2|world_negro
@@ -69,10 +69,11 @@ $json.=",";
 $json=substr($json,0,strlen($json)-1);
 
 $json.="]}]";
-//echo $json;
+
 $r=md5($_REQUEST['URI']).".json";
 //$path_towrite=DIR_PLATFORM."/edit_wp5/geo/mapviewer/json_simple/user_json/$r";
-$path_towrite=PATH_JSON."/".$r;
+$path_towrite="/var/www/edit_wp5/geo/mapviewer/json_simple/user_json/$r";
+//$path_towrite=$PATH_JSON."/".$r;
 
 
 $fp=fopen("$path_towrite","w");

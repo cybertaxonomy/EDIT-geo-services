@@ -578,7 +578,9 @@ select viewname,'V' from pg_views where viewname like $mask";
 		
 	}
 
-	  function MetaIndexes ($table, $primary = FALSE)
+//	  function MetaIndexes ($table, $primary = FALSE)
+//Edited by James Davy on August 11 2010
+	  function MetaIndexes ($table, $primary = FALSE, $owner = FALSE)
       {
          global $ADODB_FETCH_MODE;
                 
@@ -659,7 +661,9 @@ WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 			if (strlen($db) == 0) $db = 'template1';
 			$db = adodb_addslashes($db);
 		   	if ($str)  {
-			 	$host = split(":", $str);
+			 	//$host = split(":", $str);
+				//Edited by James Davy on August 11 2010
+			 	$host = explode(":", $str);
 				if ($host[0]) $str = "host=".adodb_addslashes($host[0]);
 				else $str = '';
 				if (isset($host[1])) $str .= " port=$host[1]";

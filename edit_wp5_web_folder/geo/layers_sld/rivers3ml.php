@@ -7,7 +7,7 @@ $params=explode('/',$_GET['params']);
     if (isset($params[2]))
     {
 	$l_color="#".$params[2];
-	} else { $l_color="#1460d2"; }
+	} else { $l_color="#2f20cb"; }
 
 
   	 if (isset($params[3]))
@@ -17,7 +17,7 @@ $params=explode('/',$_GET['params']);
 	{
 	$s_opacity=0;
 	}else {
-	$s_opacity=1;
+	$s_opacity=0.7;
 	}
 
 	} else { $s_width=0.5;$s_opacity=1; }

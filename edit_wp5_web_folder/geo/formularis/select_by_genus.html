@@ -27,12 +27,13 @@ c=cadena.split('?');
 c2=c[1].split('&');
 
 userid=c2[0].substring(7,c2[0].length);
-
+/*
 p=c2[1].split('_');
 p1=p[0].substring(2,c2[1].length);;
 p2=p[1];
 $("#third h2").text(p1);
 //$("#fourth h2").text(p2);
+*/
 
 	$(function () {	
         // note that we're assigning in reverse order
@@ -44,7 +45,7 @@ $("#third h2").text(p1);
         cat.selectChain({
             target: cat,
 			
-            url: 'http://edit.africamuseum.be/edit_wp5/geo/selects/select-chain_3sld_s.php?userid='+userid,
+            url: 'http://edit.br.fgov.be/edit_wp5/geo/selects/select-chain_3sld_s.php?userid='+userid,
 			type: 'post',
             data: { ajax:true}
 	    }).trigger('change');

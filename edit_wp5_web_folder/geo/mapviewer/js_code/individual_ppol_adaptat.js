@@ -7,11 +7,11 @@
 			msie=($.browser.msie==true)?true:false; 
 			if (msie)
 			{
-			    $('#ppol_win input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat').css('width','18px');
+			    $('#ppol_win input.jqmdX').css('background','url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat').css('width','18px');
 			}
 			else {
 
-			$('#ppol_win input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left');
+			$('#ppol_win input.jqmdX').css('background','url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left');
 			 }
       $('#ppol_win input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){$(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#ppol_win').hide();$("#ppol_form").remove();$("#sp_query_container").empty();});
 				$('#ppol_win').jqDrag('.jqDrag').jqResize('.jqResize');

@@ -1,5 +1,5 @@
 <?php
-
+require_once('../../path_index.php');
 require 'jsonwrapper.php';
 //this require is needed for PHP versions < 5.2
 function isAjax() {

@@ -106,9 +106,12 @@ OpenLayers.Control.LoadingPanel = OpenLayers.Class(OpenLayers.Control, {
     */
     addLayer: function(evt) {
         if (evt.layer) {
-            evt.layer.events.register('loadstart', this, this.increaseCounter);
-            evt.layer.events.register('loadend', this, this.decreaseCounter);
-        }
+		if (evt.layer.events)
+		{
+            		evt.layer.events.register('loadstart', this, this.increaseCounter);
+            		evt.layer.events.register('loadend', this, this.decreaseCounter);
+        	}
+	}
     },
 
     /**

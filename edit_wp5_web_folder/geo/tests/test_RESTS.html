@@ -14,21 +14,21 @@
     {
 
 			edit_tdwg1 = new OpenLayers.Layer.WMS( "EDIT TDWG1 layer",
-"http://193.190.223.46:8080/geoserver/wms",{layers:"tdwg_level_1",style:"negro",transparent:"true"});
+"http://193.190.116.6:8080/geoserver/wms",{layers:"tdwg_level_1",style:"negro",transparent:"true"});
 
 			countries = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG1 layer",
-"http://193.190.223.46:8080/geoserver/wms",{layers:"country_earth",transparent:"true",styles:"line"},{isBaseLayer:true}  );
+"http://193.190.116.6:8080/geoserver/wms",{layers:"country_earth",transparent:"true",styles:"line"},{isBaseLayer:true}  );
 
 
 	edit_tdwg2 = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG2 layer",
-"http://193.190.223.46:8080/geoserver/wms",{layers:"tdwg_level_2",transparent:"true",SLD:'http://edit.africamuseum.be/edit_wp5/geo/stable_sld/transparent_pols.sld'});
+"http://193.190.116.6:8080/geoserver/wms",{layers:"tdwg_level_2",transparent:"true",SLD:'http://taxonomicindex.br.fgov.be/edit_wp5/geo/stable_sld/transparent_pols.sld'});
 edit_tdwg2.setVisibility(false);	
 
 	
-			edit_tdwg3 = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG3 layer","http://193.190.223.46:8080/geoserver/wms",{layers:"tdwg_level_3",transparent:"true",SLD:'http://edit.africamuseum.be/edit_wp5/geo/stable_sld/transparent_pols.sld'});
+			edit_tdwg3 = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG3 layer","http://193.190.116.6:8080/geoserver/wms",{layers:"tdwg_level_3",transparent:"true",SLD:'http://taxonomicindex.br.fgov.be/edit_wp5/geo/stable_sld/transparent_pols.sld'});
 edit_tdwg3.setVisibility(false);
 
-		edit_tdwg4 = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG3 layer","http://193.190.223.46:8080/geoserver/wms",{layers:"tdwg_level_4",transparent:"true",SLD:'http://edit.africamuseum.be/edit_wp5/geo/stable_sld/transparent_pols.sld'});
+		edit_tdwg4 = new OpenLayers.Layer.WMS.Untiled( "EDIT TDWG3 layer","http://193.190.116.6:8080/geoserver/wms",{layers:"tdwg_level_4",transparent:"true",SLD:'http://taxonomicindex.br.fgov.be/edit_wp5/geo/stable_sld/transparent_pols.sld'});
 edit_tdwg3.setVisibility(false);
 	
 map = new OpenLayers.Map('map');//,options);
@@ -73,7 +73,7 @@ var bbox='-180, -90, 180, 90';
 
 				   	$.each(data,function(i,data)
 				   	{
-	 		legend_url="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?SERVICE=WMS&VERSION=1.1.1&format=image/png&TRANSPARENT=TRUE&WIDTH=64&HEIGHT=36&";
+	 		legend_url="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?SERVICE=WMS&VERSION=1.1.1&format=image/png&TRANSPARENT=TRUE&WIDTH=64&HEIGHT=36&";
 			legend_url+="layer=topp:tdwg_level_3&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&SLD="+data.legend;
 
 			  u_bbox=data.bbox;
@@ -83,7 +83,7 @@ var bbox='-180, -90, 180, 90';
 
 
 	        var layer="edit_"+info.tdwg;
-	        var path='http://edit.africamuseum.be/synthesys/www/v1/sld/'+info.sld;
+	        var path='http://taxonomicindex.br.fgov.be/synthesys/www/v1/sld/'+info.sld;
 
 	        switch (layer)
 	        {
@@ -130,12 +130,12 @@ var bbox='-180, -90, 180, 90';
 	<div> Testing REST URL callback</div>
 	 <form id="url_form" action="#">
 		<select>
-			<option value="http://edit.africamuseum.be/edit_wp5/v1/areas.php?l=earth&title=a:hello world|b:hello Berlin&ad=tdwg3:b:MOR,SPA,FRA|a:YUG,AUT&as=a:8dd3c7,,0.4|b:fdb462,,1&img=false&ms=600,400&img=false">url 1</option>
-			<option value="http://edit.africamuseum.be/edit_wp5/v1/areas.php?l=earth&title=a:helloa|b:byebye|c:rr|d:s|e:ss|f:f|g:hh&ad=tdwg4:c:UGAOO,SAROO,NZSOO,SUDOO,SPAAN,BGMBE,SICSI,TANOO,GEROO,SPASP,KENOO,SICMA,CLCBI,YUGMA,GRCOO,ROMOO,NZNOO,CLCMA,YUGSL,CLCLA,ALGOO,SWIOO,CLCSA,MDROO,HUNOO,ETHOO,BGMLU,COROO,BALOO,POROO,BALOO|e:CZESK,GRBOO|g:AUTAU|b:LBSLB,TUEOO|d:IREIR,AUTLI,POLOO,IRENI|f:NETOO,YUGCR|a:TUEOO,BGMBE,LBSLB||tdwg3:c:BGM,MOR,SPA,SIC,ITA,MOR,SPA,FRA|a:YUG,AUT&as=a:8dd3c7,,0.4|b:fdb462,,1|c:4daf4a,,1|d:ffff33,,0.5|e:bebada,,0.5|f:ff7f00,,1|g:377eb8,,0.4&ms=600,400&img=false&legend=0">url 2</option>
-			<option value="http://edit.africamuseum.be/edit_wp5/v1/areas.php?l=earth&title=a:hola|b:i%27m%20a%20cow&ad=tdwg3:b:MOR,SPA,FRA|a:YUG,AUT&as=a:8dd3c7,,1|b:fdb462,,0.3&images_url=b:edit.csic.es/v1/hatch_images&symbols=b:cow,25,gif&img=false">Hatching url</option>
+			<option value="http://taxonomicindex.br.fgov.be/edit_wp5/v1/areas.php?l=earth&title=a:hello world|b:hello Berlin&ad=tdwg3:b:MOR,SPA,FRA|a:YUG,AUT&as=a:8dd3c7,,0.4|b:fdb462,,1&img=false&ms=600,400&img=false">url 1</option>
+			<option value="http://taxonomicindex.br.fgov.be/edit_wp5/v1/areas.php?l=earth&title=a:helloa|b:byebye|c:rr|d:s|e:ss|f:f|g:hh&ad=tdwg4:c:UGAOO,SAROO,NZSOO,SUDOO,SPAAN,BGMBE,SICSI,TANOO,GEROO,SPASP,KENOO,SICMA,CLCBI,YUGMA,GRCOO,ROMOO,NZNOO,CLCMA,YUGSL,CLCLA,ALGOO,SWIOO,CLCSA,MDROO,HUNOO,ETHOO,BGMLU,COROO,BALOO,POROO,BALOO|e:CZESK,GRBOO|g:AUTAU|b:LBSLB,TUEOO|d:IREIR,AUTLI,POLOO,IRENI|f:NETOO,YUGCR|a:TUEOO,BGMBE,LBSLB||tdwg3:c:BGM,MOR,SPA,SIC,ITA,MOR,SPA,FRA|a:YUG,AUT&as=a:8dd3c7,,0.4|b:fdb462,,1|c:4daf4a,,1|d:ffff33,,0.5|e:bebada,,0.5|f:ff7f00,,1|g:377eb8,,0.4&ms=600,400&img=false&legend=0">url 2</option>
+			<option value="http://taxonomicindex.br.fgov.be/edit_wp5/v1/areas.php?l=earth&title=a:hola|b:i%27m%20a%20cow&ad=tdwg3:b:MOR,SPA,FRA|a:YUG,AUT&as=a:8dd3c7,,1|b:fdb462,,0.3&images_url=b:edit.csic.es/v1/hatch_images&symbols=b:cow,25,gif&img=false">Hatching url</option>
 	
 	
-	<!--	<option value="http://edit.africamuseum.be/edit_wp5/v1/areas3_ol2_cr.php?l=earth&ad=tdwg3:a:YUG,AUT&as=a:8dd3c7,,1|b:fdb462,,1|c:4daf4a,,1|d:ffff33,,1|e:bebada,,1|f:ff7f00,,1|g:377eb8,,1&ms=610">url 3 for TDWG3</option>-->
+	<!--	<option value="http://taxonomicindex.br.fgov.be/edit_wp5/v1/areas3_ol2_cr.php?l=earth&ad=tdwg3:a:YUG,AUT&as=a:8dd3c7,,1|b:fdb462,,1|c:4daf4a,,1|d:ffff33,,1|e:bebada,,1|f:ff7f00,,1|g:377eb8,,1&ms=610">url 3 for TDWG3</option>-->
 		
 		</select>
 			<input type="button" name="search" value="submit" id="search"/> 

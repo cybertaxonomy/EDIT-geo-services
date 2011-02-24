@@ -1,4 +1,5 @@
 <?
+require_once("../../path_index.php");
 $srs=$_GET['proj'];
 $up=$_GET['up'];
 $dpi=$_GET['dpi'];
@@ -13,7 +14,8 @@ $height=round($_GET['height']);
 
 //mkdir("download/",0777);
 //chmod("download/$user/$folder",0777);
-
+$URL_SITE="http://193.190.116.6";
+$URL_GEOSERVER="http://193.190.116.6:8080/geoserver/wms";
 $path="download";
 //genus sld path
 if ($_GET['sld_path'])
@@ -25,13 +27,13 @@ if ($_GET['serialized_sld'])
 $serialized_sld=$_GET['serialized_sld'];
 }
 
-if ($_GET['sp_sld_path'])
+if ($_GET['sp_sld_paths'])
 {
-$sp_sld_path=$_GET['sp_sld_path'];
+$sp_sld_paths=$_GET['sp_sld_paths'];
 }
-if ($_GET['fourth_sld_path'])
+if ($_GET['fourth_sld_paths'])
 {
-$fourth_sld_path=$_GET['fourth_sld_path'];
+$fourth_sld_path=$_GET['fourth_sld_paths'];
 }
 
 if ($_GET['grids'])
@@ -73,7 +75,9 @@ $position=$untiled[0];
 
 $info=$untiled[1];
 
+
 $info=explode('|',$info);
+
 $count=$count+count($info);
 //layer1,style1   layer2,style2
 //topp:grid2,grids
@@ -87,11 +91,13 @@ $count=$count+count($info);
 
 		//layer1,style1  layer2,style2
 		$info=explode(',',$v);
+
+//1/tdwg_level_1/e24077/2/100000
 //		admin_level_1,c_america_level_1
 		//var_dump($info);
 		$layer=$info[0];
 		$style=$info[1];
-    
+
 //    10*admin_level_2,c_america_level_2    
 		$occurrence = explode('/',$style);	
 
@@ -103,13 +109,14 @@ $count=$count+count($info);
        // $up=$occurrence[0]*$up;
 	//geometry_type/fill_color/stroke/strokestyle/up
 	    $style=((int)$occurrence[0])*$up."/";
+ //echo $style;
         for ( $i = 1; $i < (count($occurrence)); $i++ )
         {
             $style.=$occurrence[$i]."/";
         }
         $style = substr($style, 0, -1);
-		$s="SLD=".URL_SITE."/edit_wp5/geo/layers_sld/".$layer.".php?params=".$style;
-		//echo $s;
+		$s="SLD=$URL_SITE/edit_wp5/geo/layers_sld/".$layer.".php?params=".$style;
+		
 		}		
 		else
 		{ 
@@ -128,71 +135,78 @@ $count=$count+count($info);
 			 {
 					if ($layer=='admin_level_0' || $layer=='admin_level_1' || $layer=='admin_level_2')
 					{
-						$s="SLD=".URL_SITE."/edit_wp5/geo/layers_sld/".$layer.".php?params=".$up."/".$style;	
+						$s="SLD=$URL_SITE/edit_wp5/geo/layers_sld/".$layer.".php?params=".$up."/".$style;	
 					}
+
 					else
 					{
-			 $s="SLD=".URL_SITE."/edit_wp5/geo/layers_sld/".$layer.".php?params=".$up."/".$layer;
-		 			}
-			}
-		}  //no sld, just STYLE   
+ // $s="SLD=$URL_SITE/edit_wp5/geo/layers_sld/utm_world.php?params=".$up."/".$layer;  
 
-	   
-		//	echo $layer."<br>";
-			//$u[$position][]='xxx';
-	//		var_dump($u[$position]['layers']);
-   //LAYERS=topp:admin_level_1&SLD=".URL_SITE."/edit_wp5/geo/layers_sld/admin_level_1.php?params=2/admin_level_1&&STYLES=c_america_level_1
-	//    10*admin_level_2,c_america_level_2   
+
+  if ($layer=='utm250000sqkm_earth' || $layer=='utm1e6sqkm_earth' || $layer=='utm250000sqkm_earth' || $layer=='utm_world')
+                    {
+                     $s="SLD=$URL_SITE/edit_wp5/geo/layers_sld/utm_world.php?params=".$up."/".$layer;  
+
+                    }
+                    else
+                    {
+                    $s="SLD=$URL_SITE/edit_wp5/geo/layers_sld/".$layer.".php?params=".$up."/".$layer;
+                     }
+
+   }
+
+   }
+   }
+			
+
 				$u['layers']['layer'][]=$layer;	
 				$u['layers']['layer']['position'][]=$position;	
 				$u['layers']['style'][]=$style;
+
 				if ($layer=='admin_level_0' || $layer=='admin_level_1' || $layer=='admin_level_2')
 				{
-						$url=URL_GEOSERVER."?LAYERS=topp:".$style."&TRANSPARENT=true&";
+						$url=$URL_GEOSERVER."?LAYERS=topp:".$style."&TRANSPARENT=true&";
 						$url.=$s."&FORMAT=image%2Fpng&SERVICE=WMS";
 				}
 				else
 				{
-				$url=URL_GEOSERVER."?LAYERS=topp:".$layer."&TRANSPARENT=true&";
+				$url=$URL_GEOSERVER."?LAYERS=topp:".$layer."&TRANSPARENT=true&";
 				$url.=$s."&FORMAT=image%2Fpng&SERVICE=WMS";
 				
 					}
 				$url.="&VERSION=1.1.1&REQUEST=GetMap&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=".$srs."&BBOX=".$bbox."&WIDTH=".$width."&HEIGHT=".$height;	
+
 			$u['layers']['url'][]=$url;	
+
 							
 	}
 
-
-
-
-//var_dump([$position]['layers']['url']);
-/*foreach ($u[$k3] as $k=>$v)
-{
-//var_dump($u[$k3][$k]['layers']);
-$layers_count=count($u[$k3][$k]['layers']['url']);
-}*/
-
-
-//echo $count;
 }
+
+
+
+
+
 $u2['layers']['url'][]='new LAYERING';
 $result = $u+$u2;
-//var_dump($result);
+
 sort($u['layers']['layer']['position']);
 $count=count($u['layers']['url']);
 
 
 function to_grey($file,$new_f)
 {
-global $dpi;
+global $dpi,$DIR_PLATFORM;
 		$c="convert  '$file' -colorspace Gray   '$file'";	
 		shell_exec($c);
 		
 			$c="convert -density $dpi".x."$dpi -units PixelsPerInch '$file' '$file'";
 
 		shell_exec($c);
-	echo URL_SITE."/edit_wp5/geo/images/edit_images.php?format=$new_f&file=".$file;
-		$img_dir = DIR_PLATFORM."/edit_wp5/geo/images/download";
+$URL_SITE="http://193.190.116.6";
+	echo $URL_SITE."/edit_wp5/geo/images/edit_images.php?format=$new_f&file=".$file;
+$DIR_PLATFORM="/var/www";
+	$img_dir = $DIR_PLATFORM."/edit_wp5/geo/images/download";
 		$e = dir($img_dir);
 		$time=time();
 		while($entry = $e->read()) { 
@@ -251,7 +265,7 @@ $c="convert -density $dpi".x."$dpi -units PixelsPerInch '$t_file' '$t_file'";
 shell_exec($c);
 								
 echo URL_SITE."/edit_wp5/geo/images/edit_images.php?format=tif&file=$t_file";
-	$img_dir = DIR_PLATFORM."/edit_wp5/geo/images/download";
+	$img_dir = DIR_PLATFORM."/geo/images/download";
 	$e = dir($img_dir);
 	$time=time();
 	while($entry = $e->read()) { 
@@ -285,8 +299,9 @@ if ($format=='tif' || $format=='tif/gray')
 		$c="convert -density $dpi".x."$dpi -units PixelsPerInch '$r' '$r'";
 
 		shell_exec($c);
+
 		echo URL_SITE."/edit_wp5/geo/images/edit_images.php?format=png&file=$r";	
-		$img_dir = DIR_PLATFORM."/edit_wp5/geo/images/download";
+		$img_dir = DIR_PLATFORM."/geo/images/download";
 		$e = dir($img_dir);
 		$time=time();
 		while($entry = $e->read()) { 
@@ -315,7 +330,7 @@ if ($format=='tif' || $format=='tif/gray')
 			$final="convert '$r' '$f'";
 
 			shell_exec($final);
-			//echo $final;
+		
 			 if ($format=='jpeg/gray' || $format=='gif/gray' || $format=='png/gray')
 			{
 			//	echo "FINAL is".$f;
@@ -338,15 +353,17 @@ if ($format=='tif' || $format=='tif/gray')
 						if ($format=='image/jpeg20')
 			{
 			$c="convert -quality 20% $f $f";
+
 			shell_exec($c);
 			}
 			$c="convert -density $dpi".x."$dpi -units PixelsPerInch '$f' '$f'";
 
 			shell_exec($c);
+
 			echo URL_SITE."/edit_wp5/geo/images/edit_images.php?format=$new_f&file=$f";
-			unlink($f);
 			
-				$img_dir = DIR_PLATFORM."/edit_wp5/geo/images/download";
+			
+				$img_dir = DIR_PLATFORM."/geo/images/download";
 				$e = dir($img_dir);
 				$time=time();
 				while($entry = $e->read()) { 
@@ -544,21 +561,21 @@ $c="composite '$mapserv_url' '$image' '$image'";
 shell_exec($c);
 }
 */
-
-if ($_GET['fourth_sld_path'])
+global $URL_GEOSERVER;
+if ($_GET['fourth_sld_paths'])
 {
-	$f_points_url=URL_GEOSERVER."?LAYERS=user_points&TRANSPARENT=TRUE&";
-				$f_points_url.="SLD=".$_GET['fourth_sld_path']."&FORMAT=image%2Fpng&SERVICE=WMS";
+	$f_points_url=$URL_GEOSERVER."?LAYERS=user_points&TRANSPARENT=TRUE&";
+				$f_points_url.="SLD=".$_GET['fourth_sld_paths']."&FORMAT=image%2Fpng&SERVICE=WMS";
 				$f_points_url.="&VERSION=1.1.1&REQUEST=GetMap&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=".$srs."&BBOX=".$bbox."&WIDTH=".$width."&HEIGHT=".$height;
 $final="composite '$f_points_url' '$image' '$image'";
 
 shell_exec($final);
 }
 
-if ($_GET['sp_sld_path'])
+if ($_GET['sp_sld_paths'])
 {
-	$sp_points_url=URL_GEOSERVER."?LAYERS=user_points&TRANSPARENT=TRUE&";
-				$sp_points_url.="SLD=".$_GET['sp_sld_path']."&FORMAT=image%2Fpng&SERVICE=WMS";
+	$sp_points_url=$URL_GEOSERVER."?LAYERS=user_points&TRANSPARENT=TRUE&";
+				$sp_points_url.="SLD=".$_GET['sp_sld_paths']."&FORMAT=image%2Fpng&SERVICE=WMS";
 				$sp_points_url.="&VERSION=1.1.1&REQUEST=GetMap&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=".$srs."&BBOX=".$bbox."&WIDTH=".$width."&HEIGHT=".$height;
 $final="composite '$sp_points_url' '$image' '$image'";
 
@@ -567,7 +584,7 @@ shell_exec($final);
 
 if ($_GET['sld_path'])
 {
-	$points_url=URL_GEOSERVER."?LAYERS=user_points&TRANSPARENT=TRUE&";
+	$points_url=$URL_GEOSERVER."?LAYERS=user_points&TRANSPARENT=TRUE&";
 				$points_url.="SLD=".$_GET['sld_path']."&FORMAT=image%2Fpng&SERVICE=WMS";
 				$points_url.="&VERSION=1.1.1&REQUEST=GetMap&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=".$srs."&BBOX=".$bbox."&WIDTH=".$width."&HEIGHT=".$height;
 
@@ -586,6 +603,7 @@ for ($i=0;$i<count($result['layers']['url']);$i++)
 //echo $result['layers']['url'][$i]." with position ".$result['layers']['layer']['position'][$i]."<br>";
 
 $this_url=$u['layers']['url'][$i];
+
 
 if ($i==0) //�LTIMA (RASTER)
 	{

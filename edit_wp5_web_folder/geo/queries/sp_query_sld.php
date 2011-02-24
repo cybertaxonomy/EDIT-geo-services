@@ -1,12 +1,12 @@
 <?php
 //THIS SCRIPT CREATES HTML TO BE APPENDED ON EDIT MAPVIEWER; THIS HTML IS RESULT OF QUERYING WHAT USER INFO THERE IS ON USER SELECTED COORDINATES (BY CLICKING ON EDIT MAPVIEWER MAP)
-
+require_once("../../path_index.php");
 //FROM A POINT COORDINATES WE CREATED A BBOX (+- 1 DEGREE) in function doGetFeatureInfo (4326_specific.js)
 @session_start();
 $sessionid=session_id();
 //if (@$_REQUEST['ajax']) {
 
-
+//	$conn = pg_connect('host=localhost port=5432  password=fv30714$A  user=postgres dbname=edit_geo_mirror');
    $conn = pg_connect(POSTGIS_CS);
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 

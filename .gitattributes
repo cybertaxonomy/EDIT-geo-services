@@ -591,7 +591,7 @@ edit_wp5_web_folder/geo/images/white_images/white1440.png -text
 edit_wp5_web_folder/geo/images/white_images/white1470.png -text
 edit_wp5_web_folder/geo/images/white_images/white1500.png -text
 edit_wp5_web_folder/geo/images/white_images/white1520.png -text
-edit_wp5_web_folder/geo/images/white_images/white1800.png -text
+edit_wp5_web_folder/geo/images/white_images/white1800.png -text svneol=unset#application/octet-stream
 edit_wp5_web_folder/geo/images/white_images/white2100.png -text
 edit_wp5_web_folder/geo/images/white_images/white2160.png -text
 edit_wp5_web_folder/geo/images/white_images/white2205.png -text
@@ -1207,7 +1207,6 @@ edit_wp5_web_folder/geo/point_pol/ppol_records.php -text
 edit_wp5_web_folder/geo/point_pol/ppol_taxa_records.php -text
 edit_wp5_web_folder/geo/points.php -text
 edit_wp5_web_folder/geo/points.xsl -text
-edit_wp5_web_folder/geo/points2_raster.php -text
 edit_wp5_web_folder/geo/points_legend.php -text
 edit_wp5_web_folder/geo/queries/data_insert.php -text
 edit_wp5_web_folder/geo/queries/gml_sld.php -text
@@ -1424,8 +1423,6 @@ edit_wp5_web_folder/v1/areas_legend_no[!!-~](15_06_09[!!-~]17_38).xsl -text
 edit_wp5_web_folder/v1/areas_legend_no.xsl -text
 edit_wp5_web_folder/v1/areas_script.php -text
 edit_wp5_web_folder/v1/areas_sld.php -text
-edit_wp5_web_folder/v1/areas_work_rmca.php -text
-edit_wp5_web_folder/v1/areasbck20100409.php -text
 edit_wp5_web_folder/v1/atbi_gemer.jpg -text
 edit_wp5_web_folder/v1/atbi_gemer.png -text
 edit_wp5_web_folder/v1/atbi_mercantour.jpg -text
@@ -1526,11 +1523,6 @@ edit_wp5_web_folder/v1/new.png -text
 edit_wp5_web_folder/v1/points.php -text
 edit_wp5_web_folder/v1/points.xsl -text
 edit_wp5_web_folder/v1/points2_raster.php -text
-edit_wp5_web_folder/v1/points2_raster.phpBck20100323 -text
-edit_wp5_web_folder/v1/points2_raster_rmca_work.php -text
-edit_wp5_web_folder/v1/points_new[!!-~](copy).php -text
-edit_wp5_web_folder/v1/points_new.php -text
-edit_wp5_web_folder/v1/points_new.phpBck20100323 -text
 edit_wp5_web_folder/v1/sld/areas_work_rmca.php -text
 edit_wp5_web_folder/v1/white_500.png -text
 edit_wp5_web_folder/v1/white_700.png -text

@@ -1,5 +1,5 @@
 <?php
-
+require_once('../../path_index.php');
 require 'jsonwrapper.php';
 //this require is needed for PHP versions < 5.2
 function isAjax() {
@@ -11,7 +11,8 @@ else
 { 
 $userid=$_GET['userid'];
 
-   $conn = pg_connect(POSTGIS_CS);
+ //  $conn = pg_connect(POSTGIS_CS);
+			$conn = pg_connect(POSTGIS_CS);
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }

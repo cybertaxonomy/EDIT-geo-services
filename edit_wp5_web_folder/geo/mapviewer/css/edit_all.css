@@ -411,7 +411,7 @@ input.jqmdX {
   padding: 0 0 0 19px;
   height: 19px;
   width: 0px;
-  background: url(http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left;
+  background: url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left;
   overflow: hidden;
 }
 input.jqmdXFocus {background-position: bottom left; outline: none;}

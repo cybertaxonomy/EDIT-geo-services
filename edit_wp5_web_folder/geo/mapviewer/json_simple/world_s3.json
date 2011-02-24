@@ -191,12 +191,6 @@
 	  },
 	  {
 	   "grup":"nature",
-	  "id":"shoreline",
-     "nom":"high resolution coast",
-     "styles":"blue_line"
-	  },
-	  {
-	   "grup":"nature",
 	  "id":"rivers3ml",
      "nom":"Rivers",  
      "styles":"rivers3ml",
@@ -238,7 +232,7 @@
 	  	"grup":"tdwg",
 	   "id":"tdwg_level_3",
      "nom":"TDWG Level 3",
-     "styles":"tdwgs_3",
+     "styles":"polygon",
                "geom":"line_label",
           "label":"true",
           	"msg":"40.000.000"
@@ -302,18 +296,20 @@
      "nom":"UTM squares 1,000,000 sqkm",
      "styles":"utm_world"
 	  },
-	      {
-    "grup":"utm",
-	  "id":"utm250000sqkm_earth",
-     "nom":"UTM squares 250000 sqkm",
-	"styles":"utm_world",
-	"label":"true"
-	  },
+
 	      {
     "grup":"utm",
 	  "id":"utm_europe_50km",
+     "nom":"utm_europe_50km",
+	"styles":"utm_50x50km"
+
+
+	  },
+	      {
+    "grup":"utm",
+	  "id":"utm_europe_100km",
      "nom":"utm_europe_100km",
-	"styles":"utm"
+	"styles":"utm_100x100km"
 	  },
 	  	  	  	  {
 	  	"grup":"utm",
@@ -326,9 +322,7 @@
 	   "grup":"admin",
 	  "id":"country_earth",
      "nom":"General countries",
-     "styles":"countries",
-      "geom":"line_label",
-     "label":"true"
+     "styles":"countries"
 	  }
 	  ]
 }]

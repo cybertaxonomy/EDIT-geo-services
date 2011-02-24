@@ -47,6 +47,6 @@
 	define("PHP_XSL", "php_xsl");
 	define("KEYMAP_DIR", "/var/www/html/geo/images/download/keymaps");
 	define("URL_IMG", URL_SITE."/edit_wp5/geo/images");
-	define("IMAGE_DL_FOLDER","/var/www/edit/edit_wp5/geo/images/dowmload"); 
+	define("IMAGE_DL_FOLDER","/var/www/edit/edit_wp5/geo/images/download"); 
 	define("LEGEND_URL", "http://edit.br.fgov.be/synthesys/www/v1/sld");//added ftheeten 16/06/2010
 ?>

@@ -171,28 +171,8 @@ div.olControlMousePosition {
 
 }
 
-.olControlNavigationHistory {
-   background-image: url("img/navigation_history.png");
-   background-repeat: no-repeat;
-   width:  24px;
-   height: 24px;
- 
-  left: 6px;
-  position: relative;
-z-index:3000;
-}
-.olControlNavigationHistoryPreviousItemActive { 
-  background-position: 0px 0px;
-}
-.olControlNavigationHistoryPreviousItemInactive { 
-   background-position: 0px -24px;
-}
-.olControlNavigationHistoryNextItemActive { 
-   background-position: -24px 0px;
-}
-.olControlNavigationHistoryNextItemInactive { 
-   background-position: -24px -24px;
-}
+
+
 
 .olControlNavToolbar .olControlNavigationItemActive { 
   background-image: url("img/query_mode_on.png");

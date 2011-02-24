@@ -9,7 +9,8 @@ else
 {
 
 
-$conn = pg_connect(POSTGIS_CS);
+//$conn = pg_connect(POSTGIS_CS);
+	$conn = pg_connect('host=localhost port=5432  password=fv30714$A  user=postgres dbname=edit_geo_mirror');
 if (pg_ErrorMessage($conn)) { 
 	 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
 	 }
@@ -34,7 +35,7 @@ $query="update serialized_pols set the_geom=GeomFromText('".$polygon."',4326) wh
  };
 //insert into serialized_pols (the_geom) values (GeomFromText('POLYGON((-4.32197265625 41.17216796875,-2.9376953125 42.22685546875,-2.01484375 41.897265625,-1.5314453124999998 41.63359375,-2.56416015625  40.77666015625,-4.32197265625 41.17216796875))',4326))
 
-//echo $query;
+
 
 	
 	 $query_result=pg_query($query) or die ("algun errorrrr");

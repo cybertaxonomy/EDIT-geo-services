@@ -28,13 +28,13 @@ $dom_new->load($style);
 $xsl->importStyleSheet($dom_new);
 $dom_new->loadXML($xml3);
 $out = $xsl->transformToXML($dom_new);
-//var_dump($out);
+
 $random=(rand()%300).'.sld';
 
 //$dom_new->asXML('../sld/'.$random);
 
-
-$sld_path_towrite=DIR_PLATFORM."/edit_wp5/geo/sld/$userid";
+$DIR_PLATFORM="var/www/";
+$sld_path_towrite=DIR_PLATFORM."/geo/sld/$userid";
 // $fp=fopen($sld_path_towrite,"w");
  //$write=fwrite($fp,$out);
 if (file_exists("$sld_path_towrite"))
@@ -51,15 +51,18 @@ while($entry = $d->read()) {
 } 
  $fp=fopen("$sld_path_towrite/$random","w");
  $write=fwrite($fp,$out);
- echo URL_SITE."/edit_wp5/geo/sld/sld/$random";
+$URL_SITE="http://193.190.116.6";
+ echo $URL_SITE."/edit_wp5/geo/sld/$userid/$random";
 $d->close(); 
 }
 else
 {
 mkdir ($sld_path_towrite,0777);chmod($sld_path_towrite,0777); 
+
  $fp=fopen("$sld_path_towrite/$random","w");
  $write=fwrite($fp,$out);
- echo URL_SITE."/edit_wp5/geo/sld/$random";
+ 
+ echo $URL_SITE."/edit_wp5/geo/sld/$userid/$random";
 }
 }
 

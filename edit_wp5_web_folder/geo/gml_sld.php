@@ -25,26 +25,30 @@ $dom_new = new DOMDocument();
 $xsl = new XSLTProcessor;
 $xsl->setParameter( '', 'userid', $userid);
 //$style = realpath('php_xsl/gml_sld.xsl');
-$style=realpath(PHP_XSL."/gml_sld.xsl",$userid);
+$style=realpath("php_xsl/gml_sld.xsl");
 $dom_new->load($style);
 $xsl->importStyleSheet($dom_new);
+
+
 $dom_new->loadXML($xml3);
 $out = $xsl->transformToXML($dom_new);
-//var_dump($out);
+
 $random=(rand()%300).'_serialized.sld';
 
 //$dom_new->asXML('../sld/'.$random);
 
 
-//$sld_path_towrite=DIR_PLATFORM."/edit_wp5/geo/sld";
-$sld_path_to_write=SLD_DIR2;
+$sld_path_towrite=DIR_PLATFORM."/geo/sld/temp";
+//$sld_path_to_write=SLD_DIR2;
+
 
  $fp=fopen("$sld_path_towrite/$random","w");
  $write=fwrite($fp,$out);
+
  
 	//commented by ftheeten
-	//echo URL_SITE."/edit_wp5/geo/sld/$random";
-	echo SLD_URL2."/".$random;
+	echo URL_SITE."/edit_wp5/geo/sld/temp/$random";
+	
 }
 
 ?>

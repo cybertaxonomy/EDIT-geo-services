@@ -5,55 +5,16 @@
     <UserStyle>
       <FeatureTypeStyle>
         <Rule>
-          <Name>Genus1</Name>
+          <Name>Bubas</Name>
           <ogc:Filter>
             <And>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
+                <ogc:Literal>995</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus1</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-            </And>
-          </ogc:Filter>
-          <PointSymbolizer>
-            <Graphic>
-              <Mark>
-                <WellKnownName>star</WellKnownName>
-                <Fill>
-                  <CssParameter name="fill">
-                    <ogc:Literal>#1b242c</ogc:Literal>
-                  </CssParameter>
-                  <CssParameter name="fill-opacity">0.9</CssParameter>
-                </Fill>
-                <Stroke>
-                  <CssParameter name="stroke">
-                    <ogc:Literal>#ed9692</ogc:Literal>
-                  </CssParameter>
-                  <CssParameter name="stroke-width">
-                    <ogc:Literal>0.4</ogc:Literal>
-                  </CssParameter>
-                </Stroke>
-              </Mark>
-              <Size>
-                <ogc:Literal>15</ogc:Literal>
-              </Size>
-            </Graphic>
-          </PointSymbolizer>
-        </Rule>
-        <Rule>
-          <Name>Genus2</Name>
-          <ogc:Filter>
-            <And>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus2</ogc:Literal>
+                <ogc:Literal>Bubas</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </And>
           </ogc:Filter>
@@ -63,46 +24,7 @@
                 <WellKnownName>Star</WellKnownName>
                 <Fill>
                   <CssParameter name="fill">
-                    <ogc:Literal>#4021ba</ogc:Literal>
-                  </CssParameter>
-                  <CssParameter name="fill-opacity">0.9</CssParameter>
-                </Fill>
-                <Stroke>
-                  <CssParameter name="stroke">
-                    <ogc:Literal>#ed9692</ogc:Literal>
-                  </CssParameter>
-                  <CssParameter name="stroke-width">
-                    <ogc:Literal>0.4</ogc:Literal>
-                  </CssParameter>
-                </Stroke>
-              </Mark>
-              <Size>
-                <ogc:Literal>12</ogc:Literal>
-              </Size>
-            </Graphic>
-          </PointSymbolizer>
-        </Rule>
-        <Rule>
-          <Name>Genus3</Name>
-          <ogc:Filter>
-            <And>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus3</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-            </And>
-          </ogc:Filter>
-          <PointSymbolizer>
-            <Graphic>
-              <Mark>
-                <WellKnownName>triangle</WellKnownName>
-                <Fill>
-                  <CssParameter name="fill">
-                    <ogc:Literal>#f282d3</ogc:Literal>
+                    <ogc:Literal>#c924eb</ogc:Literal>
                   </CssParameter>
                   <CssParameter name="fill-opacity">0.9</CssParameter>
                 </Fill>
@@ -122,55 +44,16 @@
           </PointSymbolizer>
         </Rule>
         <Rule>
-          <Name>Genus4</Name>
+          <Name>Caccobius</Name>
           <ogc:Filter>
             <And>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
+                <ogc:Literal>995</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus4</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-            </And>
-          </ogc:Filter>
-          <PointSymbolizer>
-            <Graphic>
-              <Mark>
-                <WellKnownName>circle</WellKnownName>
-                <Fill>
-                  <CssParameter name="fill">
-                    <ogc:Literal>#ed92a5</ogc:Literal>
-                  </CssParameter>
-                  <CssParameter name="fill-opacity">0.9</CssParameter>
-                </Fill>
-                <Stroke>
-                  <CssParameter name="stroke">
-                    <ogc:Literal>#ed9692</ogc:Literal>
-                  </CssParameter>
-                  <CssParameter name="stroke-width">
-                    <ogc:Literal>0.4</ogc:Literal>
-                  </CssParameter>
-                </Stroke>
-              </Mark>
-              <Size>
-                <ogc:Literal>12</ogc:Literal>
-              </Size>
-            </Graphic>
-          </PointSymbolizer>
-        </Rule>
-        <Rule>
-          <Name>Genus5</Name>
-          <ogc:Filter>
-            <And>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus5</ogc:Literal>
+                <ogc:Literal>Caccobius</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </And>
           </ogc:Filter>
@@ -180,7 +63,7 @@
                 <WellKnownName>Star</WellKnownName>
                 <Fill>
                   <CssParameter name="fill">
-                    <ogc:Literal>#123456</ogc:Literal>
+                    <ogc:Literal>#d9e421</ogc:Literal>
                   </CssParameter>
                   <CssParameter name="fill-opacity">0.9</CssParameter>
                 </Fill>
@@ -194,22 +77,100 @@
                 </Stroke>
               </Mark>
               <Size>
-                <ogc:Literal>20</ogc:Literal>
+                <ogc:Literal>10</ogc:Literal>
               </Size>
             </Graphic>
           </PointSymbolizer>
         </Rule>
         <Rule>
-          <Name>Genus6</Name>
+          <Name>Cheironitis</Name>
           <ogc:Filter>
             <And>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
+                <ogc:Literal>995</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus6</ogc:Literal>
+                <ogc:Literal>Cheironitis</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </And>
+          </ogc:Filter>
+          <PointSymbolizer>
+            <Graphic>
+              <Mark>
+                <WellKnownName>Star</WellKnownName>
+                <Fill>
+                  <CssParameter name="fill">
+                    <ogc:Literal>#21ed40</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="fill-opacity">0.9</CssParameter>
+                </Fill>
+                <Stroke>
+                  <CssParameter name="stroke">
+                    <ogc:Literal>#ed9692</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="stroke-width">
+                    <ogc:Literal>0.4</ogc:Literal>
+                  </CssParameter>
+                </Stroke>
+              </Mark>
+              <Size>
+                <ogc:Literal>10</ogc:Literal>
+              </Size>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+        <Rule>
+          <Name>Copris</Name>
+          <ogc:Filter>
+            <And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>userid</ogc:PropertyName>
+                <ogc:Literal>995</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>genus</ogc:PropertyName>
+                <ogc:Literal>Copris</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </And>
+          </ogc:Filter>
+          <PointSymbolizer>
+            <Graphic>
+              <Mark>
+                <WellKnownName>Star</WellKnownName>
+                <Fill>
+                  <CssParameter name="fill">
+                    <ogc:Literal>#0b7def</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="fill-opacity">0.9</CssParameter>
+                </Fill>
+                <Stroke>
+                  <CssParameter name="stroke">
+                    <ogc:Literal>#ed9692</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="stroke-width">
+                    <ogc:Literal>0.4</ogc:Literal>
+                  </CssParameter>
+                </Stroke>
+              </Mark>
+              <Size>
+                <ogc:Literal>10</ogc:Literal>
+              </Size>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+        <Rule>
+          <Name>Euoniticellus</Name>
+          <ogc:Filter>
+            <And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>userid</ogc:PropertyName>
+                <ogc:Literal>995</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>genus</ogc:PropertyName>
+                <ogc:Literal>Euoniticellus</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </And>
           </ogc:Filter>
@@ -239,16 +200,16 @@
           </PointSymbolizer>
         </Rule>
         <Rule>
-          <Name>Genus7</Name>
+          <Name>Euothophagus</Name>
           <ogc:Filter>
             <And>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
+                <ogc:Literal>995</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus7</ogc:Literal>
+                <ogc:Literal>Euothophagus</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </And>
           </ogc:Filter>
@@ -278,16 +239,94 @@
           </PointSymbolizer>
         </Rule>
         <Rule>
-          <Name>Genus8</Name>
+          <Name>Gymnopleurus</Name>
           <ogc:Filter>
             <And>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>userid</ogc:PropertyName>
-                <ogc:Literal>587</ogc:Literal>
+                <ogc:Literal>995</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>genus</ogc:PropertyName>
-                <ogc:Literal>Genus8</ogc:Literal>
+                <ogc:Literal>Gymnopleurus</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </And>
+          </ogc:Filter>
+          <PointSymbolizer>
+            <Graphic>
+              <Mark>
+                <WellKnownName>star</WellKnownName>
+                <Fill>
+                  <CssParameter name="fill">
+                    <ogc:Literal>#1b242c</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="fill-opacity">0.9</CssParameter>
+                </Fill>
+                <Stroke>
+                  <CssParameter name="stroke">
+                    <ogc:Literal>#ed9692</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="stroke-width">
+                    <ogc:Literal>0.4</ogc:Literal>
+                  </CssParameter>
+                </Stroke>
+              </Mark>
+              <Size>
+                <ogc:Literal>15</ogc:Literal>
+              </Size>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+        <Rule>
+          <Name>Onitis</Name>
+          <ogc:Filter>
+            <And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>userid</ogc:PropertyName>
+                <ogc:Literal>995</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>genus</ogc:PropertyName>
+                <ogc:Literal>Onitis</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </And>
+          </ogc:Filter>
+          <PointSymbolizer>
+            <Graphic>
+              <Mark>
+                <WellKnownName>star</WellKnownName>
+                <Fill>
+                  <CssParameter name="fill">
+                    <ogc:Literal>#1b242c</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="fill-opacity">0.9</CssParameter>
+                </Fill>
+                <Stroke>
+                  <CssParameter name="stroke">
+                    <ogc:Literal>#ed9692</ogc:Literal>
+                  </CssParameter>
+                  <CssParameter name="stroke-width">
+                    <ogc:Literal>0.4</ogc:Literal>
+                  </CssParameter>
+                </Stroke>
+              </Mark>
+              <Size>
+                <ogc:Literal>15</ogc:Literal>
+              </Size>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+        <Rule>
+          <Name>Onthophagus</Name>
+          <ogc:Filter>
+            <And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>userid</ogc:PropertyName>
+                <ogc:Literal>995</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>genus</ogc:PropertyName>
+                <ogc:Literal>Onthophagus</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </And>
           </ogc:Filter>
