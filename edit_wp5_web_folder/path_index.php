@@ -25,7 +25,7 @@
 	define("URL_IMG", "http://edit.br.fgov.be/edit_wp5/geo/images");
 */	
 	define("DIR_PLATFORM", "/var/www/edit_wp5"); // /var/www/edit/edit_wp5, /var/www/edit/synthesys/www
-	define("POSTGIS_CS", 'host=localhost port=5432 password=fv30714$A user=postgres dbname=edit_geo_mirror');
+	define("POSTGIS_CS", 'host=localhost port=5432 password= user=postgres dbname=');
 	define("URL_GEOSERVER", "http://193.190.116.6:8080/geoserver/wms");
 	define("URL_SITE", "http://edit.br.fgov.be");
 	define("DIR_SLD_EXT", "/var/www/edit_wp5/synthesys/www");
