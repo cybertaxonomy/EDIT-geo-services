@@ -1,7 +1,5 @@
 * text=auto !eol
 coordinateConverter/CoordinateConverter.cs -text
-distribution-map-service/areas.php -text
-distribution-map-service/areas.xsl -text
 edit_wp5_web_folder/RestHelper/OpenLayersEDITREST.php -text
 edit_wp5_web_folder/RestHelper/restHelper.php -text
 edit_wp5_web_folder/RestHelper/restHelper_curl.php -text
@@ -3775,7 +3773,5 @@ mapviewer/php[!!-~]files/fitxers/toXML/europe.php -text
 mapviewer/php[!!-~]files/fitxers/toXML/iberia_sld.php -text
 mapviewer/php[!!-~]files/fitxers/toXML/world.php -text
 mapviewer/php[!!-~]files/fitxers/wms_table.php -text
-point-map-service/points.php -text
-point-map-service/points.xsl -text
 postgis_script/edit_import_csvgis.sql -text
 postgis_script/edit_import_prova.sql -text
