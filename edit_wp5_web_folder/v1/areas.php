@@ -1186,12 +1186,12 @@ break;
  	}
 case ('2'):
  	{
-$com="convert -append '$legend_url' '$random2'  '$random2'"; 	//2
+$com="convert -background white -append '$legend_url' '$random2'  '$random2' "; 	//2
  break;
  }
  case ('3'):
  	{
-$com="convert +append  '$random2' '$legend_url'   '$random2'"; //4
+$com="convert -background white +append  '$random2' '$legend_url'   '$random2' "; //4
 break;
  	}
  	
