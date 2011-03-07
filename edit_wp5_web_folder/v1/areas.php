@@ -1198,7 +1198,7 @@ break;
 case ('4'):
  	{
  	
-$com="convert  -append  '$random2' '$legend_url'   '$random2'"; //7
+$com="convert  -background white -append  '$random2' '$legend_url'   '$random2'"; //7
 break;
  	}
 case ('5'):
