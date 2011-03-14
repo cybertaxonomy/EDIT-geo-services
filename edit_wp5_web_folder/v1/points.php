@@ -314,16 +314,22 @@ if ($_REQUEST['image']=='false')
 	$sld_dir ="/var/www/synthesys/www/v1/sld"; 
 	$d = dir($sld_dir);
 
+	$legend_url_json="";
+	if($legend=='1')
+	{
+		$legend_url_json=URL_GEOSERVER."/GetLegendGraphic?SERVICE=WMS&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&VERSION=1.1.1&format=image/png&WIDTH=20&HEIGHT=30&layer=rest_points&SLD=".URL_SITE."/synthesys/www/v1/sld/point_".$random.".sld";
+		$legend_url_json=', "legend":"'.$legend_url_json.'"';
+	}
 	if($_REQUEST['createimgforjson']==='true')
 	{
 		
 		if (isset($_REQUEST['callback']))
 		{
-				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"})';
+				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"'.$legend_url_json.'})';
 	 	}
 	 	else
 	 	{
-		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"}';
+		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"'.$legend_url_json.'}';
 		}
 	}
 	else
@@ -331,14 +337,17 @@ if ($_REQUEST['image']=='false')
 	
 		if (isset($_REQUEST['callback']))
 		{
-				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"})';
+				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"'.$legend_url_json.'})';
 	 	}
 	 	else
 	 	{
-		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"}';
+		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"'.$legend_url_json.'}';
 		}
 		$flagCreateImage=false;
 	}
+
+	//updated ftheeten 2011/03/14
+	header("Content-Type: application/json");
 	echo $json;
 
 	while($entry = $d->read()) 
