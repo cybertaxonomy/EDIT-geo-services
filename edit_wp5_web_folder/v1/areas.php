@@ -868,26 +868,18 @@ $files_list=array();
 
 $c=count($gmls);
 
-//ftheeten 14/03/2011
-$legend_url_json="";
-if ($leg=='1')
-{
-		$legend_url_json=URL_GEOSERVER."/GetLegendGraphic?SERVICE=WMS&VERSION=1.1.1&format=image/png&TRANSPARENT=TRUE&WIDTH=64&HEIGHT=36&";
-	$legend_url_json.="layer=topp:tdwg_level_3&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&SLD=".$leg_url;
-}
-
 global $bbox;
 if (isset($_REQUEST['foo']))
 {
-	$json='foo({"bbox":"'.$bbox.'","legend":"'.$legend_url_json.'","layers":[';		
+	$json='foo({"bbox":"'.$bbox.'","legend":"'.$leg_url.'","layers":[';		
 }
 elseif (isset($_REQUEST['callback'])) //addition ftheeten 16/06/2010
 {
-	$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","legend":"'.$legend_url_json.'","layers":[';
+	$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","legend":"'.$leg_url.'","layers":[';
 }
 else
 {
-$json='[{"bbox":"'.$bbox.'","legend":"'.$legend_url_json.'","layers":[';
+$json='[{"bbox":"'.$bbox.'","legend":"'.$leg_url.'","layers":[';
 }
 
 

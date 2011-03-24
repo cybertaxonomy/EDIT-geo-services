@@ -1,10 +1,10 @@
 <?php
 require_once("../path_index.php");
 
-
 $timestamp_deletion="5 Minutes";
 
-$r= (rand()%300).".png";
+//ftheeten 24/03/2011
+$r=md5($_SERVER["REQUEST_URI"] ).".png";
 
 //ftheeten 22/02/2011 (sometimes bug if image previously exists)
 	if(file_exists('img/'.$r))
@@ -76,7 +76,8 @@ foreach ($sp as $k=>$v)
 $sqls=array();
 //$od="1: 38.326, -0.822|38.328,-0.542||2: 38.062,-0.893| 38.072,-0.883";
 
-$random = (rand()%300);
+
+$random=md5($_SERVER["REQUEST_URI"] );
 foreach ($geodata as $key=>$val)
 {
 	if(isset($geodata[$key]['geodata']['lat'] )===true)
@@ -314,22 +315,16 @@ if ($_REQUEST['image']=='false')
 	$sld_dir ="/var/www/synthesys/www/v1/sld"; 
 	$d = dir($sld_dir);
 
-	$legend_url_json="";
-	if($legend=='1')
-	{
-		$legend_url_json=URL_GEOSERVER."/GetLegendGraphic?SERVICE=WMS&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&VERSION=1.1.1&format=image/png&WIDTH=20&HEIGHT=30&layer=rest_points&SLD=".URL_SITE."/synthesys/www/v1/sld/point_".$random.".sld";
-		$legend_url_json=', "legend":"'.$legend_url_json.'"';
-	}
 	if($_REQUEST['createimgforjson']==='true')
 	{
 		
 		if (isset($_REQUEST['callback']))
 		{
-				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"'.$legend_url_json.'})';
+				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"})';
 	 	}
 	 	else
 	 	{
-		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"'.$legend_url_json.'}';
+		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld","img":"'.$imgpathforjsonurl.'/'.$r.'"}';
 		}
 	}
 	else
@@ -337,17 +332,14 @@ if ($_REQUEST['image']=='false')
 	
 		if (isset($_REQUEST['callback']))
 		{
-				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"'.$legend_url_json.'})';
+				$json=$_REQUEST['callback'].'({"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"})';
 	 	}
 	 	else
 	 	{
-		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"'.$legend_url_json.'}';
+		 	$json='{"bbox":"'.$bbox.'","points_sld":"point_'.$random.'.sld"}';
 		}
 		$flagCreateImage=false;
 	}
-
-	//updated ftheeten 2011/03/14
-	header("Content-Type: application/json");
 	echo $json;
 
 	while($entry = $d->read()) 
@@ -899,6 +891,9 @@ if ($_REQUEST['image']!='false')
 {	
 	readfile('img/'.$r);
 }
+
+
+
 	//	unlink('img/'.$r);
 //		unlink('img/'.$points);
 //unlink($path_towrite);	
