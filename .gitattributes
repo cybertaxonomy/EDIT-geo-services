@@ -1974,6 +1974,7 @@ edit_wp5_web_folder/v1/atbi_mercantour.tif -text
 edit_wp5_web_folder/v1/atbi_mercantour_raster.tfw -text
 edit_wp5_web_folder/v1/atbi_mercantour_raster.tif -text
 edit_wp5_web_folder/v1/check2.php -text
+edit_wp5_web_folder/v1/function_lib_rest_dev.php -text
 edit_wp5_web_folder/v1/hatch_images/cow.gif -text
 edit_wp5_web_folder/v1/hatch_images/dark_green_hatch.gif -text
 edit_wp5_web_folder/v1/hatch_images/dunes.gif -text
@@ -2065,6 +2066,7 @@ edit_wp5_web_folder/v1/new.png -text
 edit_wp5_web_folder/v1/points.php -text
 edit_wp5_web_folder/v1/points.xsl -text
 edit_wp5_web_folder/v1/points2_raster.php -text
+edit_wp5_web_folder/v1/rest_gen.php -text
 edit_wp5_web_folder/v1/sld/areas_work_rmca.php -text
 edit_wp5_web_folder/v1/white_500.png -text
 edit_wp5_web_folder/v1/white_700.png -text
