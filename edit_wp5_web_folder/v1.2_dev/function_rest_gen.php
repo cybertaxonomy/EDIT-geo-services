@@ -68,6 +68,8 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 				//$layers=$p_bck_layer;
 				$layers_tmp=$p_bck_layer;
+				//ftheeten 28/11/2011 	(suppress v prefix)
+				$layers_tmp=str_ireplace("v:","",$layers_tmp);
 				$arrayTableStyles=associate_layer_to_style($layers_tmp,',',':', TRUE);
 				$layers=array_keys($arrayTableStyles);
 				//$layers=implode(',',array_keys($arrayTableStyles));
