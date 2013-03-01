@@ -29,11 +29,11 @@ msie=($.browser.msie==true)?true:false;
 if (msie)
 {
 
- $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/img/close.gif)  no-repeat top left').css('width','15px');
+ $('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/img/close.gif)  no-repeat top left').css('width','15px');
 }
 else 
 {
-$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/img/close.gif) no-repeat top left');
+$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/img/close.gif) no-repeat top left');
 }
  
 
@@ -62,12 +62,12 @@ $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/
 	//	var genus_size=iframe.contents().find('#genusSelect option').size();
     edit_sp_points.params.SLD=initial_sp_sld,
     edit_sp_points.redraw();
-$("iframe#info").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'p='+third+"_"+fourth);
+$("iframe#info").attr('src','http://taxonomicindex.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'p='+third+"_"+fourth);
 
 
 
 var image=document.getElementById("species_legend");
-	image.setAttribute("src",'http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&sld='+edit_sp_points.params.SLD);
+	image.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&sld='+edit_sp_points.params.SLD);
 $('div[id*="_form"]').hide();
 $("#send").hide();
 $("#informacio,#what_todo").hide();
@@ -317,8 +317,8 @@ var onLoad_events=function() {
      }
     var text='Data symbolization (click here and drag me)';
 
-//    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="info" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0 src="http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/formularis/select_formulari_sld.html" frameBorder=0 width=380 height=300; background-color=#D7DBDF"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">Edit symbol</a><a style="padding-right:20px;">      Add new genus to symbolize</a></div><div id="symbol_form"><a>Edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form"><a>Back to edit symbol</a></div><button id="send" value="symbolize it!">Symbolize it!</button>';
-  var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'<input type="image" class="jqmdX jqmClose"/></div></div><iframe id="info" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0  frameBorder=0 width=380 height=300; background-color=#D7DBDF" src="http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+'_'+fourth+'"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form" style="display:block"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">Edit symbol</a><a style="padding-right:20px;">      Add new to symbolize</a></div><div id="symbol_form" style="display:block"><a>Edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form" style="display:block"><a>Back to edit symbol</a></div><button id="send" value="symbolize it!">Symbolize it!</button>';
+//    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="info" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0 src="http://taxonomicindex.africamuseum.be/edit_wp5/edit_geo/prototype/formularis/select_formulari_sld.html" frameBorder=0 width=380 height=300; background-color=#D7DBDF"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">Edit symbol</a><a style="padding-right:20px;">      Add new genus to symbolize</a></div><div id="symbol_form"><a>Edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form"><a>Back to edit symbol</a></div><button id="send" value="symbolize it!">Symbolize it!</button>';
+  var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'<input type="image" class="jqmdX jqmClose"/></div></div><iframe id="info" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0  frameBorder=0 width=380 height=300; background-color=#D7DBDF" src="http://taxonomicindex.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+'_'+fourth+'"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form" style="display:block"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">Edit symbol</a><a style="padding-right:20px;">      Add new to symbolize</a></div><div id="symbol_form" style="display:block"><a>Edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form" style="display:block"><a>Back to edit symbol</a></div><button id="send" value="symbolize it!">Symbolize it!</button>';
     $('#ex2').append(jq);
     //   $("#ex2").append('<div class="jqmdTC jqDrag" style="position:relative;top:50px">Data symbolization (click here and drag me)</div>');
     bindFrameActions();
@@ -468,14 +468,14 @@ var onLoad_events=function() {
 											    var text = format.write(xml);
 									
 								
-										$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
+										$.ajax({url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 														processData:false, type:'POST',dataType:'text',data:'data='+text+'&user='+userid+'&to_filter=3_4',
 														success:function(data)
 														{
 															 edit_sp_points.params.SLD=data;
 															 edit_sp_points.redraw();
 														var sp_legend=document.getElementById("species_legend");
-														sp_legend.setAttribute("src",legend='http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&SLD='+data);
+														sp_legend.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&SLD='+data);
 														}
 														});
 														

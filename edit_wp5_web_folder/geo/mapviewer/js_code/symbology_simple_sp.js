@@ -29,11 +29,11 @@ msie=($.browser.msie==true)?true:false;
 if (msie)
 {
 
- $('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+ $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 }
 else 
 {
-$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 }
  
 
@@ -77,12 +77,12 @@ add=false;
 	//	var genus_size=iframe.contents().find('#genusSelect option').size();
     edit_sp_points.params.SLD=initial_sp_sld,
     edit_sp_points.redraw();
-$("iframe#3_4thinfo").attr('src','http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+"_"+fourth);
+$("iframe#3_4thinfo").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+"_"+fourth);
 
 
 
 var image=document.getElementById("species_legend");
-	image.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&sld='+edit_sp_points.params.SLD);
+	image.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&sld='+edit_sp_points.params.SLD);
 $('div[id*="_form3"]').hide();
 $("#send3").hide();
 $("#informacio,#what_todo").hide();
@@ -92,7 +92,7 @@ $("iframe#3_4thinfo").fadeIn("slow");
 $("#3_4th").animate({width:'380',height:'325'},"slow");
 
     if(submit_button.hasClass("add"))(submit_button.removeClass("add").val('Symbolyze it'));
-$("iframe#3_4thinfo").attr('src','http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+"_"+fourth);
+$("iframe#3_4thinfo").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+"_"+fourth);
 return false;
 	  }); //fi $(to_start).click 
 	
@@ -110,7 +110,7 @@ return false;
 	var iframe=	$("iframe#3_4thinfo");
 
 add=true;
-$("iframe#3_4thinfo").attr('src','http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+"&p="+third+"_"+fourth);
+$("iframe#3_4thinfo").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+"&p="+third+"_"+fourth);
 
 $("iframe#3_4thinfo").fadeIn(2000)
 	var submit_button=iframe.contents().find("#submit");     //"addd these genus"
@@ -336,7 +336,7 @@ var onLoad_events=function() {
      }
     var text='Data symbolization (click here and drag me)';
 
-  var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'<input type="image" class="jqmdX jqmClose"/></div></div><iframe id="3_4thinfo" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0  frameBorder=0 width=380 height=300; background-color=#D7DBDF" src="http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+'_'+fourth+'"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form3" style="display:block"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">Edit symbol</a><a style="padding-right:20px;">      Add new to symbolize</a></div><div id="symbol_form3" style="display:block"><a>Edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form3" style="display:block"><a>Back to edit symbol</a></div><button id="send3" value="symbolize it!">Symbolize it!</button>';
+  var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'<input type="image" class="jqmdX jqmClose"/></div></div><iframe id="3_4thinfo" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0  frameBorder=0 width=380 height=300; background-color=#D7DBDF" src="http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_specie.html?userid='+userid+'&p='+third+'_'+fourth+'"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form3" style="display:block"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">Edit symbol</a><a style="padding-right:20px;">      Add new to symbolize</a></div><div id="symbol_form3" style="display:block"><a>Edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form3" style="display:block"><a>Back to edit symbol</a></div><button id="send3" value="symbolize it!">Symbolize it!</button>';
     $('#3_4th').append(jq);
 
     bindFrameActions();
@@ -482,14 +482,14 @@ var format = new OpenLayers.Format.XML();
 											    var text = format.write(xml);
 									
 								
-										$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',
+										$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 														processData:false, type:'POST',dataType:'text',data:'data='+text+'&user='+userid+'&to_filter=3_4',
 														success:function(data)
 														{
 															 edit_sp_points.params.SLD=data;
 															 edit_sp_points.redraw();
 														var sp_legend=document.getElementById("species_legend");
-														sp_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&SLD='+data);
+														sp_legend.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:user_points&SLD='+data);
 														}
 														});
 														

@@ -323,7 +323,14 @@
 	  "id":"country_earth",
      "nom":"General countries",
      "styles":"countries"
+	  },
+ {
+	   "grup":"admin",
+	  "id":"country_earth_no_labels",
+     "nom":"General countries (no labels)",
+     "styles":"countries_no_labels"
 	  }
+
 	  ]
 }]
 

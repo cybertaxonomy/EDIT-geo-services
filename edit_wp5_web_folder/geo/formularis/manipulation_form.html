@@ -41,7 +41,7 @@ userid=c[1].substring(7,c[1].length);
 
 	cat.selects({
             target: el,
-            url: 'http://taxonomicindex.br.fgov.be/edit_wp5/geo/selects/select-chain_2sld_s.php?userid='+userid,
+            url: 'http://taxonomicindex.africamuseum.be/edit_wp5/geo/selects/select-chain_2sld_s.php?userid='+userid,
 			type: 'post',
             data: { ajax:true, anotherval2: "anotherAction" }    
        }).trigger('change');
@@ -58,7 +58,7 @@ userid=c[1].substring(7,c[1].length);
         var attr = $('#attributeSelect');
         cat.selectChain({
             target: cat,			
-            url: 'http://edit.br.fgov.be/edit_wp5/geo/selects/select-chain_3sld_s.php?userid='+userid,
+            url: 'http://edit.africamuseum.be/edit_wp5/geo/selects/select-chain_3sld_s.php?userid='+userid,
 			type: 'post',
             data: { ajax:true}
 	    }).trigger('change');

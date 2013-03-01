@@ -27,7 +27,7 @@ var layer2="'.$layer2.'";
 
 		
 
-				url = "http://edit.br.fgov.be/edit_wp5/geo/curves/data_user.php?format=json&callback=curves&columns=false&layer="+layer+"&user="+user;
+				url = "http://edit.africamuseum.be/edit_wp5/geo/curves/data_user.php?format=json&callback=curves&columns=false&layer="+layer+"&user="+user;
 
 
 			$.getJSON(url,{geotable:"point_pol"});

@@ -51,7 +51,7 @@ while($entry = $d->read()) {
 } 
  $fp=fopen("$sld_path_towrite/$random","w");
  $write=fwrite($fp,$out);
-$URL_SITE="http://193.190.116.6";
+$URL_SITE="http://193.190.223.53";
  echo $URL_SITE."/edit_wp5/geo/sld/$userid/$random";
 $d->close(); 
 }

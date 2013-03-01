@@ -20,7 +20,7 @@ $xml2 = simplexml_load_string($xml3);
 
 
 $xml2->asXML("../sld/$sld_file");
-echo "http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_file";
+echo "http://taxonomicindex.africamuseum.be/edit_wp5/geo/sld/$sld_file";
 //$dom->TXLifeRequest->TransRefGUID=$guid;
 //echo $dom->asXML();
 ?>

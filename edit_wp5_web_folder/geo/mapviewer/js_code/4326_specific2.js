@@ -1,7 +1,7 @@
 
 
     serialized = new OpenLayers.Layer.WMS.Untiled( "Your symbolized polygons",
-		        "http://193.190.116.6:8080/geoserver/wms", {layers:'topp:serialized_pols',GROUP:'remote',sld: '../stable_sld/permanent_sld/transparent_pols.sld',transparent:"true",format:t_img_format},{opacity:1},{'reproject': false});
+		        "http://193.190.223.53:8080/geoserver/wms", {layers:'topp:serialized_pols',GROUP:'remote',sld: '../stable_sld/permanent_sld/transparent_pols.sld',transparent:"true",format:t_img_format},{opacity:1},{'reproject': false});
 
 	queryEventHandler = new OpenLayers.Handler.Click({ 'map': map }, {  ondblclick: function() {alert("double click")}, 
 	'click': function(e) { doGetFeatureInfo(e); }});	
@@ -407,7 +407,7 @@ $("#ex5").animate({width:'280',height:'105'},"slow");
 
 				            	   vectors = new OpenLayers.Layer.WFS(
 				    "My polygons to hover",
-				    "http://193.190.116.6:8080/geoserver/wfs",
+				    "http://193.190.223.53:8080/geoserver/wfs",
 				    {typename: "topp:point_pol",
 				    filter:"<Filter><And><PropertyIsEqualTo><PropertyName>userid</PropertyName><Literal>"+userid+"</Literal></PropertyIsEqualTo></And></Filter>"},
 				    {isBaseLayer: false, extractAttributes: true, styleMap: myStyles2}

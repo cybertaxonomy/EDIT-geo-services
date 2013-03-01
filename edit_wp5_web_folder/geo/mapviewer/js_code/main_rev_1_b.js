@@ -369,7 +369,7 @@ $(document).ready(function()
 							//if (info.grup=="utm")	
 							wrap=$("#layers li[id='"+info.grup+"']"); 
 							layer_name='edit_'+info.id;
-							eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.116.6:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
+							eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.223.53:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
     							if (info.grup=='s_america' || info.grup=='africa' || info.grup=='asia' || 
         info.grup=='oceania' || info.grup=='n_america' || info.grup=='antartica'
 		|| info.grup=='c_america' || info.grup=='west_europe' || info.grup=='east_europe')
@@ -462,7 +462,7 @@ $(document).ready(function()
 								s_color=$("input[id='stroke_color']").val();
 								s_color=s_color.substring(1);
 								l_name=s_layer; //utm_europe
-								sld='http://edit.br.fgov.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
+								sld='http://edit.africamuseum.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
 								if (typeof(eval('edit_'+s_layer))=='object')  //edit_group still not defined object (first time symbolization)
 				   				{
 									input=$("#layers input[id='"+s_layer+"']");
@@ -511,7 +511,7 @@ $(document).ready(function()
 								}
 								else
 								{
-									c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.116.6:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
+									c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.223.53:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
 									eval(c);
 									map.addLayer(layer_name);
 								}
@@ -535,11 +535,11 @@ $('input.jqmdX').hover(function()
 		msie=($.browser.msie==true)?true:false; 
 		if (msie)
 		{
-			$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+			$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 		}
 		else 
 		{
-			$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+			$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 		}
 		$('input.jqmdX').hover(function()
 		{
@@ -648,7 +648,7 @@ $('#layers li:has(ul) div[id="label_div"]').click(function(event)
 $("#layers input:checkbox").attr('checked',false);    
 
 $("#layers input:checkbox[id='country_earth']").attr('checked',true);
-path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
+path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
 html='<ul><img s="countries" style="height:40px" id="country_earth" src="'+path+'"/></ul>';
 $("#images").append(html);
 $('#layers li:has(ul),#print_params li:has(ul),#u_points li:has(ul),#3_4_fields li.y')
@@ -817,7 +817,7 @@ $("#ext_wms_form input").click(function()
 	$("#wms_form,#abstract").hide(); //added semicolon
 	$("#transformResult,#transformResult input:button").hide(); //added semicolon
     	remote_url=$("#ext_wms_form option:selected").attr('value');
-	$.post('http://edit.br.fgov.be/edit_wp5/geo/remote_capabilities/capabilities.php', {url:remote_url},function(d)
+	$.post('http://edit.africamuseum.be/edit_wp5/geo/remote_capabilities/capabilities.php', {url:remote_url},function(d)
 	{
 		$.ajax(
 		{
@@ -839,7 +839,7 @@ $("#ext_wms_form input").click(function()
 			success: function(xml) 
 			{
 				new Transformation().setXml(xml) 
-				.setXslt("http://edit.br.fgov.be/edit_wp5/geo/remote_capabilities/xslt_form.xsl").transform("transformResult"); 
+				.setXslt("http://edit.africamuseum.be/edit_wp5/geo/remote_capabilities/xslt_form.xsl").transform("transformResult"); 
 				$("#transformResult,#transformResult input:button").show(); //added semicolon
 				doit=function()
 				{
@@ -852,7 +852,7 @@ $("#ext_wms_form input").click(function()
 					$("#wms_form").change(function()
 					{
 						var value=$(this).val();
-						$.get('http://edit.br.fgov.be/edit_wp5/geo/remote_capabilities/abstracts.php',{layer:value,capabilities:d},function(data)
+						$.get('http://edit.africamuseum.be/edit_wp5/geo/remote_capabilities/abstracts.php',{layer:value,capabilities:d},function(data)
 						{
 							$("#abstract").empty();
 							$("#abstract").append(data).fadeIn();

@@ -196,7 +196,7 @@ vals=vals.substring(0,vals.length-1);
 
 zoom=map.getZoomForExtent(bounds2);
 
-$.get('http://edit.br.fgov.be/edit_wp5/geo/c_json.php?data='+vals+'&bbox='+bbox+'&zoom='+zoom,function(d)
+$.get('http://edit.africamuseum.be/edit_wp5/geo/c_json.php?data='+vals+'&bbox='+bbox+'&zoom='+zoom,function(d)
 
 {
 
@@ -222,7 +222,7 @@ if (reprojecting==false)
 
 
 
-		$("iframe#info2").attr("src","http://edit.br.fgov.be/edit_wp5/geo/json_show.php?file="+d);
+		$("iframe#info2").attr("src","http://edit.africamuseum.be/edit_wp5/geo/json_show.php?file="+d);
 
 		$("#ex_print").show();
 
@@ -326,7 +326,7 @@ var bindFrameActions=function () {
 
 		};
 
-$.get('http://edit.br.fgov.be/edit_wp5/geo/general_legend.php?data='+tot,
+$.get('http://edit.africamuseum.be/edit_wp5/geo/general_legend.php?data='+tot,
 
 		function(url_image)
 
@@ -396,7 +396,7 @@ if (grup=="utm"){h='40px'}else{h='20px'}
 
 
 
-		path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+		path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 
 		path+="&LAYER="+data.id+"&STYLE="+style+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
 
@@ -438,7 +438,7 @@ if (grup=='admin')
 
 		{
 
-		path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+		path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 
 		path+="&LAYER="+data.id+"&STYLE="+style+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
 
@@ -508,7 +508,7 @@ $("#images img[id='"+data.id+"']").width(w).show();
 
 
 
-path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 
 path+="&LAYER="+data.id+"&SLD="+eval("edit_"+data.id+".params.SLD");
 
@@ -536,7 +536,7 @@ if (grup=='utm')
 
 {h='40px';}else{h='20px'}
 
-path="http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
+path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png";
 
 path+="&LAYER="+data.id+"&STYLE="+style+"&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
 
@@ -1239,7 +1239,7 @@ if (map.getProjection() !=='EPSG:4326')
 
 }
 
-url='http://edit.br.fgov.be/edit_wp5/geo/upload_points.php?userid='+userid+'&new_data='+new_data+'&lon='+lon+'&lat='+lat+'&fields='+fields+u;
+url='http://edit.africamuseum.be/edit_wp5/geo/upload_points.php?userid='+userid+'&new_data='+new_data+'&lon='+lon+'&lat='+lat+'&fields='+fields+u;
 
 
 
@@ -1253,7 +1253,7 @@ datatype='json';
 
 id='json_file';
 
-url='http://edit.br.fgov.be/edit_wp5/geo/upload_json.php';
+url='http://edit.africamuseum.be/edit_wp5/geo/upload_json.php';
 
 my_json="true";
 
@@ -1327,7 +1327,7 @@ my_json="true";
 
 				var g_legend=document.getElementById("genera_legend");
 
-				g_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
+				g_legend.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
 
 //							$("#g_data div:first").text('Your '+third+' data').css('display','inline');
 
@@ -1363,7 +1363,7 @@ my_json="true";
 
 								var g_sp_legend=document.getElementById("4th_legend");
 
-								g_sp_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_4th_points.params.SLD+'?date='+x);
+								g_sp_legend.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_4th_points.params.SLD+'?date='+x);
 
 					//			$("#4th_data div:first").text('Your '+fourth+' data').css('display','inline');
 
@@ -1395,7 +1395,7 @@ my_json="true";
 
 										var sp_legend=document.getElementById("species_legend");
 
-										sp_legend.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+x);
+										sp_legend.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+x);
 
 								//		$("#sp_data div:first").text('Your '+third+'&'+fourth+' data').css('display','inline');
 
@@ -1437,7 +1437,7 @@ $("#user_dates").click(function()
 
 		var image=document.getElementById("legend");
 
-			g_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
+			g_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+x);
 
 
 
@@ -1483,7 +1483,7 @@ map.zoomToExtent(bounds);
 
 
 
-		  $.get('http://edit.br.fgov.be/edit_wp5/geo/check2.php?userid='+userid);
+		  $.get('http://edit.africamuseum.be/edit_wp5/geo/check2.php?userid='+userid);
 
 						}
 
@@ -2490,7 +2490,7 @@ vectors.params.filter="<Filter><And><PropertyIsEqualTo><PropertyName>userid</Pro
 
     "My polygons to hover",
 
-    "http://193.190.116.6:8080/geoserver/wfs",
+    "http://193.190.223.53:8080/geoserver/wfs",
 
     {typeName: "point_pol",version:"1.1.0",
 
@@ -2758,17 +2758,17 @@ break;
 
 
 
-	edit_points = new OpenLayers.Layer.WMS.Untiled( "third field points","http://193.190.116.6:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
+	edit_points = new OpenLayers.Layer.WMS.Untiled( "third field points","http://193.190.223.53:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
 
-	edit_sp_points = new OpenLayers.Layer.WMS.Untiled( "third&fourth field points","http://193.190.116.6:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
+	edit_sp_points = new OpenLayers.Layer.WMS.Untiled( "third&fourth field points","http://193.190.223.53:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
 
 
 
-	edit_4th_points = new OpenLayers.Layer.WMS.Untiled( "fourth field points","http://193.190.116.6:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
+	edit_4th_points = new OpenLayers.Layer.WMS.Untiled( "fourth field points","http://193.190.223.53:8080/geoserver/wms", {GROUP:'points',layers:'user_points',sld:'',format:t_img_format,transparent:"true"});
 
 	 edit_blank = new OpenLayers.Layer.WMS.Untiled( "EDIT WMS transparent",
 
-			"http://193.190.116.6:8080/geoserver/wms",
+			"http://193.190.223.53:8080/geoserver/wms",
 
 			                {layers:"blank",projection:proj_code,transparent:"false",format: t_img_format,styles:"transparent",group:"remote"},
 
@@ -2778,7 +2778,7 @@ break;
 
 	edit_quadricules = new OpenLayers.Layer.WMS.Untiled( "Quadricules",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:[],width:'700',height:'350',transparent:"true",styles:[],format:t_img_format,GROUP:'quadricules'}
 
@@ -2786,7 +2786,7 @@ break;
 
 	edit_nature = new OpenLayers.Layer.WMS.Untiled( "Natural features",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:[],GROUP:"nature",transparent:"true",styles:[],format:t_img_format}
 
@@ -2796,7 +2796,7 @@ break;
 
 	edit_utm = new OpenLayers.Layer.WMS.Untiled( "UTM layer",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:[],transparent:"true",styles:[],group:"utm",format:t_img_format}
 
@@ -2806,7 +2806,7 @@ break;
 
 	edit_admin  = new OpenLayers.Layer.WMS.Untiled( "Administrative Layers",
 
-                "http://193.190.116.6:8080/geoserver/wms",
+                "http://193.190.223.53:8080/geoserver/wms",
 
                 {layers: [],group:"admin",transparent:"true",format:t_img_format,styles:[]},{'displayInLayerSwitcher':true} );
 
@@ -2816,7 +2816,7 @@ break;
 
 	  edit_tdwg = new OpenLayers.Layer.WMS.Untiled( "TDWG layer",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:[],group:"tdwg",transparent:"true",styles:[],format:t_img_format},{'displayInLayerSwitcher':true} );
 
@@ -2826,7 +2826,7 @@ break;
 
 		edit_num_regs = new OpenLayers.Layer.WMS.Untiled( "Number of Records",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:'num_regs',transparent:"true",styles:[],format: t_img_format,group:'analysis'}
 
@@ -2836,7 +2836,7 @@ break;
 
 		edit_taxa_record = new OpenLayers.Layer.WMS.Untiled( "Taxa/Record",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:'taxa_record',transparent:"true",styles:[],format:t_img_format,group:'analysis'}
 
@@ -2846,7 +2846,7 @@ break;
 
 		edit_num_genus = new OpenLayers.Layer.WMS.Untiled( "Number of Genera",
 
-		"http://193.190.116.6:8080/geoserver/wms",
+		"http://193.190.223.53:8080/geoserver/wms",
 
 		                {layers:'num_genus',transparent:"true",styles:[],format:t_img_format,group:'analysis'}
 
@@ -3086,7 +3086,7 @@ options.maxExtent=bounds2;
 
 		   var overview_map = new OpenLayers.Layer.WMS( "EDIT WMS",
 
-                "http://193.190.116.6:8080/geoserver/wms",
+                "http://193.190.223.53:8080/geoserver/wms",
 
                 {layers: "country_earth",group:"admin",transparent:"true",format:"image/png",styles:[]});
 
@@ -3100,7 +3100,7 @@ options.maxExtent=bounds2;
 
  var edit_blank2 = new OpenLayers.Layer.WMS( "EDIT WMS transparent",
 
-			"http://193.190.116.6:8080/geoserver/wms",
+			"http://193.190.223.53:8080/geoserver/wms",
 
 			                {layers:"blank",transparent:"false",format: t_img_format,styles:"transparent",group:"remote"},
 
@@ -3208,7 +3208,7 @@ alert(map.layers[0].name);
 alert(rootURL[0]);
 		}
 		                  
-  OpenLayers.loadURL("http://edit.br.fgov.be:8080/geoserver/wms", params, this, setHTML, setHTML2);
+  OpenLayers.loadURL("http://edit.africamuseum.be:8080/geoserver/wms", params, this, setHTML, setHTML2);
                     OpenLayers.Event.stop(e);
                 });
 */
@@ -3230,7 +3230,7 @@ alert(rootURL[0]);
                         WIDTH: map.size.w,
                         HEIGHT: map.size.h,
                         format: "image/png"};
-                    OpenLayers.loadURL("http://edit.br.fgov.be:8080/geoserver/wms", params_req, map, setHTML, setHTML);
+                    OpenLayers.loadURL("http://edit.africamuseum.be:8080/geoserver/wms", params_req, map, setHTML, setHTML);
                     OpenLayers.Event.stop(e);
                 });
 

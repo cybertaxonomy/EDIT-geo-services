@@ -50,7 +50,7 @@ $label=$_GET['label'];
 if ($_GET['images_url'])
 {
 $images_url=$_GET['images_url'];
-//$images_url="a,b:193.190.116.6:8080/fitxers/hatch_images|c:193.190.116.6:8080/fitxers/hatch_images";
+//$images_url="a,b:193.190.223.53:8080/fitxers/hatch_images|c:193.190.223.53:8080/fitxers/hatch_images";
 $images_url=explode('|',$images_url);
 
 }
@@ -434,7 +434,7 @@ $leg_path_towrite=V1_SLD."/$random";
 
 $fp=fopen("$leg_path_towrite","w");
 $write=fwrite($fp,$out);
-//$leg_url="http://taxonomicindex.br.fgov.be/synthesys/v1/sld/$random";
+//$leg_url="http://taxonomicindex.africamuseum.be/synthesys/v1/sld/$random";
 $leg_url=V1_SLD_URL."/$random";
 
 

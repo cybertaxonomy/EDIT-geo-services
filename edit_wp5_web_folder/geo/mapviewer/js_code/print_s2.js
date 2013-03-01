@@ -314,7 +314,7 @@ x.ms_layer='shoreline';
 x.bbox=map.getExtent().toBBOX();
 x.w=width;x.h=height;
 
-$.ajax({type:'GET',url:'http://edit.br.fgov.be/edit_wp5/geo/images/mapserver_map.php',data:x				
+$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/mapserver_map.php',data:x				
 })//end ajax	
 
 //d.ms_layer=map.layers[i].params.LAYERS;
@@ -415,7 +415,7 @@ s_width.nodeValue=(this.firstChild.nodeValue)*up;
 
 					 var text = format.write(xml)+"&user="+userid+"&to_filter="+taxa;
 			
-		$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',processData:false, type:'POST',
+		$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',processData:false, type:'POST',
 		dataType:'text/xml',data:'data='+text,success:function(new_sld)
 		{
 
@@ -454,7 +454,7 @@ s_width.nodeValue=(this.firstChild.nodeValue)*up;
 	 var exec=function()
 	{
 
-  $.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
+  $.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
 
 												bindFrameActions();$("iframe#info2").attr("src",url_image);$("#ex_print").show(); 	
 																t=url_image.split('/');									
@@ -466,7 +466,7 @@ s_width.nodeValue=(this.firstChild.nodeValue)*up;
 													{
 
 														ajax_show=false;
-													$.ajax({type:'GET',url:'http://edit.br.fgov.be/edit_wp5/geo/images/remove_img2.php',
+													$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
 															data:{img:img},
 															success:function(){ //alert("sdfsdf")
 															}
@@ -496,7 +496,7 @@ else //up=1
 	
 	}
 
-$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
+$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
 									
 										bindFrameActions();$("iframe#info2").attr("src",url_image);$("#ex_print").show(); 	
 														t=url_image.split('/');									
@@ -508,7 +508,7 @@ $.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/images/images.php',type:'GET',d
 											{
 												
 												ajax_show=false;
-											$.ajax({type:'GET',url:'http://edit.br.fgov.be/edit_wp5/geo/images/remove_img2.php',
+											$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
 													data:{img:img},
 													success:function(){ //alert("sdfsdf")
 													}

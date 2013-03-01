@@ -11,13 +11,13 @@ $('#gbif_win').jqm({
 	if (msie)
 	{
 
-	 $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+	 $('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 	}
 	else 
 	{
-	$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+	$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 	}
-    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="geo_frame" name="geo_frame" class="jqDrag" marginWidth=0 marginHeight=0 src="http://edit.africamuseum.be/edit_wp5/geo/formularis/boxes_form.html?userid='+userid+'&p='+third+'_'+fourth+'" frameBorder=0 width=420 height=300; background-color=#D7DBDF"></iframe></div></div><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div>';
+    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="geo_frame" name="geo_frame" class="jqDrag" marginWidth=0 marginHeight=0 src="http://taxonomicindex.africamuseum.be/edit_wp5/geo/formularis/boxes_form.html?userid='+userid+'&p='+third+'_'+fourth+'" frameBorder=0 width=420 height=300; background-color=#D7DBDF"></iframe></div></div><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div>';
 
 if ($("#geo_win").length>0)
 {
@@ -57,7 +57,7 @@ else
 	});
 	}  
 
-$.get('http://edit.africamuseum.be/edit_wp5/geo/queries/marker_bbox.php?userid='+userid+"&data="+d+"&info="+info,function(coords)
+$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/queries/marker_bbox.php?userid='+userid+"&data="+d+"&info="+info,function(coords)
 {
 
 		var ext=coords.split(",");

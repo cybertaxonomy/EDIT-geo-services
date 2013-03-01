@@ -286,7 +286,7 @@ x.ms_layer='shoreline';
 x.bbox=map.getExtent().toBBOX();
 x.w=width;x.h=height;
 
-$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/mapserver_map.php',data:x				
+$.ajax({type:'GET',url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/mapserver_map.php',data:x				
 })//end ajax	
 
 //d.ms_layer=map.layers[i].params.LAYERS;
@@ -384,7 +384,7 @@ if (up!==1)
 
 					 var text = format.write(xml)+"&user="+userid+"&to_filter="+taxa;
 		//	console.log(text);
-		$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',processData:false, type:'POST',
+		$.ajax({url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/test_xmls2.php',processData:false, type:'POST',
 		dataType:'text/xml',data:'data='+text,success:function(new_sld)
 		{
 			switch (taxa)
@@ -419,7 +419,7 @@ if (up!==1)
 	}
 	 var exec=function()
 	{
-		$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
+		$.ajax({url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
 
 												bindFrameActions();$("iframe#info2").attr("src",url_image);$("#ex_print").show(); 	
 																t=url_image.split('/');									
@@ -431,7 +431,7 @@ if (up!==1)
 													{
 
 														ajax_show=false;
-													$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
+													$.ajax({type:'GET',url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
 															data:{img:img},
 															success:function(){ //alert("sdfsdf")
 															}
@@ -453,7 +453,7 @@ if(typeof(sld_path) !== 'undefined')
 //d.sld_path=sld_path;
 }
 
-$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
+$.ajax({url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/images.php',type:'GET',data:d,success: function(url_image){
 									
 										bindFrameActions();$("iframe#info2").attr("src",url_image);$("#ex_print").show(); 	
 														t=url_image.split('/');									
@@ -465,7 +465,7 @@ $.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/images/images.php',type:'G
 											{
 												
 												ajax_show=false;
-											$.ajax({type:'GET',url:'http://edit.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
+											$.ajax({type:'GET',url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/remove_img2.php',
 													data:{img:img},
 													success:function(){ //alert("sdfsdf")
 													}

@@ -171,7 +171,7 @@ function third($userid,$sld_file)
 	//$sld="http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_file";
 	//$sld_path_towrite="/var/edit/edit_wp5/geo/sld/$sld_file";
 
-	$sld="http://edit.br.fgov.be/edit_wp5/geo/sld/$sld_file";
+	$sld="http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_file";
 	$sld_path_towrite="/var/www/edit_wp5/geo/sld/$sld_file";
 
 	$fp=fopen($sld_path_towrite,"w");
@@ -219,7 +219,7 @@ $dom_new->loadXML($gml);
 $out = $xsl->transformToXML($dom_new);
 	//$sld="http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_file";
 	//$sld_path_towrite="/var/edit/edit_wp5/geo/sld/$sld_file";
-	$sld="http://edit.br.fgov.be/edit_wp5/geo/sld/$sld_sp_file";
+	$sld="http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_sp_file";
 	$sld_path_towrite="/var/www/edit_wp5/geo/sld/$sld_sp_file";
 $fp=fopen($sld_path_towrite,"w");
 $write=fwrite($fp,$out);
@@ -258,7 +258,7 @@ function fourth($userid,$sld_fourth_file)
 	$out = $xsl->transformToXML($dom_new);
 	//$sld="http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_file";
 	//$sld_path_towrite="/var/edit/edit_wp5/geo/sld/$sld_file";
-	$sld="http://edit.br.fgov.be/edit_wp5/geo/sld/$sld_fourth_file";
+	$sld="http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_fourth_file";
 	$sld_path_towrite="/var/www/edit_wp5/geo/sld/$sld_fourth_file";
 
 $fp=fopen($sld_path_towrite,"w");
@@ -310,36 +310,36 @@ switch ($s)
 switch ($s)
 {
   case  3: third($userid,$sld_file);
-		   $j.=",genus_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_file. "'}";
+		   $j.=",genus_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_file. "'}";
 			break;
   case  4: fourth($userid,$sld_fourth_file);
-		$j.=",fourth_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_fourth_file. "'}";
+		$j.=",fourth_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_fourth_file. "'}";
 
 			break;
 
   case  5: third_fourth($userid,$sld_sp_file);
-			$j.=",sp_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";			
+			$j.=",sp_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";			
 			break;
   case  34: third($userid,$sld_file);fourth($userid,$sld_fourth_file);
-			 $j.=",genus_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_file. "'";
-			$j.=",fourth_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_fourth_file. "'}";
+			 $j.=",genus_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_file. "'";
+			$j.=",fourth_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_fourth_file. "'}";
 			
   			break;
 
   case  35: third($userid,$sld_file);third_fourth($userid,$sld_sp_file);
-			$j.=",genus_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_file. "'";
-			$j.=",sp_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";	
+			$j.=",genus_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_file. "'";
+			$j.=",sp_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";	
 			
 		break;
 
   case  45: fourth($userid,$sld_fourth_file);third_fourth($userid,$sld_sp_file);
-			$j.=",fourth_sld: 'hhttp://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_fourth_file. "'";
-			$j.=",sp_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";
+			$j.=",fourth_sld: 'hhttp://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_fourth_file. "'";
+			$j.=",sp_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";
 			break;
   case  345: third($userid,$sld_file);fourth($userid,$sld_fourth_file);third_fourth($userid,$sld_sp_file);
-			$j.=",genus_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_file. "'";
-			$j.=",fourth_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_fourth_file. "'";
-			$j.=",sp_sld: 'http://edit.br.fgov.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";
+			$j.=",genus_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_file. "'";
+			$j.=",fourth_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_fourth_file. "'";
+			$j.=",sp_sld: 'http://edit.africamuseum.be/edit_wp5/geo/sld/".$sld_sp_file. "'}";
 			break;
 
 }	

@@ -14,7 +14,7 @@ var bindFrameActions=function () {
 		{
 					var bbox=map.getExtent().toBBOX();
 					
-					$.get('http://edit.africamuseum.be/edit_wp5/geo/keymap.php?bbox='+bbox,function(url_image)
+					$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/keymap.php?bbox='+bbox,function(url_image)
 										{
 									
 										bindFrameActions();
@@ -25,7 +25,7 @@ var bindFrameActions=function () {
 
 		else
 		{
-		$.get('http://edit.africamuseum.be/edit_wp5/geo/general_legend.php?data='+tot,
+		$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/general_legend.php?data='+tot,
 		function(url_image)
 										{
 									

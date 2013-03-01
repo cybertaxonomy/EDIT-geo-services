@@ -1,6 +1,6 @@
 
 
-  $.get('http://edit.br.fgov.be/edit_wp5/geo/modules/proj_module.php',function(data)
+  $.get('http://edit.africamuseum.be/edit_wp5/geo/modules/proj_module.php',function(data)
 {
 
 $("#area").change(function()
@@ -17,7 +17,7 @@ $(cat).click(function () {
 	var f=$("select[id='final']");
 $("#switch_4326").unbind('click')
 $("#change_proj").unbind('click')
-$.get('http://edit.br.fgov.be/edit_wp5/geo/crs_forms/select_crs_name.php',{ ajax:true,area:area,type:type } ,
+$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/select_crs_name.php',{ ajax:true,area:area,type:type } ,
    function(data)
 {
 $("#crs_final").show()
@@ -40,7 +40,7 @@ $("#right,#middle,#header,#escala,#area,#crs_type,#crs_final").css('visibility',
 	var proj=$("#crs_final option:selected").val();
 	var area=$("#area option:selected").attr('id');
 	$("#right").show();
-		$.get('http://edit.br.fgov.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&source=own',function(t)
+		$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&source=own',function(t)
 		{
 
 			eval(t);
@@ -108,7 +108,7 @@ $("#switch_4326").click(function()
 	proj2=proj.split(':');
 	proj2=proj2[1];
 var area=$("#area option:selected").attr('id');
-	$.get('http://edit.br.fgov.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
+	$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
 
 		if ($("#gallery a").length>0)
 		{

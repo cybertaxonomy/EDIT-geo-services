@@ -10,13 +10,13 @@ $('#gbif_win').jqm({
 	if (msie)
 	{
 
-	 $('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+	 $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 	}
 	else 
 	{
-	$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+	$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 	}
-    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="geo_frame" name="geo_frame" class="jqDrag" marginWidth=0 marginHeight=0 src="http://edit.br.fgov.be/edit_wp5/geo/formularis/manipulation_form.html?userid='+userid+'" frameBorder=0 width=420 height=300; background-color=#D7DBDF"></iframe></div></div><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div>';
+    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="geo_frame" name="geo_frame" class="jqDrag" marginWidth=0 marginHeight=0 src="http://edit.africamuseum.be/edit_wp5/geo/formularis/manipulation_form.html?userid='+userid+'" frameBorder=0 width=420 height=300; background-color=#D7DBDF"></iframe></div></div><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div>';
 
 if ($('#others_win').children().length!==0)
 {
@@ -85,7 +85,7 @@ else
 	var url;
 	to_filter=='genus'?url=edit_points.params.SLD:url=edit_sp_points.params.SLD;
     
-//	url="http://taxonomicindex.br.fgov.be/edit_wp5/geo/sld2/testing.sld";
+//	url="http://taxonomicindex.africamuseum.be/edit_wp5/geo/sld2/testing.sld";
 		$.get(url,{},function(xml) 
 	{
 
@@ -184,7 +184,7 @@ else
 														var format = new OpenLayers.Format.XML();
 														var sld=format.write(xml);	
 													//	console.warn(sld)							
-																$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',
+																$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 																				processData:false, type:'POST',
 																	dataType:'text',data:'data='+sld+'&user='+userid+'&to_filter='+to_filter,
 																	success:function(new_xml)
@@ -195,14 +195,14 @@ else
 																var g_legend=document.getElementById("genera_legend");
 																	edit_points.params.SLD=new_xml;
 																	edit_points.redraw();
-															g_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());
+															g_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());
 
 															}else
 															{
 																	var sp_legend=document.getElementById("species_legend");
 																	edit_sp_points.params.SLD=new_xml;
 																	edit_sp_points.redraw();
-															sp_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
+															sp_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
 
 															}
 														}
@@ -257,7 +257,7 @@ else
 															var format = new OpenLayers.Format.XML();
 															var sld=format.write(xml);	
 																					
-																	$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',
+																	$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 																					processData:false, type:'POST',
 																		dataType:'text',data:'data='+sld+'&user='+userid+'&to_filter='+to_filter,
 																		success:function(new_xml)
@@ -271,14 +271,14 @@ else
 																	edit_points.params.SLD=new_xml;
 																	edit_points.redraw();
 
-																g_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());																																						
+																g_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());																																						
 																					
 																}else
 																{
 																		var sp_legend=document.getElementById("species_legend");
 																		edit_sp_points.params.SLD=new_xml;
 																		edit_sp_points.redraw();
-																sp_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
+																sp_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
 
 																}
 													
@@ -326,7 +326,7 @@ else
 								var format = new OpenLayers.Format.XML();
 								var sld=format.write(xml);	
 							//	console.warn(sld)							
-										$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',
+										$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 														processData:false, type:'POST',
 											dataType:'text',data:'data='+sld+'&user='+userid+'&to_filter='+to_filter,success:function(new_xml)
 														{
@@ -336,14 +336,14 @@ else
 										var g_legend=document.getElementById("genera_legend");
 											edit_points.params.SLD=new_xml;
 											edit_points.redraw();
-									g_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());
+									g_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());
 								
 									}else
 									{
 											var sp_legend=document.getElementById("species_legend");
 											edit_sp_points.params.SLD=new_xml;
 											edit_sp_points.redraw();
-									sp_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
+									sp_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
 								
 									}
 									
@@ -370,7 +370,7 @@ else
 												text_to_add+=format.write($(this).get(0));
 
 									})	
-							$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/construct_sld_test.php',processData:false, type:'POST',
+							$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/construct_sld_test.php',processData:false, type:'POST',
 									dataType:'text',data:'data='+to_add+'&userid='+userid+'&to_filter='+to_filter+'&sld='+text_to_add,
 									success:function(new_xml)
 																	{
@@ -379,13 +379,13 @@ else
 																			var g_legend=document.getElementById("genera_legend");
 																				edit_points.params.SLD=new_xml;
 																				edit_points.redraw();
-																		g_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());
+																		g_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD+'?date='+new Date());
 																		}else
 																		{
 																			var sp_legend=document.getElementById("species_legend");
 																				edit_sp_points.params.SLD=new_xml;
 																				edit_sp_points.redraw();
-																		sp_legend.setAttribute("src",'http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
+																		sp_legend.setAttribute("src",'http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_sp_points.params.SLD+'?date='+new Date());		
 																		}
 											}
 											

@@ -6,11 +6,11 @@ msie=($.browser.msie==true)?true:false;
 if (msie)
 {
 
- $('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','14px');
+ $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','14px');
 }
 else 
 {
-$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 }
 
 $('#query_result input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){$(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#query_result').hide()});
@@ -36,7 +36,7 @@ var $table=$(this);$table.alternateRowColors();$table.find('th').each(function(c
 
 $('#content').remove();
 
-	 $.get('http://edit.br.fgov.be/edit_wp5/geo/queries/polygon_query_sld_adaptat.php', {param: polygon,user:userid }, function(data) {$("#query_container").append(data); bindBehaviors(data);$("#repaginate2").show()});
+	 $.get('http://edit.africamuseum.be/edit_wp5/geo/queries/polygon_query_sld_adaptat.php', {param: polygon,user:userid }, function(data) {$("#query_container").append(data); bindBehaviors(data);$("#repaginate2").show()});
 
 
 });

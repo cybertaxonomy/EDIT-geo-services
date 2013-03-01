@@ -14,7 +14,7 @@ var bindFrameActions=function () {
 		{
 					var bbox=map.getExtent().toBBOX();
 					
-					$.get('http://taxonomicindex.br.fgov.be/edit_wp5/v1/keymap.php?bbox='+bbox,function(url_image)
+					$.get('http://taxonomicindex.africamuseum.be/edit_wp5/v1/keymap.php?bbox='+bbox,function(url_image)
 										{
 									
 										bindFrameActions();
@@ -25,7 +25,7 @@ var bindFrameActions=function () {
 		else if (print=='points_legend')
 		{
 		sld=edit_points.params.SLD;
-		$.get('http://taxonomicindex.br.fgov.be/edit_wp5/geo/points_legend.php?sld='+sld,function(url_image)
+		$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/points_legend.php?sld='+sld,function(url_image)
 										{
 									
 										bindFrameActions();
@@ -36,7 +36,7 @@ var bindFrameActions=function () {
 		}
 		else
 		{
-		$.get('http://taxonomicindex.br.fgov.be/edit_wp5/geo/general_legend.php?data='+tot,
+		$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/general_legend.php?data='+tot,
 		function(url_image)
 										{
 									

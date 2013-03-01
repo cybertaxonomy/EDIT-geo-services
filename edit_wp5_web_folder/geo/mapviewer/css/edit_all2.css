@@ -518,7 +518,7 @@ input.jqmdX {
   padding: 0 0 0 19px;
   height: 19px;
   width: 0px;
-  background: url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left;
+  background: url(http://taxonomicindex.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left;
   overflow: hidden;
 }
 input.jqmdXFocus {background-position: bottom left; outline: none;}
@@ -532,7 +532,7 @@ div.jqmDialog input:focus, div.jqmDialog input.iefocus { background-color: #eaff
 }
 .sld_info
 {
- background: url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/images/busy.gif) no-repeat center center;
+ background: url(http://taxonomicindex.africamuseum.be/edit_wp5/edit_geo/prototype/images/busy.gif) no-repeat center center;
     position:relative;
     top:0px; left:0px;
 text-align: center;
@@ -556,7 +556,7 @@ font-weight: bold;
 }
 #demo
 {
-    background: url(http://taxonomicindex.br.fgov.be/edit_wp5/edit_geo/prototype/images/busy.gif) no-repeat center center;
+    background: url(http://taxonomicindex.africamuseum.be/edit_wp5/edit_geo/prototype/images/busy.gif) no-repeat center center;
     position:relative;
     top:0px; left:0px;
  opacity:.60;    

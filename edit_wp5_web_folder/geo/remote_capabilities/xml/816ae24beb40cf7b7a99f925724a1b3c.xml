@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://edit.br.fgov.be:8080/geoserver/schemas/wms/1.1.1/WMS_MS_Capabilities.dtd">
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://edit.africamuseum.be:8080/geoserver/schemas/wms/1.1.1/WMS_MS_Capabilities.dtd">
 <WMT_MS_Capabilities version="1.1.1" updateSequence="1551">
   <Service>
     <Name>OGC:WMS</Name>
@@ -10,7 +10,7 @@
       <Keyword>WMS</Keyword>
       <Keyword>GEOSERVER</Keyword>
     </KeywordList>
-    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms"/>
+    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms"/>
     <ContactInformation>
       <ContactPersonPrimary>
         <ContactPerson>James Davy/ Franck Theeten</ContactPerson>
@@ -39,10 +39,10 @@
         <DCPType>
           <HTTP>
             <Get>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Get>
             <Post>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Post>
           </HTTP>
         </DCPType>
@@ -79,7 +79,7 @@
         <DCPType>
           <HTTP>
             <Get>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Get>
           </HTTP>
         </DCPType>
@@ -91,10 +91,10 @@
         <DCPType>
           <HTTP>
             <Get>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Get>
             <Post>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Post>
           </HTTP>
         </DCPType>
@@ -104,7 +104,7 @@
         <DCPType>
           <HTTP>
             <Get>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Get>
           </HTTP>
         </DCPType>
@@ -116,7 +116,7 @@
         <DCPType>
           <HTTP>
             <Get>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Get>
           </HTTP>
         </DCPType>
@@ -126,7 +126,7 @@
         <DCPType>
           <HTTP>
             <Get>
-              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?SERVICE=WMS&amp;"/>
             </Get>
           </HTTP>
         </DCPType>
@@ -4807,7 +4807,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=50m_points_label"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=50m_points_label"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -4839,7 +4839,7 @@ GEOGCS["WGS 84",
         <BoundingBox SRS="EPSG:4326" minx="12.203" miny="-13.427" maxx="31.288" maxy="5.381"/>
         <MetadataURL type="other">
           <Format>image/jpg</Format>
-          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be/OneGeologyLegend/legend_COD_chronostratigraphy.jpg"/>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be/OneGeologyLegend/legend_COD_chronostratigraphy.jpg"/>
         </MetadataURL>
         <Style>
           <Name>cod_rmca_2m_ba</Name>
@@ -4847,7 +4847,7 @@ GEOGCS["WGS 84",
           <Abstract/>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BA"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BA"/>
           </LegendURL>
         </Style>
         <Style>
@@ -4856,7 +4856,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BA&amp;style=polygon"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BA&amp;style=polygon"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -4880,7 +4880,7 @@ GEOGCS["WGS 84",
         <BoundingBox SRS="EPSG:4326" minx="12.203" miny="-13.427" maxx="31.288" maxy="5.381"/>
         <MetadataURL type="other">
           <Format>image/jpg</Format>
-          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be/OneGeologyLegend/legend_COD_Lithostratigraphy.jpg"/>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be/OneGeologyLegend/legend_COD_Lithostratigraphy.jpg"/>
         </MetadataURL>
         <Style>
           <Name>cod_rmca_2m_bls</Name>
@@ -4888,7 +4888,7 @@ GEOGCS["WGS 84",
           <Abstract/>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BLS"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BLS"/>
           </LegendURL>
         </Style>
         <Style>
@@ -4897,7 +4897,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BLS&amp;style=polygon"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=COD_RMCA_2M_BLS&amp;style=polygon"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -4929,7 +4929,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=Img_Sample"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=Img_Sample"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -4953,7 +4953,7 @@ GEOGCS["WGS 84",
         <BoundingBox SRS="EPSG:4326" minx="28.855" miny="-4.47" maxx="30.892" maxy="-1.047"/>
         <MetadataURL type="other">
           <Format>image/jpg</Format>
-          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be/OneGeologyLegend/Legend_RWABDI_chronostratigraphy.jpg"/>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be/OneGeologyLegend/Legend_RWABDI_chronostratigraphy.jpg"/>
         </MetadataURL>
         <Style>
           <Name>rwabdi_rmca_250k_ba</Name>
@@ -4961,7 +4961,7 @@ GEOGCS["WGS 84",
           <Abstract/>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BA"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BA"/>
           </LegendURL>
         </Style>
         <Style>
@@ -4970,7 +4970,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BA&amp;style=polygon"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BA&amp;style=polygon"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -4994,7 +4994,7 @@ GEOGCS["WGS 84",
         <BoundingBox SRS="EPSG:4326" minx="28.855" miny="-4.47" maxx="30.892" maxy="-1.047"/>
         <MetadataURL type="other">
           <Format>image/jpg</Format>
-          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be/OneGeologyLegend/legend_RWABDI_lithostratigraphy.jpg"/>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be/OneGeologyLegend/legend_RWABDI_lithostratigraphy.jpg"/>
         </MetadataURL>
         <Style>
           <Name>rwabdi_rmca_250k_bls</Name>
@@ -5002,7 +5002,7 @@ GEOGCS["WGS 84",
           <Abstract/>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BLS"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BLS"/>
           </LegendURL>
         </Style>
         <Style>
@@ -5011,7 +5011,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BLS&amp;style=polygon"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_BLS&amp;style=polygon"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5039,7 +5039,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_Faults"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_250K_Faults"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5067,7 +5067,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_2M_Faults"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RWABDI_RMCA_2M_Faults"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5095,7 +5095,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=africa_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=africa_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5123,7 +5123,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=africa_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=africa_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5151,7 +5151,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=africa_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=africa_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5179,7 +5179,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=antartica_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=antartica_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5207,7 +5207,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=asia_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=asia_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5235,7 +5235,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=asia_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=asia_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5263,7 +5263,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=asia_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=asia_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5291,7 +5291,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=atbi"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=atbi"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5323,7 +5323,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=atbi_mercantour_raster"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=atbi_mercantour_raster"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5351,7 +5351,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=atbi_utf8"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=atbi_utf8"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5379,7 +5379,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=bio_spree"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=bio_spree"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5407,7 +5407,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=blank"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=blank"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5435,7 +5435,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=c_america_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=c_america_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5463,7 +5463,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=c_america_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=c_america_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5491,7 +5491,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=c_america_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=c_america_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5519,7 +5519,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=cities"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=cities"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5547,7 +5547,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=coast_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=coast_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5579,7 +5579,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=color_etopo1_ice_full"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=color_etopo1_ice_full"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5611,7 +5611,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=color_etopo1_pyramid_10levels"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=color_etopo1_pyramid_10levels"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5643,7 +5643,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=color_etopo1_pyramid_level6"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=color_etopo1_pyramid_level6"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5671,7 +5671,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=congo_veget_robyns"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=congo_veget_robyns"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5699,7 +5699,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=country_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=country_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5727,7 +5727,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=country_earthbck"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=country_earthbck"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5755,7 +5755,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=current_afe_grid"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=current_afe_grid"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5783,7 +5783,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=e_w_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=e_w_0"/>
           </LegendURL>
         </Style>
         <Style>
@@ -5792,7 +5792,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=e_w_0&amp;style=admin_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=e_w_0&amp;style=admin_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5820,7 +5820,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ecoregions"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ecoregions"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5848,7 +5848,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs1000000sqkm"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs1000000sqkm"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5876,7 +5876,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs10000sqkm"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs10000sqkm"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5904,7 +5904,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs10000sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs10000sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5932,7 +5932,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs10000sqkm_iberia"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs10000sqkm_iberia"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5960,7 +5960,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs250000sqkm"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs250000sqkm"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -5988,7 +5988,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs250000sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elrs250000sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6016,7 +6016,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_east_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_east_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6044,7 +6044,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_east_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_east_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6072,7 +6072,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_east_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_east_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6100,7 +6100,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6128,7 +6128,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6156,7 +6156,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6184,7 +6184,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_0"/>
           </LegendURL>
         </Style>
         <Style>
@@ -6193,7 +6193,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_0&amp;style=admin_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_0&amp;style=admin_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6221,7 +6221,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6249,7 +6249,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6277,7 +6277,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_provinces"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=europe_west_provinces"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6309,7 +6309,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fishbase"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fishbase"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6337,7 +6337,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid10_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid10_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6365,7 +6365,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid10_pol_line"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid10_pol_line"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6393,7 +6393,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid15_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid15_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6421,7 +6421,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid15_pol_line"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid15_pol_line"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6449,7 +6449,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid1_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid1_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6477,7 +6477,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid1_pol_line"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid1_pol_line"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6505,7 +6505,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid2_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid2_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6533,7 +6533,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid2_pol_line"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid2_pol_line"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6561,7 +6561,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid30_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid30_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6589,7 +6589,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid30_pol_line"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid30_pol_line"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6617,7 +6617,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid5_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid5_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6645,7 +6645,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid5_pol_line"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid5_pol_line"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6673,7 +6673,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid_0_5_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=grid_0_5_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6701,7 +6701,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=inob_sprew"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=inob_sprew"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6729,7 +6729,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=inun_sprew"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=inun_sprew"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6757,7 +6757,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr1000000sqkm_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr1000000sqkm_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6785,7 +6785,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr10000sqkm_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr10000sqkm_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6813,7 +6813,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr10000sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr10000sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6841,7 +6841,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr250000sqkm_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr250000sqkm_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6869,7 +6869,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr250000sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=itr250000sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6897,7 +6897,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=lakes25m"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=lakes25m"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6925,7 +6925,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=lakes3m"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=lakes3m"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6953,7 +6953,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=n_america_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=n_america_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -6981,7 +6981,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=n_america_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=n_america_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7009,7 +7009,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=n_america_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=n_america_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7037,7 +7037,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=num_genus"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=num_genus"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7065,7 +7065,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=num_regs"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=num_regs"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7093,7 +7093,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=oceania_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=oceania_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7121,7 +7121,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=oceania_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=oceania_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7149,7 +7149,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=oceania_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=oceania_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7177,7 +7177,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=point_pol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=point_pol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7205,7 +7205,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=point_poligon"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=point_poligon"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7233,7 +7233,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=pointraster"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=pointraster"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7261,7 +7261,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rest_points"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rest_points"/>
           </LegendURL>
         </Style>
         <Style>
@@ -7270,7 +7270,7 @@ GEOGCS["WGS 84",
           <Abstract>Manhattan points of interest</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rest_points&amp;style=poi"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rest_points&amp;style=poi"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7298,7 +7298,7 @@ GEOGCS["WGS 84",
           <Abstract/>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rivers3ml"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rivers3ml"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7326,7 +7326,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=s_america_level_0"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=s_america_level_0"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7354,7 +7354,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=s_america_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=s_america_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7382,7 +7382,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=s_america_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=s_america_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7410,7 +7410,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=scarabeidos"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=scarabeidos"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7438,7 +7438,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=serialized_pols"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=serialized_pols"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7466,7 +7466,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=sld10"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=sld10"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7494,7 +7494,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=taxa_record"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=taxa_record"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7522,7 +7522,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=taxa_records"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=taxa_records"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7550,7 +7550,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_1"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_1"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7578,7 +7578,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7606,7 +7606,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_3"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_3"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7634,7 +7634,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_4"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwg_level_4"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7662,7 +7662,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwgs"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tdwgs"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7690,7 +7690,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=temp2"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=temp2"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7718,7 +7718,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=user_points"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=user_points"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7746,7 +7746,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm1000000sqkm_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm1000000sqkm_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7774,7 +7774,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm10000sqkm_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm10000sqkm_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7802,7 +7802,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm10000sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm10000sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7830,7 +7830,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm1e4_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm1e4_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7858,7 +7858,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm250000sqkm_earth"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm250000sqkm_earth"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7886,7 +7886,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm250000sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm250000sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7914,7 +7914,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm2500sqkm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm2500sqkm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7942,7 +7942,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm2500sqkm_iberia"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm2500sqkm_iberia"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7970,7 +7970,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_europe"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_europe"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -7998,7 +7998,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_europe_100km"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_europe_100km"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8026,7 +8026,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_europe_50km"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_europe_50km"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8054,7 +8054,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_scarab"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_scarab"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8082,7 +8082,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_scarab_incertidumbre"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_scarab_incertidumbre"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8110,7 +8110,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_world"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=utm_world"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8138,7 +8138,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_ocean_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_ocean_a"/>
           </LegendURL>
         </Style>
         <Style>
@@ -8147,7 +8147,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_ocean_a&amp;style=vmap0_ocean"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_ocean_a&amp;style=vmap0_ocean"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8175,7 +8175,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_political_boundary_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_political_boundary_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8203,7 +8203,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_political_boundary_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_bnd_political_boundary_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8231,7 +8231,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_hydro_aqueduct_canal_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_hydro_aqueduct_canal_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8259,7 +8259,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_hydro_water_course_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_hydro_water_course_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8287,7 +8287,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_phys_ground_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_phys_ground_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8315,7 +8315,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_pop_built_up_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_pop_built_up_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8343,7 +8343,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_cropland_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_cropland_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8371,7 +8371,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_grassland_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_grassland_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8399,7 +8399,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_swamp_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_swamp_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8427,7 +8427,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_tree_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_tree_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8455,7 +8455,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_tundra_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_afsa_veg_tundra_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8483,7 +8483,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_ocean_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_ocean_a"/>
           </LegendURL>
         </Style>
         <Style>
@@ -8492,7 +8492,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_ocean_a&amp;style=vmap0_ocean"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_ocean_a&amp;style=vmap0_ocean"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8520,7 +8520,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_political_boundary_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_political_boundary_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8548,7 +8548,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_political_boundary_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_bnd_political_boundary_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8576,7 +8576,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_hydro_inland_water_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_hydro_inland_water_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8604,7 +8604,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_phys_ground_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_phys_ground_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8632,7 +8632,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_pop_built_up_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_as_pop_built_up_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8660,7 +8660,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_barrier_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_barrier_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8688,7 +8688,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_boundary_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_boundary_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8716,7 +8716,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_coast_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_coast_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8744,7 +8744,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_depth_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_depth_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8772,7 +8772,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_ocean_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_ocean_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8800,7 +8800,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_political_boundary_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_political_boundary_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8828,7 +8828,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_political_boundary_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_bnd_political_boundary_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8856,7 +8856,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_dq_data_quality_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_dq_data_quality_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8884,7 +8884,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_dq_data_quality_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_dq_data_quality_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8912,7 +8912,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_elev_contour_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_elev_contour_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8940,7 +8940,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_elev_elevation_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_elev_elevation_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8968,7 +8968,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_aqueduct_canal_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_aqueduct_canal_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -8996,7 +8996,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_danger_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_danger_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9024,7 +9024,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_inland_water_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_inland_water_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9052,7 +9052,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_miscellaneous_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_miscellaneous_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9080,7 +9080,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_miscellaneous_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_miscellaneous_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9108,7 +9108,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_water_course_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_hydro_water_course_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9136,7 +9136,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_extraction_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_extraction_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9164,7 +9164,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_extraction_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_extraction_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9192,7 +9192,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_fishery_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_fishery_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9220,7 +9220,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_miscellaneous_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_miscellaneous_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9248,7 +9248,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_storage_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_ind_storage_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9276,7 +9276,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_libref_library_reference_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_libref_library_reference_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9304,7 +9304,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_cut_fill_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_cut_fill_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9332,7 +9332,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_ground_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_ground_a"/>
           </LegendURL>
         </Style>
         <Style>
@@ -9341,7 +9341,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_ground_a&amp;style=vmap0_contentpol"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_ground_a&amp;style=vmap0_contentpol"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9369,7 +9369,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_land_ice_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_land_ice_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9397,7 +9397,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_landform_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_landform_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9425,7 +9425,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_sea_ice_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_phys_sea_ice_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9453,7 +9453,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_pop_built_up_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_pop_built_up_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9481,7 +9481,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_pop_built_up_area_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_pop_built_up_area_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9509,7 +9509,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_pop_miscellaneous_population_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_pop_miscellaneous_population_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9537,7 +9537,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_tile_reference_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_tile_reference_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9565,7 +9565,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_airport_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_airport_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9593,7 +9593,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_miscellaneous_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_miscellaneous_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9621,7 +9621,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_railroad_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_railroad_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9649,7 +9649,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_railroad_yard_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_railroad_yard_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9677,7 +9677,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_road_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_road_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9705,7 +9705,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_structure_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_structure_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9733,7 +9733,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_structure_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_structure_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9761,7 +9761,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_trail_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_trans_trail_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9789,7 +9789,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_util_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_util_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9817,7 +9817,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a 6px wide red square</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_util_p"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_util_p"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9845,7 +9845,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_util_pipeline_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_util_pipeline_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9873,7 +9873,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_cropland_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_cropland_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9901,7 +9901,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_grassland_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_grassland_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9929,7 +9929,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_swamp_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_swamp_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9957,7 +9957,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_tree_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_tree_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -9985,7 +9985,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_tundra_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_eur_veg_tundra_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10013,7 +10013,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_ocean_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_ocean_a"/>
           </LegendURL>
         </Style>
         <Style>
@@ -10022,7 +10022,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_ocean_a&amp;style=vmap0_ocean"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_ocean_a&amp;style=vmap0_ocean"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10050,7 +10050,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_political_boundary_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_political_boundary_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10078,7 +10078,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_political_boundary_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_bnd_political_boundary_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10106,7 +10106,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_hydro_aqueduct_canal_l"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_hydro_aqueduct_canal_l"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10134,7 +10134,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_phys_ground_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_phys_ground_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10162,7 +10162,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_pop_built_up_a"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_na_pop_built_up_a"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10190,7 +10190,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_world_boundaries"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_world_boundaries"/>
           </LegendURL>
         </Style>
         <Style>
@@ -10199,7 +10199,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_world_boundaries&amp;style=polygon"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_world_boundaries&amp;style=polygon"/>
           </LegendURL>
         </Style>
         <Style>
@@ -10208,7 +10208,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_world_boundaries&amp;style=vmap0_borders"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vmap0_world_boundaries&amp;style=vmap0_borders"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10236,7 +10236,7 @@ GEOGCS["WGS 84",
           <Abstract>Default line style, 1 pixel wide blue</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=waldsee_geb"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=waldsee_geb"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10268,7 +10268,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style for rasters, good for displaying imagery</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=world"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=world"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10296,7 +10296,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just prints out a green line</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=world_countries"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=world_countries"/>
           </LegendURL>
         </Style>
       </Layer>
@@ -10324,7 +10324,7 @@ GEOGCS["WGS 84",
           <Abstract>A sample style that just draws out a solid gray interior with a black 1px outline</Abstract>
           <LegendURL width="20" height="20">
             <Format>image/png</Format>
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.br.fgov.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=wwf_ecoregions"/>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://edit.africamuseum.be:8080/geoserver/wms?request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=wwf_ecoregions"/>
           </LegendURL>
         </Style>
       </Layer>

@@ -9,7 +9,7 @@ $("div[id='symbolize'],#projections").hide();
 
 /*	$("#previsualize").click(function()
 {
-	   $.get('http://edit.africamuseum.be/edit_wp5/geo/images/genera_imatge.php',{srs:options.projectionfunction(data)
+	   $.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/genera_imatge.php',{srs:options.projectionfunction(data)
  		{		
  		if ($('#gallery').length >0)
  		{
@@ -46,7 +46,7 @@ return bbox;
    selected=($("#previsualize").hasClass("selected")==true)?true:false;
    if(selected) {
  
- $.get('http://edit.africamuseum.be/edit_wp5/geo/images/genera_imatge.php',{srs:'EPSG:54004',bbox:proj_bbox('EPSG:4326','EPSG:54004')},function(data)
+ $.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/genera_imatge.php',{srs:'EPSG:54004',bbox:proj_bbox('EPSG:4326','EPSG:54004')},function(data)
  		{		
  		if ($('#gallery').length >0)
  		{
@@ -64,7 +64,7 @@ return bbox;
 else
 {
 proj_bbox('EPSG:4326','EPSG:54004');
-$.get('http://edit.africamuseum.be/edit_wp5/geo/images/genera_imatge.php',{srs:'EPSG:54004',bbox:proj_bbox('EPSG:4326','EPSG:54004')},function(data)
+$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/genera_imatge.php',{srs:'EPSG:54004',bbox:proj_bbox('EPSG:4326','EPSG:54004')},function(data)
  		{		
  		if ($('#gallery').length >0)
  		{
@@ -437,7 +437,7 @@ $.ajax({
 
 	layer_name='edit_'+info.id;
 
-    eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.223.46:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
+    eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.223.53:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
     if (info.grup=='s_america' || info.grup=='africa' || info.grup=='asia' || 
         info.grup=='oceania' || info.grup=='n_america' || info.grup=='antartica'
 		|| info.grup=='c_america' || info.grup=='west_europe' || info.grup=='east_europe')
@@ -548,7 +548,7 @@ $.ajax({
 					s_color=$("input[id='stroke_color']").val();
 					s_color=s_color.substring(1);
 					l_name=s_layer; //utm_europe
-					sld='http://edit.africamuseum.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
+					sld='http://taxonomicindex.africamuseum.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
 				   if (typeof(eval('edit_'+s_layer))=='object')  //edit_group still not defined object (first time symbolization)
 				   {
 				//alert(layer_name);
@@ -608,7 +608,7 @@ $.ajax({
 				}
 				else
 				{
-				c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.223.46:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
+				c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.223.53:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
 				eval(c)
 				//console.log(c);
 				map.addLayer(layer_name);
@@ -625,10 +625,10 @@ $.ajax({
 					if (msie)
 					{
 
-						$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/images/close.gif)  no-repeat top left').css('width','15px');
+						$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/close.gif)  no-repeat top left').css('width','15px');
 						}else 
 						{
-							$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/images/close.gif) no-repeat top left');
+							$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/close.gif) no-repeat top left');
 						}
 				$('input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){ $(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#layer_symbol').hide(); 
 				 });
@@ -718,7 +718,7 @@ $.ajax({
  	$("#layers input:checkbox").attr('checked',false);    
 
  	  $("#layers input:checkbox[id='country_earth']").attr('checked',true);
- 		path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
+ 		path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
 		html='<ul><img s="new_countries" style="height:20px" id="country_earth" src="'+path+'"/></ul>';
 		$("#images").append(html);
 	$('#layers li:has(ul),#print_params li:has(ul),#u_points li:has(ul),#3_4_fields li.y')

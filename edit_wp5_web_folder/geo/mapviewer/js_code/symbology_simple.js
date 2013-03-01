@@ -26,17 +26,17 @@ msie=($.browser.msie==true)?true:false;
 if (msie)
 {
 
- $('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
+ $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','15px');
 }
 else 
 {
-$('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 }
  
 
  $(iframe).bind('load', function()
 {
-// $("iframe#info").attr('src','http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+"&p="+third+"_"+fourth);
+// $("iframe#info").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+"&p="+third+"_"+fourth);
 //	alert($("iframe#info").attr('src'));
 	//BIND EVENTS ONLOAD 
     iframe=$("iframe#info");
@@ -59,12 +59,12 @@ $('input.jqmdX').css('background','url(http://edit.br.fgov.be/edit_wp5/geo/mapvi
 	$(to_start).click(function(){
 	//	var genus_size=iframe.contents().find('#categorySelect option').size();
     edit_points.params.SLD=initial_g_sld;
-$("iframe#info").attr('src','http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+"&p="+third+"_"+fourth);
+$("iframe#info").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+"&p="+third+"_"+fourth);
 
 
 edit_points.redraw();
 var g_image=document.getElementById("genera_legend");
-	g_image.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD)+"date="+new Date();
+	g_image.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&sld='+edit_points.params.SLD)+"date="+new Date();
 $('div[id*="_form1"]').hide();
 $("#send1").hide();
 $("#informacio,#what_todo").hide();
@@ -92,7 +92,7 @@ $(iframe).fadeIn("slow");
 	var submit_button=iframe.contents().find("#submit");     
 	submit_button.val('Add your selection');
 	submit_button.addClass("add"); 
-//$("iframe#info").attr('src','http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+"&p="+third+"_"+fourth);
+//$("iframe#info").attr('src','http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+"&p="+third+"_"+fourth);
 //	$('.jqmdTR *').hide(); $('.jqmdTC,.jqDrag').show();
 	$("iframe#info").fadeIn("slow");
     $("#color_form11,#informacio,#send1").hide();
@@ -312,7 +312,7 @@ var onLoad_events=function() {
      }
     var text='Data symbolization (click here and drag me)';
 
-  var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'<input type="image" class="jqmdX jqmClose"/></div></div><iframe id="info" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0  frameBorder=0 width=380 height=300; background-color=#D7DBDF" src="http://edit.br.fgov.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+'&p='+third+'_'+fourth+'"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form11" style="display:block"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">edit symbol</a><a style="padding-right:20px;">      Add new to symbolize</a></div><div id="symbol_form1" style="display:block"><a>edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form1" style="display:block"><a>Back to edit symbol</a></div><button id="send1" value="symbolize it!">Symbolize it!</button>';
+  var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'<input type="image" class="jqmdX jqmClose"/></div></div><iframe id="info" name="nom_iframe" class="jqDrag" marginWidth=0 marginHeight=0  frameBorder=0 width=380 height=300; background-color=#D7DBDF" src="http://edit.africamuseum.be/edit_wp5/geo/formularis/select_by_genus.html?userid='+userid+'&p='+third+'_'+fourth+'"></iframe><div id="informacio">Now you can Select the symbology. Press the button only after you have chosen all possibilities!</div>    <div id="what_todo">You have previously symbolized your data. <br>Do you want to <a href="#">continue the symbolization</a></strong>(it will keep your previous changes) or <br><br><a href="#"><strong>start again</strong></a> (previous changes will be deleted)</div><div id="color_form11" style="display:block"><a style="padding-right:20px;">Start again</a>     <a style="padding-right:20px;">edit symbol</a><a style="padding-right:20px;">      Add new to symbolize</a></div><div id="symbol_form1" style="display:block"><a>edit size</a><div style="float:center;"><a>Back to edit color</a></div></div><div id="size_form1" style="display:block"><a>Back to edit symbol</a></div><button id="send1" value="symbolize it!">Symbolize it!</button>';
 if ($('#ex2').children().length!==0)
 {
 $('#ex2').empty();
@@ -402,7 +402,7 @@ $('#ex2').empty();
 													text_to_add+=format.write($(this).get(0));
 
 										})	
-																	$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/construct_sld_test.php',processData:false, type:'POST',
+																	$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/construct_sld_test.php',processData:false, type:'POST',
 										dataType:'text',data:'data='+to_add+'&userid='+userid+'&to_filter=genus&sld='+text_to_add,
 										success:function(new_xml)
 																{
@@ -458,10 +458,10 @@ $('#ex2').empty();
 																
 																	//	
 																			var text = format.write(xml2);
-																	$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',
+																	$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 																			processData:false, type:'POST',dataType:'text',data:'data='+text+'&user='+userid+"&to_filter=genus",success:function(data){ edit_points.params.SLD=data;edit_points.redraw();
 																			var g_image=document.getElementById("genera_legend");
-																			g_image.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&SLD='+data+'?date='+new Date());
+																			g_image.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&SLD='+data+'?date='+new Date());
 
 
 																			}});													
@@ -562,10 +562,10 @@ $('#ex2').empty();
 							
 														    var text = format.write(doc);
 
-													$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/test_xmls2.php',
+													$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/test_xmls2.php',
 															processData:false, type:'POST',dataType:'text',data:'data='+text+'&user='+userid+"&to_filter=genus",success:function(data){ edit_points.params.SLD=data;edit_points.redraw();
 															var g_image=document.getElementById("genera_legend");
-															g_image.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&SLD='+data+'?date='+new Date());
+															g_image.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=user_points&SLD='+data+'?date='+new Date());
 															}});
 														
 									}
@@ -689,10 +689,10 @@ $.ajax(url,{},function (request) {
 							});
 /*
 							    var text = format.write(doc);
-						$.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/mapviewer/test_xmls2.php',
+						$.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/mapviewer/test_xmls2.php',
 								processData:false, type:'POST',dataType:'text',data:'data='+text+'&user='+userid+"&to_filter=genus",success:function(data){ edit_points.params.SLD=data;edit_points.redraw();
 								var g_image=document.getElementById("g_legend");
-								g_image.setAttribute("src",legend='http://193.190.116.6:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:test_csvimportgispoints2&SLD='+data+'?date='+new Date());
+								g_image.setAttribute("src",legend='http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&WIDTH=25&HEIGHT=20&LAYER=topp:test_csvimportgispoints2&SLD='+data+'?date='+new Date());
 								}});
 */								
 		}

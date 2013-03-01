@@ -1,6 +1,6 @@
 
 
-  $.get('http://edit.africamuseum.be/edit_wp5/geo/modules/proj_module.php',function(data)
+  $.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/modules/proj_module.php',function(data)
 {
 	$("#projections").show();
 	$("#projections").trigger('click')
@@ -12,7 +12,7 @@ $(cat).click(function () {
 	var area=$("#area option:selected").attr('id');
 	var type=$("#crs_type option:selected").attr('id');
 	var f=$("select[id='final']");
-$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/select_crs_name.php',{ ajax:true,area:area,type:type } ,
+$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/crs_forms/select_crs_name.php',{ ajax:true,area:area,type:type } ,
    function(data)
 {
 	$("select[id='crs_final']").empty();
@@ -25,7 +25,7 @@ $.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/select_crs_name.php',{
 	var proj=$("#crs_final option:selected").val();
 	var area=$("#area option:selected").attr('id');
 
-		$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&source=own',function(t)
+		$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&source=own',function(t)
 		{
 
 			eval(t);
@@ -62,7 +62,7 @@ console.info(s)
 	proj2=proj.split(':');
 	proj2=proj2[1];
 var area=$("#area option:selected").attr('id');
-	$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
+	$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
 		
 		
 	})
@@ -94,7 +94,7 @@ var area=$("#area option:selected").attr('id');
 	proj2=proj.split(':');
 	proj2=proj2[1];
 var area=$("#area option:selected").attr('id');
-	$.get('http://edit.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
+	$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/crs_forms/asking_proj.php?proj='+proj+'&area='+area,function(data){
 
 		if ($("#gallery a").length>0)
 		{

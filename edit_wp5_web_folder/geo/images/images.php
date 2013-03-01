@@ -14,8 +14,8 @@ $height=round($_GET['height']);
 
 //mkdir("download/",0777);
 //chmod("download/$user/$folder",0777);
-$URL_SITE="http://193.190.116.6";
-$URL_GEOSERVER="http://193.190.116.6:8080/geoserver/wms";
+$URL_SITE="http://193.190.223.53";
+$URL_GEOSERVER="http://193.190.223.53:8080/geoserver/wms";
 $path="download";
 //genus sld path
 if ($_GET['sld_path'])
@@ -203,7 +203,7 @@ global $dpi,$DIR_PLATFORM;
 			$c="convert -density $dpi".x."$dpi -units PixelsPerInch '$file' '$file'";
 
 		shell_exec($c);
-$URL_SITE="http://193.190.116.6";
+$URL_SITE="http://193.190.223.53";
 	echo $URL_SITE."/edit_wp5/geo/images/edit_images.php?format=$new_f&file=".$file;
 $DIR_PLATFORM="/var/www";
 	$img_dir = $DIR_PLATFORM."/edit_wp5/geo/images/download";

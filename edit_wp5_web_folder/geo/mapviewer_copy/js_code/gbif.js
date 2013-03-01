@@ -6,7 +6,7 @@ $('#gbif_win').jqm({
 })
     var text='GBIF data browser (click here and drag me)';
 
-    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="gbif" name="gbif_iframe" class="jqDrag" marginWidth=0 marginHeight=0 src="http://edit.africamuseum.be/edit_wp5/geo/gbifs/index.html" frameBorder=0 width=380 height=300; background-color=#D7DBDF"></iframe></div></div><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div>';
+    var jq='<div class="jqmdTL" style="background-size: 40%; z-index: 300;"><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div><input type="image" class="jqmdX jqmClose"/><iframe id="gbif" name="gbif_iframe" class="jqDrag" marginWidth=0 marginHeight=0 src="http://taxonomicindex.africamuseum.be/edit_wp5/geo/gbifs/index.html" frameBorder=0 width=380 height=300; background-color=#D7DBDF"></iframe></div></div><div class="jqmdTR"><div class="jqmdTC jqDrag">'+text+'</div>';
 	
 
     $('#gbif_win').append(jq);
@@ -66,11 +66,11 @@ msie=($.browser.msie==true)?true:false;
 if (msie)
 {
 
- $('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','14px');
+ $('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif)  no-repeat top left').css('width','14px');
 }
 else 
 {
-$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
+$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/geo/mapviewer/img/close.gif) no-repeat top left');
 }
 	$('#gbif_win').show();
 	$('iframe#gbif').show();

@@ -95,7 +95,7 @@ $d=new domDocument;
 $d->loadXML($sld_new2);
 
 $d->save("sld/$sld_file");
-echo "http://edit.br.fgov.be/edit_wp5/geo/sld/$sld_file";
+echo "http://edit.africamuseum.be/edit_wp5/geo/sld/$sld_file";
 /*
 $d=new domDocument;
 $d->preserveWhiteSpace = false; 

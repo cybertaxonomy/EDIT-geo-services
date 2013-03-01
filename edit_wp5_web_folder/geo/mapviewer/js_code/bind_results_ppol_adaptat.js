@@ -13,7 +13,7 @@ polygon=$("#ppol_form option:selected").attr('id');
 
 var ajax_show=true;
 
- $.ajax({url:'http://edit.br.fgov.be/edit_wp5/geo/queries/spatial_query_adaptat.php',type: 'GET',data: {x:x, y:y,userid:userid,polygon:polygon},dataType:'html',success:function(data) {$("#sp_query_container").append(data); bindBehaviors(data);}});	
+ $.ajax({url:'http://edit.africamuseum.be/edit_wp5/geo/queries/spatial_query_adaptat.php',type: 'GET',data: {x:x, y:y,userid:userid,polygon:polygon},dataType:'html',success:function(data) {$("#sp_query_container").append(data); bindBehaviors(data);}});	
 
 
 

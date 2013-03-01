@@ -153,7 +153,7 @@ $.ajax({
 	wrap=$("#layers li[id='"+info.grup+"']"); 
 
 	layer_name='edit_'+info.id;
-    eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.223.46:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
+    eval(layer_name+"=new OpenLayers.Layer.WMS.Untiled( 'name','http://193.190.223.53:8080/geoserver/wms',{layers:'"+info.id+"',sld:'sld',transparent:'true'})");
     if (info.grup=='s_america' || info.grup=='africa' || info.grup=='asia' || 
         info.grup=='oceania' || info.grup=='n_america' || info.grup=='antartica'
 		|| info.grup=='c_america' || info.grup=='europe'  || info.grup=='west_europe' || info.grup=='east_europe')
@@ -248,7 +248,7 @@ $.ajax({
 					s_color=$("input[id='stroke_color']").val();
 					s_color=s_color.substring(1);
 					l_name=s_layer; //utm_europe
-					sld='http://edit.africamuseum.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
+					sld='http://taxonomicindex.africamuseum.be/edit_wp5/geo/layers_sld/'+l_name+'.php?params='+up+'/'+l_name+'/'+s_color+'/'+s_width+'/'+s_style;
 				   if (typeof(eval('edit_'+s_layer))=='object')  //edit_group still not defined object (first time symbolization)
 				   {
 				//alert(layer_name);
@@ -306,7 +306,7 @@ $.ajax({
 				}
 				else
 				{
-				c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.223.46:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
+				c=layer_name+"=new OpenLayers.Layer.WMS.Untiled( '"+s_layer+"','http://193.190.223.53:8080/geoserver/wms',{layers:'"+s_layer+"',sld:'"+sld+"',transparent:'true'})";
 				eval(c)
 				//console.log(c);
 				map.addLayer(layer_name);
@@ -323,10 +323,10 @@ $.ajax({
 					if (msie)
 					{
 
-						$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif)  no-repeat top left').css('width','15px');
+						$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif)  no-repeat top left').css('width','15px');
 						}else 
 						{
-							$('input.jqmdX').css('background','url(http://edit.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left');
+							$('input.jqmdX').css('background','url(http://taxonomicindex.africamuseum.be/edit_wp5/edit_geo/prototype/JQ_win_files/close.gif) no-repeat top left');
 						}
 				$('input.jqmdX').hover(function(){$(this).addClass('jqmdXFocus')},function(){ $(this).removeClass('jqmdXFocus')}).focus(function(){this.hideFocus=true;$(this).addClass('jqmdXFocus')}).blur(function(){$(this).removeClass('jqmdXFocus')}).click(function(){$('#layer_symbol').hide(); 
 				 });
@@ -412,7 +412,7 @@ $.ajax({
       edit_admin.mergeNewParams({styles:'countries'});      
       edit_admin.setVisibility(true);
  	  $("#layers input:checkbox[id='country_earth']").attr('checked',true);
- 		path="http://193.190.223.46:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
+ 		path="http://193.190.223.53:8080/geoserver/wms/GetLegendGraphic?VERSION=1.0.0&FORMAT=image/png&LAYER=country_earth&STYLE=countries&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12";
 		html='<ul><img s="countries" style="height:20px" id="country_earth" src="'+path+'"/></ul>';
 		$("#images").append(html);
 	$('#layers li:has(ul),#print_params li:has(ul)')
@@ -555,11 +555,11 @@ $("#images").css({'left':'950'});
 
 	 
 
-			$.get('http://edit.africamuseum.be/edit_wp5/geo/test_scalebar.php',{bbox:bbox,w:width,h:height,units:units,label_size:label_size,l_size:l_size,intervals:intervals},function(s)
+			$.get('http://taxonomicindex.africamuseum.be/edit_wp5/geo/test_scalebar.php',{bbox:bbox,w:width,h:height,units:units,label_size:label_size,l_size:l_size,intervals:intervals},function(s)
 
 		        {
 
-		        d='http://edit.africamuseum.be/edit_wp5/geo/images/scalebars/'+s;
+		        d='http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/scalebars/'+s;
 
 				//wwhy not directly scalebar?????? (it's a local variable)
 
@@ -675,7 +675,7 @@ $("#tif_form,#bits_form ").css('height',0).css('visibility','hidden').parent().c
 
 		
 	var img=$("#choose_windrose_form option:selected").val();
-		var windrose_path="http://edit.africamuseum.be/edit_wp5/geo/images/windroses/"+img;
+		var windrose_path="http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/windroses/"+img;
 
 		$("#windrose").attr('src',windrose_path);
 
