@@ -1,13 +1,77 @@
 <?php
 
 
-function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_style, $p_size, $p_bbox, $p_occ_data, $p_occ_style, $p_title, $p_label, $p_img_url, $p_symbols, $p_recalculate, $p_foo, $p_callback, $p_img, $p_externalwms, $p_externalwms_layer, $p_externalwms_version, $p_externalwms_style, $p_mlp, $p_grayscale, $p_jsoncreatefile, $p_raster)
+function fct_rest_gen(
+//1
+$p_uri, 
+//2
+$p_legend, 
+//3
+$p_bck_layer, 
+//4
+$p_areas_data, 
+//5
+$p_areas_style, 
+//6
+$p_size, 
+//7
+$p_bbox, 
+//8
+$p_occ_data, 
+//9
+$p_occ_style, 
+//10
+$p_title, 
+//11
+$p_label, 
+//12
+$p_img_url, 
+//13
+$p_symbols, 
+//14
+$p_recalculate, 
+//15
+$p_foo, 
+//16
+$p_callback, 
+//17
+$p_img, 
+//18
+$p_externalwms, 
+//19
+$p_externalwms_layer, 
+//20
+$p_externalwms_versions, 
+//21
+$p_externalwms_style, 
+//22
+$p_externalwms_filter, 
+//23
+$p_mlp, 
+//24
+$p_grayscale, 
+//25
+$p_jsoncreatefile, 
+//26
+$p_raster, 
+//27
+$p_wms_foreground)
 {
+
+//print($p_wms_foreground);
+//print($p_externalwms_filter);
+				//ftheeten 2013/01/11
+				//error_reporting(0);
+
+				ob_start();
 				
-				$flagDisplayPoints=false;
+				$flagDisplayPoints=falses;
+				//ftheeten 24/01/2013
+				$arrayWMSIdxURLs=parseWMS($p_externalwms, $p_externalwms_versions, $p_externalwms_filter);
+
 				//test ftheeten 14/03/2011
-				$path_towrite_persistent_sld="/var/www/synthesys/www/v1/sld_persistent/";
-				$url_persistent_sld='http://edit.br.fgov.be/synthesys/www/v1/sld_persistent';
+				//$path_towrite_persistent_sld="/var/www/synthesys/www/v1/sld_persistent/";
+				//$url_persistent_sld='http://edit.br.fgov.be/synthesys/www/v1/sld_persistent';
 				//topp: used in the name of the SLD file to address the layer to color
 				
 				$prefix_wms="topp:";
@@ -23,9 +87,10 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				$image_radical=md5($p_uri );
 				$image_file=$image_radical."_layers.png";
 				
-				$random2="/var/www/synthesys/www/v1/img/".$image_file;
-				$random2_www="http://edit.br.fgov.be/synthesys/www/v1/img/".$image_file;
-				$random2_legend="/var/www/synthesys/www/v1/img/".$image_radical."_legend.png";
+				$random2=V1_IMG.$image_file;
+				
+				$random2_www=V1_URL."/".$image_file;
+				$random2_legend=V1_IMG.$image_radical."_legend.png";
 				//ftheeten 22/02/2011 (sometimes bug if image previously exists)
 					if(file_exists($random2))
 					{
@@ -68,8 +133,6 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 				//$layers=$p_bck_layer;
 				$layers_tmp=$p_bck_layer;
-				//ftheeten 28/11/2011 	(suppress v prefix)
-				$layers_tmp=str_ireplace("v:","",$layers_tmp);
 				$arrayTableStyles=associate_layer_to_style($layers_tmp,',',':', TRUE);
 				$layers=array_keys($arrayTableStyles);
 				//$layers=implode(',',array_keys($arrayTableStyles));
@@ -231,6 +294,8 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 					}
 				
 				}
+
+
 				
 				
 				
@@ -260,14 +325,33 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 						$specie_id=$sym[0];	
 				
 						$symbologies=explode('/',$sym[1]);
+						if(count($symbologies)<=4)
+						{
+		
+						    	$geodata[$specie_id]['symbol']=$symbologies[0];
 				
-					    	$geodata[$specie_id]['symbol']=$symbologies[0];
+							$geodata[$specie_id]['color']=$symbologies[1];
 				
-						$geodata[$specie_id]['color']=$symbologies[1];
+							$geodata[$specie_id]['size']=$symbologies[2];
 				
-						$geodata[$specie_id]['size']=$symbologies[2];
+							$geodata[$specie_id]['legend']=$symbologies[3];
+						}
+						else//ftheeten 03/02/2011 (transparency, thickness, outline color)
+						{
+							$geodata[$specie_id]['symbol']=$symbologies[0];
 				
-						$geodata[$specie_id]['legend']=$symbologies[3];
+							$geodata[$specie_id]['color']=$symbologies[1];
+				
+							$geodata[$specie_id]['size']=$symbologies[2];
+
+							$geodata[$specie_id]['outlinecolor']=$symbologies[3];
+
+							$geodata[$specie_id]['linewidth']=$symbologies[4];
+
+							$geodata[$specie_id]['opacity']=$symbologies[5];
+				
+							$geodata[$specie_id]['legend']=$symbologies[6];
+						}
 				
 						
 				
@@ -388,6 +472,22 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 						$xml.="<symbol>".$geodata[$k]['symbol']."</symbol>";
 				
 					 	$xml.="<size>".$geodata[$k]['size']."</size>";
+					 	
+					 	if(isset($geodata[$k]['outlinecolor']))
+						{
+							$xml.="<outlinecolor>".$geodata[$k]['outlinecolor']."</outlinecolor>";
+						}
+
+						if(isset($geodata[$k]['linewidth']))
+						{
+							$xml.="<linewidth>".$geodata[$k]['linewidth']."</linewidth>";
+						}
+				
+
+						if(isset($geodata[$k]['opacity']))
+						{
+							$xml.="<opacity>".$geodata[$k]['opacity']."</opacity>";
+						}
 				
 					 	$xml.="</style>";
 				
@@ -405,7 +505,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 					$xsl->setParameter( '', 'userid', $random);
 				
-					$style = realpath('points.xsl');
+					$style = realpath('points_transparent.xsl');
 				
 					$dom_new->load($style);
 				
@@ -603,8 +703,22 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 						//$styles_string.="line,";
 						$styles_string.=$ls_styles[$i];
 						$arrayBackgroundStyle[$i]['name']=$v;
+
 						$arrayBackgroundStyle[$i]['style']=$ls_styles[$i];
 						$arrayBackgroundStyle[$i]['type']=$ls_types[$i];
+
+						if(array_key_exists($v,$arrayWMSIdxURLs)===TRUE)
+						{
+							//print("key exists for $v");
+							$arrayBackgroundStyle[$i]['external_wms']="yes";
+							$arrayBackgroundStyle[$i]['external_wms_url']=$arrayWMSIdxURLs[$v]["url"];
+							$arrayBackgroundStyle[$i]['external_wms_version']=$arrayWMSIdxURLs[$v]["version"];
+							$arrayBackgroundStyle[$i]['external_wms_filter']=$arrayWMSIdxURLs[$v]["filter"];
+						}
+						else
+						{
+							$arrayBackgroundStyle[$i]['external_wms']="no";
+						}
 						$i++;
 				
 					}
@@ -764,19 +878,30 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 							$arrayBackgroundStyle[0]['name']=$ls_string;
 							$arrayBackgroundStyle[0]['style']=$styles_string;
 							$arrayBackgroundStyle[0]['type']=$type_string;
+							if(array_key_exists($v,$arrayWMSIdxURLs)===TRUE)
+							{
+							
+								$arrayBackgroundStyle[$i]['external_wms']="yes";
+								$arrayBackgroundStyle[$i]['external_wms_url']=$arrayWMSIdxURLs[$v]["url"];
+								$arrayBackgroundStyle[$i]['external_wms_version']=$arrayWMSIdxURLs[$v]["version"];
+								$arrayBackgroundStyle[$i]['external_wms_filter']=$arrayWMSIdxURLs[$v]["filter"];			
+							}
+							else
+							{
+								$arrayBackgroundStyle[$i]['external_wms']="no";
+							}
 				
 				
 				
 				}
-				
-				
+				//print_r($arrayWMSIdxURLs);
+				//print_r($arrayBackgroundStyle);
 				
 				$ad=explode('||',$ad);
-				
+				//print_r($ad);
 				
 				
 				foreach ($ad as $k=>$v)
-				
 				{// loop ad
 				
 					//tdwg3:a:PHI,SPA|b:ITA
@@ -1171,6 +1296,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 							$v=explode('|',$v);
 				
+
 							foreach ($v as $k=>$v)
 				
 							{//for v
@@ -1184,6 +1310,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 									$first_data=explode(':',$v);
 				
 									/*$first_layer=$first_data[0];
+
 				
 									$first_style=$first_data[1];
 				
@@ -1519,7 +1646,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 				
 				$legs=array();
-				
+				//print_r($tdwg);
 				foreach ($tdwg as $k=>$v)
 				
 				{//loop tdwg 1
@@ -1712,29 +1839,27 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 						$bbox=$p_bbox;
 				
-						//print("p_bbox found");
-						//print($p_bbox);
+						
 					}
 				
 					else
 				
 					{
-							//print("bbox not found");
+
+						//ftheeten 24/01/2013
 						
-				
 							$conn = pg_pconnect(POSTGIS_CS);
-				
+			
 								if (pg_ErrorMessage($conn)) 
-				
+			
 								{ 
-				
+			
 									 echo "<p><b>Ocurrio un error conectando a la base de datos: .</b></p>"; 
-				
+			
 									 }
-				
+			
 								else
-				
-								{
+								{ //else BBOX SQL
 
 									$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from tdwgs where ";				
 									$c=0;
@@ -1742,204 +1867,194 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 									$flagUserTable=false;
 									$ibbox=0;
 									foreach ($tdwg as $k=>$v)
-									{
-										$c=0;
-								
-											switch ($k)
-											{
-										
-											//ftheeten 21/02/2011: $db_layers and $layer_sh seem unused
-											//see also line 830
-											case ('tdwg1'): $layer='topp:tdwg_level_1';$db_layer='tdwg_level_1';
-											$field='code';
-											//??????????????????????????????????????$label_field='zona';
-											if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
-													//print("toto");
-												}	
-											$ibbox++;			
-											break;
-											case ('tdwg2'): $layer='topp:tdwg_level_2';$db_layer='tdwg_level_2';
-											$field='code';
-											$label_field='code';
-											if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
-													//print("toto");
-												}	
-											$ibbox++;
-											break;
-											case ('tdwg3'): $layer='topp:tdwg_level_3'; $db_layer='tdwg_level_3';
-											$field='code';$layer_sh="TDWG 3";$label_field='code';
-											if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
-													//print("toto");
-												}				
-											$ibbox++;			
-											break;
-											case ('tdwg4'): $layer='topp:tdwg_level_4';$db_layer='tdwg_level_4';
-											$field="code";
-											$label_field='code';$layer_sh="TDWG 4";
-											if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
-													//print("toto");
-												}	
-											$ibbox++;
-											break;
-											case ('e_w_0'): $layer='topp:europe_west_level_0';$db_layer='europe_west_level_0';
-											$field="code";
-											$label_field='code';$layer_sh="EURW 0";
-											if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
-													
-//print("toto");
-												}	
-											$ibbox++;
-											break;
-											case ('e_w_1'): $layer='topp:europe_west_level_1';$db_layer='europe_west_level_1';
-											$field="code";
-											$label_field='code';$layer_sh="EURW 1";
-											if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
-													//print("toto");
-												}	
-											$ibbox++;
-											break;
-											//ftheeten 21/01/2011 (for other layers than tdwg)
-											default:
-												$layer=$k;
-												$field=$wms_field_array[$k];
-												$label_field=$wms_field_array[$k];//'?';
-												//print("________________________layer=".$layer);
-												//print("________________________field=".$field);
-								//ftheeten auto boox 24/08/2011
-												if($ibbox==0)
-												{
-													$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$layer." where ";
-												}
-												elseif($ibbox>0)
-												{
-													$BBOX_sql="UNION ALL select extent(the_geom) as g from ".$layer." where ";
-													//print("toto");
-												}	
-												$flagUserTable=true;
-												$ibbox++;
-												//print('====>ibbox='.$ibbox);
-												break;
-													
-											}
-								
-								
-									foreach($v as $key=>$val)
-									{
-								//	var_dump($val);
-								    if ($c>0)
-								    {
-								     $BBOX_sql.="OR ";
-								    }
-									if (count($val['zones'])==1)
-									{
-								
-								     //$BBOX_sql.="code='".$val['zones']."' ";
-									$BBOX_sql.=$field."='".$val['zones']."' ";
-								
-									}else
-									{
-									$count=count($val['zones']);
-									//$BBOX_sql.="select extent(the_geom) from tdwgs where code=";
-								
-								
-									for ($i=0;$i<($count-1);$i++)
-											{
+									{//BEGIN FOR GENERATE SQL BBOX
+										//if added ftheeten 25/01/2013
+										if(array_key_exists($k,$arrayWMSIdxURLs)===FALSE)
+										{
+												$c=0;
 									
-										if ($i==0)
-										{
-										//$BBOX_sql.="code='".$val['zones'][0]."'";
-										$BBOX_sql.=$field."='".$val['zones'][0]."'";
-										}
-										else
-										{
-												//$BBOX_sql.=" OR code='".$val['zones'][$i]."'";
-												$BBOX_sql.=" OR ".$field."='".$val['zones'][$i]."'";
-										}
-												
-											}
-										//	var_dump($tdwg2_total[1][2]);
-										//QUINA CUTRADA!!!!!
-								
-											//$BBOX_sql.=" OR code='".$val['zones'][$count-1]."'";
-											$BBOX_sql.=" OR ".$field."='".$val['zones'][$count-1]."'";
-								
-								
-									}
-									$c++;
-									}
-								
-									}//end if bbox
+													switch ($k)
+													{
+											
+													//ftheeten 21/02/2011: $db_layers and $layer_sh seem unused
+													//see also line 830
+													case ('tdwg1'): $layer='topp:tdwg_level_1';$db_layer='tdwg_level_1';
+													$field='code';
+													//??????????????????????????????????????$label_field='zona';
+													if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
+															//print("toto");
+														}	
+													$ibbox++;			
+													break;
+													case ('tdwg2'): $layer='topp:tdwg_level_2';$db_layer='tdwg_level_2';
+													$field='code';
+													$label_field='code';
+													if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
+															//print("toto");
+														}	
+													$ibbox++;
+													break;
+													case ('tdwg3'): $layer='topp:tdwg_level_3'; $db_layer='tdwg_level_3';
+													$field='code';$layer_sh="TDWG 3";$label_field='code';
+													if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
+															//print("toto");
+														}				
+													$ibbox++;			
+													break;
+													case ('tdwg4'): $layer='topp:tdwg_level_4';$db_layer='tdwg_level_4';
+													$field="code";
+													$label_field='code';$layer_sh="TDWG 4";
+													if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
+															//print("toto");
+														}	
+													$ibbox++;
+													break;
+													case ('e_w_0'): $layer='topp:europe_west_level_0';$db_layer='europe_west_level_0';
+													$field="code";
+													$label_field='code';$layer_sh="EURW 0";
+													if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
+														
+		//print("toto");
+														}	
+													$ibbox++;
+													break;
+													case ('e_w_1'): $layer='topp:europe_west_level_1';$db_layer='europe_west_level_1';
+													$field="code";
+													$label_field='code';$layer_sh="EURW 1";
+													if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql.="UNION ALL select extent(the_geom) as g from ".$db_layer." where ";
+															//print("toto");
+														}	
+													$ibbox++;
+													break;
+													//ftheeten 21/01/2011 (for other layers than tdwg)
+													default:
+														$layer=$k;
+														$field=$wms_field_array[$k];
+														$label_field=$wms_field_array[$k];//'?';
+														//print("________________________layer=".$layer);
+														//print("________________________field=".$field);
+										//ftheeten auto boox 24/08/2011
+														if($ibbox==0)
+														{
+															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$layer." where ";
+														}
+														elseif($ibbox>0)
+														{
+															$BBOX_sql="UNION ALL select extent(the_geom) as g from ".$layer." where ";
+															//print("toto");
+														}	
+														$flagUserTable=true;
+														$ibbox++;
+														//print('====>ibbox='.$ibbox);
+														break;
+														
+													}
+									
+									
+													foreach($v as $key=>$val)
+													{// for $v as $key=>$val)
+														//	var_dump($val);
+										    			if ($c>0)
+										    			{
+										     				$BBOX_sql.="OR ";
+										   				 }
+														if (count($val['zones'])==1)
+														{
+									
+										    				 //$BBOX_sql.="code='".$val['zones']."' ";
+															$BBOX_sql.=$field."='".$val['zones']."' ";
+									
+														}
+														else
+														{//begin else
+															$count=count($val['zones']);
+															//$BBOX_sql.="select extent(the_geom) from tdwgs where code=";
+									
+									
+															for ($i=0;$i<($count-1);$i++)
+															{
+										
+																if ($i==0)
+																{
+																	//$BBOX_sql.="code='".$val['zones'][0]."'";
+																	$BBOX_sql.=$field."='".$val['zones'][0]."'";
+																}
+																else
+																{
+																		//$BBOX_sql.=" OR code='".$val['zones'][$i]."'";
+																		$BBOX_sql.=" OR ".$field."='".$val['zones'][$i]."'";
+																}
+													
+															}//end for
+															
+															
+															//QUINA CUTRADA!!!!!
+									
+															//$BBOX_sql.=" OR code='".$val['zones'][$count-1]."'";
+															$BBOX_sql.=" OR ".$field."='".$val['zones'][$count-1]."'";
+									
+									
+														}//end else
+														$c++;
+													}// end for $v as $key=>$val)
+										}//end test if(array_key_exists($v,$arrayWMSIdxURLs)===FALSE)
+									}//end FOR bbox
 									//ftheeten 24/08/2011
 									$BBOX_sql.=") AS foo;";
-					//print($BBOX_sql);
-				
-					//ftheeten 24/08/2011
+									//print($BBOX_sql);
 			
-				
-				
-				
-								$postgis_result=pg_query($BBOX_sql);
-				
-				
-				
-								while ($row = pg_fetch_array($postgis_result, NULL, PGSQL_ASSOC))
-				
-									 {
-				
-				
-				
-							$b=substr($row['extent'],4);
-				
-						//	echo $height;
-				
-							$cadena=substr($b,0,-1); 
-				
-							$bbox=str_replace(' ',',',$cadena);
-				
-							//echo "this is bbox".$bbox;
-				
+									//ftheeten 24/08/2011
+	
+									$postgis_result=pg_query($BBOX_sql);
+									while ($row = pg_fetch_array($postgis_result, NULL, PGSQL_ASSOC))
+									{
+										$b=substr($row['extent'],4);
+										$cadena=substr($b,0,-1); 
+										$bbox=str_replace(' ',',',$cadena);
+										//echo "this is bbox".$bbox;
+			
 									}
-				
-								}
-				
+			
+								}//end if BBOX SQL
+			
 								
-				
+						
 					}
 				
 					//print($BBOX_sql);
@@ -2144,7 +2259,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 				$c=count($gmls);
 				
-				
+				//print("BBOX=".$bbox);
 				
 				//global $bbox;
 				//print("GLOBALBBOX=".$bbox);
@@ -2182,18 +2297,23 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 				
 				$i=0;
-				
+//print("GML=");				
+//print_r($gmls);
 				foreach ($gmls as $feature=>$v)
 				
 				{
 				
 				$i++;
-				
+				//print($feature);
+				//print("-------");
+				//print($v);
 				$dom_new = new DOMDocument();
 				
 				//print("-----------------------");
 				
 				//print_r($v);
+				$flagExternalWMS=FALSE;
+				$urlExternalWMS="";
 				
 				switch ($feature)
 				
@@ -2251,20 +2371,55 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 						//ftheeten 21/02/2011
 				
-						default:
+					default:
+						//print("default");
+						if(array_key_exists($feature,$arrayWMSIdxURLs))
+						{
+						
+							//print("external for $feature");
+							$prefix="";
+							$ext_layer="";
+							$prefix_array=array_keys($tdwg[$feature]);
+							$flagExternalWMS=TRUE;
+							if(count($prefix_array)>0)
+							{
+								$prefix=$prefix_array[0];
+								
+								$ext_layer_array=$tdwg[$feature][$prefix];
+								$ext_layer=$ext_layer_array["zones"];
+								
+								if(strlen($prefix)>0)
+								{
+									
+									$ext_layer=$prefix.":".$ext_layer;
+									
+
+									
+								}
+								
+							}
+							$urlExternalWMS=f_autoFillWMSURL($arrayWMSIdxURLs[$feature]["url"], $arrayWMSIdxURLs[$feature]["version"], $ext_layer,"", $bbox, $width, $height,$arrayWMSIdxURLs[$feature]["filter"]);
+							
+
+						
+							
+
+						}
+						else
+						{
+							//print("NOT external for $feature");
+							$layer=$feature;
 				
-						$layer=$feature;
+							$field=$wms_field_array[$feature];
 				
-						$field=$wms_field_array[$feature];
-				
-						$label_field=$tmp_wms_field;
-				
+							$label_field=$tmp_wms_field;
+						}
 				
 						break;
 				
 				}
 				
-				
+				//print_r($tdwg);
 				
 				$p=simplexml_load_string($gmls[$feature]);
 				
@@ -2353,29 +2508,24 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 				}
 				
-				//print("build URL");
-				
-				//print($layer);
-					if(strlen($layer)>0)
+
+					if(strlen($layer)>0||((strlen($urlExternalWMS)>0)&&$flagExternalWMS===TRUE))
 					{
-						//print("ADDED");						
-						$url=URL_GEOSERVER."?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&TRANSPARENT=TRUE&SERVICE=WMS&EPSG=4326&layers=";
+						//print("BBOX=".$bbox);
+						//print("ADDED");
+						$url="";
+						//test added ftheeten 2013/01/25
+						if($flagExternalWMS===TRUE&&strlen($urlExternalWMS)>0)
+						{
+							$url=$urlExternalWMS;
+						}
+						else
+						{						
+							$url=URL_GEOSERVER."?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&TRANSPARENT=TRUE&SERVICE=WMS&EPSG=4326&layers=";
 				
-						$url.=$layer."&format=image/png&bbox=".$bbox."&WIDTH=".$width."&HEIGHT=".$height."&SLD=".V1_SLD_URL."/".$nameSLDFile;
-				
-				
-						//print($url);
-				
-				
-				
-						//provinces,world
-				
-				
-				
-				
-						//global $height;
-			
-				
+							$url.=$layer."&format=image/png&bbox=".$bbox."&WIDTH=".$width."&HEIGHT=".$height."&SLD=".V1_SLD_URL."/".$nameSLDFile;
+						}			
+						//print($url);		
 						$url_list[]=$url;
 				
 						$legend_list[]=$legend_url;
@@ -2427,54 +2577,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				$json.="]";	
 				
 				}
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				//$img=$p_img;
-				
-				
-				
-				//if ($img=='false')
-				
-				//{
-				
-				//RMCA 09/04/2010
-				
-				
-				
-				////if ($img=='false')
-				
-				////{
-				
-				  // $headerText="Content-Type: application/json";
-				
-				
-				
-				////}
-				
-				
-				
-				//header($headerText);
-				//header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-				//header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
-				
-				
-				
-				//echo $json;
-				
-				//}
-				
-				//else
-				
-				//{
-				
-					//print("else");	
+					
 				
 					$random3="/var/www/synthesys/www/v1/img/".md5($p_uri )."bckgrd_layers.png";
 					$random4="/var/www/synthesys/www/v1/img/".md5($p_uri )."wms_layers.png";
@@ -2492,6 +2595,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 					}
 					
 					$url2_array=array();
+					$url2="";
 					$c="convert convert -size '".$width."x".$height."' xc:transparent $random3";
 					if(isset($arrayBackgroundStyle)===true)
 					{
@@ -2499,43 +2603,50 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 						{
 							$c='';
 							for ($i=0;$i<count($arrayBackgroundStyle);$i++)
-				
 							{
-								$url2=URL_GEOSERVER."?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&TRANSPARENT=TRUE&SERVICE=WMS&EPSG=4326&layers=".$arrayBackgroundStyle[$i]['name'];
-				
-							$url2.="&format=image/png&bbox=".$bbox."&WIDTH=".$width."&HEIGHT=".$height;
-					
-							if($arrayBackgroundStyle[$i]['type']=="sld")
-							{
-								$url2.="&SLD=".$arrayBackgroundStyle[$i]['style'];
-							}
-							elseif($arrayBackgroundStyle[$i]['type']=="wms_style")
-							{
-								$url2.="&STYLES=".$arrayBackgroundStyle[$i]['style'];
-							}
-							elseif($arrayBackgroundStyle[$i]['type']=="user_sld")
-							{
-				
-				
-								$pos_prefix_sld = substr_count($arrayBackgroundStyle[$i]['name'],$prefix_wms);
-								$displayedLayer_sld=$arrayBackgroundStyle[$i]['name'];
-								//print("pos=".$pos_prefix."=");
-								if($pos_prefix_sld===0) 
+								if($arrayBackgroundStyle[$i]['external_wms']=="yes")
 								{
-							  		//print("prefix");
-									$displayedLayer_sld=$prefix_wms.$arrayBackgroundStyle[$i]['name'];
+									$url2=f_autoFillWMSURL($arrayBackgroundStyle[$i]['external_wms_url'],$arrayBackgroundStyle[$i]['external_wms_version'], $arrayBackgroundStyle[$i]['style'],"",$bbox, $width, $height, $arrayBackgroundStyle[$i]['external_wms_filter']);
+									$url2_array[]=$url2;
+									
 								}
-								$returnedXML=generate_xml_simple_style_no_zone($displayedLayer_sld, $arrayBackgroundStyle[$i]['style'], $arrayBackgroundStyle[$i]['style'], $total_symbols, $symbols_url);
-								//print($returnedXML);
-								$path_towrite="/var/www/synthesys/www/v1/sld/"."_backsld_".$displayedLayer_sld.$random;
-								//print($path_towrite);
-								xml_to_sld_xslt($returnedXML, $displayedLayer_sld,'areas_pattern.xsl', $path_towrite );
-								$url_back_sld=V1_SLD_URL."/_backsld_".$displayedLayer_sld.$random;
-								$url2.="&SLD=".$url_back_sld;
-							}
+								else
+								{
+									$url2=URL_GEOSERVER."?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&TRANSPARENT=TRUE&SERVICE=WMS&EPSG=4326&layers=".$arrayBackgroundStyle[$i]['name'];
+				
+									$url2.="&format=image/png&bbox=".$bbox."&WIDTH=".$width."&HEIGHT=".$height;
+					
+									if($arrayBackgroundStyle[$i]['type']=="sld")
+									{
+										$url2.="&SLD=".$arrayBackgroundStyle[$i]['style'];
+									}
+									elseif($arrayBackgroundStyle[$i]['type']=="wms_style")
+									{
+										$url2.="&STYLES=".$arrayBackgroundStyle[$i]['style'];
+									}
+									elseif($arrayBackgroundStyle[$i]['type']=="user_sld")
+									{
+										$pos_prefix_sld = substr_count($arrayBackgroundStyle[$i]['name'],$prefix_wms);
+										$displayedLayer_sld=$arrayBackgroundStyle[$i]['name'];
+										//print("pos=".$pos_prefix."=");
+										if($pos_prefix_sld===0) 
+										{
+								  			//print("prefix");
+											$displayedLayer_sld=$prefix_wms.$arrayBackgroundStyle[$i]['name'];
+										}
+										$returnedXML=generate_xml_simple_style_no_zone($displayedLayer_sld, $arrayBackgroundStyle[$i]['style'], $arrayBackgroundStyle[$i]['style'], $total_symbols, $symbols_url);
+										//print($returnedXML);
+										$path_towrite="/var/www/synthesys/www/v1/sld/"."_backsld_".$displayedLayer_sld.$random;
+										//print($path_towrite);
+										xml_to_sld_xslt($returnedXML, $displayedLayer_sld,'areas_pattern.xsl', $path_towrite );
+										$url_back_sld=V1_SLD_URL."/_backsld_".$displayedLayer_sld.$random;
+										$url2.="&SLD=".$url_back_sld;
+									}
 							
-								$url2_array[]=$url2;
-								//print($url2);
+									$url2_array[]=$url2;
+									
+								}
+								
 							}
 						}
 					}
@@ -2625,28 +2736,35 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 	//part ftheeten 12/08/2010 external WMS
 	
-	
+			/*
 			$flagExternalWMS=false;
-	
+			$flagExternalWMSForeground=FALSE;
 			$extWFURLArray=array();
 	
 			$extWFSURL="";
+
 	
-			
-	
-			if(isset($p_externalwms)===true&&isset($p_externalwms_layer)===true)
-	
+			if(isset($p_externalwms)===true&&isset($p_externalwms_layer)===true)	
 			{
 	
 				$flagExternalWMS=true;
 	
 				$versionWFS=NULL;
+
+				if(isset($p_wms_foreground)===true)
+				{
+					if(strtolower($p_wms_foreground)==="true")
+					{
+						$flagExternalWMSForeground=TRUE;
+					}	
+				}
 	
-				if(isset($p_externalwms_version)===true)
+	
+				if(isset($p_externalwms_versions)===true)
 	
 				{
 	
-					$versionWFS=$p_externalwms_version;
+					$versionWFS=$p_externalwms_versions;
 	
 				}
 	
@@ -2666,11 +2784,11 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 									$versionWFS=NULL;
 	
-							if(isset($p_externalwms_version)===true)
+							if(isset($p_externalwms_versions)===true)
 	
 							{
 	
-								$versionWFS=$p_externalwms_version;
+								$versionWFS=$p_externalwms_versions;
 	
 							}
 	
@@ -2728,7 +2846,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 	
 	
-						$extWFSURL=f_autoFillWMSURL($externalWMS,$externalWMSVersion,$externalWMSLayer,$externalWMSStyle,$bbox,$width,$height);
+						$extWFSURL=f_autoFillWMSURL($externalWMS,$externalWMSVersion,$externalWMSLayer,$externalWMSStyle,$bbox,$width,$height, $p_externalwms_filter);
 	
 						$extWFSURLArray[]=$extWFSURL;
 	
@@ -2739,8 +2857,9 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 	
 			}
-	
-			if($flagExternalWMS===true)
+			
+			//27/09/2012 mmodif franck foreground
+			if($flagExternalWMS===true&&$flagExternalWMSForeground==FALSE)
 	
 			{
 	
@@ -2759,6 +2878,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 				
 	
 			}
+*/
 			if(isset($url2_array)===true)
 			{
 				if(count($url2_array)>0)
@@ -2773,6 +2893,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 						$c="composite '$random2' '$url2_array[$i]' '$random2'";
 						//print($url2_array[$i]);
+
 	
 						shell_exec($c);
 	
@@ -2782,6 +2903,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 				}	
 			}
+			
 	/*
 			if(strlen($url2)>0)
 			{
@@ -2828,42 +2950,70 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 			unlink(V1_IMG.'/'.$points);
 		}
 		//print($sld_url);
-		$c="convert '$sld_url' ".V1_IMG."'/$points'";
+		$c="convert '$sld_url' '".V1_IMG."/$points'";
 		shell_exec($c) ;
 
-		$c="composite ".V1_IMG."'/$points' '$random2' '$random2'";
-		shell_exec($c);		
+//print("----");
+//print($c);
+//print("----");
+		$c="composite '".V1_IMG."/$points' '$random2' '$random2'";
+		shell_exec($c);	
+
+//print($c);	
+//print("----");
 	}
 	//end display points
 	
+	//27/09/2012 mmodif franck foreground
+			/*if($flagExternalWMS===true&&$flagExternalWMSForeground==TRUE)
 	
+		{
+					
+				$cptLayers=count($extWFSURLArray);
+	
+				for($i=$cptLayers-1;$i>=0;$i--)
+	
+				{
+				
+					$c="composite  '".$extWFSURLArray[$i]."' '$random2' '$random2'";
+	
+					shell_exec($c);
+	
+				}		
+	
+				
+	
+			}*/
 	
 	if ($leg=='1')
 	
 	{
+		//print("display");
 	
-		$legend_url=URL_GEOSERVER."/GetLegendGraphic?SERVICE=WMS&VERSION=1.1.1&format=image/png&TRANSPARENT=TRUE&WIDTH=64&HEIGHT=36&";
+		$legend_url=URL_GEOSERVER."/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&format=image/png&WIDTH=64&HEIGHT=36&";
 	
 					$legend_url.="layer=topp:tdwg_level_3&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&SLD=".$leg_url;
 	$com="convert  '$legend_url' '$random2_legend'";
 	shell_exec($com);
 		if($flagDisplayPoints===true)
 		{
-			$legend_url_point.=URL_GEOSERVER."/GetLegendGraphic?SERVICE=WMS&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&VERSION=1.1.1&format=image/png&WIDTH=20&HEIGHT=30&layer=rest_points&SLD=".URL_SITE."/synthesys/www/v1/sld/point_".$random.".sld";
+			$legend_url_point.=URL_GEOSERVER."/wms?REQUEST=GetLegendGraphic&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&VERSION=1.1.1&format=image/png&WIDTH=20&HEIGHT=30&layer=rest_points&SLD=".URL_SITE."/synthesys/www/v1/sld/point_".$random.".sld";
 			$com="convert -background white -append '$legend_url_point' '$random2_legend'  '$random2_legend' ";
 			shell_exec($com);
 		}
 	
-		
-	
-		
+	//print(">>>");	
+	//print($legend_url);
+	//print("<<<<");	
 	
 	$mlp=$p_mlp;
+
 	if(strlen($mlp)==0)
 	{
 		//print("no");	
 		$mlp='3';
 	}
+//print($mlp);
 	
 	switch ($mlp)
 	
@@ -2929,7 +3079,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 	 	{ 	
 	
-	 $com="composite -gravity  SouthWest '$random2_legend'  '$random2'   '$random2'";//10
+	 $com="composite  -gravity  SouthWest '$random2_legend'  '$random2'   '$random2'";//10
 	
 	break;
 	
@@ -2951,13 +3101,14 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 	 $com="composite -gravity  NorthWest '$random2_legend'  '$random2'   '$random2'";//12
 	
-	break;$c.="'".$url_list[$i]."' ";
+	break;//$c.="'".$url_list[$i]."' ";?
 	
 	}	
 	
 	}
 	
 	shell_exec($com);
+	//print($com);
 	
 	//B&W mode ftheeten 2011/07/05
 	
@@ -2990,9 +3141,12 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 		header($headerText);
 		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+		
 		readfile($random2);
 
-	}	
+	}
+	
+	ob_flush();
 	if(strtolower($p_jsoncreatefile)!="true")
 	{
 		unlink($random2);
@@ -3001,7 +3155,7 @@ function fct_rest_gen($p_uri, $p_legend, $p_bck_layer, $p_areas_data, $p_areas_s
 	
 	//} oold if for 'img==true'
 	
-	clearstatcache();
+	//clearstatcache();
 	
 	$time=time();
 	

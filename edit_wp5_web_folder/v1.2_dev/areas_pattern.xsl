@@ -47,8 +47,8 @@
 									    <Font>
 										<CssParameter name="font-family">Times New Roman</CssParameter>
 										<CssParameter name="font-style">Normal</CssParameter>
-										<CssParameter name="font-size">30</CssParameter>
-										<CssParameter name="font-weight">bold</CssParameter>
+										<CssParameter name="font-size">12</CssParameter>
+										<CssParameter name="font-weight">Normal</CssParameter>
 									    </Font>
 							</TextSymbolizer>
 								</xsl:when>

@@ -193,7 +193,7 @@ function xml_to_sld_xslt($p_xml, $displayedLayer, $p_xslt,$path_towrite, $hatchi
 
 }
 
-function f_autoFillWMSURL($p_externalWMS, $p_externalWMSVersion, $p_externalWMSLayers, $p_externalWMSStyles, $p_bbox, $p_width, $p_height)
+function f_autoFillWMSURL($p_externalWMS, $p_externalWMSVersion, $p_externalWMSLayers, $p_externalWMSStyles, $p_bbox, $p_width, $p_height,  $p_externalWMSFilter )
 {
 
 	//print("functionCalled");
@@ -214,6 +214,15 @@ function f_autoFillWMSURL($p_externalWMS, $p_externalWMSVersion, $p_externalWMSL
 
 		}
 
+		if(isset($p_externalWMSFilter)===false)
+
+		{
+
+					$p_externalWMSFilter='';
+
+		}
+
+
 		$extWFSURL=$p_externalWMS."?REQUEST=GetMap";
 
 						$extWFSURL.="&TRANSPARENT=TRUE";
@@ -230,8 +239,11 @@ function f_autoFillWMSURL($p_externalWMS, $p_externalWMSVersion, $p_externalWMSL
 
 						$extWFSURL.="&FORMAT=image/png";
 
+						$extWFSURL.="&TRANSPARENT=TRUE";
 						$extWFSURL.="&bbox=".$p_bbox."&WIDTH=".$p_width."&HEIGHT=".$p_height;
 
+						$extWFSURL.="&FILTER=".urlencode($p_externalWMSFilter);						
+//print($extWFSURL);
 						$extWFURLArray[]=$extWFSURL;	
 
 	return $extWFSURL;
@@ -308,6 +320,89 @@ function f_writeKeyWFSURL($p_arrayWMS, $p_key, $p_bbox, $p_width, $p_height)
 
 	return f_autoFillWMSURL($p_arrayWMS[$p_key]["URL"],$p_arrayWMS[$p_key]["VERSION"],$p_arrayWMS[$p_key]["LAYERS"],$p_arrayWMS[$p_key]["STYLES"] ,$p_bbox, $p_width, $p_height);
 
+}
+
+
+function parseWMS($p_externalwms, $p_externalwms_versions, $p_externalwms_filters)
+{
+	$arrayWMSIdxURLs=array();		
+	if(isset($p_externalwms)===true)
+	{
+		$arrayWMSIdxURLs=array();		
+		$arrayWMSBases=explode('|',$p_externalwms);
+		if(count($arrayWMSBases)>0)
+		{
+			foreach($arrayWMSBases as $key=>$value)
+			{
+
+				if(strpos($value,":")!==FALSE)
+				{
+					
+					$wmsParts=explode(":", $value);
+					
+					if(count($wmsParts)>=2)
+					{
+						$idxWMS=array_shift($wmsParts);
+						if($idxWMS!="http")
+						{
+							$urlWMS=implode(":",$wmsParts);
+							$arrayWMSIdxURLs[$idxWMS]["url"]=$urlWMS;
+						}					
+					}
+							
+				}
+			}
+			$arrayWMSIdxURLs[$idxWMS]["version"]="1.1.1"; //default
+			if(isset($p_externalwms_versions))
+			{
+				$arrayWMSVersions=explode('|',$p_externalwms_versions);
+				foreach($arrayWMSVersions as $key=>$value)
+				{
+					if(strpos($value,":")!==FALSE)
+					{
+						$wmsParts=explode(":", $value);
+						if(count($wmsParts)>=2)
+						{
+							$idxWMS=array_shift($wmsParts);
+							$urlWMS=implode(":",$wmsParts);
+							if(array_key_exists($idxWMS,$arrayWMSIdxURLs ))
+							{
+								$arrayWMSIdxURLs[$idxWMS]["version"]=$urlWMS;
+							}
+						}
+	
+					}
+				}
+			
+			}
+			$arrayWMSIdxURLs[$idxWMS]["filter"]="";
+			if(isset($p_externalwms_filters))
+			{
+				$arrayWMSFilters=explode('|',$p_externalwms_filters);
+				foreach($arrayWMSFilters as $key=>$value)
+				{
+					if(strpos($value,":")!==FALSE)
+					{
+						$wmsParts=explode(":", $value);
+						if(count($wmsParts)>=2)
+						{
+							$idxWMS=array_shift($wmsParts);
+							$urlWMS=implode(":",$wmsParts);
+							if(array_key_exists($idxWMS,$arrayWMSIdxURLs ))
+							{
+								$arrayWMSIdxURLs[$idxWMS]["filter"]=$urlWMS;
+							}
+						}
+	
+					}
+				}
+			
+			}
+					
+		}
+
+	}
+	return $arrayWMSIdxURLs;
 }
 
 ?>

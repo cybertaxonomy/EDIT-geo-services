@@ -2270,9 +2270,11 @@ edit_wp5_web_folder/v1.2_dev/dynamicCharts.php -text
 edit_wp5_web_folder/v1.2_dev/function_lib_rest_dev.php -text
 edit_wp5_web_folder/v1.2_dev/function_lib_rest_dev_full.php -text
 edit_wp5_web_folder/v1.2_dev/function_rest_gen.php -text
+edit_wp5_web_folder/v1.2_dev/path_index.php -text
 edit_wp5_web_folder/v1.2_dev/points.php -text
 edit_wp5_web_folder/v1.2_dev/points.xsl -text
 edit_wp5_web_folder/v1.2_dev/points2.xsl -text
+edit_wp5_web_folder/v1.2_dev/points_transparent.xsl -text
 edit_wp5_web_folder/v1.2_dev/restHelper_curl.php -text
 edit_wp5_web_folder/v1.2_dev/restLibrary.php -text
 edit_wp5_web_folder/v1.2_dev/restLibrary_curl.php -text

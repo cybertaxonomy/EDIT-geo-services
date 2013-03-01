@@ -1,10 +1,64 @@
 <?php
 
-require_once("../path_index.php");
+require_once("./path_index.php");
 require_once("./function_lib_rest_dev_full.php");
+error_reporting(0);
 
-fct_rest_gen($_SERVER["REQUEST_URI"], $_REQUEST['legend'], $_REQUEST['l'], $_REQUEST['ad'], $_REQUEST['as'], $_REQUEST['ms'], $_REQUEST['bbox'], $_REQUEST['od'], $_REQUEST['os'], $_REQUEST['title'], $_REQUEST['label'], $_REQUEST['images_url'], $_REQUEST['symbols'], $_REQUEST['recalculate'], $_REQUEST['foo'], $_REQUEST['callback'], $_REQUEST['img'],
-	$_REQUEST['externalwms'], $_REQUEST['externalwmslayer'], $_REQUEST['externalwmsversion'], $_REQUEST['externalwmsstyle'], $_REQUEST['mlp'], $_REQUEST['grayscale'], $_REQUEST['createimgforjson'], $_REQUEST['raster']
+fct_rest_gen(
+//1
+$_SERVER["REQUEST_URI"], 
+//2
+$_REQUEST['legend'], 
+//3
+$_REQUEST['l'], 
+//4
+$_REQUEST['ad'], 
+//5
+$_REQUEST['as'], 
+//6
+$_REQUEST['ms'], 
+//7
+$_REQUEST['bbox'], 
+//8
+$_REQUEST['od'], 
+//9
+$_REQUEST['os'], 
+//10
+$_REQUEST['title'], 
+//11
+$_REQUEST['label'], 
+//12
+$_REQUEST['images_url'], 
+//13
+$_REQUEST['symbols'], 
+//14
+$_REQUEST['recalculate'], 
+//15
+$_REQUEST['foo'], 
+//16
+$_REQUEST['callback'], 
+//17
+$_REQUEST['img'],
+//18
+$_REQUEST['externalwms'], 
+//19
+$_REQUEST['externalwmslayer'], 
+//20
+$_REQUEST['externalwmsversion'], 
+//21
+$_REQUEST['externalwmsstyle'], 
+//22
+$_REQUEST['externalwmsfilter'],
+//23
+$_REQUEST['mlp'], 
+//24
+$_REQUEST['grayscale'], 
+//25
+$_REQUEST['createimgforjson'], 
+//26
+$_REQUEST['raster'], 
+//27
+$_REQUEST['wmsforeground']
 	);
 
 ?>
