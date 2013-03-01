@@ -64,6 +64,8 @@ $p_wms_foreground)
 				//error_reporting(0);
 
 				ob_start();
+				$flagError=false;
+				$errorMessage="";
 				
 				$flagDisplayPoints=falses;
 				//ftheeten 24/01/2013
@@ -370,32 +372,44 @@ $p_wms_foreground)
 					$random=md5($p_uri );
 					foreach ($geodata as $key=>$val)
 				
-					{
+					{	
+						//ftheeten march 2013
+						
 				
-						if(isset($geodata[$key]['geodata']['lat'] )===true)
-				
-						{
-							$sqls[]="delete from rest_points where userid='".$random."' AND id=".$key.";";
-				
-							foreach ($geodata[$key]['geodata']['lat'] as $k=>$v)
+							if(isset($geodata[$key]['geodata']['lat'] )===true)
 				
 							{
+								$sqls[]="delete from rest_points where userid='".$random."' AND id=".$key.";";
 				
-								$sql="insert into rest_points(userid,id,the_geom,label,timestamp_point) 	values('$random',".$key.",";
+								foreach ($geodata[$key]['geodata']['lat'] as $k=>$v)
 				
-								$sql.="GeometryFromText('POINT(".$v." ";
+								{
+									if(is_numeric($geodata[$key]['geodata']['lat'][$k])===true&& is_numeric($geodata[$key]['geodata']['lon'][$k])===true)
+									{
 				
-								$sql.=$geodata[$key]['geodata']['lon'][$k];
+										$sql="insert into rest_points(userid,id,the_geom,label,timestamp_point) 	values('$random',".$key.",";
 				
-								$sql.=")',4326),'".$geodata[$key]['legend']."',";
+										$sql.="GeometryFromText('POINT(".$v." ";
 				
-								$sql.=" current_timestamp);";
+										$sql.=$geodata[$key]['geodata']['lon'][$k];
 				
-								$sqls[]=$sql;
+										$sql.=")',4326),'".$geodata[$key]['legend']."',";
+				
+										$sql.=" current_timestamp);";
+				
+										$sqls[]=$sql;
+									}
+									else//error coordinates not numeric (ftheeten March 2013)
+									{
+										$flagError=true;
+										$errorMessage.="Error 01: some geographical point data are not numeric (image and/or map cannot be generated for the complete subset)\n";
+										
+									}
+				
+								}
 				
 							}
-				
-						}
+						
 				
 					}
 				
@@ -1598,6 +1612,7 @@ $p_wms_foreground)
 				$legend_xml[]=$legend;
 				
 				//var_dump($legend_xml);
+
 				
 				//echo $legend;
 				
@@ -1938,6 +1953,7 @@ $p_wms_foreground)
 													$label_field='code';$layer_sh="EURW 0";
 													if($ibbox==0)
 														{
+
 															$BBOX_sql="SELECT extent(g) FROM(select extent(the_geom) as g from ".$db_layer." where ";
 														}
 														elseif($ibbox>0)
@@ -3126,24 +3142,34 @@ $p_wms_foreground)
 	
 	//RMCA 09/04/2010
 	$img=$p_img;
-	
-	if(strtolower($img)=='false')
+	if($flagError===false)
 	{
-		$headerText="Content-Type: application/json";		
-		header($headerText);
-		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
-		print($json);
-	}
-	else
-	{
-		$headerText="Content-Type: image/png";	
-		header($headerText);
-		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+		if(strtolower($img)=='false')
+		{
+			$headerText="Content-Type: application/json";		
+			header($headerText);
+			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+			print($json);
+		}
+		else
+		{
+			$headerText="Content-Type: image/png";	
+			header($headerText);
+			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
 		
-		readfile($random2);
+			readfile($random2);
 
+		}
+	}
+	else//Error
+	{		//print($_SERVER['SERVER_PROTOCOL']. '400 Bad Request');
+			$headerText=$_SERVER['SERVER_PROTOCOL']. ' 400 Bad Request';	
+			header($headerText,true,"400");
+			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+			
+			print($errorMessage);
 	}
 	
 	ob_flush();
