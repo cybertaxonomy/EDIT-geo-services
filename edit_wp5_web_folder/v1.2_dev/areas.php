@@ -1,7 +1,7 @@
 <?php
-require_once("../path_index.php");
+require_once("./path_index.php");
 require_once("./function_lib_rest_dev_full.php");
-
+error_reporting(0);
 fct_rest_gen(
 //1
 $_SERVER["REQUEST_URI"], 
@@ -56,6 +56,9 @@ $_REQUEST['createimgforjson'],
 //26
 $_REQUEST['raster'], 
 //27
-$_REQUEST['wmsforeground']
+$_REQUEST['wmsforeground'],
+,
+//28
+$_REQUEST['dest_projection_epsg']
 	);
 ?>

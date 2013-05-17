@@ -1,5 +1,5 @@
 <?xml version="1.0"?> <xsl:stylesheet xmlns:ogc="http://www.opengis.net/ogc" xmlns:wfs="http://www.opengis.net/wfs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> <xsl:output method="xml"/>
-
+<!--<xsl:include href="hexatodeci.xsl"/>-->
 <xsl:template match="gml">		
 			<xsl:param name="style" select="gml/style"/>
 			<xsl:param name="label" select="gml/style/label"/>
@@ -78,8 +78,19 @@
 													</GraphicFill>
 									</xsl:when>
 								<xsl:otherwise>
-									
-						<CssParameter name="fill">#<xsl:value-of select="$fill_color"/></CssParameter>   
+									<!--ftheeten 18/05/2013 (8 chars=>transparent)-->
+									<xsl:choose>
+										<xsl:when test="string-length($fill_color) = 8">	
+						<CssParameter name="fill">#<xsl:value-of disable-output-escaping="yes" select="substring($fill_color,2)"/></CssParameter> 
+						
+						<CssParameter name="fill-opacity"><xsl:call-template name="HexToOpacity"><xsl:with-param name="hexNumber" select="substring($fill_color,0,2)"/></xsl:call-template></CssParameter>  							
+										</xsl:when>
+
+										<xsl:otherwise>
+											<CssParameter name="fill">#</CssParameter>
+										</xsl:otherwise>
+
+									</xsl:choose>
 						      </xsl:otherwise>
 						
 					</xsl:choose>
@@ -127,11 +138,46 @@
 					        	<xsl:value-of select="$country"/>
 					        </ogc:Literal>
 					</ogc:PropertyIsEqualTo>
-				</xsl:if>
-			
-			              
-		          
-	
-											
+				</xsl:if>			          											
 </xsl:template>
+
+  <xsl:template name="HexToDecimal"><xsl:param name="hexNumber" />
+    <xsl:param name="decimalNumber" >0</xsl:param>
+    <!-- If there is zero hex digits left, output -->
+    <xsl:choose>
+      <xsl:when test="$hexNumber">
+        <xsl:call-template name="HexToDecimal">
+          <xsl:with-param name="decimalNumber" select="($decimalNumber*16)+number(substring-before(substring-after('00/11/22/33/44/55/66/77/88/99/A10/B11/C12/D13/E14/F15/a10/b11/c12/d13/e14/f15/',substring($hexNumber,1,1)),'/'))" />
+          <xsl:with-param name="hexNumber" select="substring($hexNumber,2)" />
+        </xsl:call-template>
+      </xsl:when>
+      <!-- otherwise multiply, and add the next digit, and recurse -->
+      <xsl:otherwise>
+        <xsl:value-of select="$decimalNumber"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!-- If it begins with 0x then parse it for sure, else return it -->
+  <xsl:template name="asDecimal">
+    <xsl:param name="number" />
+    <xsl:choose>
+      <xsl:when test="substring($number,1,2)='0x'">
+        <xsl:call-template name="HexToDecimal">
+          <xsl:with-param name="hexNumber" select="substring($number,3)"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$number"/>
+      </xsl:otherwise>
+    </xsl:choose></xsl:template>
+<!--to calculate for the SLD-->
+ <xsl:template name="HexToOpacity"><xsl:param name="hexNumber" />
+	<xsl:variable name="resultConversion">
+		<xsl:call-template name="HexToDecimal">
+		  <xsl:with-param name="hexNumber" select="$hexNumber" />
+		</xsl:call-template>
+	</xsl:variable>
+	<xsl:value-of select="1-(number($resultConversion) div 15)"/>
+</xsl:template>
+
 </xsl:stylesheet>

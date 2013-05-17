@@ -405,4 +405,41 @@ function parseWMS($p_externalwms, $p_externalwms_versions, $p_externalwms_filter
 	return $arrayWMSIdxURLs;
 }
 
+function handle_exception_rest($p_arrayExceptions)
+{
+	$headerText=$_SERVER['SERVER_PROTOCOL']. ' 400 Bad Request';	
+			header($headerText,true,"400");
+			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+			foreach($p_arrayExceptions as $msg)	
+			print($msg);
+			print("\n");
+
+}
+
+function convertPointProjection($p_postgisConn, $p_latitude, $p_longitude, $p_src_projection, $p_dest_projection)
+{
+	$returned=NULL;
+	$splitPoints=explode("|",$p_coord);
+	
+		if(is_numeric($p_latitude)&&is_numeric($p_longitude))
+		{
+			$query="SELECT ST_XMAX(ST_TRANSFORM(ST_GEOMFROMTEXT('POINT(".$p_longitude." ".$p_latitude.")',".$p_src_projection."),".$p_dest_projection.")) AS longitude, ST_YMAX(ST_TRANSFORM(ST_GEOMFROMTEXT('POINT(".$p_longitude." ".$p_latitude.")',".$p_src_projection."),".$p_dest_projection.")) AS latitude;";
+
+			$postgis_result=pg_query($p_postgisConn,$query);
+			$row = pg_fetch_array($postgis_result, NULL, PGSQL_ASSOC);
+			{
+				if(isset($row))
+				{
+					$returned=$row['longitude'].",".$row["latitude"];
+				
+				}
+										
+			
+			}
+		}
+
+	
+	return $returned;
+}
+
 ?>

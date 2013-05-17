@@ -58,7 +58,9 @@ $_REQUEST['createimgforjson'],
 //26
 $_REQUEST['raster'], 
 //27
-$_REQUEST['wmsforeground']
+$_REQUEST['wmsforeground'],
+
+$_REQUEST['dest_projection_epsg']
 	);
 
 ?>

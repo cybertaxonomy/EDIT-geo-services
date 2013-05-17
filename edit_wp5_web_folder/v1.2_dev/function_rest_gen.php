@@ -55,7 +55,10 @@ $p_jsoncreatefile,
 //26
 $p_raster, 
 //27
-$p_wms_foreground)
+$p_wms_foreground,
+//28
+$p_dest_epsg_projection
+)
 {
 
 //print($p_wms_foreground);
@@ -64,13 +67,14 @@ $p_wms_foreground)
 				//error_reporting(0);
 
 				ob_start();
+				$conn = pg_pconnect(POSTGIS_CS);
 				$flagError=false;
-				$errorMessage="";
+				$errorMessages=array();
 				
 				$flagDisplayPoints=falses;
 				//ftheeten 24/01/2013
 				$arrayWMSIdxURLs=parseWMS($p_externalwms, $p_externalwms_versions, $p_externalwms_filter);
-
+				$convertedCoordinates=array();
 				//test ftheeten 14/03/2011
 				//$path_towrite_persistent_sld="/var/www/synthesys/www/v1/sld_persistent/";
 				//$url_persistent_sld='http://edit.br.fgov.be/synthesys/www/v1/sld_persistent';
@@ -285,12 +289,15 @@ $p_wms_foreground)
 					foreach ($geo as $key=>$value)
 				
 					{
-				
 						$geos=explode(',',$value);
+
+						if(count($geos)>=2&&strlen($geos[0])>0&&strlen($geos[1])>0)
+						{
+							
 				
-						$geodata[$id]['geodata']['lon'][]=$geos[0];
-				
-						$geodata[$id]['geodata']['lat'][]=$geos[1];
+							$geodata[$id]['geodata']['lon'][]=$geos[1];				
+							$geodata[$id]['geodata']['lat'][]=$geos[0];
+						}
 						
 				
 					}
@@ -373,6 +380,7 @@ $p_wms_foreground)
 					foreach ($geodata as $key=>$val)
 				
 					{	
+
 						//ftheeten march 2013
 						
 				
@@ -384,25 +392,39 @@ $p_wms_foreground)
 								foreach ($geodata[$key]['geodata']['lat'] as $k=>$v)
 				
 								{
+									$long=$geodata[$key]['geodata']['lon'][$k];
 									if(is_numeric($geodata[$key]['geodata']['lat'][$k])===true&& is_numeric($geodata[$key]['geodata']['lon'][$k])===true)
 									{
 				
 										$sql="insert into rest_points(userid,id,the_geom,label,timestamp_point) 	values('$random',".$key.",";
 				
-										$sql.="GeometryFromText('POINT(".$v." ";
+										$sql.="GeometryFromText('POINT(".$long." ";
 				
-										$sql.=$geodata[$key]['geodata']['lon'][$k];
+										$sql.=$v;
 				
 										$sql.=")',4326),'".$geodata[$key]['legend']."',";
 				
 										$sql.=" current_timestamp);";
 				
 										$sqls[]=$sql;
+
+										//ftheeten
+										if(isset($p_dest_epsg_projection)&&strtolower($p_img)=='false')
+										{
+											if(strlen($p_dest_epsg_projection)>0)
+											{
+												$convProj=convertPointProjection($conn, $v,$long, "4326", $p_dest_epsg_projection);
+												$convertedCoordinates[]=$convProj;
+											}
+										}
+
 									}
 									else//error coordinates not numeric (ftheeten March 2013)
 									{
 										$flagError=true;
-										$errorMessage.="Error 01: some geographical point data are not numeric (image and/or map cannot be generated for the complete subset)\n";
+										$errorMessages[]=EXC_001;
+										handle_exception_rest($errorMessages);
+										return;
 										
 									}
 				
@@ -725,6 +747,7 @@ $p_wms_foreground)
 						{
 							//print("key exists for $v");
 							$arrayBackgroundStyle[$i]['external_wms']="yes";
+
 							$arrayBackgroundStyle[$i]['external_wms_url']=$arrayWMSIdxURLs[$v]["url"];
 							$arrayBackgroundStyle[$i]['external_wms_version']=$arrayWMSIdxURLs[$v]["version"];
 							$arrayBackgroundStyle[$i]['external_wms_filter']=$arrayWMSIdxURLs[$v]["filter"];
@@ -1863,7 +1886,7 @@ $p_wms_foreground)
 
 						//ftheeten 24/01/2013
 						
-							$conn = pg_pconnect(POSTGIS_CS);
+							//$conn = pg_pconnect(POSTGIS_CS);
 			
 								if (pg_ErrorMessage($conn)) 
 			
@@ -2561,6 +2584,19 @@ $p_wms_foreground)
 				if($p_occ_data)
 				{				
 					$json.=",\"points_sld\": \"".URL_SITE."/synthesys/www/v1/sld/point_".$random.".sld\"";
+					if(isset($p_dest_epsg_projection)&&strtolower($p_img)=='false')
+					{
+						if(strlen($p_dest_epsg_projection)>0)
+						{
+							$json.=",\"dest_projection\": \"".$p_dest_epsg_projection."\"";
+							$bbox_dest_proj=explode(",",$bbox);
+	
+							$point1_conv=convertPointProjection($conn,$bbox_dest_proj[1],$bbox_dest_proj[0],"4236","900913");
+							$point2_conv=convertPointProjection($conn,$bbox_dest_proj[3],$bbox_dest_proj[2],"4236","900913");
+							$json.=",\"bbox_dest_projection\": \"".$point1_conv.",".$point2_conv."\"";
+							$json.=",\"points_dest_projection\": \"".implode("|",$convertedCoordinates)."\"";
+						}
+					}
 				}
 				if(strtolower($p_jsoncreatefile)==="true")
 				{
@@ -3142,8 +3178,8 @@ $p_wms_foreground)
 	
 	//RMCA 09/04/2010
 	$img=$p_img;
-	if($flagError===false)
-	{
+	//if($flagError===false)
+	//{
 		if(strtolower($img)=='false')
 		{
 			$headerText="Content-Type: application/json";		
@@ -3162,15 +3198,15 @@ $p_wms_foreground)
 			readfile($random2);
 
 		}
-	}
-	else//Error
-	{		//print($_SERVER['SERVER_PROTOCOL']. '400 Bad Request');
-			$headerText=$_SERVER['SERVER_PROTOCOL']. ' 400 Bad Request';	
-			header($headerText,true,"400");
-			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-			
-			print($errorMessage);
-	}
+	//}
+	//else//Error
+	//{		//print($_SERVER['SERVER_PROTOCOL']. '400 Bad Request');
+	//		$headerText=$_SERVER['SERVER_PROTOCOL']. ' 400 Bad Request';	
+	//		header($headerText,true,"400");
+	//		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+	//		
+	//		print($errorMessage);
+	//}
 	
 	ob_flush();
 	if(strtolower($p_jsoncreatefile)!="true")

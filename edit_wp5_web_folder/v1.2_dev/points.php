@@ -1,6 +1,7 @@
 <?php
 require_once("./path_index.php");
 require_once("./function_lib_rest_dev_full.php");
+error_reporting(0);
 
 $p_img="";
 if($_REQUEST['img'])
@@ -68,6 +69,8 @@ $_REQUEST['createimgforjson'],
 //26
 $_REQUEST['raster'], 
 //27
-$_REQUEST['wmsforeground']
+$_REQUEST['wmsforeground'],
+//28
+$_REQUEST['dest_projection_epsg']
 	);
 ?>
