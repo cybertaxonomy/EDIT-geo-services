@@ -57,7 +57,9 @@ $p_raster,
 //27
 $p_wms_foreground,
 //28
-$p_dest_epsg_projection
+$p_dest_epsg_projection,
+//29
+$p_no_header_for_tests=FALSE
 )
 {
 
@@ -66,12 +68,12 @@ $p_dest_epsg_projection
 				//ftheeten 2013/01/11
 				//error_reporting(0);
 
-				ob_start();
+				//ob_start();
 				$conn = pg_pconnect(POSTGIS_CS);
 				$flagError=false;
 				$errorMessages=array();
 				
-				$flagDisplayPoints=falses;
+				$flagDisplayPoints=false;
 				//ftheeten 24/01/2013
 				$arrayWMSIdxURLs=parseWMS($p_externalwms, $p_externalwms_versions, $p_externalwms_filter);
 				$convertedCoordinates=array();
@@ -82,15 +84,24 @@ $p_dest_epsg_projection
 				
 				$prefix_wms="topp:";
 				
-				
-				
-				$random=md5($p_uri ).".sld";
-				
+				$ls_string=NULL;
+				$title_external=NULL;
+				$title=NULL;
+				$layer=NULL;
+				$field=NULL;
+				$label_field=NULL;
+				$label=NULL;	
+				$random=md5($p_uri .get_current_user()).".sld";
+				$sessionid=$random;
+				$legend_url=NULL;
+				$sld_url=NULL;
+				$geo=NULL;
+				$ratio_y=NULL;
 				$leg=$p_legend;
 				
 				
 				//bug 16/04/2010 (pb with imagemagick package in filename?)
-				$image_radical=md5($p_uri );
+				$image_radical=md5($p_uri .get_current_user());
 				$image_file=$image_radical."_layers.png";
 				
 				$random2=V1_IMG.$image_file;
@@ -283,24 +294,26 @@ $p_dest_epsg_projection
 					$id=$specie[0];
 				
 					//geodata of each recordset
-				
-					$geo=explode('|',$specie[1]);
-				
-					foreach ($geo as $key=>$value)
-				
+					if(isset($specie[1]))
 					{
-						$geos=explode(',',$value);
-
-						if(count($geos)>=2&&strlen($geos[0])>0&&strlen($geos[1])>0)
+						$geo=explode('|',$specie[1]);
+						foreach ($geo as $key=>$value)
+				
 						{
+							$geos=explode(',',$value);
+
+							if(count($geos)>=2&&strlen($geos[0])>0&&strlen($geos[1])>0)
+							{
 							
 				
-							$geodata[$id]['geodata']['lon'][]=$geos[1];				
-							$geodata[$id]['geodata']['lat'][]=$geos[0];
-						}
+								$geodata[$id]['geodata']['lon'][]=$geos[1];				
+								$geodata[$id]['geodata']['lat'][]=$geos[0];
+							}
 						
 				
+						}
 					}
+					
 				
 				}
 
@@ -541,7 +554,7 @@ $p_dest_epsg_projection
 				
 					$xsl->setParameter( '', 'userid', $random);
 				
-					$style = realpath('points_transparent.xsl');
+					$style = realpath(dirname(__FILE__)."/".'points_transparent.xsl');
 				
 					$dom_new->load($style);
 				
@@ -557,7 +570,7 @@ $p_dest_epsg_projection
 				
 					//print($path_towrite);
 				
-					$fp=fopen("$path_towrite","w");
+					$fp=fopen("$path_towrite","w+");
 				
 					$write=fwrite($fp,$out);
 				
@@ -948,13 +961,13 @@ $p_dest_epsg_projection
 				
 					{//if title
 				
-						$title=$p_title;
+						$title_external=$p_title;
 				
 					}//if title
 				
 					//title=a:cultivated|b:forest
 				
-					$t=explode('|',$title);
+					$t=explode('|',$title_external);
 				
 					$title_array=array();
 				
@@ -965,9 +978,14 @@ $p_dest_epsg_projection
 					{//loop t
 				
 						$title=explode(':',$v);
-				
-						$title_array[$title[0]]=$title[1];
-				
+						if(isset($title[1]))
+						{
+							$title_array[$title[0]]=$title[1];
+						}
+						else
+						{
+							$title_array[$title[0]]=NULL;
+						}
 					}//loop t
 				
 				
@@ -1016,9 +1034,14 @@ $p_dest_epsg_projection
 						$symbols=explode(':',$v);
 				
 						$keys=explode(',',$symbols[0]);
-				
-						$get_v=explode(',',$symbols[1]);
-				
+						if(isset($symbols[1]))
+						{
+							$get_v=explode(',',$symbols[1]);
+						}
+						else
+						{
+							$get_v=array();
+						}
 					//		var_dump ($get_v);
 				
 						if ($p_img_url)
@@ -1085,8 +1108,7 @@ $p_dest_epsg_projection
 				
 						$ms=$p_size;
 				
-						if (ereg(",",$ms))
-				
+						if (@ereg(",",$ms))
 						{
 				
 							$ms=explode(',',$ms);
@@ -1153,7 +1175,7 @@ $p_dest_epsg_projection
 						$symbols_val=$color[1];
 						*/
 				
-						if (!ereg(",",$symbols_val))
+						if (!@ereg(",",$symbols_val))
 				
 						{
 				
@@ -1231,28 +1253,30 @@ $p_dest_epsg_projection
 				
 									//}
 				
-				
+									break;
 				
 									case 1:
-				
-									 	if($total_symbols[$k][$i]=="")
-				
+										if(isset($total_symbols[$k][$i]))
 										{
+										 	if($total_symbols[$k][$i]=="")
 				
-											$total_symbols[$k][$i]="10090b";				
+											{
 				
+												$total_symbols[$k][$i]="10090b";				
+				
+											}
 										}
-				
+										break;
 									case 2:
-				
-										 if($total_symbols[$k][$i]=="")
+										
+										 if(isset($total_symbols[$k][$i])===FALSE||$total_symbols[$k][$i]=="")
 				
 										{
 				
 											$total_symbols[$k][$i]="0.5";				
 				
 										}
-				
+										break;
 									/*	case 3:
 				
 											 if($total_symbols[$k][$i]=="")
@@ -1275,23 +1299,24 @@ $p_dest_epsg_projection
 				
 									case 3:
 				
-										if($total_symbols[$k][$i]=="")
+										if(isset($total_symbols[$k][$i])===FALSE||$total_symbols[$k][$i]=="")
 				
 										{
 				
 												$total_symbols[$k][$i]="no_style";
 				
 										}
-				
+										break;
 									case 4:
 				
-										if($total_symbols[$k][$i]=="")
+										if(isset($total_symbols[$k][$i])===FALSE||$total_symbols[$k][$i]=="")
 				
 										{
 				
 												$total_symbols[$k][$i]="no_label";
 				
 										}
+										break;
 				
 							  	  }//fi switch
 				
@@ -1396,7 +1421,7 @@ $p_dest_epsg_projection
 									//var_dump($v);
 				
 				
-									if (!ereg(",",$first_pol))
+									if (!@ereg(",",$first_pol))
 				
 									{//loop first pol
 				
@@ -1458,7 +1483,7 @@ $p_dest_epsg_projection
 				
 									$wms_field_array[$first_layer]=$first_wms_field;
 				
-									if (!ereg(",",$data[1]))
+									if (!@ereg(",",$data[1]))
 				
 									{//if data 1
 				
@@ -1526,105 +1551,114 @@ $p_dest_epsg_projection
 				foreach ($total_symbols as $k=>$v)
 				
 				{//loop total symbols in gml
-					if(strlen($title_array[$k])>0)
+					if(isset($title_array[$k]))
 					{
+						if(strlen($title_array[$k])>0)
+						{
 				
-						//var_dump($k);  //a,b
+							//var_dump($k);  //a,b
 				
-						$legend.="<style><name>".$title_array[$k]."</name>";
+							$legend.="<style><name>".$title_array[$k]."</name>";
 				
-						//$legend.="<style><name>".$total_symbols[$k][4]."</name>";
-				
-				
-				
-						$legend.="<label>".$k."</label>";
+							//$legend.="<style><name>".$total_symbols[$k][4]."</name>";
 				
 				
 				
-						if (array_key_exists($k['url'],$symbols_url))
+							$legend.="<label>".$k."</label>";
 				
-						{//if key in symbol
+				
+				
+							if (array_key_exists($k['url'],$symbols_url))
+				
+							{//if key in symbol
 				
 				
 				
 									
 				
-							$legend.="<hatching>http://".$symbols_url[$k]['url']."/".$symbols_url[$k]['symbols'].".".$symbols_url[$k]['format']."</hatching>";
+								$legend.="<hatching>http://".$symbols_url[$k]['url']."/".$symbols_url[$k]['symbols'].".".$symbols_url[$k]['format']."</hatching>";
 				
-							switch ($symbols_url[$k]['format'])
+								switch ($symbols_url[$k]['format'])
 				
-							{
+								{
 				
-								case ('gif'): $format='image/gif';break;
+									case ('gif'): $format='image/gif';break;
 				
-								case ('png'): $format='image/png';break;
+									case ('png'): $format='image/png';break;
 				
-								case ('jpeg'): $format='image/jpeg';break;
+									case ('jpeg'): $format='image/jpeg';break;
 				
-							}
-				
-				
-				
-							$legend.="<symbol_size>".$symbols_url[$k]['size']."</symbol_size>";
-				
-							$legend.="<symbol_format>".$format."</symbol_format>";
-				
-							//$xml.="<hatch_symbol>".."</hatch_symbol>";
-				
-							$legend.="<color>hatching</color>";
-				
-						}//end if array key in symbol
-				
-						else 
-						{ // if array key in symbol
-				
-							$legend.="<hatching>NO</hatching>";
-				
-							$legend.="<color>".$total_symbols[$k][0]."</color>";
-				
-						} //end array key in symbol
+								}
 				
 				
 				
+								$legend.="<symbol_size>".$symbols_url[$k]['size']."</symbol_size>";
+				
+								$legend.="<symbol_format>".$format."</symbol_format>";
+				
+								//$xml.="<hatch_symbol>".."</hatch_symbol>";
+				
+								$legend.="<color>hatching</color>";
+				
+							}//end if array key in symbol
+				
+							else 
+							{ // if array key in symbol
+				
+								$legend.="<hatching>NO</hatching>";
+				
+								$legend.="<color>".$total_symbols[$k][0]."</color>";
+				
+							} //end array key in symbol
+
+
+
+
+
+
 				
 				
-						$legend.="<stroke_color>".$total_symbols[$k][1]."</stroke_color>";
 				
-						$legend.="<stroke_width>".$total_symbols[$k][2]."</stroke_width>";
 				
-						switch ($total_symbols[$k][3])
 				
-						{// switch total symbols
+							$legend.="<stroke_color>".$total_symbols[$k][1]."</stroke_color>";
 				
-							case ('1_2'): 
-								$total_symbols[$k][3]="1 2 1 2";
-							break;
+							$legend.="<stroke_width>".$total_symbols[$k][2]."</stroke_width>";
 				
-							case ('1_4'): 
-								$total_symbols[$k][3]="1 4 1 4";
-							break;
+							switch ($total_symbols[$k][3])
 				
-							case ('2_2'): 
-								$total_symbols[$k][3]="2 2 2 2";
-							break;
+							{// switch total symbols
 				
-							case ('2_4'):
-								$total_symbols[$k][3]="2 4 2 4";
-							break;
+								case ('1_2'): 
+									$total_symbols[$k][3]="1 2 1 2";
+								break;
 				
-							case ('5_7'): 
-								$total_symbols[$k][3]="5 7 5 7";
-							break;
+								case ('1_4'): 
+									$total_symbols[$k][3]="1 4 1 4";
+								break;
 				
-							case ('10_5'): 
-								$total_symbols[$k][3]="10 5 10 5";
-							break;
+								case ('2_2'): 
+									$total_symbols[$k][3]="2 2 2 2";
+								break;
 				
-						}//end switch
+								case ('2_4'):
+									$total_symbols[$k][3]="2 4 2 4";
+								break;
 				
-							$legend.="<stroke_style>".$total_symbols[$k][3]."</stroke_style>";
+								case ('5_7'): 
+									$total_symbols[$k][3]="5 7 5 7";
+								break;
 				
-							$legend.="</style>";
+								case ('10_5'): 
+									$total_symbols[$k][3]="10 5 10 5";
+								break;
+				
+							}//end switch
+				
+								$legend.="<stroke_style>".$total_symbols[$k][3]."</stroke_style>";
+				
+								$legend.="</style>";
+						}
 					}
 				
 				}//end loop symbols in gml
@@ -1653,7 +1687,7 @@ $p_dest_epsg_projection
 				
 				$xsl->setParameter( '', 'label_field', $label_field);
 				
-				$style = realpath('areas_legend_no.xsl');
+				$style = realpath(dirname(__FILE__)."/".'areas_legend_no.xsl');
 				
 				$dom_new = new DOMDocument();
 				
@@ -1673,7 +1707,7 @@ $p_dest_epsg_projection
 				
 				$leg_path_towrite="/var/www/synthesys/www/v1/sld/$random";
 				
-				$fp=fopen("$leg_path_towrite","w");
+				$fp=fopen("$leg_path_towrite","w+");
 				
 				$write=fwrite($fp,$out);
 				
@@ -2484,6 +2518,11 @@ $p_dest_epsg_projection
 				
 						}
 				
+				if(strlen($displayedLayer)==0||strlen($field)==0)
+				{
+					print("It seems that the name of the layer for area and/or the name of its indexing column is missing. \n Syntax is \"ad=layer_name:indexer_column:alias_for_style:Value in DB\" (exemple: \"&ad=em_tiny_jan2003:emarea:a:Ge\")\n Please check the structure of the layer in WMS/WFS for the name of the columns");
+				}
+
 				$xsl->setParameter( '', 'layer', $displayedLayer);
 				//ftheeten 2011/05/27
 				
@@ -2492,7 +2531,7 @@ $p_dest_epsg_projection
 				//$xsl->setParameter( '', 'label_field', $label_field);
 				$xsl->setParameter( '', 'label_field', $field);
 				
-				$style = realpath('areas_pattern.xsl');
+				$style = realpath(dirname(__FILE__)."/".'areas_pattern.xsl');
 				
 				$dom_new->load($style);
 				
@@ -2648,7 +2687,7 @@ $p_dest_epsg_projection
 					
 					$url2_array=array();
 					$url2="";
-					$c="convert convert -size '".$width."x".$height."' xc:transparent $random3";
+					$c=" convert -size '".$width."x".$height."' xc:transparent $random3";
 					if(isset($arrayBackgroundStyle)===true)
 					{
 						if(count($arrayBackgroundStyle)>0)
@@ -2690,7 +2729,7 @@ $p_dest_epsg_projection
 										//print($returnedXML);
 										$path_towrite="/var/www/synthesys/www/v1/sld/"."_backsld_".$displayedLayer_sld.$random;
 										//print($path_towrite);
-										xml_to_sld_xslt($returnedXML, $displayedLayer_sld,'areas_pattern.xsl', $path_towrite );
+										xml_to_sld_xslt($returnedXML, $displayedLayer_sld,dirname(__FILE__)."/".'areas_pattern.xsl', $path_towrite );
 										$url_back_sld=V1_SLD_URL."/_backsld_".$displayedLayer_sld.$random;
 										$url2.="&SLD=".$url_back_sld;
 									}
@@ -2710,7 +2749,7 @@ $p_dest_epsg_projection
 				
 				
 				
-						$c="convert convert -size '".$width."x".$height."' xc:transparent $random3";
+						$c=" convert -size '".$width."x".$height."' xc:transparent $random3";
 				
 						shell_exec($c);
 				
@@ -2774,7 +2813,7 @@ $p_dest_epsg_projection
 				}
 				elseif(count($url_list)==0)
 				{
-						$c="convert convert -size '".$width."x".$height."' xc:transparent $random2";
+						$c="convert  -size '".$width."x".$height."' xc:transparent $random2";
 				
 						shell_exec($c);
 				}
@@ -3044,6 +3083,7 @@ $p_dest_epsg_projection
 	
 		$legend_url=URL_GEOSERVER."/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&format=image/png&WIDTH=64&HEIGHT=36&";
 	
+
 					$legend_url.="layer=topp:tdwg_level_3&LEGEND_OPTIONS=forceLabels:on;fontStyle:italic;fontSize:12&SLD=".$leg_url;
 	$com="convert  '$legend_url' '$random2_legend'";
 	shell_exec($com);
@@ -3182,19 +3222,25 @@ $p_dest_epsg_projection
 	//{
 		if(strtolower($img)=='false')
 		{
-			$headerText="Content-Type: application/json";		
-			header($headerText);
-			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+			$headerText="Content-Type: application/json";
+			if($p_no_header_for_tests===FALSE)
+			{		
+				header($headerText);
+				header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+			}			
 			print($json);
 		}
 		else
 		{
-			$headerText="Content-Type: image/png";	
-			header($headerText);
-			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
-		
+			if($p_no_header_for_tests===FALSE)
+			{
+				$headerText="Content-Type: image/png";	
+				header($headerText);
+				header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+			}
+			
 			readfile($random2);
 
 		}
@@ -3208,7 +3254,7 @@ $p_dest_epsg_projection
 	//		print($errorMessage);
 	//}
 	
-	ob_flush();
+	//ob_flush();
 	if(strtolower($p_jsoncreatefile)!="true")
 	{
 		unlink($random2);

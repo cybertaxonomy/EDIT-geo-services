@@ -87,7 +87,7 @@
 										</xsl:when>
 
 										<xsl:otherwise>
-											<CssParameter name="fill">#</CssParameter>
+											<CssParameter name="fill">#<xsl:value-of select="$fill_color"/></CssParameter>
 										</xsl:otherwise>
 
 									</xsl:choose>
