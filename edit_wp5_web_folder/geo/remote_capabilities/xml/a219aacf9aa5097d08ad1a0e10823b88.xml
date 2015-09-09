@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector/REQUEST/get/DATA/LPR/wms/1.1.1/WMS_MS_Capabilities.dtd"
+[
+<!ELEMENT VendorSpecificCapabilities (PreferredFormat?)>
+<!ELEMENT PreferredFormat (Format+,refresh?,SRS?,supportDataSrs?)>
+<!ELEMENT refresh EMPTY >
+<!ATTLIST refresh rate CDATA #REQUIRED>
+<!ELEMENT supportDataSrs EMPTY >
+]
+>
+<WMT_MS_Capabilities version="1.1.1">
+  <Service>
+    <Name>OGC:WMS</Name>
+    <Title>RMCA_GEOLMAP_AFRICA_vector</Title>
+    <Abstract>WMS Map Server maintained by Ionic Software (http://www.ionicsoft.com).</Abstract>
+
+    <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+    <Fees>none</Fees>
+    <AccessConstraints>none</AccessConstraints>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+            <Post>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/gif</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png</Format>
+        <Format>image/vnd.wap.wbmp</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/x-bmp</Format>
+        <Format>image/tiff</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+            <Post>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>application/vnd.ogc.gml</Format>
+        <Format>text/html</Format>
+        <Format>text/xml</Format>
+        <Format>text/plain</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+      <DescribeLayer>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/RMCA_GEOLMAP_AFRICA_vector?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </DescribeLayer>
+    </Request>
+    <Exception>
+      <Format>application/vnd.ogc.se_inimage</Format>
+      <Format>application/vnd.ogc.se_blank</Format>
+      <Format>application/vnd.ogc.se_xml</Format>
+    </Exception>
+    <VendorSpecificCapabilities>
+      <PreferredFormat>
+        <Format>image/gif</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png</Format>
+        <Format>image/vnd.wap.wbmp</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/x-bmp</Format>
+        <Format>image/tiff</Format>
+        <Format>application/pdf</Format>
+        <supportDataSrs/>
+      </PreferredFormat>
+    </VendorSpecificCapabilities>
+    <UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="0" RemoteWFS="0"/>
+    <Layer>
+      <Title>RMCA_GEOLMAP_AFRICA_vector</Title>
+      <SRS>EPSG:4326</SRS>
+      <LatLonBoundingBox minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+      <Layer queryable="1">
+        <Name>afarab_lakes</Name>
+        <Title>African and Arabian Lakes</Title>
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+      </Layer>
+      <Layer queryable="1">
+        <Name>chronography</Name>
+        <Title>Chronography</Title>
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+      </Layer>
+      <Layer queryable="1">
+        <Name>coast_and_outline</Name>
+        <Title>Coast and Outline</Title>
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+      </Layer>
+      <Layer queryable="1">
+        <Name>faults_all</Name>
+        <Title>Faults</Title>
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+      </Layer>
+      <Layer queryable="1">
+        <Name>orogeny</Name>
+        <Title>Orogeny</Title>
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="-20.0" miny="-40.0" maxx="60.0" maxy="40.0"/>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMT_MS_Capabilities>
