@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/get/DATA/LPR/wms/1.1.1/WMS_MS_Capabilities.dtd"
+[
+<!ELEMENT VendorSpecificCapabilities (PreferredFormat?)>
+<!ELEMENT PreferredFormat (Format+,refresh?,SRS?,supportDataSrs?)>
+<!ELEMENT refresh EMPTY >
+<!ATTLIST refresh rate CDATA #REQUIRED>
+<!ELEMENT supportDataSrs EMPTY >
+]
+>
+<WMT_MS_Capabilities version="1.1.1">
+  <Service>
+    <Name>OGC:WMS</Name>
+    <Title>RMCA_ZOOLOGY</Title>
+    <Abstract>WMS Map Server maintained by Ionic Software (http://www.ionicsoft.com).</Abstract>
+
+    <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+    <Fees>none</Fees>
+    <AccessConstraints>none</AccessConstraints>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+            <Post>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/gif</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png</Format>
+        <Format>image/vnd.wap.wbmp</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/x-bmp</Format>
+        <Format>image/tiff</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+            <Post>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>application/vnd.ogc.gml</Format>
+        <Format>text/html</Format>
+        <Format>text/xml</Format>
+        <Format>text/plain</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+      <DescribeLayer>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </DescribeLayer>
+    </Request>
+    <Exception>
+      <Format>application/vnd.ogc.se_inimage</Format>
+      <Format>application/vnd.ogc.se_blank</Format>
+      <Format>application/vnd.ogc.se_xml</Format>
+    </Exception>
+    <VendorSpecificCapabilities>
+      <PreferredFormat>
+        <Format>image/gif</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png</Format>
+        <Format>image/vnd.wap.wbmp</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/x-bmp</Format>
+        <Format>image/tiff</Format>
+        <Format>application/pdf</Format>
+        <supportDataSrs/>
+      </PreferredFormat>
+    </VendorSpecificCapabilities>
+    <UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="0" RemoteWFS="0"/>
+    <Layer>
+      <Title>RMCA_ZOOLOGY</Title>
+      <SRS>EPSG:4326</SRS>
+      <LatLonBoundingBox minx="-98.2" miny="-34.49" maxx="116.5" maxy="46.45"/>
+      <Layer queryable="1">
+        <Name>birds_mayotte</Name>
+        <Title>Birds Observations Mayotte</Title>
+        <Abstract>The Royal Museum for Central Africa in Tervuren (Belgium) has elaborated a census method for the distribution of insular birds. This method was implemented on the island Mayotte for the period October 2003 . November 2004 by a team of volunteers, organised by the study agency « Espaces ». The data of the bird observations were encoded by « Espaces », by means of an Access database, developped at the RMCA for this purpose. The data retained here (3226 in total) are daily observations per grid, i.o.w. all observations of a species in the same grid on the same day are just counted for one daily observation. The grids are indicated by the numbering used by the team. Original data reside in a database &apos;AtlasMayotte&apos; dealing with all the details of the project. Intermediate (exported) data hold family name [Zoological record compliant], taxon name [RMCA verified], grid, day.</Abstract>
+
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="45.0" miny="-13.01" maxx="45.3" maxy="-12.61"/>
+        <BoundingBox SRS="EPSG:4326" minx="45.0" miny="-13.01" maxx="45.3" maxy="-12.61"/>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/birds_mayotte.xml" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        </MetadataURL>
+        <Style>
+          <Name>CVS</Name>
+          <Title>CVS</Title>
+        </Style>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>neuroptera_mrac</Name>
+        <Title>Neuroptera (RMCA)</Title>
+        <Abstract>The database is restricted to representatives of the following target groups: Neuroptera. It contains all the data on the labels of specimens identified to the species level.</Abstract>
+
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-12.51" miny="-33.58" maxx="39.18" maxy="13.42"/>
+        <BoundingBox SRS="EPSG:4326" minx="-12.51" miny="-33.58" maxx="39.18" maxy="13.42"/>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/neuroptera_mrac.xml" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        </MetadataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>neuroptera_not_mrac</Name>
+        <Title>Neuroptera (other institutes)</Title>
+        <Abstract>The database is restricted to representatives of the following target groups: Neuroptera. It contains all the data on the labels of specimens identified to the species level.</Abstract>
+
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-98.2" miny="-34.49" maxx="116.5" maxy="46.45"/>
+        <BoundingBox SRS="EPSG:4326" minx="-98.2" miny="-34.49" maxx="116.5" maxy="46.45"/>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/neuroptera_not_mrac.xml" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        </MetadataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>vissen_congo_rwanda_burundi</Name>
+        <Title>Testdata Fishes RMCA R.D. Congo Rwanda Burundi</Title>
+        <Abstract>Original data reside in the database &apos;Museum&apos; dealing with the holdings of the Vertebrate Section. The amount of information was reduced by grouping data on a systematical (family), geographical (grid) and temporary (time period) level. Query limited to georeferenced fish specimens [cl. Pisces] identified at species or subspecies level, with collecting date [at least year] available and with coordinates falling inside the countours of Congo RD., Rwanda and Burundi and with accuracy better than .5 arcdegree. Intermediate (exported) data holds family name [Zoological record compliant], taxon name [RMCA verified as valid in 9/2004], grid, collecting year, number of specimens [as in &apos;Museum&apos; database].</Abstract>
+
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="10.5" miny="-14.0" maxx="32.0" maxy="8.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="10.5" miny="-14.0" maxx="32.0" maxy="8.0"/>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/vissen_congo_rwanda_burundi.xml" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        </MetadataURL>
+        <Style>
+          <Name>CVS</Name>
+          <Title>CVS</Title>
+        </Style>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>vlinders_albertine_rift</Name>
+        <Title>Butterflies of Central Africa</Title>
+        <Abstract>The database is restricted to representatives of the following target groups: families Papilionidae and Nymphalide (Charaxes), in the Afro tropical region. It contains all the data on the labels of specimens identified to the species level.</Abstract>
+
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="-9.0" miny="-20.0" maxx="56.5" maxy="23.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="-9.0" miny="-20.0" maxx="56.5" maxy="23.0"/>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/vlinders_albertine_rift.xml" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        </MetadataURL>
+        <Style>
+          <Name>CVS</Name>
+          <Title>CVS</Title>
+        </Style>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>vogels_albertine_rift</Name>
+        <Title>Testdata Birds RMCA Albertine Rift</Title>
+        <Abstract>Original data reside in the database &apos;Museum&apos; dealing with the holdings of the Vertebrate Section. The amount of information was reduced by grouping data on a systematical (family), geographical (grid) and temporary (time period) level. Query limited to georeferenced bird specimens [cl. Aves] identified at species or subspecies level, with collecting date [at least year] available and with coordinates falling inside the Albertine Rift bounding box [27°E 3°N / 33°E -9°S] and with accuracy better than .5 arcdegree. Intermediate (exported) data holds family name [Zoological record compliant], taxon name [RMCA verified as valid in 9/2004], grid, collecting year, number of specimens [as in &apos;Museum&apos; database].</Abstract>
+
+        <KeywordList>
+        </KeywordList>
+        <LatLonBoundingBox minx="26.0" miny="-9.0" maxx="34.0" maxy="3.0"/>
+        <BoundingBox SRS="EPSG:4326" minx="26.0" miny="-9.0" maxx="34.0" maxy="3.0"/>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:href="http://193.190.223.44/ionicweb/wfs/KMMA_ZOOLOGIE_PG/REQUEST/getdir/DIR/metadata/DATA/LPR/KMMA_ZOOLOGIE_PG/vogels_albertine_rift.xml" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+        </MetadataURL>
+        <Style>
+          <Name>CVS</Name>
+          <Title>CVS</Title>
+        </Style>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMT_MS_Capabilities>

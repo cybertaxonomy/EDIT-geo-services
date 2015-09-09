@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+  <head>	
+	 <style type="text/css" media="screen">
+	    <!--
+      BODY { margin: 5px; padding: 0; font: 1em "Trebuchet MS", verdana, arial, sans-serif; }
+      BODY { font-size: 70%; }
+      H1 { margin-bottom: 2px; font-family: Garamond, "Times New Roman", Times, Serif;font-size: 100%; }
+      H2{ margin-bottom: 2px; font-family: Garamond, "Times New Roman", Times, Serif;}
+      DIV.selHolder { float: left; border: 2px solid #ccc; margin: 5px; padding: 3px;}
+      TEXTAREA { width: 50%;}
+      FIELDSET { border: 1px solid #ccc; padding: 1em; margin: 0; }
+      LEGEND { color: #ccc; font-size: 70%; }
+      INPUT, TEXTAREA { font-family: Arial, verdana; font-size: 125%; padding: 7px; border: 1px solid #999; }
+      LABEL { display: block; margin-top: 10px; } 
+      IMG { margin: 5px; }
+      SELECT { margin: 10px; width: 100px; }
+    -->
+    </style>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script  type="text/javascript" src="symbology_form.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+ $(document).ready(function() {
+        var cat = $('#categorySelect');
+        var el = $('#elementSelect');
+        var attr = $('#attributeSelect');
+	$(cat).click(function () { 
+	cat.selects({
+            target: el,
+            url: 'http://taxonomicindex.africamuseum.be/edit_wp5/geo/selects/select-chain_2.php',
+			type: 'post',
+			param: 'ssss',
+            data: { ajax:true, anotherval2: "anotherAction" }    
+       }).trigger('change');
+	    });	
+	    });	
+	$(function () {	
+        // note that we're assigning in reverse order
+        // to allow the chaining change trigger to work
+		var cat = $('#categorySelect');
+        var el = $('#elementSelect');
+        var attr = $('#attributeSelect');
+        cat.selectChain({
+            target: cat,
+			
+       url: 'http://taxonomicindex.africamuseum.be/edit_wp5/geo/selects/select-chain_3.php',
+//url:'http://taxonomicindex.africamuseum.be/edit_wp5/geo/images/edit_images.php?format=png'
+			type: 'post',
+			param: 'ssss',
+            data: { ajax:true, param:"ss"}
+	    }).trigger('change');
+    });
+	</script>
+	 </head>
+	 <body>
+	 	<div id="doc">
+        <h1>Select a Genus</h1>
+        <div class="selHolder">
+            <h2>Genus</h2>
+			<form id="contactForm">
+            <select multiple id="categorySelect" value="genus" name="genus" size="10">
+                <option></option>
+            </select>
+			<input id="submit" type="submit" value="Symbolize these Genus" />
+			</form>			
+        </div>	
+		 <div class="selHolder">
+            <h2>Species</h2>
+            <select multiple id="elementSelect" name="species" size="5">
+                <option></option>
+            </select>		
+        </div>
+
+    </div>
+	</div>
+	</body>
+	</html>
+	

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>GeoServer: Welcome</title>
+    <link rel="shortcut icon" href="resources/org.geoserver.web.GeoServerBasePage/favicon.ico"/>
+	
+      <link rel="stylesheet" type="text/css" href="resources/org.geoserver.web.GeoServerBasePage/css/blueprint/screen_en_US.css;jsessionid=D868E0600FF9297F85BA760E6E8838A8" media="screen, projection"/>
+      <link rel="stylesheet" type="text/css" href="resources/org.geoserver.web.GeoServerBasePage/css/blueprint/print_en_US.css;jsessionid=D868E0600FF9297F85BA760E6E8838A8" media="print"/> 
+	  <link rel="stylesheet" type="text/css" href="resources/org.geoserver.web.GeoServerBasePage/css/geoserver_en_US.css;jsessionid=D868E0600FF9297F85BA760E6E8838A8" media="screen, projection"/>
+      <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="resources/org.geoserver.web.GeoServerBasePage/css/blueprint/ie_en_US.css;jsessionid=D868E0600FF9297F85BA760E6E8838A8" media="screen, projection"/>
+	    <link rel="stylesheet" type="text/css" href="resources/org.geoserver.web.GeoServerBasePage/css/geoserver-ie_en_US.css;jsessionid=D868E0600FF9297F85BA760E6E8838A8" media="screen, projection"/>
+      <![endif]-->
+      <script src="resources/org.geoserver.web.GeoServerBasePage/js/jquery-1.2.6.min_en_US.js;jsessionid=D868E0600FF9297F85BA760E6E8838A8" type="text/javascript"></script>
+      <script src="resources/org.geoserver.web.GeoServerBasePage/js/jquery.inline-info_en_US.js;jsessionid=D868E0600FF9297F85BA760E6E8838A8" type="text/javascript"></script>
+	
+</head>
+<body>
+  <div id="header">
+    <div class="wrap">
+      <h2><a class="pngfix" href="./;jsessionid=D868E0600FF9297F85BA760E6E8838A8"><span>GeoServer 2.0</span></a></h2>
+      <div class="button-group selfclear">
+      <form action="../j_acegi_security_check" method="post">
+        <label class="noshow" for="username">Username</label>
+        <input id="username" type="text" name="username" value="" title="username" />
+        <label class="noshow" for="password">Password</label>
+        <input id="password" type="password" name="password" value="" title="password" />
+        <label class="shown" for="_acegi_security_remember_me">Remember me</label>
+        <input id="_acegi_security_remember_me" type="checkbox" name="_acegi_security_remember_me" />
+        <button class="button-login positive icon" type="submit"><div>Login</div></button>
+        <script type="text/javascript">
+        //<![CDATA[
+        jQuery(document).ready(function() {$('#username, #password').inlineInfoTextify();});
+        //]]>
+        </script>
+      </form>
+      
+      </div>
+    </div><!-- /.wrap -->
+  </div><!-- /#header -->
+  <div id="main">
+    <div class="wrap selfclear">
+    <div id="sidebar">
+      <ul id="navigation">
+        <li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Server</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a title="General information about GeoServer" href=";jsessionid=D868E0600FF9297F85BA760E6E8838A8?wicket:bookmarkablePage=:org.geoserver.web.AboutGeoServerPage">
+                <img alt="About GeoServer" src="resources/org.geoserver.web.AboutGeoServerPage/img/icons/silk/help.png;jsessionid=D868E0600FF9297F85BA760E6E8838A8"/><span>About GeoServer</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a title="GeoServer Demonstrations" href=";jsessionid=D868E0600FF9297F85BA760E6E8838A8?wicket:bookmarkablePage=:org.geoserver.web.DemoPage"><span>Demos</span></a>
+          </div>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a title="List of all layers configured in GeoServer and provides previews in various formats for each." href=";jsessionid=D868E0600FF9297F85BA760E6E8838A8?wicket:bookmarkablePage=:org.geoserver.web.demo.MapPreviewPage"><span>Layer Preview</span></a>
+          </div>
+        </li>
+      </ul>
+      
+    </div><!-- /#sidebar -->
+    <div id="page" class="selfclear">
+      <div class="page-header">
+        <div id="id1">
+  
+</div>
+        <h1>Welcome</h1>
+        <p></p>
+        <div class="header-panel"></div>
+      </div>
+      <div class="page-pane selfclear">
+        
+<div id="welcome">
+<p>
+This GeoServer belongs to <a><span>EDIT project WP 5 (RMCA)</span></a>.
+</p>
+
+<p>
+  <span>This GeoServer instance is running version <strong>2.0.2</strong>. For more information please contact the <a href="mailto:james.davy@africamuseum.be">administrator</a>.</span>
+</p>
+</div>
+<div id="capabilities">
+  <ul>
+    <li class="navigation-tab">
+      <div class="navigation-tab-header">
+        <span>Service Capabilities</span>
+      </div>
+      <div>
+        <ul class="navigation-tab-content plain">
+          <li class="selfclear">
+            <span>WCS</span>
+            <ul class="flat">
+              <li>
+                <a class="external icon" href="../ows?service=wcs&amp;version=1.0.0&amp;request=GetCapabilities">
+                  <span>1.0.0</span></a>
+              </li><li>
+                <a class="external icon" href="../ows?service=wcs&amp;version=1.1.1&amp;request=GetCapabilities">
+                  <span>1.1.1</span></a>
+              </li>
+            </ul>
+          </li><li class="selfclear">
+            <span>WFS</span>
+            <ul class="flat">
+              <li>
+                <a class="external icon" href="../ows?service=wfs&amp;version=1.0.0&amp;request=GetCapabilities">
+                  <span>1.0.0</span></a>
+              </li><li>
+                <a class="external icon" href="../ows?service=wfs&amp;version=1.1.0&amp;request=GetCapabilities">
+                  <span>1.1.0</span></a>
+              </li>
+            </ul>
+          </li><li class="selfclear">
+            <span>WMS</span>
+            <ul class="flat">
+              <li>
+                <a class="external icon" href="../ows?service=wms&amp;version=1.1.1&amp;request=GetCapabilities">
+                  <span>1.1.1</span></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+      </div>
+    </div><!-- /#page -->
+    </div><!-- /.wrap> -->
+  </div><!-- /#main -->
+  <div id="ajaxFeedback" style="display: none">
+    <img alt="Loading..." src="resources/org.geoserver.web.GeoServerBasePage/img/ajax-loader.gif;jsessionid=D868E0600FF9297F85BA760E6E8838A8"/>
+  </div>
+</body>
+</html>
