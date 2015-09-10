@@ -1,5 +1,5 @@
 <?php
-//test
+
 
 function fct_rest_gen(
 //1
